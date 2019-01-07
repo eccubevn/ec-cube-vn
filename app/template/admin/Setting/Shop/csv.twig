@@ -1,0 +1,203 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends '@admin/default_frame.twig' %}
+
+{% set menus = ['setting', 'shop', 'shop_csv'] %}
+
+{% block title %}{{ 'admin.setting.shop.csv_setting'|trans }}{% endblock %}
+{% block sub_title %}{{ 'admin.setting.shop'|trans }}{% endblock %}
+
+{% form_theme form '@admin/Form/bootstrap_4_horizontal_layout.html.twig' %}
+
+{% block javascript %}
+    <script>
+        $(function() {
+
+            function add(event) {
+                $('#' + event.data.from + ' option:selected')
+                    .appendTo($('#' + event.data.to))
+                    .prop('selected', false);
+            }
+
+            function addAll(event) {
+                $('#' + event.data.from + ' option').each(function() {
+                    $(this).appendTo($('#' + event.data.to));
+                    $(this).prop('selected', false);// 選択状態の解除
+                });
+            }
+
+            $('#add').on('click', {from: 'csv-not-output', to: 'csv-output'}, add);
+            $('#add-all').on('click', {from: 'csv-not-output', to: 'csv-output'}, addAll);
+            $('#remove').on('click', {from: 'csv-output', to: 'csv-not-output'}, add);
+            $('#remove-all').on('click', {from: 'csv-output', to: 'csv-not-output'}, addAll);
+
+            $('.move').click(function() {
+                var $op = $('#csv-output option:selected');
+                var val = $(this).data('value');
+                if ($op.length) {
+                    val == 'up' ? $op.first().prev().before($op) : $op.last().next().after($op);
+                }
+            });
+
+            $('.move-most').click(function() {
+                var $op = $('#csv-output option:selected');
+                var val = $(this).data('value');
+                if ($op.length) {
+                    val == 'top' ? $op.prependTo('#csv-output') : $op.appendTo('#csv-output');
+                }
+            });
+
+            $('#csv-type').on('change', function() {
+                var id = $(this).val();
+                var href = '{{ url('admin_setting_shop_csv') }}' + '/' + id;
+                location.href = href;
+                return false;
+            });
+
+            $('#csv-form').submit(function() {
+                $('#csv-not-output').children().prop('selected', true);
+                $('#csv-output').children().prop('selected', true);
+            })
+        });
+    </script>
+{% endblock javascript %}
+
+{% block main %}
+    <form id="csv-form" method="post" action="{{ url('admin_setting_shop_csv', {'id': id}) }}">
+        <input type="hidden" name="_token" value="{{ csrf_token('_token') }}">
+        <div class="c-contentsArea__cols">
+            <div class="c-contentsArea__primaryCol">
+                <div class="c-primaryCol">
+                    <div class="card rounded border-0 mb-4">
+                        <div class="card-header">
+                            <div class="d-inline-block" data-tooltip="true" data-placement="top" title="{{ 'tooltip.setting.shop.csv.csv_columns'|trans }}">
+                                <span>{{ 'admin.setting.shop.csv.csv_columns'|trans }}</span><i class="fa fa-question-circle fa-lg ml-1"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-4 justify-content-between">
+                                <div class="col-2">
+                                    <div class="d-inline-block" data-tooltip="true" data-placement="top" title="{{ 'tooltip.setting.shop.csv.csv_type'|trans }}">
+                                        <span>{{ 'admin.setting.shop.csv.csv_type'|trans }}</span>
+                                        <i class="fa fa-question-circle fa-lg ml-1"></i>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    {{ form_widget(form.csv_type, {'id': 'csv-type'}) }}
+                                </div>
+                                <div class="col"></div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="FormControlSelect1">{{ 'admin.setting.shop.csv.non_output_colmuns'|trans }}</label>
+                                        {{ form_widget(form.csv_not_output, {'id': 'csv-not-output', 'attr': {'size': '30'}}) }}
+                                    </div>
+                                </div>
+                                <div class="col-2 align-self-center">
+                                    <div class="row mb-2">
+                                        <div class="col text-center"><span>{{ 'admin.setting.shop.csv.operation'|trans }}</span></div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col text-center">
+                                            <div class="btn btn-ec-regular btn-block" id="add"><i class="fa fa-arrow-right"
+                                                                                                  aria-hidden="true"></i><span>&nbsp;{{ 'admin.setting.shop.csv.operation__output'|trans }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col text-center">
+                                            <div class="btn btn-ec-regular btn-block" id="remove"><i class="fa fa-arrow-left"
+                                                                                                     aria-hidden="true"><span>&nbsp;{{ 'admin.setting.shop.csv.operation__release'|trans }}</span></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col text-center">
+                                            <div class="btn btn-ec-regular btn-block" id="add-all"><i
+                                                        class="fa fa-arrow-circle-right" aria-hidden="true"><span>&nbsp;{{ 'admin.setting.shop.csv.operation__all_output'|trans }}</span></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col text-center">
+                                            <div class="btn btn-ec-regular btn-block" id="remove-all"><i class="fa fa-arrow-circle-left"
+                                                                                                         aria-hidden="true"><span>&nbsp;{{ 'admin.setting.shop.csv.operation__all_release'|trans }}</span></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="FormControlSelect2">{{ 'admin.setting.shop.csv.output_colmuns'|trans }}</label>
+                                        {{ form_widget(form.csv_output, {'id': 'csv-output', 'attr': {'size': '30'}}) }}
+                                    </div>
+                                </div>
+                                <div class="col-2 align-self-center">
+                                    <div class="row mb-2">
+                                        <div class="col text-center"><span>{{ 'admin.setting.shop.csv.order'|trans }}</span></div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col text-center">
+                                            <div class="btn btn-ec-regular btn-block move" data-value="up"><i class="fa fa-arrow-up"
+                                                                                                              aria-hidden="true"><span>&nbsp;{{ 'admin.setting.shop.csv.order__up'|trans }}</span></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col text-center">
+                                            <div class="btn btn-ec-regular btn-block move" data-value="down"><i class="fa fa-arrow-down"
+                                                                                                                aria-hidden="true"><span>&nbsp;{{ 'admin.setting.shop.csv.order__down'|trans }}</span></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col text-center">
+                                            <div class="btn btn-ec-regular btn-block move-most" data-value="top"><i class="fa fa-arrow-circle-up"
+                                                                                                                    aria-hidden="true"><span>&nbsp;{{ 'admin.setting.shop.csv.order__top'|trans }}</span></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col text-center">
+                                            <div class="btn btn-ec-regular btn-block move-most" data-value="bottom"><i class="fa fa-arrow-circle-down"
+                                                                                                                       aria-hidden="true"><span>&nbsp;{{ 'admin.setting.shop.csv.order__bottom'|trans }}</span></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p></p>
+                            {{ 'admin.setting.shop.csv.how_to_use'|trans|nl2br }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="c-conversionArea">
+            <div class="c-conversionArea__container">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-6">
+                        <div class="c-conversionArea__leftBlockItem">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div id="ex-conversion-action" class="row align-items-center justify-content-end">
+                            <div class="col-auto">
+                                <button class="btn btn-ec-conversion px-5" type="submit">{{ 'admin.common.registration'|trans }}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

@@ -2,11 +2,11 @@
 # Common
 #====================================================================================
 
-common.select: Please select
-common.select__pref: Select prefecture
+common.select: Vui lòng chọn
+common.select__pref: Chọn tỉnh thành
 common.select__unspecified: Unspecified
 common.select__all_products: All Products
-common.required: Required
+common.required: (*)
 common.back: Go back
 common.close: Close
 common.send: Submit
@@ -24,32 +24,32 @@ common.prev: Previous
 common.next: Next
 common.first: First
 common.last: Last
-common.name: Name
+common.name: Tên
 common.kana: Name (Phonetic)
 common.first_name: First Name
 common.last_name: Last Name
 common.first_name_kana: First Name (Phonetic)
 common.last_name_kana: Last Name (Phonetic)
-common.company_name: Company Name
+common.company_name: Tên công ty
 common.shop_name: Shop Name
-common.address: Address
+common.address: Địa chỉ
 common.pref: Prefecture
 common.postal_symbol: Postal Code
 common.postal_code_sample: e.g. 5530003
 common.search_postal_code: Address Search
 common.address_sample_01: City, ward, town (e.g. Osaka-shi, Fukushima-ku)
 common.address_sample_02: Street, room number (e.g. Fukushima 8-3-15, ABC Apt. 201)
-common.phone_number: Phone
+common.phone_number: Điện thoại
 common.phone_number_sample: e.g. 11122223333
 common.mail_address: Email
 common.mail_address_sample: e.g. ec-cube@example.com
 common.repeated_confirm: Please re-enter
-common.password: Password
+common.password: Mật khẩu
 common.password_sample: Alphabets, numbers and symbols %min% - %max%chars
 common.password_for_confirmation: Password (Re-enter)
-common.gender: Gender
-common.job: Occupation
-common.birth_day: Date of Birth
+common.gender: Giới tính
+common.job: Nghề nghiệp
+common.birth_day: Sinh nhật
 common.tax_include: Tax Incl.
 common.separator__range: '-'
 common.separator__colon: ':'
@@ -72,7 +72,7 @@ common.remember_me: Remember me
 common.signup: Sign up
 common.forgot_login: Unable to sign in?
 common.customer_address_count_is_over: You already have max number of addresses (%eccube_deliv_addr_max% items). If you want to add a new one, please delete or overwrite the item(s) you have on the list.
-common.search_keyword: Enter keywords
+common.search_keyword: Nhập từ khóa
 common.delete_confirm: Do you want to continue?
 common.pagetop: Page top
 common.name.prefix: ''
@@ -145,7 +145,7 @@ front.contact.complete_message__body: In case you do not receive our receipt con
 # Sign up
 #------------------------------------------------------------------------------------
 
-front.entry.title: Sign up
+front.entry.title: Đăng ký
 front.entry.terms: Terms & Conditions
 front.entry.agree_with_terms: 'Please accept <a class="ec-link" href="%url%" target="_blank">Terms & Conditions</a> to proceed.'
 front.entry.agree: Accept
@@ -423,7 +423,11 @@ admin.common.hide: Hide
 admin.common.hidden_label: (Hidden)
 admin.common.to_show: Hidden | Display
 admin.common.to_hide: Displayed | Hidden
+<<<<<<< HEAD
+admin.common.required: Bắt buộc
+=======
 admin.common.required: Required
+>>>>>>> 0390eb098375c9dcacd95d9be951ee93c1721aaa
 admin.common.bulk_actions: All
 admin.common.select: Please select
 admin.common.select__pref: Select a prefecture

@@ -438,7 +438,9 @@ class InstallController extends AbstractController
             'ECCUBE_ADMIN_ROUTE' => isset($sessionData['admin_dir']) ? $sessionData['admin_dir'] : 'admin',
             'ECCUBE_COOKIE_PATH' => $request->getBasePath() ? $request->getBasePath() : '/',
             'ECCUBE_TEMPLATE_CODE' => 'default',
-            'ECCUBE_LOCALE' => 'ja',
+            'ECCUBE_LOCALE' => $this->eccubeConfig->get('env(eccube_locale)'),
+            'ECCUBE_TIMEZONE' => $this->eccubeConfig->get('env(eccube_timezone)'),
+            'ECCUBE_CURRENCY' => $this->eccubeConfig->get('env(eccube_currency)')
         ];
 
         $env = StringUtil::replaceOrAddEnv($env, $replacement);

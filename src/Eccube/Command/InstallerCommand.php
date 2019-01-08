@@ -121,7 +121,9 @@ class InstallerCommand extends Command
             'ECCUBE_AUTH_MAGIC' => $authMagic,
             'ECCUBE_ADMIN_ROUTE' => 'admin',
             'ECCUBE_TEMPLATE_CODE' => 'default',
-            'ECCUBE_LOCALE' => 'ja',
+            'ECCUBE_LOCALE' => $this->container->getParameter('env(eccube_locale)'),
+            'ECCUBE_TIMEZONE' => $this->container->getParameter('env(eccube_timezone)'),
+            'ECCUBE_CURRENCY' => $this->container->getParameter('env(eccube_currency)')
         ];
 
         $envDir = $this->container->getParameter('kernel.project_dir');

@@ -423,7 +423,11 @@ admin.common.hide: Hide
 admin.common.hidden_label: (Hidden)
 admin.common.to_show: Hidden | Display
 admin.common.to_hide: Displayed | Hidden
+<<<<<<< HEAD
 admin.common.required: Bắt buộc
+=======
+admin.common.required: Required
+>>>>>>> 0390eb098375c9dcacd95d9be951ee93c1721aaa
 admin.common.bulk_actions: All
 admin.common.select: Please select
 admin.common.select__pref: Select a prefecture

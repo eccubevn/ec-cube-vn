@@ -1,9 +1,9 @@
 id,name,sort_no,discriminator_type
-1,Received Order,0,customerorderstatus
-3,Canceled Order,4,customerorderstatus
-4,Received Order,3,customerorderstatus
-5,Shipped Order,6,customerorderstatus
-6,Received Order,2,customerorderstatus
-7,Received Order,1,customerorderstatus
-8,Incomplete Order,5,customerorderstatus
-9,Returned Order,7,customerorderstatus
+1,Đã nhận đơn hàng,0,customerorderstatus
+3,Đã hủy đơn hàng,4,customerorderstatus
+4,Đã nhận đơn hàng,3,customerorderstatus
+5,Đã giao đơn hàng,6,customerorderstatus
+6,Đã nhận đơn hàng,2,customerorderstatus
+7,Đã nhận đơn hàng,1,customerorderstatus
+8,Đơn hàng chưa hoàn thành,5,customerorderstatus
+9,Đã trả lại đơn hàng,7,customerorderstatus

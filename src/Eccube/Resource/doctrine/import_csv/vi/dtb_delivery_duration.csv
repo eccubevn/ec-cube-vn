@@ -1,10 +1,10 @@
 id,name,duration,sort_no,discriminator_type
-1,Same day,0,0,deliveryduration
-2,1-2 days,1,1,deliveryduration
-3,3-4 days,3,2,deliveryduration
-4,More than 1 week later,7,3,deliveryduration
-5,More than 2 weeks later,14,4,deliveryduration
-6,More than 3 weeks later,21,5,deliveryduration
-7,More than 1 month later,30,6,deliveryduration
-8,More than 2 months later,60,7,deliveryduration
-9,Back order (Delivered once available),-1,8,deliveryduration
+1,Cùng ngày,0,0,deliveryduration
+2,1-2 ngày,1,1,deliveryduration
+3,3-4 ngày,3,2,deliveryduration
+4,Hơn 1 tuần sau,7,3,deliveryduration
+5,Hơn 2 tuần sau,14,4,deliveryduration
+6,Hơn 3 tuần sau,21,5,deliveryduration
+7,Hơn 1 tuần sau,30,6,deliveryduration
+8,Hơn 2 tuần sau,60,7,deliveryduration
+9,Đặt hàng trở lại (Đã giao một lần có sẵn),-1,8,deliveryduration

@@ -25,7 +25,7 @@ file that was distributed with this source code.
         <div class="ec-off1Grid">
             <div class="ec-off1Grid__cell">
                 <form method="post" action="{{ url('contact') }}" class="h-adr" novalidate>
-                    <span class="p-country-name" style="display:none;">Japan</span>
+                    <span class="p-country-name" style="display:none;">{{ 'common.shipping.location.japan'|trans }}</span>
                     {{ form_widget(form._token) }}
                     <p class="ec-para-normal">{{ 'front.contact.inquiry_notice'|trans|nl2br }}</p>
                     <div class="ec-borderedDefs">

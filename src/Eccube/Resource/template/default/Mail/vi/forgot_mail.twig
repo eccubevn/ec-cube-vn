@@ -1,0 +1,29 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% autoescape false %}
+※本メールは自動配信メールです。
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+　※本メールは、
+　{{ BaseInfo.shop_name }}よりパスワード再発行手続きを希望された方に
+　お送りしています。
+　もしお心当たりが無い場合は、
+　その旨 {# 問い合わせ受付メール #}{{ BaseInfo.email02 }} まで
+　ご連絡いただければ幸いです。
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+パスワードを変更するには下記URLにアクセスし、パスワードの再設定を行ってください。
+
+{{ reset_url }}
+
+※URLの有効期限は{{ expire }}分以内です。有効期限を過ぎますとURLは無効となりますので、その場合、もう一度最初から手続きを行ってください。
+
+{% endautoescape %}

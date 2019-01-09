@@ -5,76 +5,76 @@
 common.select: Vui lòng chọn
 common.select__pref: Chọn tỉnh thành
 common.select__unspecified: Unspecified
-common.select__all_products: All Products
+common.select__all_products: Tất cả sản phẩm
 common.required: (*)
-common.back: Go back
-common.close: Close
-common.send: Submit
-common.registration: Save
-common.change: Change
-common.delete: Delete
+common.back: Quay lại
+common.close: Đóng
+common.send: Gửi
+common.registration: Lưu
+common.change: Cập nhật
+common.delete: Xóa
 common.ok: OK
-common.cancel: Cancel
-common.go_to_top: Back to Home
-common.go_to_cart: Proceed to Cart
-common.go_to_confirm: Review
-common.go_to_next: Next
-common.move_to_page_top: Page top
-common.prev: Previous
-common.next: Next
-common.first: First
-common.last: Last
+common.cancel: Hủy
+common.go_to_top: Quay lại trang chủ
+common.go_to_cart: Xem giỏ hàng
+common.go_to_confirm: Xem trước
+common.go_to_next: Kế tiếp
+common.move_to_page_top: Trang chủ
+common.prev: Trước
+common.next: Tiếp tục
+common.first: Đầu
+common.last: Cuối
 common.name: Tên
 common.kana: Name (Phonetic)
-common.first_name: First Name
-common.last_name: Last Name
+common.first_name: Họ
+common.last_name: Tên
 common.first_name_kana: First Name (Phonetic)
 common.last_name_kana: Last Name (Phonetic)
 common.company_name: Tên công ty
-common.shop_name: Shop Name
+common.shop_name: Tên cửa hàng
 common.address: Địa chỉ
-common.pref: Prefecture
-common.postal_symbol: Postal Code
-common.postal_code_sample: e.g. 5530003
-common.search_postal_code: Address Search
-common.address_sample_01: City, ward, town (e.g. Osaka-shi, Fukushima-ku)
-common.address_sample_02: Street, room number (e.g. Fukushima 8-3-15, ABC Apt. 201)
+common.pref: Tỉnh thành
+common.postal_symbol: Mã bưu điện
+common.postal_code_sample: 'Ví dụ: 90000'
+common.search_postal_code: Tìm kiếm mã bưu điện
+common.address_sample_01: Tỉnh/thành phố
+common.address_sample_02: Tên đường, số nhà
 common.phone_number: Điện thoại
-common.phone_number_sample: e.g. 11122223333
+common.phone_number_sample: 'Ví dụ: 0912345678'
 common.mail_address: Email
-common.mail_address_sample: e.g. ec-cube@example.com
-common.repeated_confirm: Please re-enter
+common.mail_address_sample: 'Ví dụ: ec-cube@example.com'
+common.repeated_confirm: Vui lòng nhập lại
 common.password: Mật khẩu
-common.password_sample: Alphabets, numbers and symbols %min% - %max%chars
-common.password_for_confirmation: Password (Re-enter)
+common.password_sample: Bảng chữ cái, số và ký hiệu %min% - %max% ký tự
+common.password_for_confirmation: Nhập lại mật khẩu
 common.gender: Giới tính
 common.job: Nghề nghiệp
 common.birth_day: Sinh nhật
 common.tax_include: Tax Incl.
 common.separator__range: '-'
 common.separator__colon: ':'
-common.quantity: Qty
-common.quantity__with_separator: 'Qty:'
+common.quantity: SL
+common.quantity__with_separator: 'SL:'
 common.subtotal: Subtotal
 common.subtotal__with_separator: 'Subtotal:'
 common.total: Total
-common.total__with_separator: 'Total:'
-common.delivery_fee: Shipping Charge
-common.charge: Charges
-common.discount: Discount
-common.point: Points
-common.enabled: Enabled
-common.disabled: Disabled
+common.total__with_separator: 'Tổng:'
+common.delivery_fee: Phí vận chuyển
+common.charge: Phí
+common.discount: Giảm giá
+common.point: Điểm
+common.enabled: Kích hoạt
+common.disabled: Vô hiệu hóa
 common.user_name: '%last_name% %first_name%'
 common.user_name.honor: '(Mr/Ms)'
-common.login: Sign in
-common.remember_me: Remember me
-common.signup: Sign up
-common.forgot_login: Unable to sign in?
-common.customer_address_count_is_over: You already have max number of addresses (%eccube_deliv_addr_max% items). If you want to add a new one, please delete or overwrite the item(s) you have on the list.
+common.login: Đăng nhập
+common.remember_me: Ghi nhớ tôi
+common.signup: Đăng ký
+common.forgot_login: Bạn không thể đăng nhập ?
+common.customer_address_count_is_over: Bạn đã có số lượng địa chỉ tối đa là (%eccube_deliv_addr_max% items). Nếu bạn muốn thêm, vui lòng xóa bớt địa chỉ trong danh sách.
 common.search_keyword: Nhập từ khóa
-common.delete_confirm: Do you want to continue?
-common.pagetop: Page top
+common.delete_confirm: Bạn có muốn tiếp tục?
+common.pagetop: Trang chủ
 common.name.prefix: ''
 common.name.suffix: ''
 
@@ -86,13 +86,13 @@ common.name.suffix: ''
 # Block
 #------------------------------------------------------------------------------------
 
-front.block.cart.go_to_cart: Proceed to Cart
-front.block.cart.no_item: Your cart is empty.
-front.block.footer.about_us: About Us
-front.block.footer.privacy_policy: Privacy Policy
-front.block.footer.inquiry: Contact Us
-front.block.footer.act_on_specified_commercial_transactions: Shipping & Returns
-front.block.category.list: All Categories
+front.block.cart.go_to_cart: Tới giỏ hàng
+front.block.cart.no_item: Chưa có sản phẩm nào trong giỏ hàng của bạn.
+front.block.footer.about_us: Về chúng tôi
+front.block.footer.privacy_policy: Chính sách bảo mật
+front.block.footer.inquiry: Liên hệ với chúng tôi
+front.block.footer.act_on_specified_commercial_transactions: Vận chuyển và trả hàng
+front.block.category.list: Tất cả các danh mục
 front.block.category.category__en: CATEGORIES
 front.block.category.category__ja: Categories
 front.block.topic.topic__en: FEATURED
@@ -102,13 +102,13 @@ front.block.topic.title__ice: Crispy!! Ice cream cones
 front.block.eyecatch.title__en: CUBE GELATO ICE
 front.block.eyecatch.title__ja: Enjoy the colorful gelato 'CUBE'
 front.block.eyecatch.descriptiron: |
- Gelato is ice cream made in the Italian style, which is generally lower in fat than other styles of ice cream.
- Our fruity gelato is made of carefully selected fresh fruits of the season. Enjoy CUBE Gelato, rich yet healthy with moderate sweetness.
- Also find our ice candies and ice sandwiches made with gelato recipes.
-front.block.eyecatch.view_list: See all
+ Gelato là kem được làm theo phong cách Ý, thường có chất béo thấp hơn các kiểu kem khác.
+ Gelato trái cây của chúng tôi được làm bằng trái cây tươi được lựa chọn cẩn thận của mùa. Thưởng thức CUBE Gelato, phong phú nhưng tốt cho sức khỏe với độ ngọt vừa phải.
+ Cũng tìm thấy kẹo băng của chúng tôi và bánh sandwich đá được làm bằng công thức gelato.
+front.block.eyecatch.view_list: Xem tất cả
 front.block.new_item.title__en: NEW ITEMS
 front.block.new_item.title__ja: New Items
-front.block.new_item.more: More
+front.block.new_item.more: Xem thêm
 front.block.new_item.item_1_name: "Colorful Gelato: 'CUBE'"
 front.block.new_item.item_1_price: $1,200 (tax incl.)
 front.block.new_item.item_2_name: Cherry Ice Cream Sandwiches
@@ -117,189 +117,189 @@ front.block.new_item.item_3_name: "Colorful Gelato: 'CUBE' NEO"
 front.block.new_item.item_3_price: $600 (tax incl.)
 front.block.news.title__en: WHAT'S NEW
 front.block.news.title__ja: What's New
-front.block.news.read_more: More
-front.block.news.see_details: Read details
-front.block.login.customer_registration: Sign up
-front.block.login.mypage: My Account
-front.block.login.favorite: Favorites
+front.block.news.read_more: Đọc thêm
+front.block.news.see_details: Xem chi tiết
+front.block.login.customer_registration: Đăng ký
+front.block.login.mypage: Tài khoản của tôi
+front.block.login.favorite: Yêu thích
 front.block.login.login: Sign in
 front.block.login.logout: Sign out
-front.block.login.to_cart: Proceed to Cart
-front.block.login.to_home: Back to Home
+front.block.login.to_cart: Tới giỏ hàng
+front.block.login.to_home: Trở về trang chủ
 
 
 #------------------------------------------------------------------------------------
 # Contact Us
 #------------------------------------------------------------------------------------
-front.contact.title: Contact Us
+front.contact.title: Liên hệ
 front.contact.inquiry_notice: |
- Please note that some inquiries may require more time to reply.
- If it falls on our holidays, we will get back to you on/after our next working day. Thank you for your understanding.
-front.contact.order_notice: For an inquiry about your order, please inform us of the order number.
-front.contact.inquiry_contents: Inquiry
-front.contact.complete_title: Thank you for your inqury!
-front.contact.complete_message__title: Your inquiry has been sent.
-front.contact.complete_message__body: In case you do not receive our receipt confirmation email, your inquiry may not be received. Please contact us by inquiry form once again, or by phone. Sorry for the inconvenience.
+ Xin lưu ý rằng một số yêu cầu có thể cần thêm thời gian để trả lời.
+ Nếu nó rơi vào ngày lễ hoặc ngày nghỉ của chúng tôi, chúng tôi sẽ liên lạc lại với bạn vào / sau ngày làm việc tiếp theo. Cảm ơn bạn.
+front.contact.order_notice: Đối với sự thăc mắc về đơn đặt hàng của bạn, xin vui lòng thông báo cho chúng tôi về số thứ tự.
+front.contact.inquiry_contents: Thắc mắc
+front.contact.complete_title: Cảm ơn bạn đã yêu cầu!
+front.contact.complete_message__title: Yêu cầu của bạn đã được gửi đi.
+front.contact.complete_message__body: Trong trường hợp bạn không nhận được email xác nhận của chúng tôi, yêu cầu của bạn có thể không được nhận. Vui lòng liên hệ với chúng tôi lại một lần nữa, hoặc qua điện thoại. Xin lỗi vì sự bất tiện này.
 
 #------------------------------------------------------------------------------------
 # Sign up
 #------------------------------------------------------------------------------------
 
 front.entry.title: Đăng ký
-front.entry.terms: Terms & Conditions
-front.entry.agree_with_terms: 'Please accept <a class="ec-link" href="%url%" target="_blank">Terms & Conditions</a> to proceed.'
-front.entry.agree: Accept
-front.entry.disagree: Decline
-front.entry.confirm_title: Sign up - Review
-front.entry.confirm_message: |
- Review your entry.
- If all looks fine, press 'Sign up'.
-front.entry.do_register: Sign up
-front.entry.complete_title: Sign-up completed
-front.entry.complete_title__temporary: Temporary sign-up completed
-front.entry.complete_message__title: Thank you for signing up.
+front.entry.terms: Điều khoản và quy định
+front.entry.agree_with_terms: 'Vui lòng chấp nhận <a class="ec-link" href="%url%" target="_blank">Điều khoản và quy định</a> để tiếp tục.'
+front.entry.agree: Đồng ý
+front.entry.disagree: Từ chối
+front.entry.confirm_title: Đăng ký - Đánh giá
+front.entry.confirm_message: "|
+Xem lại thông tin của bạn.
+Nếu tất cả là đúng, nhấm 'Đăng ký'."
+front.entry.do_register: Đăng ký
+front.entry.complete_title: Đăng ký hoàn tất
+front.entry.complete_title__temporary: Hoàn thành đăng ký tạm thời
+front.entry.complete_message__title: Cảm ơn bạn đã đăng ký.
 front.entry.complete_message__temporary: |
- You have been signed up as a temporary customer. We have sent a verification email to your email address.
- Please complete your sign-up by clicking on the URL in the email.
+ Bạn đã được đăng ký như một khách hàng tạm thời. Chúng tôi đã gửi một email xác minh đến địa chỉ email của bạn.
+ Vui lòng hoàn tất đăng ký của bạn bằng cách nhấp vào URL trong email.
 front.entry.complete_message__activated: |
- Your sign-up is completed.
- Enjoy your shopping!
+ Đăng ký của bạn đã hoàn tất.
+ Hãy tận hưởng việc mua sắm của bạn!
 
 #------------------------------------------------------------------------------------
 # Password Reset
 #------------------------------------------------------------------------------------
 
-front.forgot.title: Password Reset
-front.forgot.message1: "Enter your registered email address and click ''Next''."
-front.forgot.message2: "*You will receive an email to reset your password. Please follow the instructions in the email to register a new password."
-front.forgot.complete_title: Password Reset (Email Sent)
-front.forgot.complete_message__title: Email has been sent to reset your password.
+front.forgot.title: Đặt lại mật khẩu
+front.forgot.message1: "Nhập địa chỉ email đã đăng ký của bạn và nhấp 'Tiếp tục'."
+front.forgot.message2: "*Bạn sẽ nhận được một email để thiết lập lại mật khẩu của bạn. Vui lòng làm theo các hướng dẫn trong email để đăng ký mật khẩu mới."
+front.forgot.complete_title: Đặt lại mật khẩu (Đã gửi email)
+front.forgot.complete_message__title: Email đã được gửi để thiết lập lại mật khẩu của bạn.
 front.forgot.complete_message__body: |
- An email to reset your password has been sent to your registered email address.
- Please follow the instructions in the email.
- *In case you do not receive the email, please verify your email address and try again.
-front.forgot.reset_title: Password Reset
-front.forgot.reset_complete: Your password has been updated.
-front.forgot.reset_error: The URL is either expired or invalid.
-front.forgot.reset_not_found: Please confirm the new password.
+ Một email để thiết lập lại mật khẩu của bạn đã được gửi đến địa chỉ email đã đăng ký của bạn.
+ Vui lòng làm theo hướng dẫn trong email.
+ * Trong trường hợp bạn không nhận được email, vui lòng xác minh địa chỉ email của bạn và thử lại một lần nữa.
+front.forgot.reset_title: Đặt lại mật khẩu
+front.forgot.reset_complete: Mật khẩu của bạn đã được cập nhật.
+front.forgot.reset_error: URL đã hết hạn hoặc không hợp lệ.
+front.forgot.reset_not_found: Vui lòng xác nhận mật khẩu mới.
 
 #------------------------------------------------------------------------------------
 # About Us / Shipping & Returns /...
 #------------------------------------------------------------------------------------
 
-front.about.title: About Us
-front.about.business_hour: Business Hours
-front.about.good_traded: Products
-front.about.message: Message
-front.agreement.title: Terms & Conditions
-front.tradelaw.title: Shipping & Returns
-front.privacy.title: Privacy Policy
-front.guide.title: Shopping Guide
+front.about.title: Về chúng tôi
+front.about.business_hour: Giờ kinh doanh
+front.about.good_traded: Sản phẩm
+front.about.message: Tin nhắc
+front.agreement.title: Điều khoản và điều kiện
+front.tradelaw.title: Vận chuyển và đổi trả
+front.privacy.title: Chính sách bảo mật
+front.guide.title: Hướng dẫn mua hàng
 
 #------------------------------------------------------------------------------------
 # マイページ
 #------------------------------------------------------------------------------------
 
-front.mypage.welcome: Hi %last_name% %first_name%
-front.mypage.title: My Account
-front.mypage.welcome__point: You have %point%points
-front.mypage.nav__history: Order History
-front.mypage.nav__history_detail: Order History Details
-front.mypage.nav__favorite: Favorites
-front.mypage.nav__customer: Edit Customer Information
-front.mypage.nav__customer_complete: Edit Customer Information (Completed)
-front.mypage.nav__customer_address: Shipping Addresses
-front.mypage.nav__withdrow: Cancel Membership
-front.mypage.history_count: You have '%count% item(s) in the order history.'
-front.mypage.history_not_found: No order history found.
-front.mypage.message_not_found: Not found
-front.mypage.view_detail: See details
-front.mypage.order_no: Order No.
-front.mypage.order_status: Order Status
-front.mypage.order_date: Order Date
-front.mypage.use_point: Points Used
-front.mypage.add_point: Points Earned
-front.mypage.delivery_info: Delivery Info
-front.mypage.delivery: Delivery to
-front.mypage.delivery_provider: Delivery Method
-front.mypage.delivery_date: Delivery Date
-front.mypage.delivery_time: Delivery Time
-front.mypage.current_price: [Current Price]
-front.mypage.reorder: Reorder
-front.mypage.payment_info: Payment Info
-front.mypage.payment: Payment Method
-front.mypage.message: Contact Us
-front.mypage.reorder_message: '*Please note that the price has been changed when you place your order again.'
-front.mypage.mail_not_found: No email found.
-front.mypage.mail_list: Email History
-front.mypage.customer_complete_message__title: Customer information has been updated
-front.mypage.customer_complete_message__body: Please continue your shopping!
-front.mypage.favorite_count: '%count% item(s) found in Favorites'
-front.mypage.favorite_not_found: No item found in Favorites.
-front.mypage.customer_address_count: '%count% items are registered in Delivery Addresses'
-front.mypage.customer_address_not_found: No address is found.
-front.mypage.add_customer_address: 'Add a New Address'
-front.mypage.withdraw_message__title: Make sure before you cancel your membership
-front.mypage.withdraw_message__body: Please note that all information in Order History and Delivery Addresses etc. will be deleted upon cancellation of your membership.
-front.mypage.withdraw_execute_message__title: Are you sure to cancel your membership?
-front.mypage.withdraw_confirm: Cancel Membership
-front.mypage.withdraw_cancel: No, I do not
-front.mypage.withdraw_execute: Yes, I do
-front.mypage.withdraw_complete_message__title: You have canceled your membership
+front.mypage.welcome: Chào %last_name% %first_name%
+front.mypage.title: Tài khoản của tôi
+front.mypage.welcome__point: Bạn có %point% điểm
+front.mypage.nav__history: Lịch sử đặt hàng
+front.mypage.nav__history_detail: Chi tiết lịch sử đặt hàng
+front.mypage.nav__favorite: Yêu thích
+front.mypage.nav__customer: Chỉnh sửa thông tin
+front.mypage.nav__customer_complete: Chỉnh sửa thông tin khách hàng (Đã hoàn thành)
+front.mypage.nav__customer_address: Địa chỉ giao hàng
+front.mypage.nav__withdrow: Hủy bỏ thành viên
+front.mypage.history_count: Bạn có '%count% mục trong lịch sử đặt hàng.'
+front.mypage.history_not_found: Không tìm thấy lịch sử đặt hàng.
+front.mypage.message_not_found: Không tìm thấy
+front.mypage.view_detail: Xem chi tiết
+front.mypage.order_no: Mã đơn hàng:
+front.mypage.order_status: Tình trạng đặt hàng
+front.mypage.order_date: Ngày đặt hàng
+front.mypage.use_point: Điểm được sử dụng
+front.mypage.add_point: Điểm có được
+front.mypage.delivery_info: Thông tin giao hàng
+front.mypage.delivery: Chuyển tới
+front.mypage.delivery_provider: Phương thức vận chuyển
+front.mypage.delivery_date: Ngày giao hàng
+front.mypage.delivery_time: Thời gian giao hàng
+front.mypage.current_price: [Giá hiện tại]
+front.mypage.reorder: Đặt hàng lại
+front.mypage.payment_info: Thông tin thanh toán
+front.mypage.payment: Phương thức thanh toán
+front.mypage.message: Liên hệ chúng tôi
+front.mypage.reorder_message: '*Xin lưu ý rằng giá đã được thay đổi khi bạn đặt hàng lại.'
+front.mypage.mail_not_found: Không tìm thấy email.
+front.mypage.mail_list: Lịch sử email
+front.mypage.customer_complete_message__title: Thông tin khách hàng đã được cập nhật
+front.mypage.customer_complete_message__body: Hãy tiếp tục mua sắm của bạn!
+front.mypage.favorite_count: '%count% sản phẩm được tìm thấy trong mục yêu thích'
+front.mypage.favorite_not_found: Không tìm thấy mục nào trong mục "yêu thích".
+front.mypage.customer_address_count: '%count% địa chỉ được đăng ký trong địa chỉ giao hàng'
+front.mypage.customer_address_not_found: Không có địa chỉ được tìm thấy.
+front.mypage.add_customer_address: 'Thêm địa chỉ mới'
+front.mypage.withdraw_message__title: Hãy xác nhận chắc chắn là bạn có muốn hủy bỏ thành viên ?
+front.mypage.withdraw_message__body: Xin lưu ý rằng tất cả thông tin trong Lịch sử đặt hàng và Địa chỉ giao hàng, v.v. sẽ bị xóa khi bạn nhấn nút xác nhận.
+front.mypage.withdraw_execute_message__title: Bạn có chắc chắn để hủy tư cách thành viên của bạn?
+front.mypage.withdraw_confirm: Hủy bỏ thành viên
+front.mypage.withdraw_cancel: Không, tôi không làm
+front.mypage.withdraw_execute: Vâng tôi đồng ý
+front.mypage.withdraw_complete_message__title: Bạn đã hủy tư cách thành viên của bạn
 front.mypage.withdraw_complete_message__body: |
- Thank you so much for supporting our store.
- We look forward to serving you again.
+ Cảm ơn bạn rất nhiều vì đã hỗ trợ cửa hàng của chúng tôi.
+ Chúng tôi mong được phục vụ bạn một lần nữa.
 
 #------------------------------------------------------------------------------------
 # Products
 #------------------------------------------------------------------------------------
 
-front.product.all_category: All
-front.product.search_result: Search Results
-front.product.all_products: All Products
+front.product.all_category: Tất cả
+front.product.search_result: Kết quả tìm kiếm
+front.product.all_products: Tất cả sản phẩm
 
-front.product.search__category_not_found: No category is found
-front.product.search__product_not_found: No product is found
-front.product.search_result__keyword:  Search results for ''%name%''
-front.product.search_result__detail: '<span class="ec-font-bold">%count% item(s)</span><span> found</span>'
-front.product.add_cart: Add to Cart
-front.product.add_cart_complete: The item has been added to the cart.
-front.product.add_cart_error: You have failed to add the item to the cart.
-front.product.add_favorite: Add to Favorites
-front.product.add_favorite_alrady: The item is already in the Favorites.
-front.product.out_of_stock: The item is out of stock.
-front.product.out_of_stock_label: (Out of stock)
-front.product.added_to_favorite: The item is already in the Favorites.
-front.product.normal_price: Regular Price
-front.product.sale_price: Selling Price
+front.product.search__category_not_found: Không có danh mục được tìm thấy
+front.product.search__product_not_found: Không có sản phẩm nào được tìm thấy
+front.product.search_result__keyword:  Kết quả tìm kiếm cho ''%name%''
+front.product.search_result__detail: '<span class="ec-font-bold">%count% sản phẩm</span><span> tìm được</span>'
+front.product.add_cart: Thêm vào giỏ hàng
+front.product.add_cart_complete: Các mặt hàng đã được thêm vào giỏ hàng.
+front.product.add_cart_error: Bạn đã thất bại trong việc thêm các mục vào giỏ hàng.
+front.product.add_favorite: Thêm vào mục yêu thích
+front.product.add_favorite_alrady: Mục này đã có trong mục Yêu thích.
+front.product.out_of_stock: Các mặt hàng đã hết.
+front.product.out_of_stock_label: (Hết hàng)
+front.product.added_to_favorite: Mục này đã có trong mục Yêu thích.
+front.product.normal_price: Giá thường
+front.product.sale_price: Giá bán
 front.product.code: SKU
-front.product.related_category: Related Category
-front.product.continue: Continue Shopping
-front.product.invalid_quantity: Please enter more than 1.
-front.product.product_class_unselected: The item is not selected.
+front.product.related_category: Danh mục liên quan
+front.product.continue: Tiếp tục mua sắm
+front.product.invalid_quantity: Vui lòng nhập nhiều hơn 1.
+front.product.product_class_unselected: Mục không được chọn.
 
 #------------------------------------------------------------------------------------
 # Cart
 #------------------------------------------------------------------------------------
 
-front.cart.title: Shopping Cart
-front.cart.nav__cart_items: Cart
-front.cart.nav__customer_info: Customer Information
-front.cart.nav__order: Checkout
-front.cart.nav__confirm: Review
-front.cart.nav__complete: Order Placed
-front.cart.total_price: 'Total: <strong>%price%</strong>'
-front.cart.divide_cart: Some item(s) in the cart can not be purchased in this order.
+front.cart.title: Giỏ hàng
+front.cart.nav__cart_items: Giỏ hàng
+front.cart.nav__customer_info: Thông tin khách hàng
+front.cart.nav__order: Kiểm tra
+front.cart.nav__confirm: Xem lại
+front.cart.nav__complete: Đặt hàng
+front.cart.total_price: 'Tổng cộng: <strong>%price%</strong>'
+front.cart.divide_cart: Một số mặt hàng trong giỏ hàng không thể được mua theo thứ tự này.
 front.cart.delete: ''
-front.cart.delete__confirm: Are you sure to delete this item from the cart?
-front.cart.product: Items
-front.cart.checkout: Proceed to Checkout
-front.cart.continue: Continue shopping
-front.cart.no_items: Your cart is empty.
-front.cart.delivery_fee_free__now: Shipping charge is waived.
-front.cart.delivery_fee_free__price_and_quantity: <strong class="ec-color-red">Free shipping</strong> with the purchase of <strong>%price%</strong>, or <strong>%quantity% item(s)</strong>.
-front.cart.delivery_fee_free__price: <strong class="ec-color-red">Free shipping</strong> with the purchase of <strong>%price%</strong>.
-front.cart.delivery_fee_free__quantity: <strong class="ec-color-red">Free shipping</strong> with the purchase of <strong>%quantity% item(s)</strong>.
+front.cart.delete__confirm: Bạn có chắc chắn để xóa mục này khỏi giỏ hàng?
+front.cart.product: Sản phẩm
+front.cart.checkout: Tiến hành kiểm tra
+front.cart.continue: Tiếp tục mua sắm
+front.cart.no_items: Giỏ hàng của bạn rỗng.
+front.cart.delivery_fee_free__now: Miễn phí vận chuyển.
+front.cart.delivery_fee_free__price_and_quantity: <strong class="ec-color-red">Miễn phí vận chuyển</strong> với việc mua <strong>%price%</strong>, hoặc <strong>%quantity% sản phẩm</strong>.
+front.cart.delivery_fee_free__price: <strong class="ec-color-red">Miễn phí vận chuyển</strong> với việc mua <strong>%price%</strong>.
+front.cart.delivery_fee_free__quantity: <strong class="ec-color-red">Miễn phí vận chuyển</strong> với việc mua <strong>%quantity% item(s)</strong>.
 
 #------------------------------------------------------------------------------------
 # Shopping
@@ -423,7 +423,7 @@ admin.common.hide: Hide
 admin.common.hidden_label: (Hidden)
 admin.common.to_show: Hidden | Display
 admin.common.to_hide: Displayed | Hidden
-admin.common.required: Bắt buộc
+admin.common.required: Required
 admin.common.bulk_actions: All
 admin.common.select: Please select
 admin.common.select__pref: Select a prefecture

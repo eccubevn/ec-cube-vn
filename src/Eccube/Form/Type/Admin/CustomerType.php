@@ -71,9 +71,7 @@ class CustomerType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('postal_code', PostalType::class, [
-                'required' => true,
-            ])
+            ->add('postal_code', PostalType::class)
             ->add('address', AddressType::class, [
                 'required' => true,
             ])

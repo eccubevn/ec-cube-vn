@@ -77,7 +77,7 @@ $(function() {
                                                data-toggle="modal"
                                                data-target="#localPluginDeleteModal"
                                                data-delete-url="{{ url('admin_store_plugin_uninstall', { id : Plugin.id }) }}">
-                                                <i class="fa fa-close fa-lg text-secondary" data-tooltip="true" data-placement="top" title="削除"></i>
+                                                <i class="fa fa-close fa-lg text-secondary" data-tooltip="true" data-placement="top" title="{{ 'common.delete'|trans }}"></i>
                                             </a>
                                         {% endif %}
                                     </div>

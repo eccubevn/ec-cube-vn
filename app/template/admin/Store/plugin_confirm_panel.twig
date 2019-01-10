@@ -1,0 +1,42 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+<div class="col-4">
+    <a href="{{ item.store_url }}" target="_blank">
+        <img class="w-100 img-responsive" src="{{ item.image }}" alt=""></a>
+</div>
+<div class="col">
+    <div class="info">
+        <h5 class="font-weight-bold mb-4">
+            {{ item.name }}
+        </h5>
+        <div>{{ item.short_description }}</div>
+        {% if is_update == false %}
+            <p class="text-danger mb-4 mt-3"><span class="font-weight-bold text-body">{{ 'admin.store.plugin.price'|trans }} </span> {{ item.price|price }}<small> ({{ 'common.tax_include'|trans }})</small></p>
+        {% endif %}
+        <div class="row">
+            <div class="col-7">
+                {{ include('@admin/Store/plugin_detail_info.twig') }}
+            </div>
+        </div>
+    </div>
+    {% set version_check = item.version_check  %}
+    {% if version_check == false %}
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-danger border border-danger">
+                    <p class="text-danger mb-0">
+                        {{ 'admin.store.plugin_owners_search.modal.note'|trans({'%version%': constant('Eccube\\Common\\Constant::VERSION')}) }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>

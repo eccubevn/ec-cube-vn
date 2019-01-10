@@ -1,0 +1,62 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+
+{% extends '@admin/default_frame.twig' %}
+
+{% set menus = ['store', 'plugin', 'plugin_list'] %}
+
+{% block title %}{{'admin.store.plugin.809'|trans}}{% endblock %}
+{% block sub_title %}{{'admin.store.plugin.810'|trans}}{% endblock %}
+
+{% block javascript %}
+    <script>
+        function changeActionSubmit(action, form_name) {
+            document.forms[form_name].action = action;
+            document.forms[form_name].submit();
+            return false;
+        }
+    </script>
+{% endblock javascript %}
+
+{% block sheetsheet %}
+    <style type="text/css">
+        table a.plugin-image:hover {
+            text-underline: none;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="c-contentsArea__cols">
+        <div class="c-contentsArea__primaryCol">
+            <div class="c-primaryCol">
+                <div class="card rounded border-0 mb-4">
+                    <div class="card-header">
+                        <a href="{{ url('admin_store_plugin_owners_search') }}"
+                           class="btn btn-ec-regular mr-2 pull-right">{{ 'admin.store.plugin.811'|trans }}</a>
+                        <h5 class="box-title mb-3">{{ 'admin.store.plugin.812'|trans }}</h5>
+                    </div>
+                    {{ include('@admin/Store/plugin_table_official.twig', {'Plugins': officialPlugins}) }}
+
+                </div>
+
+                <div class="card rounded border-0 mb-4">
+                    <div class="card-header">
+                        <a href="{{ url('admin_store_plugin_install') }}"
+                           class="btn btn-ec-regular mr-2 pull-right">{{ 'admin.store.plugin.813'|trans }}</a>
+                        <h5 class="box-title mb-3">{{ 'admin.store.plugin.814'|trans }}</h5>
+                    </div>
+                    {{ include('@admin/Store/plugin_table.twig', {'Plugins': unofficialPlugins}) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

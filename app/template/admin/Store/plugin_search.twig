@@ -1,0 +1,111 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+
+{% extends '@admin/default_frame.twig' %}
+
+{% set menus = ['store', 'plugin', 'plugin_owners_search'] %}
+
+{% block title %}{{'admin.store.plugin_search.885'|trans}}{% endblock %}
+{% block sub_title %}{{'admin.store.plugin_search.884'|trans}}{% endblock %}
+
+{% block stylesheet %}
+    <style type="text/css">
+        .border-bt {
+            border-bottom: 1px solid rgba(0, 0, 0, .125);
+        }
+        #plugin-list a img{
+            max-height: 180px;
+        }
+        #plugin-list .info{
+            min-height: 65%;
+        }
+        .plugin-ver li span{
+            display: inline-block;
+        }
+    </style>
+{% endblock %}
+{% block main %}
+    <div class="c-contentsArea__cols">
+        <div class="c-contentsArea__primaryCol">
+            <div class="c-primaryCol">
+                {% if Categories|length > 0 %}
+                    <div class="card rounded border-0 mb-4">
+                        <div class="card-body p-0">
+                            <div class="row">
+                                <div class="col-12 p-4">
+                                    {% for key,category in Categories %}
+                                        <a href="{{ url('admin_store_plugin_owners_search', {'category_id' : key}) }}" class="px-3 text-dark">{{ category }}</a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                <form method="post" action="{{ url('admin_store_plugin_owners_search') }}" class="plugin-search" name="search">
+                    <div class="c-outsideBlock">
+                        {{ form_widget(searchForm._token) }}
+                        <div class="c-outsideBlock__contents mb-4">
+                            <div class="row justify-content-start">
+                                <div class="col-3 pl-0">
+                                    <label class="col-form-label">{{ searchForm.category_id.vars.label|trans }}</label>
+                                    {{ form_widget(searchForm.category_id) }}
+                                </div>
+                                <div class="col-3">
+                                    <label class="col-form-label">{{ searchForm.price_type.vars.label|trans }}</label>
+                                    {{ form_widget(searchForm.price_type) }}
+                                </div>
+                                <div class="col-3">
+                                    <label class="col-form-label">{{ searchForm.keyword.vars.label|trans }}</label>
+                                    {{ form_widget(searchForm.keyword) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="c-outsideBlock__contents mb-2 pl-0">
+                            <button class="btn btn-ec-conversion px-5 py-2" type="submit">{{ 'admin.store.plugin_owners_search.search_button'|trans }}</button>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between mb-2">
+                        <div class="col-12 text-right">
+                            <div class="d-inline-block mr-2">
+                                {{ form_widget(searchForm.sort, {attr: {onchange: 'document.forms.search.submit();'}}) }}
+                            </div>
+                            <div class="d-inline-block">
+                                {{ form_widget(searchForm.page_count, {attr: {onchange: 'document.forms.search.submit();'}}) }}
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div id="plugin-list" class="card rounded border-0 my-4">
+                    <div class="card-header">
+                        <h5>{{ 'admin.store.plugin_owners_search.search_results'|trans({'%number%': pagination|length, '%total%' : total}) }}</h5>
+                    </div>
+                    <div class="card-body">
+                        {% if pagination|length > 0%}
+                            {% for item in pagination %}
+                                <div class="row border-bt pb-2 mb-3">
+                                    {{ include('@admin/Store/plugin_search_panel.twig') }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+
+                    {% if pagination.totalItemCount > 0 %}
+                        <div class="row justify-content-md-center mb-4">
+                            {% include "@admin/pager.twig" with { 'pages' : pagination.paginationData, 'routes' : 'admin_store_plugin_owners_search_page' } %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

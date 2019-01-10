@@ -1,0 +1,111 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends 'default_frame.twig' %}
+
+{% block main %}
+<div class="ec-role">
+    <div class="ec-pageHeader">
+        <h1>{{ 'front.agreement.title'|trans }}</h1>
+    </div>
+    <div class="ec-off1Grid">
+        <div class="ec-off1Grid__cell">
+{{ '
+Điều 1 (Thành viên)
+
+1. "Thành viên" là cá nhân đăng ký nhập học sau khi đồng ý với các điều khoản này theo quy trình do Công ty quy định.
+2. "Thông tin thành viên" nghĩa là thông tin về các thuộc tính của các thành viên được các thành viên tiết lộ cho Công ty và thông tin về các giao dịch và giao dịch của thành viên.
+3. Các Điều khoản này áp dụng cho tất cả các thành viên và là những điều khoản mà chúng tôi tuân thủ trong quá trình đăng ký và sau khi đăng ký.
+
+Điều 2 (Đăng ký)
+
+1. Tư cách thành viên
+Sau khi đồng ý với thỏa thuận này, khách hàng đăng ký thành viên theo quy định sẽ có đủ tư cách là thành viên sau khi hoàn thành thủ tục đăng ký theo quy định. Thủ tục đăng ký thành viên nên được thực hiện bởi cá nhân trở thành thành viên. Đăng ký bằng proxy không được phép ở tất cả. Ngoài ra, chúng tôi có thể từ chối đơn đăng ký thành viên từ những người đã hủy tư cách thành viên trong quá khứ hoặc những người đánh giá rằng công ty chúng tôi không phù hợp.
+
+2. Nhập thông tin thành viên
+Vui lòng đọc kỹ sự thận trọng khi nhập cảnh và nhập chính xác thông tin cần thiết vào mẫu nhập được xác định trước tại thời điểm thủ tục đăng ký thành viên. Khi đăng ký thông tin thành viên, không thể sử dụng các ký hiệu đặc biệt, ký tự Trung Quốc cũ, chữ số La Mã, v.v. Khi những nhân vật này được đăng ký, chúng tôi sẽ thay đổi nó.
+
+3. Quản lý mật khẩu
+(1) Mật khẩu chỉ có thể được sử dụng bởi chính các thành viên và không thể chuyển hoặc cho bên thứ ba mượn.
+(2) Hãy thay đổi mật khẩu thường xuyên để người khác không biết nó, chính thành viên phải chịu trách nhiệm quản lý nó.
+(3) Hiển thị ý định được thực hiện cho Công ty bằng cách sử dụng mật khẩu được coi là ý định của chính thành viên đó và tất cả các khoản thanh toán phát sinh vì đó sẽ là trách nhiệm của thành viên.
+
+Điều 3 (Thay đổi)
+
+1. Thành viên phải thông báo kịp thời cho Công ty nếu có sự thay đổi trong các vấn đề được thông báo cho chúng tôi như tên, địa chỉ, v.v.
+2. Chúng tôi không chịu trách nhiệm cho bất kỳ thiệt hại gây ra bởi thực tế là đăng ký thay đổi đã không được thực hiện. Ngoài ra, ngay cả khi đăng ký thay đổi được thực hiện, xin lưu ý rằng các giao dịch đã được xử lý trước khi đăng ký thay đổi sẽ được thực hiện dựa trên thông tin trước khi đăng ký thay đổi.
+
+Điều 4 (rút tiền)
+
+Nếu thành viên muốn rút khỏi tư cách thành viên, bản thân thành viên nên làm thủ tục rút tiền. Sau khi hoàn thành thủ tục rút tiền được xác định trước, nó sẽ được rút.
+
+Điều 5 (Mất nghĩa vụ thành viên và nghĩa vụ bồi thường)
+
+1. Khi một thành viên khai báo sai tại thời điểm đăng ký để đạt được tư cách thành viên, hãy bỏ qua nghĩa vụ thanh toán do bán hàng qua thư, khi có bất kỳ lý do nào mà Công ty cho là không phù hợp với tư cách là thành viên, Bạn có thể hủy bỏ nó.
+
+2. Khi thành viên thực hiện các hành vi được quy định trong các mục sau đây, trách nhiệm bồi thường thiệt hại mà Công ty phải chịu là do việc này.
+(1) Sử dụng trái phép số thành viên và mật khẩu
+(2) để can thiệp vào việc kinh doanh của chúng tôi bằng cách truy cập trang web này để giả mạo thông tin hoặc gửi chương trình máy tính có hại đến trang web này
+(3) thực hiện các hành vi xâm phạm quyền sở hữu trí tuệ đối với các sản phẩm do Công ty xử lý
+(4) Các hành vi khác trái với Điều khoản dịch vụ này
+
+Điều 6 (Xử lý thông tin thành viên)
+1. Về nguyên tắc, chúng tôi không tiết lộ thông tin thành viên cho bên thứ ba mà không có sự đồng ý trước của các thành viên. Tuy nhiên, trong trường hợp các mục sau đây, Công ty sẽ có thể tiết lộ thông tin thành viên và thông tin khách hàng khác mà không cần sự đồng ý trước của thành viên.
+(1) Khi được yêu cầu tiết lộ dựa trên luật pháp và pháp lệnh
+(2) Khi Công ty xác định rằng cần phải bảo vệ quyền, lợi ích, danh dự của chúng tôi, v.v.
+
+2. Đối với thông tin thành viên, chúng tôi sẽ quản lý thông tin theo "nỗ lực bảo vệ thông tin cá nhân" của chúng tôi. Công ty sẽ có thể sử dụng thông tin thành viên cho mục đích cung cấp dịch vụ cho các thành viên, cải thiện nội dung dịch vụ, thúc đẩy sử dụng dịch vụ và đảm bảo hoạt động dịch vụ hợp lý và trơn tru Tôi sẽ
+
+3. Công ty sẽ có thể cung cấp thông tin cho các thành viên (bao gồm quảng cáo) bằng các tạp chí email và các phương pháp khác. Nếu thành viên không muốn cung cấp thông tin, chúng tôi sẽ ngừng cung cấp thông tin nếu bạn thông báo cho chúng tôi theo phương pháp do công ty chúng tôi chỉ định. Tuy nhiên, chúng tôi không thể dừng việc cung cấp thông tin cần thiết cho hoạt động dịch vụ này theo yêu cầu của thành viên.
+
+Điều 7 (Vấn đề bị cấm)
+
+Khi sử dụng dịch vụ này, chúng tôi cấm các thành viên thực hiện hành vi của các mục sau đây.
+
+1. Vi phạm luật pháp hoặc quy định hoặc thỏa thuận này, thông báo về việc sử dụng dịch vụ này, chú ý mua sắm trên dịch vụ này và các điều khoản và điều kiện khác
+2. Làm hỏng quyền, lợi ích, danh dự, v.v. của Công ty và các bên thứ ba khác
+3. Thực hiện các hành vi có thể ảnh hưởng xấu đến điều kiện thể chất và tinh thần của người trẻ, thực hiện các hành vi khác trái với trật tự và đạo đức công cộng
+4. Thực hiện các hành vi làm phiền người dùng khác hoặc bên thứ ba khác hoặc gây khó chịu
+5. Nhập thông tin sai lệch
+6. Gửi hoặc viết chương trình máy tính có hại, thư vv
+7. Truy cập trái phép vào máy chủ của chúng tôi và các máy tính khác
+8. Cho mượn hoặc chuyển mật khẩu cho bên thứ ba hoặc chia sẻ mật khẩu với bên thứ ba
+9. Những người khác mà chúng tôi đánh giá là không phù hợp
+
+Điều 8 (Gián đoạn / đình chỉ dịch vụ, v.v.)
+
+1. Để duy trì tốt trạng thái hoạt động của dịch vụ này, chúng tôi có thể tạm dừng tất cả hoặc một phần quy định của dịch vụ này mà không cần thông báo trước nếu nó thuộc một trong các mục sau đây.
+(1) Khi cần thiết để bảo trì định kỳ và bảo trì khẩn cấp hệ thống
+(2) Khi tải tập trung vào hệ thống
+(3) Khi hoạt động của hệ thống trở nên khó khăn do hỏa hoạn, mất điện, hành vi gây rối của bên thứ ba, v.v.
+(4) Các trường hợp khác, nếu chúng tôi quyết định rằng cần phải dừng hệ thống mà không bị buộc phải dừng lại
+
+Điều 9 (Thay đổi hoặc bãi bỏ dịch vụ)
+
+Dựa trên phán quyết đó, chúng tôi có thể thay đổi hoặc bãi bỏ dịch vụ khi cần thiết hoặc không cần thông báo trước hoặc toàn bộ.
+
+Điều 10 (Tuyên bố miễn trừ trách nhiệm)
+
+1. Chúng tôi hoàn toàn chịu trách nhiệm cho bất kỳ sự gián đoạn, chậm phát triển, ngừng, mất dữ liệu do lỗi đường truyền hoặc máy tính, thiệt hại do truy cập trái phép vào dữ liệu hoặc bất kỳ thiệt hại nào gây ra cho các thành viên về dịch vụ của chúng tôi Không
+2. Chúng tôi không đảm bảo rằng các mục độc hại như vi-rút máy tính không được bao gồm trong nội dung thư được gửi từ trang web của chúng tôi · miền máy chủ, v.v.
+3. Chúng tôi không chịu trách nhiệm cho bất kỳ thiệt hại nào do các thành viên vi phạm các Điều khoản và Điều kiện này.
+
+Điều 11 (Sửa đổi các Điều khoản này)
+
+Chúng tôi có thể sửa đổi Thỏa thuận này một cách tùy tiện và chúng tôi có thể tuyên bố hợp đồng để bổ sung Thỏa thuận này (sau đây gọi là "thỏa thuận bổ sung") tại công ty của chúng tôi. Sửa đổi hoặc bổ sung các Điều khoản này sẽ có hiệu lực khi đăng Điều khoản hoặc Điều kiện bổ sung sửa đổi trên trang web do Công ty chỉ định. Trong trường hợp này, thành viên phải tuân thủ các quy định sửa đổi và thỏa thuận bổ sung.
+
+Điều 12 (Luật điều chỉnh, tòa án có thẩm quyền)
+
+Trong trường hợp có tranh chấp liên quan đến các Điều khoản này, tòa án quận có thẩm quyền đối với vị trí của trụ sở chính của Công ty sẽ là tòa án tài phán độc quyền của phiên sơ thẩm.
+'|raw|nl2br }}
+        </div>
+    </div>
+</div>
+{% endblock %}

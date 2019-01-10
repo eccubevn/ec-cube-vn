@@ -1,0 +1,61 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends '@admin/default_frame.twig' %}
+
+{% set menus = ['store', 'plugin', 'plugin_list'] %}
+
+{% block title %}{{ 'admin.store.plugin.delete.title'|trans }}{% endblock %}
+{% block sub_title %}{{ 'admin.home.recommend_plugins.owner_store'|trans }}{% endblock %}
+
+{% block stylesheet %}
+    <style type="text/css">
+        .btn-remove {
+            background: #C04949;
+            border-color: #C04949;
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+    <div class="c-contentsArea__cols">
+        <div class="c-contentsArea__primaryCol">
+            <div class="c-primaryCol">
+                <div class="card rounded border-0 mb-4">
+                    <div class="card-header">
+                        <span class="card-title">{{ 'admin.store.plugin.delete.confirm'|trans }}</span>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="row m-0 p-3 border-bt">
+                            <div class="col-sm-2 pr-2 pr-sm-3">
+                                <img class="w-100 img-responsive"
+                                     src="{{ asset('noimage_plugin_list.png', 'save_image') }}" alt="">
+                            </div>
+                            <div class="col-sm-10 col-md-9">
+                                <div class="info">
+                                    <h5>
+                                        <a href="#" class="font-weight-bold">{{ 'admin.store.plugin.payment'|trans }}</a> {{ 'admin.store.plugin.payment.last-version'|trans }}
+                                    </h5>
+                                    <span>{{ 'admin.store.plugin.payment.introduction'|trans }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row text-right my-4 mx-0">
+                            <div class="col-12">
+                                <a href="#" class="btn btn-ec-sub">キャンセル</a>
+                                <a href="#" class="btn btn-primary btn-remove">{{ 'common.delete'|trans }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

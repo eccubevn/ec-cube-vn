@@ -1,0 +1,37 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% autoescape false %}
+※本メールは自動配信メールです。
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+　※本メールは、
+　{{ BaseInfo.shop_name }}よりお問い合わせされた方に
+　お送りしています。
+　もしお心当たりが無い場合は、
+　その旨 {# 問い合わせ受付メール #}{{ BaseInfo.email02 }} まで
+　ご連絡いただければ幸いです。
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+{{ data.name01 }} {{ data.name02 }} 様
+
+以下のお問い合わせを受付致しました。
+確認次第ご連絡いたしますので、少々お待ちください。
+
+お名前：{{ data.name01 }} {{ data.name02 }}{% if data.kana01 or data.kana02 %} ({{ data.kana01 }} {{ data.kana02 }}){% endif %} 様
+郵便番号：{% if data.postal_code %}〒{{ data.postal_code }}{% endif %}
+
+住所：{% if data.pref.name is defined %} {{ data.pref.name }}{% endif %}{{ data.addr01 }}{{ data.addr02 }}
+電話番号：{{ data.phone_number }}
+メールアドレス：{{ data.email }}
+お問い合わせ内容：
+
+{{ data.contents }}
+{% endautoescape  %}

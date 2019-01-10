@@ -1,0 +1,154 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+<script>
+$(function() {
+    $('#localPluginDeleteModal').on('show.bs.modal', function(e) {
+        var deleteUrl = $(e.relatedTarget).data('delete-url');
+        $('div.modal-footer a', this).attr('href', deleteUrl);
+    });
+});
+</script>
+{% if Plugins|length > 0 %}
+    <div class="card-body p-0">
+        <table class="table table-sm">
+            <thead>
+            <tr>
+                <th class="border-top-0 pl-3 pt-2 pb-2">{{ 'admin.store.plugin_table.887'|trans }}</th>
+                <th class="border-top-0 pt-2 pb-2">{{ 'admin.store.plugin_table.888'|trans }}</th>
+                <th class="border-top-0 pt-2 pb-2">{{ 'admin.store.plugin_table.889'|trans }}</th>
+                <th class="border-top-0 pt-2 pb-2">{{ 'admin.store.plugin_table.901'|trans }}</th>
+                <th class="border-top-0 pt-2 pb-2">{{ 'admin.store.plugin_table.890'|trans }}</th>
+                <th class="border-top-0 pt-2 pb-2">&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for Plugin in Plugins %}
+                {% set form = plugin_forms[Plugin.id] %}
+                <form id="{{ form.vars.name }}" name="{{ form.vars.name }}" method="post" action=""
+                      enctype="multipart/form-data">
+                    <tr class="{% if Plugin.enabled == false %}active{% endif %}">
+                        <td class="align-middle pl-3">
+                            {{ Plugin.name }}
+                        </td>
+                        <td class="align-middle">{{ Plugin.version }}</td>
+                        <td class="align-middle">{{ Plugin.code }}
+                            {#TODO: readme of plugin #}
+                            {#{% if attribute(app.config[Plugin.code].const, 'readme') is defined %}
+                                <br>
+                                <a href="#" class="view_readme" data-toggle="modal" data-target="#readmeModal"
+                                   data-name="{{ Plugin.name }}"
+                                   data-readme="{{ attribute(app.config[Plugin.code].const, 'readme') }}">{{ 'admin.store.plugin_table.897'|trans }}</a>
+                            {% endif %}#}
+                        </td>
+                        <td class="align-middle">
+                            {% if Plugin.enabled %}
+                                <span class="text-success">{{ 'common.enabled'|trans }}</span>
+                            {% else %}
+                                <span class="text-secondary">{{ 'common.disabled'|trans }}</span>
+                            {% endif %}
+                        </td>
+                        <td class="align-middle">
+                            {% if Plugin.source == 0 %}
+                                {{ form_widget(form._token) }}
+                                {{ form_widget(form.plugin_id) }}
+                                {{ form_widget(form.plugin_archive, {'attr': {'accept': 'application/zip,application/x-tar,application/x-gzip'}}) }}
+                                {{ form_errors(form.plugin_archive) }}
+
+                                <button class="btn btn-primary btn-xs mt-2"
+                                        onclick="changeActionSubmit('{{ url('admin_store_plugin_update', { id : Plugin.id }) }}', '{{ form.vars.name }}');">
+                                    {{ 'admin.store.plugin_table.898'|trans }}
+                                </button>
+                            {% endif %}
+                        </td>
+                        <td class="align-middle">
+                            <div class="col-12 col-xs-11 col-md-10 col-lg-8 pull-right text-center">
+                                <div class="row">
+                                    <div class="col-4 px-0">
+                                        {% if Plugin.enabled == false %}
+                                            <a href="#" class="btn btn-ec-actionIcon"
+                                               data-toggle="modal"
+                                               data-target="#localPluginDeleteModal"
+                                               data-delete-url="{{ url('admin_store_plugin_uninstall', { id : Plugin.id }) }}">
+                                                <i class="fa fa-close fa-lg text-secondary" data-tooltip="true" data-placement="top" title="{{ 'common.delete'|trans }}"></i>
+                                            </a>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-4 px-0">
+                                        {% if Plugin.enabled %}
+                                            <a href="{{ url('admin_store_plugin_disable', { id : Plugin.id }) }}" {{ csrf_token_for_anchor() }}
+                                               class="btn btn-ec-actionIcon"
+                                               data-method="post" data-confirm="false">
+                                                <i class="fa fa-pause fa-lg text-secondary" data-tooltip="true" data-placement="top" title="{{ 'admin.store.plugin_table.903'|trans }}"></i>
+                                            </a>
+                                        {% else %}
+                                            <a href="{{ url('admin_store_plugin_enable', { id : Plugin.id }) }}" {{ csrf_token_for_anchor() }}
+                                               class="btn btn-ec-actionIcon"
+                                               data-method="post" data-confirm="false">
+                                                <i class="fa fa-play fa-lg text-secondary" data-tooltip="true" data-placement="top" title="{{ 'admin.store.plugin_table.902'|trans }}"></i>
+                                            </a>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-4 pl-0">
+                                        {% if configPages[Plugin.code] is defined %}
+                                            <a href='{{ configPages[Plugin.code] }}'
+                                               class="btn btn-ec-actionIcon">
+                                                <i class="fa fa-cog fa-lg text-secondary" data-tooltip="true"
+                                                   data-placement="top" title="{{ 'admin.store.plugin_table.891'|trans }}"></i></a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </form>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% else %}
+    <div class="card-body">
+        <div class="text-danger">
+            {{ 'admin.store.plugin_table.900'|trans }}
+        </div>
+    </div>
+{% endif %}
+
+<div class="modal fade" id="localPluginDeleteModal" tabindex="-1"
+     role="dialog"
+     aria-labelledby="localPluginDeleteModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title font-weight-bold">
+                    {{ 'admin.store.plugin.popup.delete.confirm.title'|trans }}</h5>
+                <button class="close" type="button"
+                        data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body text-left">
+                <p class="text-left">
+                    {{ 'admin.store.plugin.popup.delete.confirm.message'|trans }}</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ec-sub" type="button"
+                        data-dismiss="modal">{{ 'admin.common.cancel'|trans }}
+                </button>
+                <a href="#" {{ csrf_token_for_anchor() }}
+                   class="btn btn-ec-delete"
+                   data-confirm="false"
+                   data-method="delete">
+                    {{ 'admin.common.delete'|trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -76,7 +76,9 @@ common.search_keyword: Nhập từ khóa
 common.delete_confirm: Bạn có muốn tiếp tục?
 common.pagetop: Trang chủ
 common.name.prefix: ''
-common.name.suffix: ''
+common.sign.flash: '/'
+common.shipping.location.japan: 'Japan'
+common.copyright: 'Bản quyền © '
 
 #====================================================================================
 # Store Front
@@ -194,7 +196,17 @@ front.about.message: Tin nhắc
 front.agreement.title: Điều khoản và điều kiện
 front.tradelaw.title: Vận chuyển và đổi trả
 front.privacy.title: Chính sách bảo mật
+front.privacy.content: Do tầm quan trọng của việc bảo vệ thông tin cá nhân, chúng tôi sẽ tuân thủ "Luật bảo vệ thông tin cá nhân" và Chính sách bảo mật này và cố gắng bảo vệ quyền riêng tư của khách hàng.
+front.privacy.personal: Định nghĩa thông tin cá nhân.
+front.privacy.personal_infor: Thông tin về khách hàng cá nhân (sau đây gọi là "thông tin cá nhân") đề cập đến thông tin có thể xác định khách hàng, như tên, địa chỉ, số điện thoại của khách hàng. Nó cũng bao gồm thông tin có thể xác định các cá nhân bằng cách khớp với thông tin khác.
 front.guide.title: Hướng dẫn mua hàng
+front.trade.distributor: Một nhà phân phối
+front.trade.responsible: Đại diện chịu trách nhiệm
+front.trade.location: Địa điểm
+front.trade.fee: Phí yêu cầu khác với giá vật phẩm
+front.trade.delivery: Thời gian giao hàng
+front.trade.payment: Phương thức thanh toán
+front.trade.refund: Về hàng trả lại / trao đổi
 
 #------------------------------------------------------------------------------------
 # マイページ
@@ -882,6 +894,7 @@ admin.order.shipping_csv.tracking_number_col: Tracking No.
 admin.order.shipping_csv.tracking_number_description: ''
 admin.order.shipping_csv.shipping_date_col: Shipping Date
 admin.order.shipping_csv.shipping_date_description: Enter the shipping date in the format of MM/DD/YYYY
+admin.order.confirmation.select: Please select the correspondence situation
 
 #------------------------------------------------------------------------------------
 # Customer
@@ -1044,6 +1057,7 @@ admin.setting.system.member_password_change: Passwords
 admin.setting.system.authority_management: Permission
 admin.setting.system.security_management: Security
 admin.setting.system.log_display: Logs
+admin.setting.system.log_confirm: Xác nhận nhật ký
 admin.setting.system.master_data_management: Master Data
 admin.setting.system.system_info: System Info
 
@@ -1238,7 +1252,7 @@ admin.setting.system.system.web_server: WEB Server
 admin.setting.system.system.php: PHP
 admin.setting.system.system.user_agent: User Agent
 admin.setting.system.system.php_info: PHP Info
-
+admin.setting.system.system.eccube.document: EC-CUBE Documentation
 #------------------------------------------------------------------------------------
 # Owners' Store
 #------------------------------------------------------------------------------------
@@ -1278,6 +1292,15 @@ admin.store.plugin.uninstall.complete: The plugin has been deleted.
 admin.store.plugin.update.complete: %plugin_name% has been updated.
 admin.store.plugin.update.failed: Failed to update %plugin_name% .
 admin.store.plugin.mkdir.error: Failed to creat a directory '%dir_name%'.
+admin.store.plugin.upload: Upload new plugin
+admin.store.plugin.intro: This EC-CUBE plugin
+admin.store.plugin.unsupport-version: not support this version, can not work well
+admin.store.plugin.delete.confirm: Are you sure deleting these plugins? Can not restore
+admin.store.plugin.payment: EC-CUBE payment settlement pluginin
+admin.store.plugin.payment.last-version: (Latest version :1.0.2)
+admin.store.plugin.payment.introduction: Payment plug-in provided by EC-CUBE developer. It is a service provided by the EC - CUBE developer, and it has all the functions we could achieve.
+admin.store.plugin.delete.title: Confirm delete
+
 admin.store.setting: Settings
 admin.store.setting.api_key_setting: Set API authentication Key
 admin.store.setting.api_key: API Authentication Key
@@ -1314,6 +1337,15 @@ admin.store.plugin.815: Unregistered Plugins
 admin.store.plugin.816: Plugin Name
 admin.store.plugin.help: Sorry, failed to obtain detailed information due to the connection issues to the Owner''s Store.
 admin.store.plugin.install: Install
+admin.store.plugin.installing: Installing
+admin.store.plugin.validating: Validating
+admin.store.plugin.updating: Updating
+admin.store.plugin.schema-progressing: Progressing
+admin.store.plugin.update-progressing: Updating
+admin.store.plugin.active-progressing: Activating
+admin.store.plugin.waiting: 'This process may take several minutes. Please wait like this without reloading the screen.'
+admin.store.plugin.confirm-log: 'Confirm log'
+admin.store.plugin.authentication: 'Issue a new authentication key. If you already have an authorization key, please do not issue and set an existing key.'
 admin.store.plugin.upgrade: Update
 admin.store.plugin.price: Selling Price
 admin.store.plugin.detail.download: Downloads

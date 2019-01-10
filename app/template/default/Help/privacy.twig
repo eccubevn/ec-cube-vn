@@ -1,0 +1,32 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends 'default_frame.twig' %}
+
+{% block main %}
+    <div class="ec-role">
+        <div class="ec-pageHeader">
+            <h1>{{ 'front.privacy.title'|trans }}</h1>
+        </div>
+        <div class="ec-off1Grid">
+            <div class="ec-off1Grid__cell">
+                <p>
+                    {{ 'front.privacy.content'|trans }}
+                </p>
+            </div>
+        </div>
+        <div class="ec-off1Grid">
+            <div class="ec-off1Grid__cell">
+                <div class="ec-heading-bold">{{ 'front.privacy.personal'|trans }}</div>
+                <p>{{ 'front.privacy.personal_infor'|trans }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

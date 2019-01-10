@@ -146,8 +146,8 @@ file that was distributed with this source code.
                                     </dt>
                                     <dd>
                                         <div class="ec-birth{{ has_errors(form.birth) ? ' error'}}">
-                                            {{ form_widget(form.birth.day) }}<span>/</span>
-                                            {{ form_widget(form.birth.month) }}<span>/</span>
+                                            {{ form_widget(form.birth.day) }}<span>{{ 'common.sign.flash'|trans }}</span>
+                                            {{ form_widget(form.birth.month) }}<span>{{ 'common.sign.flash'|trans }}</span>
                                             {{ form_widget(form.birth.year) }}
                                             {{ form_errors(form.birth) }}
                                         </div>

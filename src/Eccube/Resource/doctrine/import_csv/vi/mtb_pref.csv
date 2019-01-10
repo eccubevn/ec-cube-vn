@@ -1,48 +1,64 @@
 id,name,sort_no,discriminator_type
-1,Hokkaido,1,pref
-2,Aomori,2,pref
-3,Iwate,3,pref
-4,Miyagi,4,pref
-5,Akita,5,pref
-6,Yamagata,6,pref
-7,Fukushima,7,pref
-8,Ibaraki,8,pref
-9,Tochigi,9,pref
-10,Gunma,10,pref
-11,Saitama,11,pref
-12,Chiba,12,pref
-13,Tokyo,13,pref
-14,Kanagawa,14,pref
-15,Niigata,15,pref
-16,Toyama,16,pref
-17,Ishikawa,17,pref
-18,Fukui,18,pref
-19,Yamanashi,19,pref
-20,Nagano,20,pref
-21,Gifu,21,pref
-22,Shizuoka,22,pref
-23,Aichi,23,pref
-24,Mie,24,pref
-25,Shiga,25,pref
-26,Kyoto,26,pref
-27,Osaka,27,pref
-28,Hyōgo,28,pref
-29,Nara,29,pref
-30,Wakayama,30,pref
-31,Tottori,31,pref
-32,Shimane,32,pref
-33,Okayama,33,pref
-34,Hiroshima,34,pref
-35,Yamaguchi,35,pref
-36,Tokushima,36,pref
-37,Kagawa,37,pref
-38,Ehime,38,pref
-39,Kōchi,39,pref
-40,Fukuoka,40,pref
-41,Saga,41,pref
-42,Nagasaki,42,pref
-43,Kumamoto,43,pref
-44,Ōita,44,pref
-45,Miyazaki,45,pref
-46,Kagoshima,46,pref
-47,Okinawa,47,pref
+"1","Hồ Chí Minh","1","pref"
+"2","Hà Nội","2","pref"
+"3","Đà Nẵng","3","pref"
+"4","An Giang","4","pref"
+"5","Bà Rịa - Vũng Tàu","5","pref"
+"6","Bắc Giang","6","pref"
+"7","Bắc Kạn","7","pref"
+"8","Bạc Liêu","8","pref"
+"9","Bắc Ninh","9","pref"
+"10","Bến Tre","10","pref"
+"11","Bình Dương","11","pref"
+"12","Bình Phước","12","pref"
+"13","Bình Thuận","13","pref"
+"14","Bình Định","14","pref"
+"15","Cà Mau","15","pref"
+"16","Cần Thơ","16","pref"
+"17","Cao Bằng","17","pref"
+"18","Gia Lai","18","pref"
+"19","Hà Giang","19","pref"
+"20","Hà Nam","20","pref"
+"21","Hà Tĩnh","21","pref"
+"22","Hải Dương","22","pref"
+"23","Hải Phòng","23","pref"
+"24","Hậu Giang","24","pref"
+"25","Hoà Bình","25","pref"
+"26","Hưng Yên","26","pref"
+"27","Khánh Hòa","27","pref"
+"28","Kiên Giang","28","pref"
+"29","Kon Tum","29","pref"
+"30","Lai Châu","30","pref"
+"31","Lâm Đồng","31","pref"
+"32","Lạng Sơn","32","pref"
+"33","Lào Cai","33","pref"
+"34","Long An","34","pref"
+"35","Nam Định","35","pref"
+"36","Nghệ An","36","pref"
+"37","Ninh Bình","37","pref"
+"38","Ninh Thuận","38","pref"
+"39","Phú Thọ","39","pref"
+"40","Phú Yên","40","pref"
+"41","Quảng Bình","41","pref"
+"42","Quảng Nam","42","pref"
+"43","Quảng Ngãi","43","pref"
+"44","Quảng Ninh","44","pref"
+"45","Quảng Trị","45","pref"
+"46","Sóc Trăng","46","pref"
+"47","Sơn La","47","pref"
+"48","Tây Ninh","48","pref"
+"49","Thái Bình","49","pref"
+"50","Thái Nguyên","50","pref"
+"51","Thanh Hóa","51","pref"
+"52","Thừa Thiên Huế","52","pref"
+"53","Tiền Giang","53","pref"
+"54","Trà Vinh","54","pref"
+"55","Tuyên Quang","55","pref"
+"56","Vĩnh Long","56","pref"
+"57","Vĩnh Phúc","57","pref"
+"58","Yên Bái","58","pref"
+"59","Đắk Lắk","59","pref"
+"60","Đắk Nông","60","pref"
+"61","Điện Biên","61","pref"
+"62","Đồng Nai","62","pref"
+"63","Đồng Tháp","63","pref"

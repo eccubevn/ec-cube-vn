@@ -247,27 +247,46 @@ class NonMemberShoppingController extends AbstractShoppingController
         // 入力チェック
         $errors = [];
 
-        $errors[] = $this->validator->validate(
-            $data['customer_name01'],
-            [
-                new Assert\NotBlank(),
-                new Assert\Length(['max' => $this->eccubeConfig['eccube_name_len']]),
-                new Assert\Regex(
-                    ['pattern' => '/^[^\s ]+$/u', 'message' => 'form_error.not_contain_spaces']
-                ),
-            ]
-        );
+        $locale = $this->eccubeConfig->get('locale');
+        if (in_array($locale, ['en', 'vi'])) {
+            $errors[] = $this->validator->validate(
+                $data['customer_name01'],
+                [
+                    new Assert\NotBlank(),
+                    new Assert\Length(['max' => $this->eccubeConfig['eccube_name_len']]),
+                ]
+            );
 
-        $errors[] = $this->validator->validate(
-            $data['customer_name02'],
-            [
-                new Assert\NotBlank(),
-                new Assert\Length(['max' => $this->eccubeConfig['eccube_name_len']]),
-                new Assert\Regex(
-                    ['pattern' => '/^[^\s ]+$/u', 'message' => 'form_error.not_contain_spaces']
-                ),
-            ]
-        );
+            $errors[] = $this->validator->validate(
+                $data['customer_name02'],
+                [
+                    new Assert\NotBlank(),
+                    new Assert\Length(['max' => $this->eccubeConfig['eccube_name_len']]),
+                ]
+            );
+        } else {
+            $errors[] = $this->validator->validate(
+                $data['customer_name01'],
+                [
+                    new Assert\NotBlank(),
+                    new Assert\Length(['max' => $this->eccubeConfig['eccube_name_len']]),
+                    new Assert\Regex(
+                        ['pattern' => '/^[^\s ]+$/u', 'message' => 'form_error.not_contain_spaces']
+                    ),
+                ]
+            );
+
+            $errors[] = $this->validator->validate(
+                $data['customer_name02'],
+                [
+                    new Assert\NotBlank(),
+                    new Assert\Length(['max' => $this->eccubeConfig['eccube_name_len']]),
+                    new Assert\Regex(
+                        ['pattern' => '/^[^\s ]+$/u', 'message' => 'form_error.not_contain_spaces']
+                    ),
+                ]
+            );
+        }
 
         $data['customer_kana01'] = mb_convert_kana($data['customer_kana01'], 'CV', 'utf-8');
         $errors[] = $this->validator->validate(

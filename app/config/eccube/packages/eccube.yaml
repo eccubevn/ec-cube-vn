@@ -71,9 +71,12 @@ parameters:
     # CSVの区切り文字(タブ区切りにしたい場合は'\t'ではなく'    'で設定する
     eccube_csv_export_separator: ,
     # 出力エンコーディング
-    eccube_csv_export_encoding: SJIS-win
+    # ja: SJIS-win
+    # vi: Windows-1258 - alias: CP1258 use iconv function
+    # ref: https://symfony.com/doc/3.4/components/polyfill_iconv.html
+    eccube_csv_export_encoding: 'UTF-8'
     # 日付のフォーマット
-    eccube_csv_export_date_format: 'Y-m-d H:i:s'
+    eccube_csv_export_date_format: 'H:i:s d-m-Y'
     # 複数データの区切り文字
     eccube_csv_export_multidata_separator: ,
     eccube_csv_import_delimiter: ,
@@ -118,7 +121,11 @@ parameters:
     # {random,桁数}: ランダムな数値を桁数分作成
     # {random_alnum,桁数} : ランダムな半角英数大文字を桁数分作成
     eccube_order_no_format: ''
-    eccube_order_pdf_message_len: 30
+    eccube_order_pdf_message_len: 50
+    # Font for print pdf file:
+    # ja: kozminproregular
+    # vi: dejavusans
+    eccube_order_pdf_font: 'dejavusans'
     eccube_news_start_year: 2000
     eccube_result_cache_lifetime: 3600 # doctrineのresult cacheのlifetime.
     eccube_result_cache_lifetime_short: 10  # doctrineのresult cacheのlifetime. 商品一覧画面など長期間キャッシュできない箇所で使用する.

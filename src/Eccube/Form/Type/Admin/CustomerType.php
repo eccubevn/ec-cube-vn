@@ -99,11 +99,11 @@ class CustomerType extends AbstractType
                 'input' => 'datetime',
                 'years' => range(date('Y'), date('Y') - $this->eccubeConfig['eccube_birth_max']),
                 'widget' => 'single_text',
-//                'format' => 'yyyy-MM-dd',
-//                'placeholder' => ['year' => '----', 'month' => '--', 'day' => '--'],
+                'format' => 'yyyy-MM-dd',
+                'placeholder' => ['year' => '----', 'month' => '--', 'day' => '--'],
                 'constraints' => [
                     new Assert\LessThanOrEqual([
-                        'value' => date('d-m-Y', strtotime('-1 day')),
+                        'value' => date('Y-m-d', strtotime('-1 day')),
                         'message' => 'form_error.select_is_future_or_now_date',
                     ]),
                 ],

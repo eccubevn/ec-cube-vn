@@ -63,8 +63,7 @@ form.type.customer.password.too_short: Password is too short. It must be more th
 form.type.customer.password.too_long: Password is too long. It must be more than {{ limit }} digits.
 form.type.customer.company.nothasspace: Do not include spaces, tabs and line breaks for Company Name.
 form.type.admin.nottelstyle: TEL must be numbers or hyphens.
-form.type.admin.notk
-anastyle: Your Name (Kana) entry must be Kana.
+form.type.admin.notkanastyle: Your Name (Kana) entry must be Kana.
 form.type.select.notselect: The field is empty.
 form.type.select.classcategory: Item is not selected.
 form.type.add.quantity: Please enter more than 1.

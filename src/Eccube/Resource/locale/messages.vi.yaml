@@ -991,7 +991,7 @@ admin.content.page_source_code: Mã
 admin.content.page_layout__card_title: Cài đặt bố cục
 admin.content.page_pc: PC
 admin.content.page_mobile: Mobile
-admin.content.page_meta__card_title: Cài đặt meta
+admin.content.page_meta__card_title: Cài đặt thẻ meta
 admin.content.page_meta_author: author
 admin.content.page_meta_description: description
 admin.content.page_meta_keyword: keyword
@@ -1015,15 +1015,15 @@ admin.content.block_file_name: Tên tệp
 admin.content.block_file_name_exists: Dữ liệu có cùng tên tệp đã tồn tại. Vui lòng nhập một tên khác.
 admin.content.block_source_code: Mã
 admin.content.cache__card_title: Caches
-admin.content.cache_message: Nếu bạn thay thế tệp Twig bằng máy chủ sản xuất bằng FTP, v.v., UI sẽ không được cập nhật trừ khi bạn xóa bộ đệm Twig.
+admin.content.cache_message: Nếu bạn thay thế tệp Twig bằng máy chủ quản lý như FTP, v.v., UI sẽ không được cập nhật trừ khi bạn xóa bộ đệm Twig.
 admin.content.cache_delete: Xóa bộ nhớ đệm
-admin.content.news.publish_date: Xuất bản trên
-admin.content.news.display_status: Trạng thái hiển thị
+admin.content.news.publish_date: Thời gian xuất bản
+admin.content.news.display_status: Trạng thái
 admin.content.news.display_status__show: Hiển thị
 admin.content.news.display_status__hide: Ẩn
 admin.content.news.title: Tiêu đề
 admin.content.news.url: URL
-admin.content.news.body: nội dung
+admin.content.news.body: Nội dung
 admin.content.news.news_registration: Tạo tin tức
 admin.content.news.new_window: Mở trong một cửa sổ mới
 admin.content.maintenance__card_title: Chế độ bảo trì
@@ -1105,7 +1105,7 @@ admin.setting.shop.payment.terms_of_use_error: Vui lòng kiểm tra số tiền 
 admin.setting.shop.payment.unlimited: Bất kỳ số tiền nào
 admin.setting.shop.payment.payment_id: ID
 admin.setting.shop.payment.payment_name: Tên phương thức thanh toán
-admin.setting.shop.payment.logo_image: Logos
+admin.setting.shop.payment.logo_image: Logo
 admin.setting.shop.payment.logo_image_size: 'Kích thước đề xuất: 500px x 100px'
 
 
@@ -1122,7 +1122,7 @@ admin.setting.shop.delivery.payment_method: Phương thức thanh toán có sẵ
 admin.setting.shop.delivery.delivery_time_setting: Thời gian giao hàng
 admin.setting.shop.delivery.delivery_fee_by_pref: Phí vận chuyển theo tỉnh
 admin.setting.shop.delivery.apply_to_pref__title: Tỉ lệ (Toàn quốc)
-admin.setting.shop.delivery.apply_to_pref__button: Áp dụng cho tất cả các quận
+admin.setting.shop.delivery.apply_to_pref__button: Áp dụng cho tất cả danh sách bên dưới
 admin.setting.shop.delivery.fee.invalid: Vui lòng nhập với số.
 
 #------------------------------------------------------------------------------------
@@ -1132,7 +1132,7 @@ admin.setting.shop.delivery.fee.invalid: Vui lòng nhập với số.
 admin.setting.shop.tax.rounding_type: Làm tròn
 admin.setting.shop.tax.base_rate_setting: Tỷ lệ chung
 admin.setting.shop.tax.tax_rate: Thuế suất
-admin.setting.shop.tax.apply_date: Áp dụng trên
+admin.setting.shop.tax.apply_date: Áp dụng từ ngày
 
 #------------------------------------------------------------------------------------
 # Settings : Store Settings : Emails
@@ -1152,21 +1152,21 @@ admin.setting.shop.mail.preview: Xem trước
 
 admin.setting.shop.csv.csv_columns: Mục đầu ra CSV
 admin.setting.shop.csv.csv_type: Loại CSV
-admin.setting.shop.csv.non_output_colmuns: Không đầu ra
-admin.setting.shop.csv.output_colmuns: Đến đầu ra
+admin.setting.shop.csv.non_output_colmuns: Không hiển thị
+admin.setting.shop.csv.output_colmuns: Hiển thị
 admin.setting.shop.csv.operation: Menu đầu ra
 admin.setting.shop.csv.operation__output: Thêm vào
-admin.setting.shop.csv.operation__release: Xóa
-admin.setting.shop.csv.operation__all_output: Thêm tất cả
-admin.setting.shop.csv.operation__all_release: Xóa tất cả
+admin.setting.shop.csv.operation__release: Bỏ ra
+admin.setting.shop.csv.operation__all_output: Thêm và tất cả
+admin.setting.shop.csv.operation__all_release: Bỏ ra tất cả
 admin.setting.shop.csv.order: Mục đơn đặt hàng
 admin.setting.shop.csv.order__up: Di chuyển lên
 admin.setting.shop.csv.order__down: Di chuyển xuống
 admin.setting.shop.csv.order__top: Di chuyển lên đầu
 admin.setting.shop.csv.order__bottom: Di chuyển xuống dưới cùng
 admin.setting.shop.csv.how_to_use: |
- Để thêm các mục đầu ra, vui lòng chọn các mục trên khung bên trái và nhấn [Thêm].
- Đơn đặt hàng vật phẩm có thể được thay đổi với menu [Mục đơn đặt hàng].
+ Để thêm các mục đầu ra, vui lòng chọn các mục trên khung bên trái và nhấn [Thêm vào].
+ Các mục đơn đặt hàng có thể được thay đổi thứ tự với menu [Mục đơn đặt hàng].
  Để chọn nhiều mục, giữ Ctrl (Windows) hoặc Command (Mac) và chọn. Hoặc giữ phím Shift để chọn một loạt các mục.
 
 #------------------------------------------------------------------------------------
@@ -1189,9 +1189,9 @@ admin.setting.system.member.work_can_not_change: Bạn không được phép tha
 #------------------------------------------------------------------------------------
 
 admin.setting.system.authority__card_title: Giấy phép
-admin.setting.system.authority.description: |
- 'Vui lòng nhập URL sau %url% vào trường [URL bị chặn].'
- URL sẽ bị chặn, nếu nó khớp với URL được nhập ở đó (khớp bên trái).
+admin.setting.system.authority.description: '
+ Vui lòng nhập URL sau %url% vào trường [URL bị chặn].
+ URL sẽ bị chặn, nếu nó khớp với URL được nhập ở đó (khớp bên trái).'
 admin.setting.system.authority.example: 'e.g. /setting <span class="text-danger">: / (slash) is required.</span>'
 admin.setting.system.authority.authority: Role
 admin.setting.system.authority.deny_url: URL bị chặn
@@ -1204,55 +1204,55 @@ admin.setting.system.authority.deny_url_is_invalid: /(gạch chéo) là bắt bu
 # Settings : System : Security
 #------------------------------------------------------------------------------------
 
-admin.setting.system.security__card_title: Security Settings
-admin.setting.system.security.admin_url: Admin Console URL
-admin.setting.system.security.admin_url_description: It is recommended to set the URL which would NOT be easily guessed.
-admin.setting.system.security.admin_url_changed: The URL of Admin Console has been changed. Please sign in again.
-admin.setting.system.security.ip_limit: IP Restrictions
+admin.setting.system.security__card_title: Cài đặt bảo mật
+admin.setting.system.security.admin_url: URL bảng điều khiển dành cho quản trị viên
+admin.setting.system.security.admin_url_description: Bạn nên đặt URL mà KHÔNG dễ đoán.
+admin.setting.system.security.admin_url_changed: URL của Bảng điều khiển dành cho quản trị viên đã được thay đổi. Vui lòng đăng nhập lại.
+admin.setting.system.security.ip_limit: Hạn chế IP
 admin.setting.system.security.ip_limit_description: |
- This will restrict the access to the Admin Console to specified IP addresses.
- Please enter the URLs one by one which you allow the access to. If no URLs are entered, any URL can access your Admin Console.
+ Điều này sẽ hạn chế quyền truy cập vào Bảng điều khiển dành cho quản trị viên đối với các địa chỉ IP được chỉ định.
+ Vui lòng nhập từng URL một mà bạn cho phép truy cập. Nếu không có URL nào được nhập, bất kỳ URL nào cũng có thể truy cập Bảng điều khiển dành cho quản trị viên của bạn.
 admin.setting.system.security.ip_limit_sample: |
  127.0.0.1
  192.0.2.1
-admin.setting.system.security.force_ssl: SSL is mandatory
-admin.setting.system.security.force_ssl_description: Only https access is allowed to set SSL restrictions.
-admin.setting.system.security.ip_limit_invalid_ipv4: '%ip% is not an IPv4 address.'
-admin.setting.system.security.ip_limit_invalid_https: 'http is not allowed to do this setting.'
-admin.setting.system.security.admin_url_warning: Please set the Admin Console URL that is hard to guess for security.
+admin.setting.system.security.force_ssl: SSL là bắt buộc
+admin.setting.system.security.force_ssl_description: Chỉ truy cập https mới được phép đặt giới hạn SSL.
+admin.setting.system.security.ip_limit_invalid_ipv4: '%ip% không phải là địa chỉ IPv4.'
+admin.setting.system.security.ip_limit_invalid_https: 'http không được phép thực hiện cài đặt này.'
+admin.setting.system.security.admin_url_warning: Vui lòng đặt URL Bảng điều khiển dành cho quản trị viên khó đoán để bảo mật.
 
 #------------------------------------------------------------------------------------
 # Settings : System : Logs
 #------------------------------------------------------------------------------------
 
-admin.setting.system.log.line_number: Line
-admin.setting.system.log.read: Read
+admin.setting.system.log.line_number: Dòng
+admin.setting.system.log.read: Xem
 
 #------------------------------------------------------------------------------------
 # Settings : System : Master Data
 #------------------------------------------------------------------------------------
 
-admin.setting.system.master_data.select: Select
-admin.setting.system.master_data.description: |
- You can set the value to the master data.
- You are not allowed to register duplicated IDs.
- If you leave the ID empty, the value will be deleted.
- Warning: Your store may not work depending on the value you set.
+admin.setting.system.master_data.select: Chọn
+admin.setting.system.master_data.description: '|
+ Bạn có thể đặt giá trị cho dữ liệu chủ.
+ Bạn không được phép đăng ký ID trùng lặp.
+ Nếu bạn để trống ID, giá trị sẽ bị xóa.
+ Cảnh báo Cửa hàng của bạn có thể không hoạt động tùy thuộc vào giá trị bạn đặt.'
 admin.setting.system.master_data.id: ID
-admin.setting.system.master_data.name: Name
-admin.setting.system.master_data.duplicate_id: You are not allowed to register duplicated IDs.
+admin.setting.system.master_data.name: Tên
+admin.setting.system.master_data.duplicate_id: Bạn không được phép đăng ký ID trùng lặp.
 
 #------------------------------------------------------------------------------------
 # Settings : System : System Info
 #------------------------------------------------------------------------------------
 
 admin.setting.system.system.eccube: EC-CUBE
-admin.setting.system.system.server_os: Server OS
-admin.setting.system.system.database_server: DB Server
-admin.setting.system.system.web_server: WEB Server
+admin.setting.system.system.server_os: Máy chủ OS
+admin.setting.system.system.database_server: Máy chủ dữ liệu
+admin.setting.system.system.web_server: Máy chủ WEB
 admin.setting.system.system.php: PHP
-admin.setting.system.system.user_agent: User Agent
-admin.setting.system.system.php_info: PHP Info
+admin.setting.system.system.user_agent: Trình duyệt người dùng
+admin.setting.system.system.php_info: Thông tin về PHP
 admin.setting.system.system.eccube.document: EC-CUBE Documentation
 #------------------------------------------------------------------------------------
 # Owners' Store
@@ -1261,246 +1261,246 @@ admin.setting.system.system.eccube.document: EC-CUBE Documentation
 admin.store: Owner's Store
 admin.store.template: Templates
 admin.store.template.template_list: All Templates
-admin.store.template.template_install: Uploads
+admin.store.template.template_install: Tải lên
 admin.store.template.template_install__page_title: Upload Templates
-admin.store.template.select: Select
-admin.store.template.save_path: Save to
-admin.store.template.download: Download
-admin.store.template.upload_new_template: Upload New Templates
-admin.store.template.template_name: Template Name
-admin.store.template.template_code: Template Code
-admin.store.template.template_file: Template File
-admin.store.template.file_format: 'File format: zip,tar,tar.gz'
-admin.store.template.delete_error__default_template: You are not allowed to delete the default template.
-admin.store.template.delete_error__current_template: You are not allowed to delete the template in use.
-admin.store.template.template_code_already_exists: This template code is already used.
-admin.store.template.upload_failed: Failed to upload
-admin.store.template.invalid_upload_file: Wrong extension of the file
+admin.store.template.select: Lựa chọn
+admin.store.template.save_path: Lưu vào
+admin.store.template.download: Tải về
+admin.store.template.upload_new_template: Tải lên mẫu(template) mới
+admin.store.template.template_name: Tên Template
+admin.store.template.template_code: Mã Template
+admin.store.template.template_file: Tệp tin Template
+admin.store.template.file_format: 'Định dạng tệp: zip,tar,tar.gz'
+admin.store.template.delete_error__default_template: Bạn không được phép xóa mẫu mặc định.
+admin.store.template.delete_error__current_template: Bạn không được phép xóa mẫu đang sử dụng.
+admin.store.template.template_code_already_exists: Mã mẫu này đã được sử dụng.
+admin.store.template.upload_failed: Không thể tải lên
+admin.store.template.invalid_upload_file: Mở rộng sai tập tin
 admin.store.plugin: Plugins
-admin.store.plugin.plugin_owners_install: Search Plugins
-admin.store.plugin.plugin_list: All Plugins
-admin.store.plugin.search.not_found: No matches found for your search.
-admin.store.plugin.search.not_auth: Please set the authentication key.
-admin.store.plugin.installed: Installed
-admin.store.plugin.update: Update
-admin.store.plugin.install.complete: A plugin has been installed.
-admin.store.plugin.install.failed: Failed to install plugin.
-admin.store.plugin.enable.complete: %plugin_name% is enabled.
-admin.store.plugin.already.enabled: %plugin_name% has already been enabled.
-admin.store.plugin.disable.complete: %plugin_name% is disabled.
-admin.store.plugin.already.disabled: %plugin_name% has already been disabled.
-admin.store.plugin.uninstall.complete: The plugin has been deleted.
-admin.store.plugin.update.complete: %plugin_name% has been updated.
-admin.store.plugin.update.failed: Failed to update %plugin_name% .
-admin.store.plugin.mkdir.error: Failed to creat a directory '%dir_name%'.
-admin.store.plugin.upload: Upload new plugin
+admin.store.plugin.plugin_owners_install: Tìm kiếm Plugins
+admin.store.plugin.plugin_list: Tất cả Plugins
+admin.store.plugin.search.not_found: Không tìm thấy kết quả phù hợp cho tìm kiếm của bạn.
+admin.store.plugin.search.not_auth: Vui lòng nhập khóa xác thực.
+admin.store.plugin.installed: Cài đặt
+admin.store.plugin.update: Cập nhật
+admin.store.plugin.install.complete: Một plugin đã được cài đặt.
+admin.store.plugin.install.failed: Không thể cài đặt plugin.
+admin.store.plugin.enable.complete: '%plugin_name% được kích hoạt.'
+admin.store.plugin.already.enabled: '%plugin_name% đã được kích hoạt.'
+admin.store.plugin.disable.complete: '%plugin_name% bị vô hiệu hóa.'
+admin.store.plugin.already.disabled: '%plugin_name% đã bị vô hiệu hóa'
+admin.store.plugin.uninstall.complete: Các plugin đã bị xóa.
+admin.store.plugin.update.complete: '%plugin_name% đã được cập nhật.'
+admin.store.plugin.update.failed: 'Không thể cập nhật %plugin_name% .'
+admin.store.plugin.mkdir.error: 'Không thể tạo thư mục "%dir_name%".'
+admin.store.plugin.upload: Tải lên plugin mới
 admin.store.plugin.intro: This EC-CUBE plugin
-admin.store.plugin.unsupport-version: not support this version, can not work well
-admin.store.plugin.delete.confirm: Are you sure deleting these plugins? Can not restore
-admin.store.plugin.payment: EC-CUBE payment settlement pluginin
-admin.store.plugin.payment.last-version: (Latest version :1.0.2)
-admin.store.plugin.payment.introduction: Payment plug-in provided by EC-CUBE developer. It is a service provided by the EC - CUBE developer, and it has all the functions we could achieve.
-admin.store.plugin.delete.title: Confirm delete
+admin.store.plugin.unsupport-version: không hỗ trợ phiên bản này, không thể hoạt động tốt
+admin.store.plugin.delete.confirm: Bạn có chắc chắn xóa các plugin này? Không thể khôi phục!
+admin.store.plugin.payment: Plugin thanh toán EC-CUBE
+admin.store.plugin.payment.last-version: (Phiên bản mới nhất :1.0.2)
+admin.store.plugin.payment.introduction: Plugin thanh toán được cung cấp bởi nhà phát triển EC-CUBE. Đây là một dịch vụ được cung cấp bởi nhà phát triển EC-CUBE và nó có tất cả các chức năng chúng ta có thể đạt được.
+admin.store.plugin.delete.title: Xác nhận xóa
 
-admin.store.setting: Settings
-admin.store.setting.api_key_setting: Set API authentication Key
-admin.store.setting.api_key: API Authentication Key
-admin.store.setting.get_api_key: Obtain an API authentication key
-admin.store.setting.captcha_message: Please enter the letters displayed.
-admin.store.setting.php_path_setting: Set PHP Path
-admin.store.setting.php_path: PHP Path
-admin.store.setting.invalid_captcha: Invaild input
-admin.store.setting.captcha_error: Error
-admin.store.package.api.0.error: Failed to communicate with Owners' Store. Please wait for a while and try again.
-admin.store.package.api.403.error: Owners' Store failed to authenticate. Please confirm the authentication key settings.
-admin.store.package.api.500.error: Failed to communicate with Owners' Store. Please wait for a while and try again.
-admin.plugin.uninstall.error.not_disable: Please disable the plugin.
-admin.plugin.uninstall.depend: 'Unable to delete %depend_name% because it depends on %name%.'
-admin.plugin.disable.depend: 'Please disable %depend_name% before disabling %name%.'
+admin.store.setting: Cài đặt
+admin.store.setting.api_key_setting: Cài đặt mã xác thực API
+admin.store.setting.api_key: Xác thực API key
+admin.store.setting.get_api_key: Lấy mã xác thực API
+admin.store.setting.captcha_message: Vui lòng nhập các chữ cái mà bạn thấy được.
+admin.store.setting.php_path_setting: Đặt đường dẫn PHP
+admin.store.setting.php_path: Đường dẫn PHP
+admin.store.setting.invalid_captcha: Đầu vào không hợp lệ
+admin.store.setting.captcha_error: Lỗi
+admin.store.package.api.0.error: Không thể kết nối với Owners' Store. Vui lòng thử lại sau vài phút.
+admin.store.package.api.403.error: Owners' Store không thể xác thực. Vui lòng xác nhận cài đặt mã xác thực.
+admin.store.package.api.500.error: Không thể kết nối với Owners' Store. Vui lòng thử lại sau vài phút.
+admin.plugin.uninstall.error.not_disable: Vui lòng tắt plugin.
+admin.plugin.uninstall.depend: 'Không thể xóa %depend_name% vì nó phụ thuộc vào %name%.'
+admin.plugin.disable.depend: 'Vui lòng tắt %depend_name% trước khi tắt %name%.'
 
 
 # TODO: Verify Message
-admin.store.plugin.popup.delete.confirm.title: Confirm the deletion of the plugin
-admin.store.plugin.popup.delete.confirm.message: Are you sure to delete this plugin?
+admin.store.plugin.popup.delete.confirm.title: Xác nhận xóa plugin
+admin.store.plugin.popup.delete.confirm.message: Bạn có chắc chắn để xóa plugin này?
 admin.store.authentication_setting.803: Owner's Store
-admin.store.authentication_setting.804: Set a plugin authentication key
-admin.store.authentication_setting.805: Set a authentication key
-admin.store.authentication_setting.806: Authentication Key
-admin.store.authentication_setting.807: '*Authentication keys are available at <a target="_blank" href="owners_store_url">EC-CUBE Owner''s Store</a>.'
-admin.store.authentication_setting.808: Settings
-admin.store.plugin.809: All installed plugins
+admin.store.authentication_setting.804: Đặt khóa xác thực plugin
+admin.store.authentication_setting.805: Đặt khóa xác thực
+admin.store.authentication_setting.806: Khóa xác thực
+admin.store.authentication_setting.807: '*Khóa xác thực có sẵn tại <a target="_blank" href="owners_store_url">EC-CUBE Owner''s Store</a>.'
+admin.store.authentication_setting.808: Cài đặt
+admin.store.plugin.809: Tất cả các plugin đã cài đặt
 admin.store.plugin.810: Owner's Store
-admin.store.plugin.811: Add New from Owner's Store
-admin.store.plugin.812: Plugins at Owner's Store
-admin.store.plugin.813: Upload New
-admin.store.plugin.814: Original Plugins by Users
-admin.store.plugin.815: Unregistered Plugins
-admin.store.plugin.816: Plugin Name
-admin.store.plugin.help: Sorry, failed to obtain detailed information due to the connection issues to the Owner''s Store.
-admin.store.plugin.install: Install
-admin.store.plugin.installing: Installing
-admin.store.plugin.validating: Validating
-admin.store.plugin.updating: Updating
+admin.store.plugin.811: Thêm mới từ Owner's Store
+admin.store.plugin.812: Plugins tại Owner's Store
+admin.store.plugin.813: Tải lên mới
+admin.store.plugin.814: Plugin gốc của người dùng
+admin.store.plugin.815: Plugin chưa đăng ký
+admin.store.plugin.816: Tên Plugin
+admin.store.plugin.help: "Xin lỗi, không thể lấy thông tin chi tiết do sự cố kết nối với Owner's Store."
+admin.store.plugin.install: Cài đặt
+admin.store.plugin.installing: Đang cài đặt
+admin.store.plugin.validating: Đang xác thực
+admin.store.plugin.updating: Đang cập nhật
 admin.store.plugin.schema-progressing: Progressing
-admin.store.plugin.update-progressing: Updating
-admin.store.plugin.active-progressing: Activating
-admin.store.plugin.waiting: 'This process may take several minutes. Please wait like this without reloading the screen.'
-admin.store.plugin.confirm-log: 'Confirm log'
-admin.store.plugin.authentication: 'Issue a new authentication key. If you already have an authorization key, please do not issue and set an existing key.'
-admin.store.plugin.upgrade: Update
-admin.store.plugin.price: Selling Price
-admin.store.plugin.detail.download: Downloads
-admin.store.plugin.detail.version: Plugin Version
-admin.store.plugin.detail.support: Supported EC-CUBE Version
-admin.store.plugin.detail.public_date: Release Date
-admin.store.plugin.detail.update_date: Last Updated
-admin.store.plugin.detail.size: File Size
-admin.store.plugin.detail.size.format: Approx. %size% KB
-admin.store.plugin.detail.license: License
-admin.store.plugin.detail.develop: Developed by
-admin.store.plugin_confirm.title.upgrade: Updates
-admin.store.plugin_confirm.title: Installation Confirmation
+admin.store.plugin.update-progressing: Đang cập nhật
+admin.store.plugin.active-progressing: Đang kích hoạt
+admin.store.plugin.waiting: 'Quá trình này có thể mất vài phút. Xin vui lòng chờ mà không cần tải lại trang.'
+admin.store.plugin.confirm-log: 'Xác nhận nhật ký(log)'
+admin.store.plugin.authentication: 'Cấp khóa xác thực mới. Nếu bạn đã có khóa ủy quyền, vui lòng không cấp và đặt khóa hiện có.'
+admin.store.plugin.upgrade: Cập nhật
+admin.store.plugin.price: Giá bán
+admin.store.plugin.detail.download: Tải xuống
+admin.store.plugin.detail.version: Phiên bản Plugin
+admin.store.plugin.detail.support: Phiên bản EC-CUBE được hỗ trợ
+admin.store.plugin.detail.public_date: Ngày phát hành
+admin.store.plugin.detail.update_date: Cập nhật mới nhất
+admin.store.plugin.detail.size: Kích thước tập tin
+admin.store.plugin.detail.size.format: Xấp xỉ. %size% KB
+admin.store.plugin.detail.license: Giấy phép
+admin.store.plugin.detail.develop: Được phát triển bởi
+admin.store.plugin_confirm.title.upgrade: Cập nhật
+admin.store.plugin_confirm.title: Xác nhận cài đặt
 admin.store.plugin_confirm.subtitle: Owner's Store
-admin.store.plugin_confirm.header: We are going to install the following plugins.
-admin.store.plugin_confirm.header.upgrade: The following plugins will be updated to the latest versions.
-admin.store.plugin_confirm.require.header: %name% requires following additional plugins. They will also be installed.
+admin.store.plugin_confirm.header: Chúng tôi sẽ cài đặt các plugin sau.
+admin.store.plugin_confirm.header.upgrade: Các plugin sau sẽ được cập nhật lên các phiên bản mới nhất.
+admin.store.plugin_confirm.require.header: '%name% yêu cầu bổ sung sau. Họ cũng sẽ được cài đặt.'
 admin.store.plugin_confirm_uninstall.823: Owner's Store
-admin.store.plugin_confirm_uninstall.824: Delete Plugins
-admin.store.plugin_confirm_uninstall.825: The following plugins will be deleted.
-admin.store.plugin_confirm_uninstall.826: Delete
-admin.store.plugin_confirm_uninstall.827: Go back
+admin.store.plugin_confirm_uninstall.824: Xóa các plugin
+admin.store.plugin_confirm_uninstall.825: Các plugin sau sẽ bị xóa.
+admin.store.plugin_confirm_uninstall.826: Xóa bỏ
+admin.store.plugin_confirm_uninstall.827: Quay lại
 admin.store.plugin_handler.828: Owner's Store
-admin.store.plugin_handler.829: Advanced Settings
+admin.store.plugin_handler.829: Cài đặt nâng cao
 admin.store.plugin_handler.830: Plugins
-admin.store.plugin_handler.831: Handler Name
-admin.store.plugin_handler.832: Priority
-admin.store.plugin_handler.833: Execute
-admin.store.plugin_handler.834: Up
-admin.store.plugin_handler.835: Down
-admin.store.plugin_handler.836: Manage Plugin Handlers
-admin.store.plugin_handler.837: No data found for your search.
+admin.store.plugin_handler.831: Tên xử lý
+admin.store.plugin_handler.832: Sự ưu tiên
+admin.store.plugin_handler.833: Thực thi
+admin.store.plugin_handler.834: Lên
+admin.store.plugin_handler.835: Xuống
+admin.store.plugin_handler.836: Trình quản lý Plugin
+admin.store.plugin_handler.837: Không tìm thấy dữ liệu cho tìm kiếm của bạn.
 admin.store.plugin_install.838: Owner's Store
-admin.store.plugin_install.839: Upload Plugins
-admin.store.plugin_install.840: New Plugin Uploads
-admin.store.plugin_install.841: Plugins<br>(zip、tar、tar.gz形式)
-admin.store.plugin_install.842: Upload
-admin.store.plugin_owners_confirm.843: Price
-admin.store.plugin_owners_confirm.844: Downloads
-admin.store.plugin_owners_confirm.845: Plugin Version
-admin.store.plugin_owners_confirm.846: Last Updated
-admin.store.plugin_owners_confirm.847: Supported EC-CUBE Version
-admin.store.plugin_owners_confirm.848: 'File size<br>Approx. %size% KB'
-admin.store.plugin_owners_confirm.848.1: File Size
-admin.store.plugin_owners_confirm.848.2: Approx.
-admin.store.plugin_owners_confirm.849: Lisence
-admin.store.plugin_owners_confirm.850: 'This plugin does not support EC-CUBE %version%. It may not work properly.'
-admin.store.plugin_owners_confirm.851: 'This requires %dependency% to work with. It will also be installed.'
-admin.store.plugin_owners_confirm.852: '<strong>Developed by</strong> : '
+admin.store.plugin_install.839: Tải lên bổ trợ
+admin.store.plugin_install.840: Tải lên Plugin mới
+admin.store.plugin_install.841: Plugins<br>(zip, tar,tar.gz)
+admin.store.plugin_install.842: Tải lên
+admin.store.plugin_owners_confirm.843: Giá
+admin.store.plugin_owners_confirm.844: Tải xuống
+admin.store.plugin_owners_confirm.845: Phiên bản của Plugin
+admin.store.plugin_owners_confirm.846: Cập nhật mới nhất
+admin.store.plugin_owners_confirm.847: Phiên bản EC-CUBE được hỗ trợ
+admin.store.plugin_owners_confirm.848: 'Kích thước tệp<br>Xấp xỉ %size% KB'
+admin.store.plugin_owners_confirm.848.1: Kích thước tập tin
+admin.store.plugin_owners_confirm.848.2: Xấp xỉ.
+admin.store.plugin_owners_confirm.850: 'Plugin này không hỗ trợ EC-CUBE %version%. Nó có thể không hoạt động đúng.'
+admin.store.plugin_owners_confirm.849: Giấy phép
+admin.store.plugin_owners_confirm.851: 'Điều này đòi hỏi %dependency% để làm việc. Nó cũng sẽ được cài đặt.'
+admin.store.plugin_owners_confirm.852: '<strong>Được phát triển bởi</strong> : '
 admin.store.plugin_owners_install.853: Owner's Store
-admin.store.plugin_owners_install.854: Purchased Plugins
-admin.store.plugin_owners_install.855: All Plugins
-admin.store.plugin_owners_install.856: Please set an authentication key
-admin.store.plugin_owners_install.857: Set an Authentication Key
-admin.store.plugin_owners_panel.858: Recommended Plugins
-admin.store.plugin_owners_panel.859: Installed
-admin.store.plugin_owners_panel.860: Update Now
-admin.store.plugin_owners_panel.861: Buy Now
-admin.store.plugin_owners_panel.862: Install Now
-admin.store.plugin_owners_panel.863: Plugin Version
-admin.store.plugin_owners_panel.864: Updated on
-admin.store.plugin_owners_panel.865: Supported EC-CUBE version
-admin.store.plugin_owners_panel.866: 'File Size<br>Approx. %size% KB'
-admin.store.plugin_owners_panel.867: 'This plugin does not support EC-CUBE %version%. It may not work properly.'
-admin.store.plugin_owners_panel.868: '<strong>Provided by</strong> : '
-admin.store.plugin_owners_search.form.placeholder: All
-admin.store.plugin_owners_search.form.category: Category
-admin.store.plugin_owners_search.form.price_type: Paid / Free
-admin.store.plugin_owners_search.form.price_type.fee: Paid
-admin.store.plugin_owners_search.form.price_type.free: Free
-admin.store.plugin_owners_search.form.keyword: Keywords
-admin.store.plugin_owners_search.form.sort.new: Latest
-admin.store.plugin_owners_search.form.sort.price: Lowest
+admin.store.plugin_owners_install.854: Plugin đã mua
+admin.store.plugin_owners_install.855: Tất cả Plugins
+admin.store.plugin_owners_install.856: Vui lòng đặt khóa xác thực
+admin.store.plugin_owners_install.857: Đặt khóa xác thực
+admin.store.plugin_owners_panel.858: Plugin được đề xuất
+admin.store.plugin_owners_panel.859: Cài đặt
+admin.store.plugin_owners_panel.860: Cập nhật bây giờ
+admin.store.plugin_owners_panel.861: Mua ngay
+admin.store.plugin_owners_panel.862: Cài đặt ngay
+admin.store.plugin_owners_panel.863: Phiên bản Plugin
+admin.store.plugin_owners_panel.864: Cập nhật vào
+admin.store.plugin_owners_panel.865: Phiên bản EC-CUBE được hỗ trợ
+admin.store.plugin_owners_panel.866: 'Kích thước tệp tin<br>xấp xỉ %size% KB'
+admin.store.plugin_owners_panel.867: 'Plugin này không hỗ trợ EC-CUBE %version%. Nó có thể không hoạt động đúng.'
+admin.store.plugin_owners_panel.868: '<strong>Phát triển bởi</strong> : '
+admin.store.plugin_owners_search.form.placeholder: Tất cả
+admin.store.plugin_owners_search.form.category: Danh mục
+admin.store.plugin_owners_search.form.price_type: Trả tiền / Miễn phí
+admin.store.plugin_owners_search.form.price_type.fee: Trả tiền
+admin.store.plugin_owners_search.form.price_type.free: Miễn phí
+admin.store.plugin_owners_search.form.keyword: Từ khóa
+admin.store.plugin_owners_search.form.sort.new: Mới nhất
+admin.store.plugin_owners_search.form.sort.price: Thấp nhất
 admin.store.plugin_owners_search.form.sort.dl: DL
-admin.store.plugin_owners_search.search_button: Search
-admin.store.plugin_owners_search.search_results: Search Results（%number% / %total% pages）
-admin.store.plugin_owners_search.latest: 'Latest Version:'
-admin.store.plugin_owners_search.dl: Downloads
-admin.store.plugin_owners_search.support: Supported Version
-admin.store.plugin_owners_search.detail: Details
-admin.store.plugin_owners_search.install.free: Get It
-admin.store.plugin_owners_search.install.fee: Buy It
-admin.store.plugin_owners_search.install: Installed
-admin.store.plugin_owners_search.modal.header: Product Details
-admin.store.plugin_owners_search.modal.contact: Document Request / Inquiry
-admin.store.plugin_owners_search.modal.manual: Download User Guide
-admin.store.plugin_owners_search.modal.note: 'This plugin does not support EC-CUBE %version%. It may not work properly.'
-admin.store.plugin_owners_search.modal.cancel: Go back to All
-admin.store.plugin_owners_search.modal.submit: Comfirm Installation
-admin.store.plugin_owners_search.modal.dependency: 'This requires %dependency% to work with. It will also be installed.'
+admin.store.plugin_owners_search.search_button: Tìm kiếm
+admin.store.plugin_owners_search.search_results: Kết quả tìm kiếm (%number% / %total% trang）
+admin.store.plugin_owners_search.latest: 'Phiên bản mới nhất:'
+admin.store.plugin_owners_search.dl: Tải xuống
+admin.store.plugin_owners_search.support: Phiên bản được hỗ trợ
+admin.store.plugin_owners_search.detail: Chi tiết
+admin.store.plugin_owners_search.install.free: Lấy nó
+admin.store.plugin_owners_search.install.fee: Mua nó
+admin.store.plugin_owners_search.install: Cài đặt
+admin.store.plugin_owners_search.modal.header: Thông tin chi tiết sản phẩm
+admin.store.plugin_owners_search.modal.contact: Thắc mắc / Yêu cầu Tài liệu
+admin.store.plugin_owners_search.modal.manual: Tải xuống Hướng dẫn sử dụng
+admin.store.plugin_owners_search.modal.note: 'Plugin này không hỗ trợ EC-CUBE %version%. Nó có thể không hoạt động đúng.'
+admin.store.plugin_owners_search.modal.cancel: Quay trở lại tất cả
+admin.store.plugin_owners_search.modal.submit: Xác nhận cài đặt
+admin.store.plugin_owners_search.modal.dependency: 'Điều này đòi hỏi %dependency% để làm việc với. Nó cũng sẽ được cài đặt.'
 admin.store.plugin_search.884: Owner's Store.
-admin.store.plugin_search.885: Find Plugins
-admin.store.plugin_search.886: Search Results
-admin.store.plugin_table.887: Plugin Name
-admin.store.plugin_table.888: Version
+admin.store.plugin_search.885: Tìm plugin
+admin.store.plugin_search.886: Kết quả tìm kiếm
+admin.store.plugin_table.887: Tên Plugin
+admin.store.plugin_table.888: Phiên bản
 admin.store.plugin_table.889: Code
-admin.store.plugin_table.890: Updates
-admin.store.plugin_table.891: Settings
-admin.store.plugin_table.892: (Suspended)
-admin.store.plugin_table.893: Disable
-admin.store.plugin_table.894: Enable
-admin.store.plugin_table.895: Are you sure to delete this plugin?
-admin.store.plugin_table.896: Delete
-admin.store.plugin_table.897: Show Details
-admin.store.plugin_table.898: Update
-admin.store.plugin_table.900: There is no plugin installed.
-admin.store.plugin_table.901: Status
-admin.store.plugin_table.902: Enable
-admin.store.plugin_table.903: Disable
-admin.store.plugin_table_official.901: Plugin Name
+admin.store.plugin_table.890: Cập nhật
+admin.store.plugin_table.891: Cài đặt
+admin.store.plugin_table.892: (Đình chỉ)
+admin.store.plugin_table.893: Vô hiệu hóa
+admin.store.plugin_table.894: Kích hoạt
+admin.store.plugin_table.895: Bạn có chắc chắn để xóa plugin này?
+admin.store.plugin_table.896: Xóa
+admin.store.plugin_table.897: Hiển thị chi tiết
+admin.store.plugin_table.898: Cập nhật
+admin.store.plugin_table.900: Không có plugin nào được cài đặt.
+admin.store.plugin_table.901: Trạng thái
+admin.store.plugin_table.902: Kích hoạt
+admin.store.plugin_table.903: Vô hiệu hóa
+admin.store.plugin_table_official.901: Tên Plugin
 admin.store.plugin_table_official.902: Plugin Thumnail
-admin.store.plugin_table_official.903: Plugin Version
+admin.store.plugin_table_official.903: Phiên bản Plugin
 admin.store.plugin_table_official.904: Plugin Code
-admin.store.plugin_table_official.905: Update
-admin.store.plugin_table_official.906: Settings
-admin.store.plugin_table_official.907: Developed by
-admin.store.plugin_table_official.908: (Suspended)
-admin.store.plugin_table_official.909: Disable
-admin.store.plugin_table_official.910: Enable
-admin.store.plugin_table_official.911: Delete
-admin.store.plugin_table_official.912: Show Details
-admin.store.plugin_table_official.913: Upload
-admin.store.plugin_table_official.914: A new version of this plugin is available.
-admin.store.plugin_table_official.915: 無効にする状態で利用可能
-admin.store.plugin_table_official.916: Update
-admin.store.plugin_table_official.917: 'Plugin Version: %version%'
-admin.store.plugin_table_official.918: 'Supported EC-CUBE Version: %versions%'
-admin.store.plugin_table_official.919: 'Updated on: %update_date%'
-admin.store.plugin_table_official.920: No updates available
-admin.store.plugin_table_official.921: Detailed Info
-admin.store.plugin_table_official.924: Enable
-admin.store.plugin_table_official.925: Disable
-admin.store.plugin_table_official.923: There is no plugin installed
+admin.store.plugin_table_official.905: Cập nhật
+admin.store.plugin_table_official.906: Cài đặt
+admin.store.plugin_table_official.907: Phát triển bởi
+admin.store.plugin_table_official.908: (Đình chỉ)
+admin.store.plugin_table_official.909: Vô hiệu hóa
+admin.store.plugin_table_official.910: Kích hoạt
+admin.store.plugin_table_official.911: Xóa
+admin.store.plugin_table_official.912: Hiển thị chi tiết
+admin.store.plugin_table_official.913: Tải lên
+admin.store.plugin_table_official.914: Một phiên bản mới của plugin này có sẵn.
+admin.store.plugin_table_official.915: Có sẵn ở trạng thái khuyết
+admin.store.plugin_table_official.916: Cập nhật
+admin.store.plugin_table_official.917: 'Phiên bản Plugin: %version%'
+admin.store.plugin_table_official.918: 'Phiên bản EC-CUBE được hỗ trợ: %versions%'
+admin.store.plugin_table_official.919: 'Cập nhật vào: %update_date%'
+admin.store.plugin_table_official.920: Không có cập nhật nào
+admin.store.plugin_table_official.921: Thông tin chi tiết
+admin.store.plugin_table_official.924: Kích hoạt
+admin.store.plugin_table_official.925: Vô hiệu hóa
+admin.store.plugin_table_official.923: Không có plugin nào được cài đặt
 admin.store.unregistered_plugin_table.941: Plugin
-admin.store.unregistered_plugin_table.942: Version
+admin.store.unregistered_plugin_table.942: Phiên bản
 admin.store.unregistered_plugin_table.943: Code
-admin.store.unregistered_plugin_table.944: Update
-admin.store.unregistered_plugin_table.945: Settings
-admin.store.unregistered_plugin_table.946: Unknown
-admin.store.unregistered_plugin_table.947: Unkonwn
-admin.store.unregistered_plugin_table.948: Show Details
-admin.store.unregistered_plugin_table.949: Unknown
-admin.store.unregistered_plugin_table.950: Settings
-admin.store.install.label: 'Plugin (zip、tar、tar.gz)'
+admin.store.unregistered_plugin_table.944: Cập nhật
+admin.store.unregistered_plugin_table.945: Cài đặt
+admin.store.unregistered_plugin_table.946: Không biết
+admin.store.unregistered_plugin_table.947: Không biết
+admin.store.unregistered_plugin_table.948: Hiển thị chi tiết
+admin.store.unregistered_plugin_table.949: Không biết
+admin.store.unregistered_plugin_table.950: Cài đặt
+admin.store.install.label: 'Plugin (zip, tar, tar.gz)'
 
 
 #------------------------------------------------------------------------------------
 # Information
 #------------------------------------------------------------------------------------
 
-admin.info: Information
-admin.info.official_site: Official Site
-admin.info.community: Developers Community
-admin.info.document: Documents
+admin.info: Thông tin
+admin.info.official_site: Website chính thức
+admin.info.community: Cộng đồng phát triển
+admin.info.document: Tài liệu
 
 #------------------------------------------------------------------------------------
 # ツールチップ

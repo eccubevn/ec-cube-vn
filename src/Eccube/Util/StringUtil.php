@@ -335,4 +335,20 @@ class StringUtil
 
         return $env;
     }
+
+    /**
+     * Translates a camel case string into a string with underscores (e.g. FirstName => first_name)
+     *
+     * @param string $str String in camel case format
+     * @return string $str Translated into underscore format
+     */
+    public static function toUnderscores($str)
+    {
+        $str = lcfirst($str);
+        $func = function ($str) {
+            return  "_" . strtolower($str[1]);
+        };
+
+        return preg_replace_callback('/([A-Z])/', $func, $str);
+    }
 }

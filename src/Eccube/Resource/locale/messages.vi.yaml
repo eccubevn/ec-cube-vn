@@ -298,7 +298,7 @@ front.cart.title: Giỏ hàng
 front.cart.nav__cart_items: Giỏ hàng
 front.cart.nav__customer_info: Thông tin khách hàng
 front.cart.nav__order: Kiểm tra
-front.cart.nav__confirm: Xem lại
+front.cart.nav__confirm: Xem trước
 front.cart.nav__complete: Đặt hàng
 front.cart.total_price: 'Tổng cộng: <strong>%price%</strong>'
 front.cart.divide_cart: Một số mặt hàng trong giỏ hàng không thể được mua theo thứ tự này.
@@ -1503,137 +1503,137 @@ admin.info.community: Cộng đồng phát triển
 admin.info.document: Tài liệu
 
 #------------------------------------------------------------------------------------
-# ツールチップ
+# Tooltip
 #------------------------------------------------------------------------------------
 
-tooltip.product.multi_search_label: You can filter the list with keywords. For more search options, open [Advanced Search].
-tooltip.product.product_id: The product ID is generated automatically.
-tooltip.product.sale_type: This will be used to specify sales types for different products such as physical products or digital products to download. The sales types can be edited at mtb_sale_type under [Master Data].
-tooltip.product.image: You can register multiple product images by drag & drop.
-tooltip.product.description_detail: These are product descriptions on each product page. HTML tags are accepted.
-tooltip.product.description_list: These are product descriptions on All Products page. If left empty, users will see no product descriptions there.
-tooltip.product.normal_price: If you have a special selling price, you can display regular price together.
-tooltip.product.search_word: These are keywords to be used for in-site search.
-tooltip.product.product_code: You can set your own product code.
-tooltip.product.sale_limit: This will limit the number of products shoppers can purchase at a time.
-tooltip.product.delivery_duration: You can register estimated shipping date per product.
-tooltip.product.product_class: You can review and manage the option(s) set to this product.
-tooltip.product.free_area: The entry will be displayed on the product page. The placement varies according to the design templates.
-tooltip.product.shop_memo: Notes for store use. This will not be displayed on the storefront.
-tooltip.product.backend_name: 'You can register an alias for administrator (e.g. Option Name: Size - Alias: Size (Clothing) or Size (Shoes) etc. It will not be displayed on the storefront.'
-tooltip.product.csv_upload: Bulk product registration is available with a CSV template.
-tooltip.product.csv_format: You can create a CSV data easily with templates available for downloads.
-tooltip.category.csv_upload: Bulk category registration is available with a CSV template.
-tooltip.category.csv_format: You can create a CSV data easily with templates available for downloads.
-tooltip.order.multi_search_label: You can filter the list with keywords. For detailed search options, please go to [Advanced Search].
-tooltip.order.order_search_status: You can filter the list by order status. The (number) indicates how may orders to be followed up on each status.
-tooltip.order.bulk_actions: Bulk processing is applied to the checked orders. Please be careful when you apply it.
-tooltip.order.order_info: General information of orders.
-tooltip.order.order_no: Order No. is automatically generated upon placing the order.
-tooltip.order.order_status: 受注の対応状況を変更できます。ただし新規受注登録以外。また、1受注で出荷先が複数ある場合は全て出荷されると対応状況が「出荷済」となります。
-tooltip.order.customer_id: Customer IDs which are automatically generated.
-tooltip.order.shipping_info: Displaying the delivery information. You can add delivery addresses too. If you have multiple delivery addresses within a order, you can check the delivery address details at [Edit Delivery Address].
-tooltip.order.shipping_info.tracking_number: If you have a tracking number (delivery slip number), you can enter from here. You can also bulk-input from All Orders.
-tooltip.order.shipping_info.delivery_provider: You can change delivery companies or delivery methods here. Please note the shipping charge may be updated if you change any of them.
-tooltip.order.shipping_info.shop_memo: You can save a note for shipping operators or delivery companies. You can review it in Shipping CSV etc.
-tooltip.order.product_info: Here displayed the purchased product information and the total amount including shipping charge or any other charges. If you add a product(s) or change the amount, please update the total amount as well.
-tooltip.order.shop_memo: You can save notes for store use. They are not displayed on the storefront.
-tooltip.order.mail_history: You can review the emails sent and create a new email.
-tooltip.order.mail_destination_info: You can send emails to shoppers.
-tooltip.order.mail_template: You can select an email template.
-tooltip.order.mail_subject: You can change the email title.
-tooltip.shipping.csv_upload: You can bulk-register shipping information with a CSV template.
-tooltip.shipping.csv_format: You can easily create CSV data in specified format with downloadable templates.
-tooltip.customer.multi_search_label: You can filter the list with keywords. To further refine your search, use [Advanced Search].
-tooltip.customer.customer_id: Auto-generated Customer IDs.
-tooltip.customer.customer_address: The delivery address registered by this customer. You can add a new address from this page as well.
-tooltip.customer.purchase_history: Order history of this customer is displayed here.
-tooltip.customer.shop_memo: Notes for store use. This will not be displayed on the storefront.
-tooltip.content.news.url: If there is a page which provides the details of this news, enter its URL. You can also enter external URLs.
-tooltip.content.news.body: You can use HTML tags.
-tooltip.content.layout_edit: You can drag & drop blocks for each template sections.
-tooltip.content.page_file_name: This is the name of a twig template file which has the page contents.
-tooltip.content.page_source_code: Editing the template file. Coding has to be with twig.
-tooltip.content.page_layout: Selecting the layouts to be applied to this page.
-tooltip.content.page_meta: You can enter the META tag contents of the page.
-tooltip.content.page_meta_tags: You can add META tag freely. You can also use variables used within twig.
-tooltip.content.block_name: This is a name of a block for management use.
-tooltip.content.block_file_name: This is the name of the twig template file which has this block contents. You can not change it later in the Admin Console.
-tooltip.content.block_source_code: Editing the template file. Coding has to be with twig.
-tooltip.setting.shop.shop.email_from: This will be the From address when you send emails from your store to your customers.
-tooltip.setting.shop.shop.email_for_inquiries: This is the email address by which you will receive the notice when someone submits an inquiry from the inquiry form.
-tooltip.setting.shop.shop.email_reply_to: This is the email address by which you will receive reply emails.
-tooltip.setting.shop.shop.email_return_path: This is the email address by which you will receive a notice when a transmission error occurs in sending emails from your store.
-tooltip.setting.shop.shop.good_traded: Brief descriptions of your products.
-tooltip.setting.shop.shop.message: This will be displayed on storefront. The placement varies according to the design templates.
-tooltip.setting.shop.shop.option_delivery_fee_free_amount: Shipping charge will be waived if a customer purchases more than this amount.
-tooltip.setting.shop.shop.option_delivery_fee_free_quantity: Shipping charge will be waived if a customer purchases more than this quantity.
-tooltip.setting.shop.shop.option_delivery_fee_by_product: If turned on, you can set shipping charge per product.
-tooltip.setting.shop.shop.option_customer_activate: This will register a customer as a temporary customer until email verification is completed, after which s/he will be registered as a regular customer.
-tooltip.setting.shop.shop.option_favorite_product: This allows users to save their favorite products as Favorites.
-tooltip.setting.shop.shop.option_remember_me: Allow customers to automatically sign in for certain period of time.
-tooltip.setting.shop.shop.option_product_tax: If turned on, you can set the tax rate per product.
-tooltip.setting.shop.shop.option_point_enabled: If turned on, the point system is enabled.
-tooltip.setting.shop.shop.option_point_rate: You can change the point return rate by purchase amount.
-tooltip.setting.shop.shop.option_point_conversion_rate: Conversion rate per 1 point. E.g. If you set ''1'', the point becomes available to shoppers with the rate of 1 point = 1 yen.
-tooltip.setting.shop.payment.logo_image: You can upload the payment option icons displayed in the payment methods during the checkout process. If not registered, the payment methods will be displayed w/o images.
-tooltip.setting.shop.delivery.tracking_number_url: Enter the URL of the shipping tracker of the delivery company.
-tooltip.setting.shop.delivery.sale_type: Specify the sales type(s) available for this delivery method.
-tooltip.setting.shop.delivery.apply_to_pref: The same shipping charge can be applied to all prefectures. You can later change the shipping rate for each prefecture one by one.
-tooltip.setting.shop.delivery.shop_memo: This is a note for store Owner''s. It is not displayed on the storefront.
-tooltip.setting.shop.tax_setting: You can set the tax rates applicable to all products. The general tax rate can be overwritten if you enter a new rate.
-tooltip.setting.shop.mail.mail_template: Please select an existing email template. Contents are displayed in the text field below.
-tooltip.setting.shop.csv.csv_columns: You can output various data in CSV format. You can specify the items for CSV output.
-tooltip.setting.shop.csv.csv_type: Specify the CSV file type.
-tooltip.setting.system.member.authority: You can select the authorization you have set under Authorization.
-tooltip.setting.system.member.work: You can set customers to inactive temporarily. If they are no longer necessary, please delete from All Customers.
-tooltip.setting.system.security.admin_url: Set the URL to sign in to the Admin Console. Please specify a URL which is hardly guessed.
-tooltip.setting.system.security.ip_limit: Restricting IP addresses which are allowed to sign in to the Admin Console.
-tooltip.setting.system.security.force_ssl: Restricting the access to the storefront and Admin Console to via SSL(https).
-tooltip.setting.system.log_display: Here you can check logs such as access logs and error logs etc.
-tooltip.setting.system.master_data_management: Manage all Master Data here.
-tooltip.setting.system.system_info: System environment information relevant to EC-CUBE.
-tooltip.setting.system.system.php_info: PHP details relevant to EC-CUBE.
+tooltip.product.multi_search_label: Để có thêm tùy chọn tìm kiếm, hãy mở [Tìm kiếm mở rộng].
+tooltip.product.product_id: ID sản phẩm được tạo ra tự động.
+tooltip.product.sale_type: Loại bán hàng này có thể được chỉnh sửa tại mtb_sale_type trong [Master Data].
+tooltip.product.image: Bạn có thể đăng ký nhiều hình ảnh sản phẩm bằng cách kéo và thả.
+tooltip.product.description_detail: Đây là những mô tả sản phẩm trên mỗi trang sản phẩm. Thẻ HTML được chấp nhận.
+tooltip.product.description_list: Nếu để trống, người dùng sẽ không thấy mô tả sản phẩm nào ở đó.
+tooltip.product.normal_price: Nếu bạn có giá bán đặc biệt, bạn có thể hiển thị giá thông thường cùng nhau.
+tooltip.product.search_word: Đây là những từ khóa được sử dụng để tìm kiếm tại chỗ.
+tooltip.product.product_code: Bạn có thể đặt mã sản phẩm của riêng bạn.
+tooltip.product.sale_limit: Điều này sẽ giới hạn số lượng sản phẩm người mua có thể mua tại một thời điểm.
+tooltip.product.delivery_duration: Bạn có thể đăng ký ngày vận chuyển ước tính cho mỗi sản phẩm.
+tooltip.product.product_class: Bạn có thể xem lại và quản lý các tùy chọn được đặt cho sản phẩm này.
+tooltip.product.free_area: Mục sẽ được hiển thị trên trang sản phẩm. Các vị trí thay đổi tùy theo các mẫu thiết kế.
+tooltip.product.shop_memo: Lưu ý khi sử dụng cửa hàng. Điều này sẽ không được hiển thị trên trang chủ của cửa hàng.
+tooltip.product.backend_name: 'Bạn có thể đăng ký bí danh cho quản trị viên (ví dụ Tên tùy chọn: Kích thước - Bí danh: Kích thước (Quần áo) hoặc Kích thước (Giày), v.v ... Nó sẽ không được hiển thị trên trang chủ của cửa hàng.'
+tooltip.product.csv_upload: Đăng ký sản phẩm số lượng lớn có sẵn với một mẫu CSV.
+tooltip.product.csv_format: Bạn có thể tạo dữ liệu CSV dễ dàng với các mẫu có sẵn để tải xuống.
+tooltip.category.csv_upload: Đăng ký danh mục hàng loạt có sẵn với một mẫu CSV.
+tooltip.category.csv_format: Bạn có thể tạo dữ liệu CSV dễ dàng với các mẫu có sẵn để tải xuống.
+tooltip.order.multi_search_label: Để biết các tùy chọn tìm kiếm chi tiết, vui lòng truy cập [Tìm kiếm mở rộng].
+tooltip.order.order_search_status: Bạn có thể lọc danh sách theo trạng thái đơn hàng. (Số) cho biết có bao nhiêu đơn hàng được theo dõi trên mỗi trạng thái.
+tooltip.order.bulk_actions: Xử lý hàng loạt được áp dụng cho các đơn đặt hàng được kiểm tra.
+tooltip.order.order_info: Thông tin chung của đơn hàng.
+tooltip.order.order_no: Số thứ tự được tạo tự động khi đặt hàng.
+tooltip.order.order_status: Bạn có thể thay đổi trạng thái tương ứng của đơn đặt hàng. Tuy nhiên, ngoại trừ nhập đơn hàng mới. Ngoài ra, nếu có nhiều điểm giao hàng trong một đơn hàng, tất cả sẽ được "vận chuyển" sau khi tất cả các lô hàng được thực hiện.
+tooltip.order.customer_id: ID khách hàng được tạo tự động.
+tooltip.order.shipping_info: Hiển thị thông tin giao hàng. Bạn cũng có thể thêm địa chỉ giao hàng. Nếu bạn có nhiều địa chỉ giao hàng trong một đơn hàng, bạn có thể kiểm tra chi tiết địa chỉ giao hàng tại [Chỉnh sửa địa chỉ giao hàng].
+tooltip.order.shipping_info.tracking_number: Nếu bạn có số theo dõi (số phiếu giao hàng), bạn có thể nhập từ đây. Bạn cũng có thể nhập số lượng lớn từ Tất cả các Đơn đặt hàng.
+tooltip.order.shipping_info.delivery_provider: Bạn có thể thay đổi công ty giao hàng hoặc phương thức giao hàng tại đây. Xin lưu ý rằng phí vận chuyển có thể được cập nhật nếu bạn có một thay đổi bất kỳ.
+tooltip.order.shipping_info.shop_memo: Bạn có thể lưu một ghi chú cho các nhà khai thác vận chuyển hoặc các công ty giao hàng. Bạn có thể xem lại trong CSV vận chuyển, v.v.
+tooltip.order.product_info: Ở đây hiển thị thông tin sản phẩm đã mua và tổng số tiền bao gồm phí vận chuyển hoặc bất kỳ khoản phí nào khác. Nếu bạn thêm một sản phẩm hoặc thay đổi số tiền, vui lòng cập nhật lại tổng số tiền.
+tooltip.order.shop_memo: Bạn có thể lưu ghi chú để sử dụng cửa hàng. Chúng không được hiển thị trên trang chủ của cửa hàng.
+tooltip.order.mail_history: Bạn có thể xem lại các email đã gửi và tạo một email mới.
+tooltip.order.mail_destination_info: Bạn có thể gửi email cho người mua hàng.
+tooltip.order.mail_template: Bạn có thể chọn một mẫu email.
+tooltip.order.mail_subject: Bạn có thể thay đổi tiêu đề email.
+tooltip.shipping.csv_upload: Bạn có thể đăng ký hàng loạt thông tin giao hàng với mẫu CSV.
+tooltip.shipping.csv_format: Bạn có thể dễ dàng tạo dữ liệu CSV ở định dạng được chỉ định bằng các mẫu có thể tải xuống.
+tooltip.customer.multi_search_label: Bạn có thể lọc danh sách với các từ khóa. Để tiếp tục tinh chỉnh tìm kiếm của bạn, hãy sử dụng [Tìm kiếm mở rộng].
+tooltip.customer.customer_id: ID khách hàng được tạo tự động.
+tooltip.customer.customer_address: Địa chỉ giao hàng được đăng ký bởi khách hàng này. Bạn cũng có thể thêm một địa chỉ mới từ trang này.
+tooltip.customer.purchase_history: Lịch sử đặt hàng của khách hàng này được hiển thị ở đây.
+tooltip.customer.shop_memo: Lưu ý khi sử dụng cửa hàng. Điều này sẽ không được hiển thị trên trang chủ của cửa hàng.
+tooltip.content.news.url: Nếu có một trang cung cấp các chi tiết của tin tức này, hãy nhập URL của nó. Bạn cũng có thể nhập URL bên ngoài.
+tooltip.content.news.body: Bạn có thể sử dụng các thẻ HTML.
+tooltip.content.layout_edit: Bạn có thể kéo và thả các khối cho từng phần mẫu.
+tooltip.content.page_file_name: Đây là tên của một tệp mẫu twig có nội dung trang.
+tooltip.content.page_source_code: Chỉnh sửa tập tin mẫu. Code phải viết theo chuẩn của twig
+tooltip.content.page_layout: Chọn bố cục sẽ được áp dụng cho trang này.
+tooltip.content.page_meta: Bạn có thể nhập nội dung thẻ META của trang.
+tooltip.content.page_meta_tags: Bạn có thể thêm thẻ META một cách tự do. Bạn cũng có thể sử dụng các biến được sử dụng trong twig.
+tooltip.content.block_name: Đây là tên của một khối để sử dụng quản lý.
+tooltip.content.block_file_name: Đây là tên của tệp mẫu twig có nội dung khối này. Bạn không thể thay đổi nó sau này trong Bảng điều khiển dành cho quản trị viên.
+tooltip.content.block_source_code: Chỉnh sửa tập tin mẫu. Code phải viết theo chuẩn của twig.
+tooltip.setting.shop.shop.email_from: Đây sẽ là địa chỉ khi bạn gửi email từ cửa hàng của mình đến khách hàng.
+tooltip.setting.shop.shop.email_for_inquiries: Đây là địa chỉ email mà bạn sẽ nhận được thông báo khi ai đó gửi yêu cầu từ mẫu yêu cầu.
+tooltip.setting.shop.shop.email_reply_to: Đây là địa chỉ email mà bạn sẽ nhận được email trả lời.
+tooltip.setting.shop.shop.email_return_path: Đây là địa chỉ email mà bạn sẽ nhận được thông báo khi xảy ra lỗi truyền trong khi gửi email từ cửa hàng của bạn.
+tooltip.setting.shop.shop.good_traded: Mô tả ngắn gọn về các sản phẩm của bạn.
+tooltip.setting.shop.shop.message: Điều này sẽ được hiển thị trên trang sản phẩm của cửa hàng. Các vị trí thay đổi theo các mẫu thiết kế.
+tooltip.setting.shop.shop.option_delivery_fee_free_amount: Phí vận chuyển sẽ được miễn nếu khách hàng mua nhiều hơn số tiền này.
+tooltip.setting.shop.shop.option_delivery_fee_free_quantity: Phí vận chuyển sẽ được miễn nếu khách hàng mua nhiều hơn số lượng này.
+tooltip.setting.shop.shop.option_delivery_fee_by_product: Nếu được bật, bạn có thể đặt phí vận chuyển cho mỗi sản phẩm.
+tooltip.setting.shop.shop.option_customer_activate: Điều này sẽ đăng ký một khách hàng là một khách hàng tạm thời cho đến khi hoàn tất xác minh email, sau đó họ sẽ được đăng ký như một khách hàng thường xuyên.
+tooltip.setting.shop.shop.option_favorite_product: Điều này cho phép người dùng lưu các sản phẩm yêu thích của họ dưới dạng Favorites.
+tooltip.setting.shop.shop.option_remember_me: Cho phép khách hàng tự động đăng nhập trong một khoảng thời gian nhất định.
+tooltip.setting.shop.shop.option_product_tax: Nếu được bật, bạn có thể đặt mức thuế cho mỗi sản phẩm.
+tooltip.setting.shop.shop.option_point_enabled: Nếu được bật, hệ thống điểm được bật.
+tooltip.setting.shop.shop.option_point_rate: Bạn có thể thay đổi tỷ lệ trả lại điểm theo số tiền mua.
+tooltip.setting.shop.shop.option_point_conversion_rate: Tỷ lệ chuyển đổi trên 1 điểm. Ví dụ. Nếu bạn đặt '1', điểm sẽ có sẵn cho người mua hàng với tỷ lệ 1 điểm = 1 đồng.
+tooltip.setting.shop.payment.logo_image: Bạn có thể tải lên các biểu tượng tùy chọn thanh toán được hiển thị trong các phương thức thanh toán trong quá trình thanh toán. Nếu không được đăng ký, các phương thức thanh toán sẽ được hiển thị với hình ảnh.
+tooltip.setting.shop.delivery.tracking_number_url: Nhập URL của trình theo dõi vận chuyển của công ty giao hàng.
+tooltip.setting.shop.delivery.sale_type: Chỉ định loại bán hàng có sẵn cho phương thức giao hàng này.
+tooltip.setting.shop.delivery.apply_to_pref: Phí vận chuyển tương tự có thể được áp dụng cho tất cả các quận. Sau này bạn có thể thay đổi giá vận chuyển cho từng quận.
+tooltip.setting.shop.delivery.shop_memo: Đây là một lưu ý cho chủ cửa hàng. Nó không được hiển thị trên chủ của cửa hàng.
+tooltip.setting.shop.tax_setting: Bạn có thể đặt mức thuế áp dụng cho tất cả các sản phẩm. Thuế suất chung có thể được ghi đè nếu bạn nhập một mức giá mới.
+tooltip.setting.shop.mail.mail_template: Vui lòng chọn một mẫu email hiện có. Nội dung được hiển thị trong trường văn bản dưới đây.
+tooltip.setting.shop.csv.csv_columns: Bạn có thể xuất dữ liệu khác nhau ở định dạng CSV. Bạn có thể chỉ định các mục cho đầu ra CSV.
+tooltip.setting.shop.csv.csv_type: Chỉ định loại tệp CSV.
+tooltip.setting.system.member.authority: Bạn có thể chọn ủy quyền bạn đã đặt trong Ủy quyền.
+tooltip.setting.system.member.work: Bạn có thể đặt khách hàng tạm thời không hoạt động. Nếu chúng không còn cần thiết, vui lòng xóa khỏi Tất cả khách hàng.
+tooltip.setting.system.security.admin_url: Đặt URL để đăng nhập vào Bảng điều khiển dành cho quản trị viên. Hãy chỉ định một URL khó đoán được.
+tooltip.setting.system.security.ip_limit: Hạn chế địa chỉ IP được phép đăng nhập vào Bảng điều khiển dành cho quản trị viên.
+tooltip.setting.system.security.force_ssl: Hạn chế quyền truy cập vào cửa hàng và Bảng điều khiển dành cho quản trị viên thông qua SSL (https).
+tooltip.setting.system.log_display: Tại đây bạn có thể kiểm tra nhật ký như nhật ký truy cập và nhật ký lỗi, v.v.
+tooltip.setting.system.master_data_management: Quản lý tất cả dữ liệu chủ ở đây.
+tooltip.setting.system.system_info: Thông tin môi trường hệ thống liên quan đến EC-CUBE.
+tooltip.setting.system.system.php_info: Chi tiết PHP có liên quan đến EC-CUBE.
 
 #====================================================================================
 # Installation
 #====================================================================================
 
-install.next: Next
-install.back: Previous
-install.update: Update
-install.title: Welcome | EC-CUBE Installation
-install.welcom: Welcome
-install.check_permission: Permission Verification
-install.site_configuration: Site Configuration
-install.database_configuration: Database Configuration
-install.database_initalization: Database Initialization
-install.install_completed: Installation Completed
-install.start_eccube_installation: '<p>The installation of EC-CUBE will be started.</p><p>Please have your database information (database name etc) at hand.</p>'
-install.cooperation_of_providing_information: 'To improve EC-CUBE and debagging, please provide your site information. We will not use the provided information other than these purposes.<br><span class="small">（Site Info: Store URL, PHP Version, DB Version）</span>'
-install.accept_infomation_provision: Accept to Submit
-install.permission_is_valid: The access permission is working properly
-install.permission_is_invalid: Please change the access permission of the following directories.
-install.system_requirement: Please verify the system requirements.
-install.required_extension_disabled: '[Required] %module% extension module is disabled.'
-install.required_database_extension_disabled: '[Required] Please enable pdo_pgsql or pdo_mysql extension modules.'
-install.recommend_extension_disabled: '[Recommended] %module% extension module is disabled.'
-install.mod_rewrite_unknown: It is unknown if mod_rewrite is enabled.
-install.mod_rewrite_disabled: '[Required] mod_rewrite is disabled.'
+install.next: Kế tiếp
+install.back: Quay lại
+install.update: Cập nhật
+install.title: Chào mừng | Cài đặt EC-CUBE
+install.welcom: Chào mừng
+install.check_permission: Xác minh quyền
+install.site_configuration: Cấu hình trang web
+install.database_configuration: Cấu hình cơ sở dữ liệu
+install.database_initalization: Khởi tạo cơ sở dữ liệu
+install.install_completed: Cài đặt hoàn tất
+install.start_eccube_installation: '<p>Việc cài đặt EC-CUBE sẽ được bắt đầu.</p><p>Vui lòng chuẩn bị sẵn thông tin cơ sở dữ liệu của bạn (tên cơ sở dữ liệu, v.v.).</p>'
+install.cooperation_of_providing_information: 'Để cải thiện EC-CUBE và gỡ lỗi, vui lòng cung cấp thông tin trang web của bạn. Chúng tôi sẽ không sử dụng thông tin được cung cấp ngoài các mục đích này.<br><span class="small">（Thông tin trang web: URL cửa hàng, Phiên bản PHP, Phiên bản DB）</span>'
+install.accept_infomation_provision: Chấp nhận gửi
+install.permission_is_valid: Quyền truy cập đang hoạt động đúng
+install.permission_is_invalid: Vui lòng thay đổi quyền truy cập của các thư mục sau.
+install.system_requirement: Vui lòng xác minh các yêu cầu hệ thống.
+install.required_extension_disabled: '[Bắt buộc] %module% mô-đun mở rộng bị vô hiệu hóa.'
+install.required_database_extension_disabled: '[Bắt buộc] Vui lòng bật các mô-đun mở rộng pdo_pgsql hoặc pdo_mysql.'
+install.recommend_extension_disabled: '[Khuyến nghị] %module% mô-đun mở rộng bị tắt.'
+install.mod_rewrite_unknown: Không biết mod_rewrite có được bật hay không.
+install.mod_rewrite_disabled: '[Bắt buộc] mod_rewrite bị tắt.'
 install.member_name: Administrator
-install.member_department:
-install.shop_name: Store Name
-install.mail_address: Email (To receive orders etc.)
-install.login_id: ID for Admin Console (alphanumeric %min% - %max% chars）
-install.login_password: Admin Console Password (alphanumeric %min% - %max% chars）
-install.security_configuration: Security Settings
-install.directory_name: Admin Console Directory Name (alphanumeric %min% - %max% chars）
-install.directory_name_notice: To ensure the security, please enter a directory name hard to guess.
-install.https_only: Restricting the access to the site to via SSL(https) only.
-install.https_only_notice: Only the https access is allowed to set SSL restrictions.
-install.ip_restriction: Restricting the access to the Admin Console to the following IP addresses.
-install.ip_is_invalid: '%ip% is not an IPv4 address'
-install.mail_configuration: Email Settings
+install.member_department: Bộ phận
+install.shop_name: Tên cửa hàng
+install.mail_address: Email (Để nhận đơn đặt hàng, vv)
+install.login_id: ID cho Bảng điều khiển dành cho quản trị viên (chữ số %min% - %max% ký tự)
+install.login_password: Mật khẩu bảng điều khiển dành cho quản trị viên (chữ số %min% - %max% ký tự)
+install.security_configuration: Cài đặt bảo vệ hệ thống
+install.directory_name: Tên thư mục bảng điều khiển dành cho quản trị viên (chữ số %min% - %max% ký tự)
+install.directory_name_notice: Để đảm bảo an ninh, vui lòng nhập tên thư mục khó đoán.
+install.https_only: Chỉ giới hạn quyền truy cập vào trang web thông qua SSL (https).
+install.https_only_notice: Chỉ có quyền truy cập https mới được phép đặt giới hạn SSL.
+install.ip_restriction: Hạn chế quyền truy cập vào Bảng điều khiển dành cho quản trị viên đối với các địa chỉ IP sau.
+install.ip_is_invalid: '%ip% không phải là địa chỉ IPv4'
+install.mail_configuration: Cài đặt email
 install.smtp_host: SMTP Host
 install.smtp_port: SMTP Port
 install.smtp_user: SMTP User
@@ -1647,38 +1647,38 @@ install.database_port: Database Port Name
 install.database_name: Database Name
 install.database_user: User Name
 install.database_password: Password
-install.database_connection_error: Unable to access the database.
-install.database_do_initialize: Initializing the database. It may take a while to complete.<br>It will be suspended if you have already created tables etc.
-install.database_skip_notice: Please check here if you do not want to delete the existing data from the older versions.
-install.database_skip: Do not initialize the database
-install.completed: Successfully installed!
-install.access_admin_page: Let's access the Admin Console.
-install.perform_initial_setting: You can login the Admin Console with the ID and password you have just registered. Try your favorite design and upload products!
-install.go_to_admin_page: Go to Admin Console
+install.database_connection_error: Không thể truy cập cơ sở dữ liệu.
+install.database_do_initialize: Đang khởi tạo cơ sở dữ liệu. Nó có thể mất một thời gian để hoàn thành. <br> Nó sẽ bị đình chỉ nếu bạn đã tạo bảng, vv
+install.database_skip_notice: Vui lòng tích vào đây nếu bạn không muốn xóa dữ liệu hiện có khỏi các phiên bản cũ hơn.
+install.database_skip: Không khởi tạo cơ sở dữ liệu
+install.completed: Cài đặt thành công!
+install.access_admin_page: Hãy truy cập Bảng điều khiển dành cho quản trị viên.
+install.perform_initial_setting: Bạn có thể đăng nhập Bảng điều khiển dành cho quản trị viên bằng ID và mật khẩu bạn vừa đăng ký. Hãy thử thiết kế yêu thích của bạn và tải lên các sản phẩm!
+install.go_to_admin_page: Chuyển đến Bảng điều khiển dành cho quản trị viên
 
 #------------------------------------------------------------------------------------
 # Error Pages
 #------------------------------------------------------------------------------------
 
-exception.error_title: System error occurred.
-exception.error_message: Pleaese contact site administrator. We are sorry for the inconvenience.
-exception.error_title_can_not_access: Unable to access.
-exception.error_message_can_not_access: The page you reached is not available. It may have been moved or deleted.
-exception.error_title_not_found: Page not found.
-exception.error_message_not_found: Please check if the URL is correct.
+exception.error_title: Xảy ra lỗi hệ thống
+exception.error_message: Vui lòng liên hệ với quản trị viên trang web. Chúng tôi xin lỗi về sự bất tiện này.
+exception.error_title_can_not_access: Không thể truy cập.
+exception.error_message_can_not_access: Trang web hiện không có sẵn. Nó có thể đã được thay đổi hoặc xóa.
+exception.error_title_not_found: Trang không tìm thấy.
+exception.error_message_not_found: Vui lòng kiểm tra xem URL có đúng không.
 
 #------------------------------------------------------------------------------------
 # Purchase Flow
 #------------------------------------------------------------------------------------
 
-purchase_flow.delivery_fee_update: Shipping charge has been updated. Please confirm the total amount.
-purchase_flow.charge_update: Charge has been updated. Please confirm the total amount.
-purchase_flow.over_customer_point: You are not able to use points more than your current points.
-purchase_flow.over_payment_total: The points are more than the total amount.
-purchase_flow.over_stock: '%name% does not have enough stock.'
+purchase_flow.delivery_fee_update: Phí vận chuyển đã được cập nhật. Vui lòng xác nhận tổng số tiền.
+purchase_flow.charge_update: Phí đã được cập nhật. Vui lòng xác nhận tổng số tiền.
+purchase_flow.over_customer_point: Bạn không thể sử dụng điểm nhiều hơn điểm hiện tại của bạn.
+purchase_flow.over_payment_total: Điểm nhiều hơn tổng số tiền.
+purchase_flow.over_stock: '%name% không có đủ số lượng.'
 
 #------------------------------------------------------------------------------------
 # Command
 #------------------------------------------------------------------------------------
 
-command.composer_require_already_installed.not_supported_plugin: %name% %plugin_version% does not support EC-CUBE %eccube_version% . Do you want to continue?
+command.composer_require_already_installed.not_supported_plugin: %name% %plugin_version% không hỗ trợ EC-CUBE %eccube_version%. Bạn có muốn tiếp tục?

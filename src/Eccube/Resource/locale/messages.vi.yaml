@@ -65,7 +65,7 @@ common.discount: Giảm giá
 common.point: Điểm
 common.enabled: Kích hoạt
 common.disabled: Vô hiệu hóa
-common.user_name: '%last_name% %first_name%'
+common.user_name: '(Ông/bà) %last_name% %first_name%'
 common.user_name.honor: '(Mr/Ms)'
 common.login: Đăng nhập
 common.remember_me: Ghi nhớ tôi
@@ -1683,3 +1683,22 @@ purchase_flow.over_stock: '%name% does not have enough stock.'
 #------------------------------------------------------------------------------------
 
 command.composer_require_already_installed.not_supported_plugin: %name% %plugin_version% does not support EC-CUBE %eccube_version% . Do you want to continue?
+
+#------------------------------------------------------------------------------------
+# Order PDF
+#------------------------------------------------------------------------------------
+order_pdf.service.detail.col1: 'Tên sản phẩm / Mã sản phẩm'
+order_pdf.service.detail.col2: Slượng
+order_pdf.service.detail.col3: Đơn giá
+order_pdf.service.detail.col4: 'Số tiền (thuế)'
+order_pdf.service.print_date: 'Ngày tạo: %date%'
+order_pdf.service.file_name: 'Donhang.pdf'
+order_pdf.service.file_name_multiple: 'Donhang-No%order_id%.pdf'
+order_pdf.service.tel: 'Số điện thoại: %tel%'
+order_pdf.service.email: 'Email: %email%'
+order_pdf.service.note: '＜Ghi chú＞'
+order_pdf.service.subtotal: 'Sản phẩm'
+order_pdf.service.delivery_fee: 'Vận chuyển'
+order_pdf.service.charge: 'Phí giao dịch'
+order_pdf.service.discount: 'Giảm giá'
+order_pdf.service.payment_total: 'Thanh Toán'

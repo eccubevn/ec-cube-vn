@@ -499,7 +499,7 @@ admin.common.update_date: Date of Updating
 admin.common.update_date__start: Date of Updating (Start)
 admin.common.update_date__end: Date of Updating (End)
 admin.common.last_update_date: Last updated
-admin.common.last_updater: Last updated by
+admin.common.last_updater: Cập nhật lần cuối
 admin.common.device_type: Type of Device
 admin.common.authority: Role
 admin.common.payment_method: Payment Method

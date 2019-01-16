@@ -4,7 +4,7 @@
 
 common.select: Vui lòng chọn
 common.select__pref: Chọn tỉnh thành
-common.select__unspecified: Unspecified
+common.select__unspecified: Chưa chọn
 common.select__all_products: Tất cả sản phẩm
 common.required: (*)
 common.back: Quay lại
@@ -276,11 +276,11 @@ front.product.search__product_not_found: Không có sản phẩm nào được t
 front.product.search_result__keyword:  Kết quả tìm kiếm cho ''%name%''
 front.product.search_result__detail: '<span class="ec-font-bold">%count% sản phẩm</span><span> tìm được</span>'
 front.product.add_cart: Thêm vào giỏ hàng
-front.product.add_cart_complete: Các mặt hàng đã được thêm vào giỏ hàng.
+front.product.add_cart_complete: Các sản phẩm đã được thêm vào giỏ hàng.
 front.product.add_cart_error: Bạn đã thất bại trong việc thêm các mục vào giỏ hàng.
 front.product.add_favorite: Thêm vào mục yêu thích
 front.product.add_favorite_alrady: Mục này đã có trong mục Yêu thích.
-front.product.out_of_stock: Các mặt hàng đã hết.
+front.product.out_of_stock: Các sản phẩm đã hết.
 front.product.out_of_stock_label: (Hết hàng)
 front.product.added_to_favorite: Mục này đã có trong mục Yêu thích.
 front.product.normal_price: Giá thường
@@ -302,7 +302,7 @@ front.cart.nav__order: Kiểm tra
 front.cart.nav__confirm: Xem trước
 front.cart.nav__complete: Đặt hàng
 front.cart.total_price: 'Tổng cộng: <strong>%price%</strong>'
-front.cart.divide_cart: Một số mặt hàng trong giỏ hàng không thể được mua theo thứ tự này.
+front.cart.divide_cart: Một số sản phẩm trong giỏ hàng không thể được mua theo thứ tự này.
 front.cart.delete.confirm: 'Bạn có chắc muốn xóa mục này ra khỏi giỏ hàng?'
 front.cart.delete: ''
 front.cart.delete__confirm: Bạn có chắc chắn để xóa mục này khỏi giỏ hàng?
@@ -346,8 +346,8 @@ front.shopping.shipping_add_new_shipping__short: Thêm một địa chỉ
 front.shopping.shipping_unselected: Vui lòng chọn một địa chỉ giao hàng.
 front.shopping.shipping_send_selected_shipping: Gửi đến địa chỉ đã chọn
 front.shopping.shipping_multiple_title: Giao hàng đến nhiều địa chỉ
-front.shopping.shipping_multiple_message: Vui lòng chọn một địa chỉ giao hàng cho mỗi mặt hàng.
-front.shppping.shipping_multiple_add_shipping: Vui lòng chọn một địa chỉ giao hàng cho mỗi mặt hàng.
+front.shopping.shipping_multiple_message: Vui lòng chọn một địa chỉ giao hàng cho mỗi sản phẩm.
+front.shppping.shipping_multiple_add_shipping: Vui lòng chọn một địa chỉ giao hàng cho mỗi sản phẩm.
 front.shopping.confirm_title: Xem lại đơn hàng của bạn.
 front.shopping.checkout: Đặt hàng
 front.shopping.back_to_order: Quay trở lại
@@ -372,10 +372,10 @@ front.shopping.over_sale_limit: 'Rất tiếc, chúng đang hạn chế việc b
 front.shopping.out_of_stock_zero: 'Xin lỗi, chúng tôi không có đủ cổ số lượng cho %product%. Mục này đã được xóa khỏi giỏ hàng.'
 front.shopping.over_price_limit: Xin lỗi, số lượng vượt quá số lượng mua tối đa. Vui lòng giảm số lượng mua
 front.shopping.in_preparation: 'Xin lỗi, %product% chưa sẵn sàng cho việc giao hàng. Vui lòng liên hệ với chúng tôi từ form liên. Chúng tôi xin lỗi về sự bất tiện này.'
-front.shopping.not_purchase: Xin lỗi, đơn đặt hàng của bạn bao gồm các mặt hàng hiện không có sẵn. Nó đã bị xóa khỏi giỏ hàng của bạn.
+front.shopping.not_purchase: Xin lỗi, đơn đặt hàng của bạn bao gồm các sản phẩm hiện không có sẵn. Nó đã bị xóa khỏi giỏ hàng của bạn.
 front.shopping.price_changed: Giá của %product% đã được thay đổi.
 front.shopping.payment_total_invalid: Tổng số tiền không đúng.
-front.shopping.different_payment_methods: Xin lỗi, đơn đặt hàng của bạn bao gồm các mặt hàng với các phương thức mua khác nhau, không thể được xử lý trong một đơn hàng.
+front.shopping.different_payment_methods: Xin lỗi, đơn đặt hàng của bạn bao gồm các sản phẩm với các phương thức mua khác nhau, không thể được xử lý trong một đơn hàng.
 front.shopping.payment_method_unselected: Vui lòng chọn phương thức thanh toán.
 front.shopping.payment_method_not_fount: Xin lỗi, bạn không có tùy chọn thanh toán. Nếu bạn đã chọn nhiều phương pháp giao hàng, bạn chỉ có thể chọn các tùy chọn thanh toán tương tự cho tất cả chúng.
 
@@ -418,7 +418,7 @@ admin.common.confirm: Xác nhận
 admin.common.execute: Gửi đi
 admin.common.close: Đóng
 admin.common.bulk_registration: Đăng ký tất cả
-admin.common.decision: Gửi đi
+admin.common.decision: Chấp nhận
 admin.common.create: Tạp
 admin.common.create__new: Tạo mới
 admin.common.up: Di chuyển lên
@@ -441,7 +441,7 @@ admin.common.required: Bắt buộc
 admin.common.bulk_actions: Tất cả
 admin.common.select: Vui lòng chọn
 admin.common.select__pref: Chọn tỉnh thành
-admin.common.select__unspecified: Không xác định
+admin.common.select__unspecified: Chưa chọn
 admin.common.separator__range: '-'
 admin.common.separator__colon: ':'
 admin.common.count: '%count% mục'
@@ -513,9 +513,9 @@ admin.common.update_date: Ngày cập nhật
 admin.common.update_date__start: Date of Updating (Start)
 admin.common.update_date__end: Ngày cập nhật (Bắt đầu)
 admin.common.last_update_date: Cập nhật gần nhất
-admin.common.last_updater: Last updated by
-admin.common.device_type: Cập nhật lần cuối bởi
-admin.common.authority: Role
+admin.common.last_updater: Cập nhật lần cuối
+admin.common.device_type: Loại thiết bị
+admin.common.authority: Vai trò
 admin.common.payment_method: Phương thức thanh toán
 admin.common.charge: Phí
 #------------------------------------------------------------------------------------
@@ -533,7 +533,7 @@ admin.home.shop_status_out_of_stock: Số lượng hàng tồn kho
 admin.home.shop_status_products: Số lượng sản phẩm
 admin.home.shop_status_customers: Số lượng của khách hàng
 admin.home.sales_summary_title: Bán hàng
-admin.home.sales_summary_value: '%amount% / %count% mặt hàng đã bán'
+admin.home.sales_summary_value: '%amount% / %count% sản phẩm đã bán'
 admin.home.sales_summary_this_month: 'Tháng này: Số lượng / Khối lượng bán hàng'
 admin.home.sales_summary_today: 'Hôm nay: Số lượng / Khối lượng bán hàng'
 admin.home.sales_summary_yesterday: 'Hôm qua: Số lượng / Khối lượng bán hàng'
@@ -575,7 +575,7 @@ admin.product.product_class_registration: Product Options
 admin.product.class_management: Tùy chọn
 admin.product.class_category_management: Nhóm tùy chọn
 admin.product.category_management: Danh mục
-admin.product.tag_management: Tags
+admin.product.tag_management: Thẻ
 admin.product.product_csv_upload: Sản phẩm CSV
 admin.product.category_csv_upload: Danh mục CSV
 
@@ -591,8 +591,8 @@ admin.product.product__card_title: Thông tin sản phẩm
 admin.product.preview: Xem trước
 admin.product.product_id: ID sản phẩm
 admin.product.product_id__short: ID
-admin.product.display_status: Trạng thái hiển thị
-admin.product.display_status__short: Trạng thái hiển thị
+admin.product.display_status: Trạng thái
+admin.product.display_status__short: Trạng thái
 admin.product.display_status__show: Hiển thị
 admin.product.display_status__hide: Ẩn
 admin.product.display_status__abolished: Ngưng
@@ -611,12 +611,12 @@ admin.product.image__short: Hình ảnh
 admin.product.image_size: 'Nên chọn ảnh có độ phân giải lớn hơn 600x600 (px)'
 admin.product.sale_type: Loại hình bán hàng
 admin.product.description_detail: Mô tả sản phẩm
-admin.product.description_list: Mô tả sản phẩm (Tất cả)
+admin.product.description_list: Mô tả sản phẩm (chi tiết)
 admin.product.description_list__add: Thêm mô tả sản phẩm
 admin.product.price: Giá
 admin.product.sale_price: Giá bán # price02
 admin.product.normal_price: Giá thường # price01
-admin.product.stock: SL trong kho
+admin.product.stock: Tồn kho
 admin.product.stock__short: Tồn kho
 admin.product.stock__in_stock: Có sẵn
 admin.product.stock__out_of_stock: Không có sẵn
@@ -628,8 +628,8 @@ admin.product.sale_limit: Số lượng đặt hàng tối đa
 admin.product.delivery_duration: Ngày giao hàng dự kiến
 admin.product.delivery_fee: Phí giao hàng
 admin.product.tax_rate: VAT
-admin.product.free_area: Linh tinh
-admin.product.free_area__card_title: Linh tinh
+admin.product.free_area: Mô tả thêm
+admin.product.free_area__card_title: Mô tả thêm
 admin.product.delete_flag: Cờ xóa sản phẩm
 admin.product.search_category: Tìm kiếm danh mục
 admin.product.save_tag: Tags
@@ -677,8 +677,8 @@ admin.product.category_id: |
 admin.product.category_name: ID danh mục
 admin.product.parent_category_id: ID danh mục cha
 admin.product.category_all: Tất cả các danh mục
-admin.product.tag: Tags
-admin.product.tag__product_card_title: Tags
+admin.product.tag: Thẻ
+admin.product.tag__product_card_title: Thẻ
 admin.product.select__class1: Chọn tùy chọn 1
 admin.product.select__class2: Chọn tùy chon 2
 admin.product.select__can_not_select_same_class: Bạn không được phép chọn tùy chọn tương tự như Tùy chọn 1
@@ -687,19 +687,19 @@ admin.product.unselected_class: Không được chọn
 # Product CSV Templates
 admin.product.product_csv.product_id_col: ID sản phẩm
 admin.product.product_csv.product_id_description: Để đăng ký sản phẩm mới, xin vui lòng để trống. Để cập nhật thông tin sản phẩm đã đăng ký, vui lòng ghi rõ
-admin.product.product_csv.display_status_col: Trạng thái hiển thị (ID)
+admin.product.product_csv.display_status_col: Trạng thái (ID)
 admin.product.product_csv.display_status_description: ''
 admin.product.product_csv.product_name_col: Tên sản phẩm
 admin.product.product_csv.product_name_description: ''
 admin.product.product_csv.shop_memo_col: Ghi chú cửa hàng
 admin.product.product_csv.shop_memo_description: ''
-admin.product.product_csv.description_list_col: Mô tả sản phẩm (Tất cả)
+admin.product.product_csv.description_list_col: Mô tả sản phẩm (chi tiết)
 admin.product.product_csv.description_list_description: ''
 admin.product.product_csv.description_detail_col: Mô tả sản phẩm (Chi tiết)
 admin.product.product_csv.description_detail_description: ''
 admin.product.product_csv.keyword_col: Từ khóa tìm kiếm
 admin.product.product_csv.keyword_description: ''
-admin.product.product_csv.free_area_col: Linh tinh
+admin.product.product_csv.free_area_col: Mô tả thêm
 admin.product.product_csv.free_area_description: ''
 admin.product.product_csv.delete_flag_col: Cờ xóa sản phẩm
 admin.product.product_csv.delete_flag_description: 'Chỉ định: 0 => Đăng ký; 1 => Xóa. Nếu không được chỉ định, nó sẽ được đặt thành 0.'
@@ -876,7 +876,7 @@ admin.order.delivery_note_output_format__browser: Mở trong trình duyệt
 admin.order.delivery_note_output_format__file: Lưu dưới dạng tệp
 admin.order.delivery_note_message: Thông điệp
 admin.order.delivery_note_message__default1: Cảm ơn đã đi mua sắm với chúng tôi.
-admin.order.delivery_note_message__default2: Dưới đây là các mặt hàng được giao.
+admin.order.delivery_note_message__default2: Dưới đây là các sản phẩm được giao.
 admin.order.delivery_note_message__default3: Vui lòng xác nhận các chi tiết.
 admin.order.delivery_note_memo: Ghi chú
 admin.order.delivery_note_line1: Dòng 1
@@ -1052,15 +1052,15 @@ admin.setting.shop.delivery_list: Tất cả các phương thức giao hàng
 admin.setting.shop.delivery_setting: Cài đặt giao hàng
 admin.setting.shop.tax_setting: Thuế (VAT)
 admin.setting.shop.mail_setting: Email
-admin.setting.shop.csv_setting: Đầu ra CSV
+admin.setting.shop.csv_setting: Thiết lập CSV
 admin.setting.system: Cài đặt hệ thống
 admin.setting.system.member_management: Người dùng
 admin.setting.system.member_password_change: Mật khẩu
 admin.setting.system.authority_management: Giấy phép
 admin.setting.system.security_management: Bảo mật
-admin.setting.system.log_display: Logs
+admin.setting.system.log_display: Nhật ký
 admin.setting.system.log_confirm: Xác nhận
-admin.setting.system.master_data_management: Master Data
+admin.setting.system.master_data_management: Dữ liệu chính
 admin.setting.system.system_info: Thông tin hệ thống
 
 #------------------------------------------------------------------------------------
@@ -1151,7 +1151,7 @@ admin.setting.shop.mail.preview: Xem trước
 # Settings : Store Settings : CSV Outputs
 #------------------------------------------------------------------------------------
 
-admin.setting.shop.csv.csv_columns: Mục đầu ra CSV
+admin.setting.shop.csv.csv_columns: Mục Thiết lập CSV
 admin.setting.shop.csv.csv_type: Loại CSV
 admin.setting.shop.csv.non_output_colmuns: Không hiển thị
 admin.setting.shop.csv.output_colmuns: Hiển thị
@@ -1163,8 +1163,8 @@ admin.setting.shop.csv.operation__all_release: Bỏ ra tất cả
 admin.setting.shop.csv.order: Mục đơn đặt hàng
 admin.setting.shop.csv.order__up: Di chuyển lên
 admin.setting.shop.csv.order__down: Di chuyển xuống
-admin.setting.shop.csv.order__top: Di chuyển lên đầu
-admin.setting.shop.csv.order__bottom: Di chuyển xuống dưới cùng
+admin.setting.shop.csv.order__top: Chuyển lên đầu
+admin.setting.shop.csv.order__bottom: Chuyển xuống dưới
 admin.setting.shop.csv.how_to_use: |
  Để thêm các mục đầu ra, vui lòng chọn các mục trên khung bên trái và nhấn [Thêm vào].
  Các mục đơn đặt hàng có thể được thay đổi thứ tự với menu [Mục đơn đặt hàng].
@@ -1189,12 +1189,12 @@ admin.setting.system.member.work_can_not_change: Bạn không được phép tha
 # Settings : System : Authorizations
 #------------------------------------------------------------------------------------
 
-admin.setting.system.authority__card_title: Giấy phép
+admin.setting.system.authority__card_title: Thẩm quyền
 admin.setting.system.authority.description: '
  Vui lòng nhập URL sau %url% vào trường [URL bị chặn].
  URL sẽ bị chặn, nếu nó khớp với URL được nhập ở đó (khớp bên trái).'
-admin.setting.system.authority.example: 'e.g. /setting <span class="text-danger">: / (slash) is required.</span>'
-admin.setting.system.authority.authority: Role
+admin.setting.system.authority.example: 'ví dụ: /setting <span class="text-danger">: / (slash) bắt buộc.</span>'
+admin.setting.system.authority.authority: Vai trò
 admin.setting.system.authority.deny_url: URL bị chặn
 admin.setting.system.authority.add_row: Thêm hàng
 admin.setting.system.authority.authority_not_selected: Vai trò người dùng không được chọn.
@@ -1206,7 +1206,7 @@ admin.setting.system.authority.deny_url_is_invalid: /(gạch chéo) là bắt bu
 #------------------------------------------------------------------------------------
 
 admin.setting.system.security__card_title: Cài đặt bảo mật
-admin.setting.system.security.admin_url: URL bảng điều khiển dành cho quản trị viên
+admin.setting.system.security.admin_url: URL phần quản trị
 admin.setting.system.security.admin_url_description: Bạn nên đặt URL mà KHÔNG dễ đoán.
 admin.setting.system.security.admin_url_changed: URL của Bảng điều khiển dành cho quản trị viên đã được thay đổi. Vui lòng đăng nhập lại.
 admin.setting.system.security.ip_limit: Hạn chế IP
@@ -1260,47 +1260,47 @@ admin.setting.system.system.eccube.document: EC-CUBE Documentation
 #------------------------------------------------------------------------------------
 
 admin.store: Owner's Store
-admin.store.template: Templates
-admin.store.template.template_list: All Templates
+admin.store.template: Mẫu giao diện
+admin.store.template.template_list: Tất cả mẫu
 admin.store.template.template_install: Tải lên
-admin.store.template.template_install__page_title: Upload Templates
+admin.store.template.template_install__page_title: Tải lên mẫu giao diện
 admin.store.template.select: Lựa chọn
 admin.store.template.save_path: Lưu vào
 admin.store.template.download: Tải về
 admin.store.template.upload_new_template: Tải lên mẫu(template) mới
-admin.store.template.template_name: Tên Template
-admin.store.template.template_code: Mã Template
-admin.store.template.template_file: Tệp tin Template
+admin.store.template.template_name: Tên mẫu
+admin.store.template.template_code: Mã mẫu
+admin.store.template.template_file: Tệp tin mẫu
 admin.store.template.file_format: 'Định dạng tệp: zip,tar,tar.gz'
 admin.store.template.delete_error__default_template: Bạn không được phép xóa mẫu mặc định.
 admin.store.template.delete_error__current_template: Bạn không được phép xóa mẫu đang sử dụng.
 admin.store.template.template_code_already_exists: Mã mẫu này đã được sử dụng.
 admin.store.template.upload_failed: Không thể tải lên
 admin.store.template.invalid_upload_file: Mở rộng sai tập tin
-admin.store.plugin: Plugins
-admin.store.plugin.plugin_owners_install: Tìm kiếm Plugins
-admin.store.plugin.plugin_list: Tất cả Plugins
+admin.store.plugin: Tiện ích
+admin.store.plugin.plugin_owners_install: Tìm kiếm tiện ích
+admin.store.plugin.plugin_list: Tất cả tiện ích
 admin.store.plugin.search.not_found: Không tìm thấy kết quả phù hợp cho tìm kiếm của bạn.
 admin.store.plugin.search.not_auth: Vui lòng nhập khóa xác thực.
 admin.store.plugin.installed: Cài đặt
 admin.store.plugin.update: Cập nhật
 admin.store.plugin.install.complete: Một plugin đã được cài đặt.
-admin.store.plugin.install.failed: Không thể cài đặt plugin.
+admin.store.plugin.install.failed: Không thể cài đặt tiện ích.
 admin.store.plugin.enable.complete: '%plugin_name% được kích hoạt.'
 admin.store.plugin.already.enabled: '%plugin_name% đã được kích hoạt.'
 admin.store.plugin.disable.complete: '%plugin_name% bị vô hiệu hóa.'
 admin.store.plugin.already.disabled: '%plugin_name% đã bị vô hiệu hóa'
-admin.store.plugin.uninstall.complete: Các plugin đã bị xóa.
+admin.store.plugin.uninstall.complete: Các tiện ích đã bị xóa.
 admin.store.plugin.update.complete: '%plugin_name% đã được cập nhật.'
 admin.store.plugin.update.failed: 'Không thể cập nhật %plugin_name% .'
 admin.store.plugin.mkdir.error: 'Không thể tạo thư mục "%dir_name%".'
-admin.store.plugin.upload: Tải lên plugin mới
-admin.store.plugin.intro: This EC-CUBE plugin
+admin.store.plugin.upload: Tải lên tiện ích mới
+admin.store.plugin.intro: EC-CUBE tiện ích
 admin.store.plugin.unsupport-version: không hỗ trợ phiên bản này, không thể hoạt động tốt
-admin.store.plugin.delete.confirm: Bạn có chắc chắn xóa các plugin này? Không thể khôi phục!
-admin.store.plugin.payment: Plugin thanh toán EC-CUBE
+admin.store.plugin.delete.confirm: Bạn có chắc chắn xóa các tiện ích này? Không thể khôi phục!
+admin.store.plugin.payment: Tiện ích thanh toán EC-CUBE
 admin.store.plugin.payment.last-version: (Phiên bản mới nhất :1.0.2)
-admin.store.plugin.payment.introduction: Plugin thanh toán được cung cấp bởi nhà phát triển EC-CUBE. Đây là một dịch vụ được cung cấp bởi nhà phát triển EC-CUBE và nó có tất cả các chức năng chúng ta có thể đạt được.
+admin.store.plugin.payment.introduction: Tiện ích thanh toán được cung cấp bởi nhà phát triển EC-CUBE. Đây là một dịch vụ được cung cấp bởi nhà phát triển EC-CUBE và nó có tất cả các chức năng chúng ta có thể đạt được.
 admin.store.plugin.delete.title: Xác nhận xóa
 
 admin.store.setting: Cài đặt
@@ -1584,7 +1584,7 @@ tooltip.setting.shop.delivery.apply_to_pref: Phí vận chuyển tương tự c�
 tooltip.setting.shop.delivery.shop_memo: Đây là một lưu ý cho chủ cửa hàng. Nó không được hiển thị trên chủ của cửa hàng.
 tooltip.setting.shop.tax_setting: Bạn có thể đặt mức thuế áp dụng cho tất cả các sản phẩm. Thuế suất chung có thể được ghi đè nếu bạn nhập một mức giá mới.
 tooltip.setting.shop.mail.mail_template: Vui lòng chọn một mẫu email hiện có. Nội dung được hiển thị trong trường văn bản dưới đây.
-tooltip.setting.shop.csv.csv_columns: Bạn có thể xuất dữ liệu khác nhau ở định dạng CSV. Bạn có thể chỉ định các mục cho đầu ra CSV.
+tooltip.setting.shop.csv.csv_columns: Bạn có thể xuất dữ liệu khác nhau ở định dạng CSV. Bạn có thể chỉ định các mục cho Thiết lập CSV.
 tooltip.setting.shop.csv.csv_type: Chỉ định loại tệp CSV.
 tooltip.setting.system.member.authority: Bạn có thể chọn ủy quyền bạn đã đặt trong Ủy quyền.
 tooltip.setting.system.member.work: Bạn có thể đặt khách hàng tạm thời không hoạt động. Nếu chúng không còn cần thiết, vui lòng xóa khỏi Tất cả khách hàng.
@@ -1605,7 +1605,7 @@ install.back: Quay lại
 install.update: Cập nhật
 install.title: Chào mừng | Cài đặt EC-CUBE
 install.welcom: Chào mừng
-install.check_permission: Xác minh quyền
+install.check_permission: Xác minh quyền truy cập
 install.site_configuration: Cấu hình trang web
 install.database_configuration: Cấu hình cơ sở dữ liệu
 install.database_initalization: Khởi tạo cơ sở dữ liệu
@@ -1613,7 +1613,7 @@ install.install_completed: Cài đặt hoàn tất
 install.start_eccube_installation: '<p>Việc cài đặt EC-CUBE sẽ được bắt đầu.</p><p>Vui lòng chuẩn bị sẵn thông tin cơ sở dữ liệu của bạn (tên cơ sở dữ liệu, v.v.).</p>'
 install.cooperation_of_providing_information: 'Để cải thiện EC-CUBE và gỡ lỗi, vui lòng cung cấp thông tin trang web của bạn. Chúng tôi sẽ không sử dụng thông tin được cung cấp ngoài các mục đích này.<br><span class="small">（Thông tin trang web: URL cửa hàng, Phiên bản PHP, Phiên bản DB）</span>'
 install.accept_infomation_provision: Chấp nhận gửi
-install.permission_is_valid: Quyền truy cập đang hoạt động đúng
+install.permission_is_valid: Quyền truy cập đang được cho phép đủ.
 install.permission_is_invalid: Vui lòng thay đổi quyền truy cập của các thư mục sau.
 install.system_requirement: Vui lòng xác minh các yêu cầu hệ thống.
 install.required_extension_disabled: '[Bắt buộc] %module% mô-đun mở rộng bị vô hiệu hóa.'
@@ -1625,14 +1625,14 @@ install.member_name: Administrator
 install.member_department: Bộ phận
 install.shop_name: Tên cửa hàng
 install.mail_address: Email (Để nhận đơn đặt hàng, vv)
-install.login_id: ID cho Bảng điều khiển dành cho quản trị viên (chữ số %min% - %max% ký tự)
-install.login_password: Mật khẩu bảng điều khiển dành cho quản trị viên (chữ số %min% - %max% ký tự)
-install.security_configuration: Cài đặt bảo vệ hệ thống
-install.directory_name: Tên thư mục bảng điều khiển dành cho quản trị viên (chữ số %min% - %max% ký tự)
+install.login_id: Tên đăng nhập của quản trị viên (chữ số %min% - %max% ký tự)
+install.login_password: Mật mã của quản trị viên (chữ số %min% - %max% ký tự)
+install.security_configuration: Cấu hình bảo mật
+install.directory_name: Tên thư mục để truy cập vào phần quản trị (chữ số %min% - %max% ký tự)
 install.directory_name_notice: Để đảm bảo an ninh, vui lòng nhập tên thư mục khó đoán.
 install.https_only: Chỉ giới hạn quyền truy cập vào trang web thông qua SSL (https).
 install.https_only_notice: Chỉ có quyền truy cập https mới được phép đặt giới hạn SSL.
-install.ip_restriction: Hạn chế quyền truy cập vào Bảng điều khiển dành cho quản trị viên đối với các địa chỉ IP sau.
+install.ip_restriction: Hạn chế quyền truy cập đối với các địa chỉ IP sau.
 install.ip_is_invalid: '%ip% không phải là địa chỉ IPv4'
 install.mail_configuration: Cài đặt email
 install.smtp_host: SMTP Host
@@ -1653,9 +1653,9 @@ install.database_do_initialize: Đang khởi tạo cơ sở dữ liệu. Nó có
 install.database_skip_notice: Vui lòng tích vào đây nếu bạn không muốn xóa dữ liệu hiện có khỏi các phiên bản cũ hơn.
 install.database_skip: Không khởi tạo cơ sở dữ liệu
 install.completed: Cài đặt thành công!
-install.access_admin_page: Hãy truy cập Bảng điều khiển dành cho quản trị viên.
-install.perform_initial_setting: Bạn có thể đăng nhập Bảng điều khiển dành cho quản trị viên bằng ID và mật khẩu bạn vừa đăng ký. Hãy thử thiết kế yêu thích của bạn và tải lên các sản phẩm!
-install.go_to_admin_page: Chuyển đến Bảng điều khiển dành cho quản trị viên
+install.access_admin_page: Hãy truy cập phần quản trị.
+install.perform_initial_setting: Bạn có thể đăng nhập  phần quản trị viên bằng tên và mật khẩu bạn vừa đăng ký. Hãy thử thiết kế yêu thích của bạn và tải lên các sản phẩm!
+install.go_to_admin_page: Truy cập phần quản trị
 
 #------------------------------------------------------------------------------------
 # Error Pages

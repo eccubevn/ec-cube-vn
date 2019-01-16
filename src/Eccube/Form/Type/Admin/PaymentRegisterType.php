@@ -57,7 +57,7 @@ class PaymentRegisterType extends AbstractType
                 ],
             ])
             ->add('rule_min', PriceType::class, [
-                'currency' => 'JPY',
+//                'currency' => 'JPY',
                 'scale' => 0,
                 'grouping' => true,
                 'required' => false,

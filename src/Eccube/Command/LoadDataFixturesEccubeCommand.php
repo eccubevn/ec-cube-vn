@@ -40,7 +40,7 @@ EOF
         $em = $doctrine->getManager();
 
         // for full locale code cases
-        $locale = $this->getContainer()->getParameter('env(eccube_locale)');
+        $locale = $this->getContainer()->getParameter('env');
         $locale = str_replace('_', '-', $locale);
         $locales = \Locale::parseLocale($locale);
         $localeDir = is_null($locales) ? 'ja' : $locales['language'];

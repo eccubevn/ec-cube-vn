@@ -302,7 +302,7 @@ file that was distributed with this source code.
                                                                         <button class="btn btn-ec-sub" type="button" data-dismiss="modal">
                                                                             {{ 'admin.common.cancel'|trans }}
                                                                         </button>
-                                                                        <a href="{{ url('admin_customer_delivery_delete', {'id' : Customer.id, 'did':  CustomerAddress.id}) }}" class="btn btn-ec-delete"{{ csrf_token_for_anchor() }} data-method="delete" data-confirm="false">
+                                                                        <a href="{{ url('admin_customer_delivery_delete', {'id' : Customer.id, 'did':  CustomerAddress.id}) }}" class="btn btn-ec-delete" {{ csrf_token_for_anchor() }} data-method="delete" data-confirm="false">
                                                                             {{ 'admin.common.delete'|trans }}
                                                                         </a>
                                                                     </div>

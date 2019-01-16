@@ -175,7 +175,7 @@ class ShippingType extends AbstractType
             ])
             ->add('shipping_delivery_date', DateType::class, [
                 'placeholder' => '',
-                'format' => 'yyyy-MM-dd',
+                'format' => $this->eccubeConfig->get('eccube_form_date_format'),
                 'required' => false,
             ])
             ->add('tracking_number', TextType::class, [

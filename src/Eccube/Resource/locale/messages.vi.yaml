@@ -65,7 +65,7 @@ common.discount: Giảm giá
 common.point: Điểm
 common.enabled: Kích hoạt
 common.disabled: Vô hiệu hóa
-common.user_name: '%last_name% %first_name%'
+common.user_name: '(Ông/bà) %last_name% %first_name%'
 common.user_name.honor: '(Mr/Ms)'
 common.login: Đăng nhập
 common.remember_me: Ghi nhớ tôi
@@ -76,6 +76,7 @@ common.search_keyword: Nhập từ khóa
 common.delete_confirm: Bạn có muốn tiếp tục?
 common.pagetop: Trang chủ
 common.name.prefix: ''
+common.name.suffix: ''
 common.sign.flash: '/'
 common.shipping.location.japan: 'Japan'
 common.copyright: 'Bản quyền © '
@@ -1680,5 +1681,23 @@ purchase_flow.over_stock: '%name% không có đủ số lượng.'
 #------------------------------------------------------------------------------------
 # Command
 #------------------------------------------------------------------------------------
-
 command.composer_require_already_installed.not_supported_plugin: %name% %plugin_version% không hỗ trợ EC-CUBE %eccube_version%. Bạn có muốn tiếp tục?
+
+#------------------------------------------------------------------------------------
+# Order PDF
+#------------------------------------------------------------------------------------
+order_pdf.service.detail.col1: 'Tên sản phẩm / Mã sản phẩm'
+order_pdf.service.detail.col2: Slượng
+order_pdf.service.detail.col3: Đơn giá
+order_pdf.service.detail.col4: 'Số tiền (thuế)'
+order_pdf.service.print_date: 'Ngày tạo: %date%'
+order_pdf.service.file_name: 'Donhang.pdf'
+order_pdf.service.file_name_multiple: 'Donhang-No%order_id%.pdf'
+order_pdf.service.tel: 'Số điện thoại: %tel%'
+order_pdf.service.email: 'Email: %email%'
+order_pdf.service.note: '＜Ghi chú＞'
+order_pdf.service.subtotal: 'Sản phẩm'
+order_pdf.service.delivery_fee: 'Vận chuyển'
+order_pdf.service.charge: 'Phí giao dịch'
+order_pdf.service.discount: 'Giảm giá'
+order_pdf.service.payment_total: 'Thanh Toán'

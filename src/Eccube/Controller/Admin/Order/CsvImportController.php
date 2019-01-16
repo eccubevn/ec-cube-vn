@@ -14,12 +14,17 @@
 namespace Eccube\Controller\Admin\Order;
 
 use Eccube\Controller\Admin\AbstractCsvImportController;
+use Eccube\Entity\Csv;
+use Eccube\Entity\Master\CsvType;
 use Eccube\Entity\Master\OrderStatus;
 use Eccube\Entity\Shipping;
 use Eccube\Form\Type\Admin\CsvImportType;
+use Eccube\Repository\CsvRepository;
+use Eccube\Repository\Master\CsvTypeRepository;
 use Eccube\Repository\ShippingRepository;
 use Eccube\Service\CsvImportService;
 use Eccube\Service\OrderStateMachine;
+use Eccube\Util\StringUtil;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -32,17 +37,38 @@ class CsvImportController extends AbstractCsvImportController
     private $shippingRepository;
 
     /**
+     * @var CsvTypeRepository
+     */
+    private $csvTypeRepository;
+    /**
+     * @var CsvRepository
+     */
+    private $csvRepository;
+
+    /**
      * @var OrderStateMachine
      */
     protected $orderStateMachine;
 
+    /**
+     * CsvImportController constructor.
+     * @param ShippingRepository $shippingRepository
+     * @param CsvTypeRepository $csvTypeRepository
+     * @param CsvRepository $csvRepository
+     * @param OrderStateMachine $orderStateMachine
+     */
     public function __construct(
         ShippingRepository $shippingRepository,
+        CsvTypeRepository $csvTypeRepository,
+        CsvRepository $csvRepository,
         OrderStateMachine $orderStateMachine
     ) {
         $this->shippingRepository = $shippingRepository;
+        $this->csvTypeRepository = $csvTypeRepository;
+        $this->csvRepository = $csvRepository;
         $this->orderStateMachine = $orderStateMachine;
     }
+
 
     /**
      * 出荷CSVアップロード
@@ -97,18 +123,18 @@ class CsvImportController extends AbstractCsvImportController
     protected function loadCsv(CsvImportService $csv, &$errors)
     {
         $columnConfig = $this->getColumnConfig();
-
         if ($csv === false) {
             $errors[] = trans('admin.common.csv_invalid_format');
         }
 
         // 必須カラムの確認
         $requiredColumns = array_map(function ($value) {
-            return $value['name'];
+            return $value['display_name'];
         }, array_filter($columnConfig, function ($value) {
             return $value['required'];
         }));
         $csvColumns = $csv->getColumnHeaders();
+
         if (count(array_diff($requiredColumns, $csvColumns)) > 0) {
             $errors[] = trans('admin.common.csv_invalid_format');
 
@@ -122,9 +148,7 @@ class CsvImportController extends AbstractCsvImportController
 
             return;
         }
-
-        $columnNames = array_combine(array_keys($columnConfig), array_column($columnConfig, 'name'));
-
+        $columnNames = array_combine(array_keys($columnConfig), array_column($columnConfig, 'display_name'));
         foreach ($csv as $line => $row) {
             // 出荷IDがなければエラー
             if (!isset($row[$columnNames['id']])) {
@@ -147,7 +171,7 @@ class CsvImportController extends AbstractCsvImportController
 
             if (isset($row[$columnNames['shipping_date']])) {
                 // 日付フォーマットが異なる場合はエラー
-                $shippingDate = \DateTime::createFromFormat('Y-m-d', $row[$columnNames['shipping_date']]);
+                $shippingDate = \DateTime::createFromFormat($this->eccubeConfig->get('eccube_csv_export_date_format'), $row[$columnNames['shipping_date']]);
                 if ($shippingDate === false) {
                     $errors[] = trans('admin.common.csv_invalid_date_format', ['%line%' => $line, '%name%' => $columnNames['id']]);
                     continue;
@@ -197,7 +221,7 @@ class CsvImportController extends AbstractCsvImportController
 
     protected function getColumnConfig()
     {
-        return [
+        $data = [
             'id' => [
                 'name' => trans('admin.order.shipping_csv.shipping_id_col'),
                 'description' => trans('admin.order.shipping_csv.shipping_id_description'),
@@ -214,5 +238,43 @@ class CsvImportController extends AbstractCsvImportController
                 'required' => true,
             ],
         ];
+
+        $csvType = $this->csvTypeRepository->find(CsvType::CSV_TYPE_SHIPPING);
+        /** @var Csv[] $csvs */
+        $csvs = $this->csvRepository->findBy(['CsvType' => $csvType]);
+        $data = $this->getDisplayNameByCsv($data, $csvs);
+
+        return $data;
+    }
+
+    /**
+     * @param $oldData
+     * @param $productCsv
+     * @return mixed
+     */
+    private function getDisplayNameByCsv($oldData, $productCsv)
+    {
+        foreach ($oldData as $datum => $oldDatum) {
+            $oldData[$datum]['display_name'] = $datum;
+            /**
+             * @var  $index
+             * @var Csv $csv
+             */
+            foreach ($productCsv as $index => $csv) {
+                $key = StringUtil::toUnderscores($csv->getFieldName());
+                if ($key == $datum) {
+                    if (is_null($csv->getReferenceFieldName())
+                        || $csv->getReferenceFieldName() == 'id'
+                        || strpos($csv->getReferenceFieldName(), '_id')
+                        || $csv->getReferenceFieldName() == 'file_name'
+                    ) {
+                        $oldData[$datum]['display_name'] = $csv->getDispName();
+                        break;
+                    }
+                }
+            }
+        }
+
+        return $oldData;
     }
 }

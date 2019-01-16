@@ -76,6 +76,7 @@ common.search_keyword: Nhập từ khóa
 common.delete_confirm: Bạn có muốn tiếp tục?
 common.pagetop: Trang chủ
 common.name.prefix: ''
+common.name.suffix: ''
 common.sign.flash: '/'
 common.shipping.location.japan: 'Japan'
 common.copyright: 'Bản quyền © '

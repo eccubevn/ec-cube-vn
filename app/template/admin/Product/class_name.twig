@@ -1,0 +1,265 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends '@admin/default_frame.twig' %}
+
+{% set menus = ['product', 'class_name'] %}
+
+{% block title %}{{ 'admin.product.class_management'|trans }}{% endblock %}
+{% block sub_title %}{{ 'admin.product.product_management'|trans }}{% endblock %}
+
+{% form_theme form '@admin/Form/bootstrap_4_horizontal_layout.html.twig' %}
+{% block stylesheet %}
+    <style type="text/css">
+        .list-group-item:hover {
+            z-index: inherit;
+        }
+    </style>
+{% endblock stylesheet %}
+
+{% block javascript %}
+    <script src="{{ asset('assets/js/vendor/jquery.ui/jquery.ui.core.min.js', 'admin') }}"></script>
+    <script src="{{ asset('assets/js/vendor/jquery.ui/jquery.ui.widget.min.js', 'admin') }}"></script>
+    <script src="{{ asset('assets/js/vendor/jquery.ui/jquery.ui.mouse.min.js', 'admin') }}"></script>
+    <script src="{{ asset('assets/js/vendor/jquery.ui/jquery.ui.sortable.min.js', 'admin') }}"></script>
+    <script>
+        $(function() {
+            var oldSortNos = [];
+            // 画面の中のsortNo一覧を保持
+            $('.sortable-item').each(function() {
+                oldSortNos.push(this.dataset.sortNo);
+            });
+            // rsort
+            oldSortNos.sort(function(a, b) {
+                return a - b;
+            }).reverse();
+
+            $('.sortable-container').sortable({
+                items: '> .sortable-item',
+                cursor: 'move',
+                update: function(e, ui) {
+                    $('body').append($('<div class="modal-backdrop show"></div>'));
+                    updateSortNo();
+                }
+            });
+
+            var updateSortNo = function() {
+                // 並び替え後にsortNoを更新
+                var newSortNos = {};
+                var i = 0;
+                $('.sortable-item').each(function() {
+                    newSortNos[this.dataset.classNameId] = oldSortNos[i];
+                    i++;
+                });
+
+                $.ajax({
+                    url: '{{ url('admin_product_class_name_sort_no_move') }}',
+                    type: 'POST',
+                    data: newSortNos
+                }).done(function() {
+                    // remove class disable
+                    $('a.up.disabled').removeClass('disabled');
+                    $('a.down.disabled').removeClass('disabled');
+                    // First element
+                    $('.sortable-item > li:nth-child(2) > div > div.col-auto.text-right > a.up').addClass('disabled');
+                }).always(function() {
+                    redrawDisableAllows();
+                    $('.modal-backdrop').remove();
+                });
+            };
+
+            // 最初と最後の↑↓を再描画
+            var redrawDisableAllows = function() {
+                var items = $('.sortable-item');
+                items.find('a.up').removeClass('disabled');
+                items.find('a.down').removeClass('disabled');
+                items.first().find('a.up').addClass('disabled');
+                items.last().find('a.down').addClass('disabled');
+            };
+
+            $('.sortable-item a.up').click(function(e) {
+                e.preventDefault();
+                var current = $(this).parents('.list-group-item');
+                current.prev().before(current);
+                $('body').append($('<div class="modal-backdrop show"></div>'));
+                updateSortNo();
+            });
+
+            $('.sortable-item a.down').click(function(e) {
+                e.preventDefault();
+                var current = $(this).parents('.list-group-item');
+                current.next().after(current);
+                $('body').append($('<div class="modal-backdrop show"></div>'));
+                updateSortNo();
+            });
+
+            // 編集
+            $('.sortable-item').on('click', 'a.action-edit', function(e) {
+                e.preventDefault();
+                var current = $(this).parents('li');
+                current.find('.mode-view').addClass('d-none');
+                current.find('.mode-edit').removeClass('d-none');
+            });
+            // 編集キャンセル
+            $('.sortable-item').on('click', 'button.action-edit-cancel', function(e) {
+                e.preventDefault();
+                var current = $(this).parents('li');
+                current.find('[data-origin-value]').each(function(e) {
+                    $(this).val($(this).attr('data-origin-value'));
+                });
+                current.find('.mode-view').removeClass('d-none');
+                current.find('.mode-edit').addClass('d-none');
+            });
+
+            // 編集時, エラーがあれば入力欄を表示.
+            $('.sortable-item').find('.is-invalid').each(function(e) {
+                var current = $(this).parents('li');
+                current.find('.mode-view').addClass('d-none');
+                current.find('.mode-edit').removeClass('d-none');
+            });
+
+            // 削除モーダルのhrefとmessageの変更
+            $('#DeleteModal').on('shown.bs.modal', function(event) {
+                var target = $(event.relatedTarget);
+                // hrefの変更
+                $(this).find('[data-method="delete"]').attr('href', target.data('url'));
+
+                // messageの変更
+                $(this).find('p.modal-message').text(target.data('message'));
+            });
+        });
+    </script>
+
+{% endblock %}
+
+{% block main %}
+    <div class="c-contentsArea__cols">
+        <div class="c-contentsArea__primaryCol">
+            <div class="c-primaryCol">
+                <div class="card rounded border-0 mb-4">
+                    <div class="card-body p-0">
+                        <div class="card rounded border-0">
+                            <ul class="list-group list-group-flush sortable-container">
+                                <li class="list-group-item">
+                                    <form role="form" class="form-row" name="form1" id="form1" method="post" action="{{ url('admin_product_class_name') }}">
+                                        <div class="col-auto align-self-center"><span>{{ 'admin.product.class_name'|trans }}</span></div>
+                                        <div class="col-3 mr-2">
+                                            {{ form_widget(form._token) }}
+                                            {{ form_widget(form.name) }}
+                                            {{ form_errors(form.name) }}
+                                        </div>
+                                        <div class="col-auto align-self-center" data-tooltip="true" data-placement="top" title="{{ 'tooltip.product.backend_name'|trans }}">
+                                            <span>{{ 'admin.product.class_name__backend_name'|trans }}</span>
+                                            <i class="fa fa-question-circle fa-lg ml-1"></i>
+                                        </div>
+                                        <div class="col-3">
+                                            {{ form_widget(form.backend_name) }}
+                                            {{ form_errors(form.backend_name) }}
+                                        </div>
+                                        <div class="col-auto">
+                                            <button class="btn btn-ec-regular" type="submit">{{ 'admin.common.create__new'|trans }}</button>
+                                        </div>
+                                    </form>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-auto"><strong>&nbsp;</strong></div>
+                                        <div class="col-auto"><strong>{{ 'admin.common.id'|trans }}</strong></div>
+                                        <div class="col-1"><strong>{{ 'admin.product.class_management'|trans }}</strong></div>
+                                    </div>
+                                </li>
+                                {% for ClassName in ClassNames %}
+                                    <li id="ex-class_name-{{ ClassName.id }}" class="list-group-item sortable-item" data-class-name-id="{{ ClassName.id }}" data-sort-no="{{ ClassName.sortNo }}">
+                                        <div class="row justify-content-around mode-view">
+                                            <div class="col-auto d-flex align-items-center"><i class="fa fa-bars text-ec-gray"></i></div>
+                                            <div class="col-auto d-flex align-items-center">{{ ClassName.id }}</div>
+                                            <div class="col d-flex align-items-center">
+                                                <a href="{{ url('admin_product_class_category', {class_name_id : ClassName.id }) }}">{{ ClassName.name }}［{{ 'admin.product.class_name__backend_name'|trans }}{{ 'admin.common.separator__colon'|trans }}{{ ClassName.backend_name }}］ ({{ ClassName.ClassCategories|length }})</a>
+                                            </div>
+                                            <div class="col-auto text-right">
+                                                <a class="btn btn-ec-actionIcon mr-2 up {% if loop.first %}disabled{% endif %}" href="" data-tooltip="true" data-placement="top" title="{{ 'admin.common.up'|trans }}">
+                                                    <i class="fa fa-arrow-up fa-lg text-secondary"></i>
+                                                </a>
+                                                <a class="btn btn-ec-actionIcon mr-2 down {% if loop.last %}disabled{% endif %}" href="" data-tooltip="true" data-placement="top" title="{{ 'admin.common.down'|trans }}">
+                                                    <i class="fa fa-arrow-down fa-lg text-secondary"></i>
+                                                </a>
+                                                <a class="btn btn-ec-actionIcon mr-2 action-edit" data-tooltip="true" data-placement="top" title="{{ 'admin.common.edit'|trans }}">
+                                                    <i class="fa fa-pencil fa-lg text-secondary"></i>
+                                                </a>
+                                                <div class="d-inline-block mr-2" data-tooltip="true"
+                                                     data-placement="top" title="{{ 'admin.common.delete'|trans }}">
+                                                    {% set classCategories = ClassName.ClassCategories|length %}
+                                                    <a class="btn btn-ec-actionIcon{% if classCategories > 0 %} disabled{% endif %}"
+                                                       {% if classCategories == 0 %}data-toggle="modal" data-target="#DeleteModal"
+                                                       data-url="{{ url('admin_product_class_name_delete', {'id' : ClassName.id}) }}"
+                                                       data-message="{{ 'admin.common.delete_modal__message'|trans({ "%name%" : ClassName.name }) }}"{% endif %}>
+                                                        <i class="fa fa-close fa-lg text-secondary"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <form class="form-row d-none mode-edit" method="post" action="{{ url('admin_product_class_name') }}">
+                                            {{ form_widget(forms[ClassName.id]._token) }}
+                                            <div class="col-auto align-self-center"><span>{{ 'admin.product.class_name'|trans }}</span></div>
+                                            <div class="col-auto align-items-center">
+                                                {{ form_widget(forms[ClassName.id].name, {'attr': {'data-origin-value': forms[ClassName.id].name.vars.value}}) }}
+                                                {{ form_errors(forms[ClassName.id].name) }}
+                                            </div>
+                                            <div class="col-auto align-self-center"><span>{{ 'admin.product.class_name__backend_name'|trans }}</span></div>
+                                            <div class="col-auto align-items-center">
+                                                {{ form_widget(forms[ClassName.id].backend_name, {'attr': {'data-origin-value': forms[ClassName.id].backend_name.vars.value}}) }}
+                                                {{ form_errors(forms[ClassName.id].backend_name) }}
+                                            </div>
+                                            <div class="col-auto align-items-center">
+                                                <button class="btn btn-ec-conversion" type="submit">{{ 'admin.common.decision'|trans }}</button>
+                                            </div>
+                                            <div class="col-auto align-items-center">
+                                                <button class="btn btn-ec-sub action-edit-cancel" type="button">{{ 'admin.common.cancel'|trans }}</button>
+                                            </div>
+                                        </form>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <!-- 削除モーダル -->
+                            <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog"
+                                 aria-labelledby="DeleteModal" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title font-weight-bold">
+                                                {{ 'admin.common.delete_modal__title'|trans }}
+                                            </h5>
+                                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body text-left">
+                                            <p class="text-left modal-message"><!-- jsでメッセージを挿入 --></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-ec-sub" type="button" data-dismiss="modal">
+                                                {{ 'admin.common.cancel'|trans }}
+                                            </button>
+                                            <a class="btn btn-ec-delete" href="#" {{ csrf_token_for_anchor() }}
+                                               data-method="delete" data-confirm="false">
+                                                {{ 'admin.common.delete'|trans }}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>{{ 'admin.common.drag_and_drop_description'|trans }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

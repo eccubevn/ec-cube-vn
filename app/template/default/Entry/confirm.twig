@@ -96,9 +96,9 @@ file that was distributed with this source code.
                             </dt>
                             <dd>
                                 {{ form.birth.vars.data ? form.birth.vars.data|date_day() }}
-                                {{ form_widget(form.birth.year, { type : 'hidden' }) }}
-                                {{ form_widget(form.birth.month, { type : 'hidden' }) }}
                                 {{ form_widget(form.birth.day, { type : 'hidden' }) }}
+                                {{ form_widget(form.birth.month, { type : 'hidden' }) }}
+                                {{ form_widget(form.birth.year, { type : 'hidden' }) }}
                             </dd>
                         </dl>
                         <dl>

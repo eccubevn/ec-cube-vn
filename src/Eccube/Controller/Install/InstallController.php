@@ -784,7 +784,7 @@ class InstallController extends AbstractController
     protected function importCsv(EntityManager $em)
     {
         // for full locale code cases
-        $locale = env('ECCUBE_LOCALE', 'ja_JP');
+        $locale = $this->container->getParameter('env(eccube_locale)');
         $locale = str_replace('_', '-', $locale);
         $locales = \Locale::parseLocale($locale);
         $localeDir = is_null($locales) ? 'ja' : $locales['language'];

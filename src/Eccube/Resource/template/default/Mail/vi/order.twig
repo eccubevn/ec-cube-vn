@@ -1,92 +1,89 @@
 {#
 This file is part of EC-CUBE
-
 Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
-
 http://www.lockon.co.jp/
-
 For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 #}
 {% autoescape false %}
 {{ Order.name01 }} {{ Order.name02 }} 様
 
-この度はご注文いただき誠にありがとうございます。下記ご注文内容にお間違えがないかご確認下さい。
+Cảm ơn bạn đã đặt hàng. Xin hãy xác nhận lại đơn hàng của bạn dưới đây.
 
 ************************************************
-　ご請求金額
+　Tổng số tiền cần thanh toán
 ************************************************
 
-ご注文日時：{{ Order.create_date|date_sec }}
-ご注文番号：{{ Order.order_no }}
-お支払い合計：{{ Order.payment_total|price}}
-お支払い方法：{{ Order.payment_method }}
+Thời gian đặt hàng：{{ Order.create_date|date_sec }}
+Mã đơn đặt hàng：{{ Order.order_no }}
+Tổng số tiền：{{ Order.payment_total|price}}
+Cách thức thanh toán：{{ Order.payment_method }}
 {% if BaseInfo.isOptionPoint and Order.Customer is not null %}
-ご利用ポイント：{{ Order.usePoint }} pt
+Điểm sử dụng：{{ Order.usePoint }} pt
 {% endif %}
-お問い合わせ：{{ Order.message }}
+Liên hệ：{{ Order.message }}
 
 
 ************************************************
-　ご注文商品明細
+　Chi tiết về đơn hàng
 ************************************************
 
 {% for OrderItem in Order.MergedProductOrderItems %}
-商品コード：{{ OrderItem.product_code }}
-商品名：{{ OrderItem.product_name }}  {{ OrderItem.classcategory_name1 }}  {{ OrderItem.classcategory_name2 }}
-単価：{{ OrderItem.total_price|price }}
-数量：{{ OrderItem.quantity|number_format }}
+Mã sản phẩm：{{ OrderItem.product_code }}
+Tên sản phẩm：{{ OrderItem.product_name }}  {{ OrderItem.classcategory_name1 }}  {{ OrderItem.classcategory_name2 }}
+Đơn giá：{{ OrderItem.total_price|price }}
+Số lượng：{{ OrderItem.quantity|number_format }}
 
 {% endfor %}
 
 -------------------------------------------------
-小　計：{{ Order.subtotal|price }}{% if Order.tax > 0 %}(うち消費税 {{ Order.tax|price }}){% endif %}
+Thành tiền：{{ Order.subtotal|price }}{% if Order.tax > 0 %}(Thuế {{ Order.tax|price }}){% endif %}
 
-手数料：{{ Order.charge|price }}
-送　料：{{ Order.delivery_fee_total|price}}
+Phí thêm：{{ Order.charge|price }}
+Phí vận chuyển：{{ Order.delivery_fee_total|price}}
 {% if Order.discount > 0 %}
-値引き：{{ (0 - Order.discount)|price}}
+Giảm giá：{{ (0 - Order.discount)|price}}
 {% endif %}
 ============================================
-合　計：{{ Order.payment_total|price }}
+Tổng số tiền：{{ Order.payment_total|price }}
 
 ************************************************
-　ご注文者情報
+　Thông tin ngời đặt hàng
 ************************************************
-お名前：{{ Order.name01 }} {{ Order.name02 }} 様
+Họ và tên：{{ Order.name01 }} {{ Order.name02 }} 様
 お名前(カナ)：{{ Order.kana01 }} {{ Order.kana02 }} 様
 {% if Order.company_name %}
-会社名：{{ Order.company_name }}
+Tên công ty：{{ Order.company_name }}
 {% endif %}
-郵便番号：〒{{ Order.postal_code }}
-住所：{{ Order.Pref.name }}{{ Order.addr01 }}{{ Order.addr02 }}
-電話番号：{{ Order.phone_number }}
-メールアドレス：{{ Order.email }}
+Số bưu điện：〒{{ Order.postal_code }}
+Địa chỉ：{{ Order.Pref.name }}{{ Order.addr01 }}{{ Order.addr02 }}
+Số điện thoại：{{ Order.phone_number }}
+Địa chỉ email：{{ Order.email }}
 
 ************************************************
-　配送情報
+　Thông tin giao hàng
 ************************************************
 
 {%  for Shipping in Order.Shippings %}
-◎お届け先{% if Order.multiple %}{{ loop.index }}{% endif %}
+◎Nơi giao hàng{% if Order.multiple %}{{ loop.index }}{% endif %}
 
-お名前：{{ Shipping.name01 }} {{ Shipping.name02 }} 様
+Tên người nhận：{{ Shipping.name01 }} {{ Shipping.name02 }} 様
 お名前(カナ)：{{ Shipping.kana01 }} {{ Shipping.kana02 }} 様
 {% if Shipping.company_name %}
-会社名：{{ Shipping.company_name }}
+Tên công ty：{{ Shipping.company_name }}
 {% endif %}
-郵便番号：〒{{ Shipping.postal_code }}
-住所：{{ Shipping.Pref.name }}{{ Shipping.addr01 }}{{ Shipping.addr02 }}
-電話番号：{{ Shipping.phone_number }}
+Số bưu điện：〒{{ Shipping.postal_code }}
+Địa chỉ：{{ Shipping.Pref.name }}{{ Shipping.addr01 }}{{ Shipping.addr02 }}
+Số điện thoại：{{ Shipping.phone_number }}
 
-配送方法：{{ Shipping.shipping_delivery_name }}
-お届け日：{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_day }}
-お届け時間：{{ Shipping.shipping_delivery_time|default('指定なし') }}
+Phương thức giao hàng：{{ Shipping.shipping_delivery_name }}
+Ngày giao hàng：{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_day }}
+Thời gian giao hàng：{{ Shipping.shipping_delivery_time|default('指定なし') }}
 
 {%  for OrderItem in Shipping.productOrderItems %}
-商品コード：{{ OrderItem.product_code }}
-商品名：{{ OrderItem.product_name }}  {{ OrderItem.classcategory_name1 }}  {{ OrderItem.classcategory_name2 }}
-数量：{{ OrderItem.quantity|number_format }}
+Mã sản phẩm：{{ OrderItem.product_code }}
+Tên sản phẩm：{{ OrderItem.product_name }}  {{ OrderItem.classcategory_name1 }}  {{ OrderItem.classcategory_name2 }}
+Số lượng：{{ OrderItem.quantity|number_format }}
 
 {% endfor %}
 {% endfor %}
@@ -97,7 +94,7 @@ file that was distributed with this source code.
 
 ============================================
 
-このメッセージはお客様へのお知らせ専用ですので、
-このメッセージへの返信としてご質問をお送りいただいても回答できません。
-ご了承ください。
+Đây chỉ là mail thông báo、
+chúng tôi không thể nhận hay trả lời mail của khách hàng bằng email này.
+Xin lỗi vì sự bất tiện này. 
 {% endautoescape %}

@@ -1,28 +1,26 @@
 {#
 This file is part of EC-CUBE
-
 Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
-
 http://www.lockon.co.jp/
-
 For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 #}
 {% autoescape false %}
-※本メールは自動配信メールです。
+※Đây là email trả lời tự động.
 
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-　※本メールは、
-　{{ BaseInfo.shop_name }}よりパスワード再発行手続きを希望された方に
-　お送りしています。
-　もしお心当たりが無い場合は、
-　その旨 {# 問い合わせ受付メール #}{{ BaseInfo.email02 }} まで
-　ご連絡いただければ幸いです。
+　※Chúng tôi
+　{{ BaseInfo.shop_name }}xin gửi email 
+ xác nhận việc tạo lại mật khẩu.
+　Nếu như bạn không yêu cầu tạo lại mật khẩu,、
+　vui lòng nhập vào đây
+ {# 問い合わせ受付メール #}{{ BaseInfo.email02 }} 
+　để liên hệ với chúng tôi.
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
-パスワードを変更いたしました。
+Bạn đã tạo lại mật khẩu thành công.
 
-新しいパスワード：{{ password }}
+Mật khẩu mới：{{ password }}
 
-このパスワードは一時的なものですので、お早めにご変更下さい。
+Đây chỉ là mật khẩu tạm thời, vui lòng đổi lại mật khẩu khi đăng nhập.
 {% endautoescape %}

@@ -1,33 +1,30 @@
 {#
 This file is part of EC-CUBE
-
 Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
-
 http://www.lockon.co.jp/
-
 For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 #}
 {% autoescape false %}
-※本メールは自動配信メールです。
+※Đây là Email được gửi đến tự động
 
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-　※本メールは、
-　{{ BaseInfo.shop_name }}より会員登録を希望された方に
-　お送りしています。
-　もしお心当たりが無い場合は、
-　その旨 {{ BaseInfo.email02 }} まで
-　ご連絡いただければ幸いです。
+　※Email này được gửi đến những khách hàng
+ mong muốn đăng ký làm thành viên của
+{{ BaseInfo.shop_name }} 
+
+　Nếu không nhớ nội dung này,
+　bạn có thể liên lạc về địa chỉ 
+{# 問い合わせ受付メール #}{{ BaseInfo.email02 }} 
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
-{{ Customer.name01 }} {{ Customer.name02 }} 様
+Chào {{ Customer.name01 }} {{ Customer.name02 }} 
 
-{{ BaseInfo.shop_name }}でございます。
+Chúng tôi là {{ BaseInfo.shop_name }}でございます。
 
-この度は会員登録依頼をいただきましてまことに有り難うございます。
+Cảm ơn bạn đã đăng ký thành viên
 
-本会員登録が完了いたしました。
-ショッピングをお楽しみくださいませ。
+Việc đăng ký thành viên chính thức đã hoàn thành
+Hy vọng bạn có thời gian mua hàng vui vẻ.
 
-今後ともどうぞ{{ BaseInfo.shop_name }}をよろしくお願い申し上げます。
 {% endautoescape %}

@@ -2,7 +2,7 @@ id,name,sort_no,discriminator_type
 1,Công chức nhà nước,0,job
 2,Tư vấn,1,job
 3,Kỹ sư (IT),2,job
-4,Kỹ sư (Non-IT),3,job
+4,Kỹ sư (Khác IT),3,job
 5,Tài chính,4,job
 6,Bác sĩ,5,job
 7,Luật sư,6,job

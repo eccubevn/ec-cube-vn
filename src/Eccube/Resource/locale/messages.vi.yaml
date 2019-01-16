@@ -4,7 +4,7 @@
 
 common.select: Vui lòng chọn
 common.select__pref: Chọn tỉnh thành
-common.select__unspecified: Unspecified
+common.select__unspecified: Không chỉ định
 common.select__all_products: Tất cả sản phẩm
 common.required: (*)
 common.back: Quay lại
@@ -13,7 +13,7 @@ common.send: Gửi
 common.registration: Lưu
 common.change: Cập nhật
 common.delete: Xóa
-common.ok: OK
+common.ok: Đồng ý
 common.cancel: Hủy
 common.go_to_top: Quay lại trang chủ
 common.go_to_cart: Xem giỏ hàng
@@ -34,8 +34,8 @@ common.company_name: Tên công ty
 common.shop_name: Tên cửa hàng
 common.address: Địa chỉ
 common.pref: Tỉnh thành
-common.postal_symbol: Mã bưu điện
-common.postal_code_sample: 'Ví dụ: 90000'
+common.postal_symbol: "〒"
+common.postal_code_sample: 'Ví dụ: 70000'
 common.search_postal_code: Tìm kiếm mã bưu điện
 common.address_sample_01: Tỉnh/thành phố
 common.address_sample_02: Tên đường, số nhà
@@ -50,17 +50,17 @@ common.password_for_confirmation: Nhập lại mật khẩu
 common.gender: Giới tính
 common.job: Nghề nghiệp
 common.birth_day: Sinh nhật
-common.tax_include: Tax Incl.
+common.tax_include: Đã gồm thuế
 common.separator__range: '-'
 common.separator__colon: ':'
-common.quantity: SL
-common.quantity__with_separator: 'SL:'
-common.subtotal: Subtotal
-common.subtotal__with_separator: 'Subtotal:'
-common.total: Total
-common.total__with_separator: 'Tổng:'
+common.quantity: Số lượng
+common.quantity__with_separator: 'Số lượng:'
+common.subtotal: Tổng tiền tạm tính
+common.subtotal__with_separator: 'Tổng tiền tạm tính:'
+common.total: Tổng tiền
+common.total__with_separator: 'Tổng tiền:'
 common.delivery_fee: Phí vận chuyển
-common.charge: Phí
+common.charge: Phí thanh toán
 common.discount: Giảm giá
 common.point: Điểm
 common.enabled: Kích hoạt
@@ -74,7 +74,7 @@ common.forgot_login: Bạn không thể đăng nhập ?
 common.customer_address_count_is_over: Bạn đã có số lượng địa chỉ tối đa là (%eccube_deliv_addr_max% items). Nếu bạn muốn thêm, vui lòng xóa bớt địa chỉ trong danh sách.
 common.search_keyword: Nhập từ khóa
 common.delete_confirm: Bạn có muốn tiếp tục?
-common.pagetop: Trang chủ
+common.pagetop: Quay về đầu trang
 common.name.prefix: ''
 common.name.suffix: ''
 common.sign.flash: '/'
@@ -96,37 +96,37 @@ front.block.footer.privacy_policy: Chính sách bảo mật
 front.block.footer.inquiry: Liên hệ với chúng tôi
 front.block.footer.act_on_specified_commercial_transactions: Vận chuyển và trả hàng
 front.block.category.list: Tất cả các danh mục
-front.block.category.category__en: CATEGORIES
-front.block.category.category__ja: Categories
-front.block.topic.topic__en: FEATURED
-front.block.topic.topic__ja: Featured
-front.block.topic.title__gelato: Rich yet healthier than ice cream!! Gelatos
-front.block.topic.title__ice: Crispy!! Ice cream cones
-front.block.eyecatch.title__en: CUBE GELATO ICE
-front.block.eyecatch.title__ja: Enjoy the colorful gelato 'CUBE'
+front.block.category.category__en: Danh mục
+front.block.category.category__ja: Danh mục nổi bật
+front.block.topic.topic__en: Tính năng
+front.block.topic.topic__ja: Tính năng nổi bật
+front.block.topic.title__gelato: Tốt cho sức khỏe!
+front.block.topic.title__ice: Ngon tuyệt vời
+front.block.eyecatch.title__en: Đặc biệt
+front.block.eyecatch.title__ja: Thưởng thức 'CUBE'
 front.block.eyecatch.descriptiron: |
  Gelato là kem được làm theo phong cách Ý, thường có chất béo thấp hơn các kiểu kem khác.
  Gelato trái cây của chúng tôi được làm bằng trái cây tươi được lựa chọn cẩn thận của mùa. Thưởng thức CUBE Gelato, phong phú nhưng tốt cho sức khỏe với độ ngọt vừa phải.
  Cũng tìm thấy kẹo băng của chúng tôi và bánh sandwich đá được làm bằng công thức gelato.
 front.block.eyecatch.view_list: Xem tất cả
-front.block.new_item.title__en: NEW ITEMS
-front.block.new_item.title__ja: New Items
+front.block.new_item.title__en: Sản phẩm mới
+front.block.new_item.title__ja: Đặc biệt
 front.block.new_item.more: Xem thêm
-front.block.new_item.item_1_name: "Colorful Gelato: 'CUBE'"
-front.block.new_item.item_1_price: $1,200 (tax incl.)
+front.block.new_item.item_1_name: CUBE đầy màu sắc
+front.block.new_item.item_1_price: 20,000 (đã bao gồm thuế)
 front.block.new_item.item_2_name: Cherry Ice Cream Sandwiches
-front.block.new_item.item_2_price: $800 (tax incl.)
-front.block.new_item.item_3_name: "Colorful Gelato: 'CUBE' NEO"
-front.block.new_item.item_3_price: $600 (tax incl.)
-front.block.news.title__en: WHAT'S NEW
-front.block.news.title__ja: What's New
+front.block.new_item.item_2_price: 8,000 (đã bao gồm thuế)
+front.block.new_item.item_3_name: CUBE đầy màu sắc mới
+front.block.new_item.item_3_price: 6,000 (đã bao gồm thuế)
+front.block.news.title__en: Tin tức
+front.block.news.title__ja: Có gì mới?
 front.block.news.read_more: Đọc thêm
 front.block.news.see_details: Xem chi tiết
 front.block.login.customer_registration: Đăng ký
 front.block.login.mypage: Tài khoản của tôi
 front.block.login.favorite: Yêu thích
-front.block.login.login: Sign in
-front.block.login.logout: Sign out
+front.block.login.login: Đăng nhập
+front.block.login.logout: Đăng xuất
 front.block.login.to_cart: Tới giỏ hàng
 front.block.login.to_home: Trở về trang chủ
 
@@ -153,10 +153,8 @@ front.entry.terms: Điều khoản và quy định
 front.entry.agree_with_terms: 'Vui lòng chấp nhận <a class="ec-link" href="%url%" target="_blank">Điều khoản và quy định</a> để tiếp tục.'
 front.entry.agree: Đồng ý
 front.entry.disagree: Từ chối
-front.entry.confirm_title: Đăng ký - Đánh giá
-front.entry.confirm_message: "|
-Xem lại thông tin của bạn.
-Nếu tất cả là đúng, nhấm 'Đăng ký'."
+front.entry.confirm_title: Đăng ký - Xác nhận
+front.entry.confirm_message: "Xem lại thông tin của bạn. Nếu tất cả là đúng, hãy nhấn 'Đăng ký'."
 front.entry.do_register: Đăng ký
 front.entry.complete_title: Đăng ký hoàn tất
 front.entry.complete_title__temporary: Hoàn thành đăng ký tạm thời
@@ -248,7 +246,7 @@ front.mypage.mail_list: Lịch sử email
 front.mypage.customer_complete_message__title: Thông tin khách hàng đã được cập nhật
 front.mypage.customer_complete_message__body: Hãy tiếp tục mua sắm của bạn!
 front.mypage.favorite_count: '%count% sản phẩm được tìm thấy trong mục yêu thích'
-front.mypage.favorite_not_found: Không tìm thấy mục nào trong mục "yêu thích".
+front.mypage.favorite_not_found: Không tìm thấy sản phẩm nào trong mục "Yêu thích".
 front.mypage.customer_address_count: '%count% địa chỉ được đăng ký trong địa chỉ giao hàng'
 front.mypage.customer_address_not_found: Không có địa chỉ được tìm thấy.
 front.mypage.add_customer_address: 'Thêm địa chỉ mới'
@@ -279,13 +277,13 @@ front.product.add_cart: Thêm vào giỏ hàng
 front.product.add_cart_complete: Các mặt hàng đã được thêm vào giỏ hàng.
 front.product.add_cart_error: Bạn đã thất bại trong việc thêm các mục vào giỏ hàng.
 front.product.add_favorite: Thêm vào mục yêu thích
-front.product.add_favorite_alrady: Mục này đã có trong mục Yêu thích.
+front.product.add_favorite_alrady: Sản phẩm này đã có trong mục Yêu thích
 front.product.out_of_stock: Các mặt hàng đã hết.
 front.product.out_of_stock_label: (Hết hàng)
-front.product.added_to_favorite: Mục này đã có trong mục Yêu thích.
+front.product.added_to_favorite: Sản phẩm này đã có trong mục Yêu thích
 front.product.normal_price: Giá thường
 front.product.sale_price: Giá bán
-front.product.code: SKU
+front.product.code: Mã sản phẩm
 front.product.related_category: Danh mục liên quan
 front.product.continue: Tiếp tục mua sắm
 front.product.invalid_quantity: Vui lòng nhập nhiều hơn 1.
@@ -298,8 +296,8 @@ front.product.product_class_unselected: Mục không được chọn.
 front.cart.title: Giỏ hàng
 front.cart.nav__cart_items: Giỏ hàng
 front.cart.nav__customer_info: Thông tin khách hàng
-front.cart.nav__order: Kiểm tra
-front.cart.nav__confirm: Xem trước
+front.cart.nav__order: Chỉ định giao hàng
+front.cart.nav__confirm: Xác nhận đặt hàng
 front.cart.nav__complete: Đặt hàng
 front.cart.total_price: 'Tổng cộng: <strong>%price%</strong>'
 front.cart.divide_cart: Một số mặt hàng trong giỏ hàng không thể được mua theo thứ tự này.
@@ -319,7 +317,7 @@ front.cart.delivery_fee_free__quantity: <strong class="ec-color-red">Miễn phí
 # Shopping
 #------------------------------------------------------------------------------------
 
-front.shopping.title: Kiểm tra
+front.shopping.title: Chỉ định giao hàng
 front.shopping.order_no: Mã đơn hàng.
 front.shopping.customer_info: Thông tin khách hàng
 front.shopping.delivery_info: Thông tin giao hàng
@@ -338,7 +336,7 @@ front.shopping.add_point: Điểm nhận được
 front.shopping.use_point: Điểm sử dụng
 front.shopping.message_info: Ghi chú cho cửa hàng
 front.shopping.message_placeholder: Vui lòng nhập tin nhắn của bạn ở đây (Tối đa 3.000 ký tự)
-front.shopping.go_to_confirm: Xem trước
+front.shopping.go_to_confirm: Xác nhận
 front.shopping.back_to_cart: Quay lại giỏ hàng
 front.shopping.shipping_title: Chọn một địa chỉ giao hàng
 front.shopping.shipping_add_new_shipping: Thêm địa chỉ giao hàng mới
@@ -348,7 +346,7 @@ front.shopping.shipping_send_selected_shipping: Gửi đến địa chỉ đã c
 front.shopping.shipping_multiple_title: Giao hàng đến nhiều địa chỉ
 front.shopping.shipping_multiple_message: Vui lòng chọn một địa chỉ giao hàng cho mỗi mặt hàng.
 front.shppping.shipping_multiple_add_shipping: Vui lòng chọn một địa chỉ giao hàng cho mỗi mặt hàng.
-front.shopping.confirm_title: Xem lại đơn hàng của bạn.
+front.shopping.confirm_title: Xác nhận đơn hàng
 front.shopping.checkout: Đặt hàng
 front.shopping.back_to_order: Quay trở lại
 front.shopping.complete_title: Đặt hàng
@@ -502,20 +500,20 @@ admin.common.password_for_confirmation: Nhập lại mật khẩu
 admin.common.gender: Giới tính
 admin.common.job: Ngành nghề
 admin.common.birth_day: Sinh nhật
-admin.common.birth_day__start: Sinh nhật (Start)
-admin.common.birth_day__end: Sinh nhật (End)
+admin.common.birth_day__start: Sinh nhật (bắt đầu)
+admin.common.birth_day__end: Sinh nhật (kết thúc)
 admin.common.point: Điểm
-admin.common.shop_memo: Ghi chú (Cửa hàng sử dụng)
+admin.common.shop_memo: Ghi chú (của cửa hàng)
 admin.common.create_date: Ngày đăng ký
-admin.common.create_date__start: Ngày đăng ký (Bắt đầu)
-admin.common.create_date__end: Ngày đăng ký (ngày)
+admin.common.create_date__start: Ngày đăng ký (bắt đầu)
+admin.common.create_date__end: Ngày đăng ký (kết thúc)
 admin.common.update_date: Ngày cập nhật
-admin.common.update_date__start: Date of Updating (Start)
-admin.common.update_date__end: Ngày cập nhật (Bắt đầu)
+admin.common.update_date__start: Ngày cập nhật (bắt đầu)
+admin.common.update_date__end: Ngày cập nhật (kết thúc)
 admin.common.last_update_date: Cập nhật gần nhất
-admin.common.last_updater: Last updated by
-admin.common.device_type: Cập nhật lần cuối bởi
-admin.common.authority: Role
+admin.common.last_updater: Cập nhật lần cuối bởi
+admin.common.device_type: Loại thiết bị
+admin.common.authority: Thẩm quyền
 admin.common.payment_method: Phương thức thanh toán
 admin.common.charge: Phí
 #------------------------------------------------------------------------------------
@@ -542,7 +540,7 @@ admin.home.sales_summary_monthly: Hàng tháng
 admin.home.sales_summary_yearly: Hàng năm
 admin.home.sales_summary_amount: Sản lượng bán ra
 admin.home.sales_summary_count: Khối lượng bán hàng
-admin.home.recommend_plugins_title: Recommended Plug-ins
+admin.home.recommend_plugins_title: Plug-in đề xuất
 admin.home.recommend_plugins.owner_store: Owners' Store
 admin.home.news_title: Có gì mới
 
@@ -571,11 +569,11 @@ admin.error.go_to_login: Quay lại đăng nhập
 admin.product.product_management: Sản phẩm
 admin.product.product_list: Tất cả sản phẩm
 admin.product.product_registration: Thêm sản phẩm
-admin.product.product_class_registration: Product Options
+admin.product.product_class_registration: Tùy chọn phân loại
 admin.product.class_management: Tùy chọn
 admin.product.class_category_management: Nhóm tùy chọn
 admin.product.category_management: Danh mục
-admin.product.tag_management: Tags
+admin.product.tag_management: Thẻ
 admin.product.product_csv_upload: Sản phẩm CSV
 admin.product.category_csv_upload: Danh mục CSV
 
@@ -1101,12 +1099,12 @@ admin.setting.shop.shop.option_point_conversion_rate: Tỷ lệ chuyển đổi 
 # Settings : Store Settings : Payment Methods
 #------------------------------------------------------------------------------------
 
-admin.setting.shop.payment.terms_of_use: Số tiền
+admin.setting.shop.payment.terms_of_use: Giới hạn thanh toán
 admin.setting.shop.payment.terms_of_use_error: Vui lòng kiểm tra số tiền tối thiểu và tối đa.
 admin.setting.shop.payment.unlimited: Bất kỳ số tiền nào
-admin.setting.shop.payment.payment_id: ID
+admin.setting.shop.payment.payment_id: Mã thanh toán
 admin.setting.shop.payment.payment_name: Tên phương thức thanh toán
-admin.setting.shop.payment.logo_image: Logo
+admin.setting.shop.payment.logo_image: Nhãn hiệu
 admin.setting.shop.payment.logo_image_size: 'Kích thước đề xuất: 500px x 100px'
 
 

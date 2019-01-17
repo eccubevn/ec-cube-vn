@@ -492,8 +492,8 @@ admin.common.address: Địa chỉ
 admin.common.pref: Tình thành
 admin.common.postal_symbol: Mã bưu điện
 admin.common.postal_code_sample: 'Ví dụ: 90000'
-admin.common.address_sample_01: Quận / Huyện / Thị Xã / Thành Phố + Xã / Phường
-admin.common.address_sample_02: Tên đường + số nhà
+admin.common.address_sample_01: Quận huyện
+admin.common.address_sample_02: Số nhà, tên đường, xã/phường
 admin.common.phone_number: Điện thoại
 admin.common.mail_address: Email
 admin.common.password: Mật khẩu

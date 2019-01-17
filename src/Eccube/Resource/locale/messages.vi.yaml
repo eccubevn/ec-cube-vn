@@ -43,14 +43,14 @@ common.phone_number: Điện thoại
 common.phone_number_sample: 'Ví dụ: 0912345678'
 common.mail_address: Email
 common.mail_address_sample: 'Ví dụ: ec-cube@example.com'
-common.repeated_confirm: Vui lòng nhập lại
+common.repeated_confirm: Vui lòng xác nhận lại một lần nữa
 common.password: Mật khẩu
-common.password_sample: Bảng chữ cái, số và ký hiệu %min% - %max% ký tự
+common.password_sample: Bảng chữ cái, số và ký hiệu từ %min% - %max% ký tự
 common.password_for_confirmation: Nhập lại mật khẩu
 common.gender: Giới tính
 common.job: Nghề nghiệp
 common.birth_day: Sinh nhật
-common.tax_include: Đã gồm thuế
+common.tax_include: (VAT)
 common.separator__range: '-'
 common.separator__colon: ':'
 common.quantity: Số lượng
@@ -213,7 +213,7 @@ front.trade.refund: Về hàng trả lại / trao đổi
 
 front.mypage.welcome: Chào %last_name% %first_name%
 front.mypage.title: Tài khoản của tôi
-front.mypage.welcome__point: Bạn có %point% điểm
+front.mypage.welcome__point: Bạn đang có %point% điểm
 front.mypage.nav__history: Lịch sử đặt hàng
 front.mypage.nav__history_detail: Chi tiết lịch sử đặt hàng
 front.mypage.nav__favorite: Yêu thích
@@ -221,7 +221,7 @@ front.mypage.nav__customer: Chỉnh sửa thông tin
 front.mypage.nav__customer_complete: Chỉnh sửa thông tin khách hàng (Đã hoàn thành)
 front.mypage.nav__customer_address: Địa chỉ giao hàng
 front.mypage.nav__withdrow: Hủy bỏ thành viên
-front.mypage.history_count: Bạn có '%count% mục trong lịch sử đặt hàng.'
+front.mypage.history_count: Bạn có %count% mục trong lịch sử đặt hàng.
 front.mypage.history_not_found: Không tìm thấy lịch sử đặt hàng.
 front.mypage.message_not_found: Không tìm thấy
 front.mypage.view_detail: Xem chi tiết
@@ -248,7 +248,7 @@ front.mypage.customer_complete_message__body: Hãy tiếp tục mua sắm của 
 front.mypage.favorite_count: '%count% sản phẩm được tìm thấy trong mục yêu thích'
 front.mypage.favorite_not_found: Không tìm thấy sản phẩm nào trong mục "Yêu thích".
 front.mypage.customer_address_count: '%count% địa chỉ được đăng ký trong địa chỉ giao hàng'
-front.mypage.customer_address_not_found: Không có địa chỉ được tìm thấy.
+front.mypage.customer_address_not_found: Không có địa chỉ nào được tìm thấy.
 front.mypage.add_customer_address: 'Thêm địa chỉ mới'
 front.mypage.withdraw_message__title: Hãy xác nhận chắc chắn là bạn có muốn hủy bỏ thành viên ?
 front.mypage.withdraw_message__body: Xin lưu ý rằng tất cả thông tin trong Lịch sử đặt hàng và Địa chỉ giao hàng, v.v. sẽ bị xóa khi bạn nhấn nút xác nhận.
@@ -318,7 +318,7 @@ front.cart.delivery_fee_free__quantity: <strong class="ec-color-red">Miễn phí
 #------------------------------------------------------------------------------------
 
 front.shopping.title: Chỉ định giao hàng
-front.shopping.order_no: Mã đơn hàng.
+front.shopping.order_no: Mã đơn hàng
 front.shopping.customer_info: Thông tin khách hàng
 front.shopping.delivery_info: Thông tin giao hàng
 front.shopping.delivery_to: Giao hàng đến
@@ -328,7 +328,7 @@ front.shopping.delivery_time: Giờ giao
 front.shopping.to_multiple: Thêm địa chỉ nhận hàng
 front.shopping.payment_info: Phương thức thanh toán
 front.shopping.point_info: Điểm của bạn
-front.shopping.available_point: 'Bạn được %point% điểm.'
+front.shopping.available_point: 'Bạn có %point% điểm.'
 front.shopping.point_prev: Điểm sử dụng
 front.shopping.prev_point: Điểm trước khi mua
 front.shopping.next_point: Điểm sau khi mua

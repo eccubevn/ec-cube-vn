@@ -149,7 +149,7 @@ file that was distributed with this source code.
                     <h2>{{ 'front.shopping.point_info'|trans }}</h2>
                 </div>
                 <div class="ec-blockRadio">
-                    {{ Order.use_point|number_format }}
+                    {{ Order.use_point|number_format }} {{ 'common.point'|trans }}
                 </div>
             </div>
             {% endif %}
@@ -184,11 +184,11 @@ file that was distributed with this source code.
                 {% if BaseInfo.isOptionPoint and Order.Customer is not null %}
                     <dl class="ec-totalBox__spec">
                         <dt>{{ 'front.shopping.use_point'|trans }}</dt>
-                        <dd>{{ Order.UsePoint|number_format }}</dd>
+                        <dd>{{ Order.UsePoint|number_format }} {{ 'common.point'|trans }}</dd>
                     </dl>
                     <dl class="ec-totalBox__spec">
                         <dt><span class="ec-font-bold">{{ 'front.shopping.add_point'|trans }}</span></dt>
-                        <dd><span class="ec-font-bold">{{ Order.AddPoint|number_format }}</span></dd>
+                        <dd><span class="ec-font-bold">{{ Order.AddPoint|number_format }} {{ 'common.point'|trans }}</span></dd>
                     </dl>
                 {% endif %}
                 <div class="ec-totalBox__btn">

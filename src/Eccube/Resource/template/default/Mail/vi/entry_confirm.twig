@@ -18,7 +18,7 @@ file that was distributed with this source code.
  để liên hệ với chúng tôi.
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
-Chào bạn {{ Customer.name01 }} {{ Customer.name02 }},
+Chào bạn {{ Customer.name01|format_name(Customer.name02) }},
 
 Chúng tôi là {{ BaseInfo.shop_name }}.
 

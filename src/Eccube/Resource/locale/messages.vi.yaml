@@ -24,7 +24,7 @@ common.prev: Trước
 common.next: Tiếp tục
 common.first: Đầu
 common.last: Cuối
-common.name: Tên
+common.name: Họ Tên
 common.kana: Name (Phonetic)
 common.first_name: Họ
 common.last_name: Tên
@@ -35,10 +35,11 @@ common.shop_name: Tên cửa hàng
 common.address: Địa chỉ
 common.pref: Tỉnh thành
 common.postal_symbol: "〒"
+common.postal_code: Mã bưu điện
 common.postal_code_sample: 'Ví dụ: 70000'
 common.search_postal_code: Tìm kiếm mã bưu điện
-common.address_sample_01: Quận / Huyện / Thị Xã / Thành Phố + Xã / Phường
-common.address_sample_02: Tên đường + số nhà
+common.address_sample_01: Quận huyện
+common.address_sample_02: Số nhà, tên đường, xã/phường
 common.phone_number: Điện thoại
 common.phone_number_sample: 'Ví dụ: 0912345678'
 common.mail_address: Email

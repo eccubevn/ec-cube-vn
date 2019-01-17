@@ -80,6 +80,7 @@ class EccubeExtension extends AbstractExtension
             new TwigFilter('ellipsis', [$this, 'getEllipsis']),
             new TwigFilter('time_ago', [$this, 'getTimeAgo']),
             new TwigFilter('file_ext_icon', [$this, 'getExtensionIcon'], ['is_safe' => ['html']]),
+            new TwigFilter('format_name', [$this, 'getFormatName']),
         ];
     }
 
@@ -356,5 +357,15 @@ class EccubeExtension extends AbstractExtension
         $symbol = Intl::getCurrencyBundle()->getCurrencySymbol($currency);
 
         return $symbol;
+    }
+
+    /**
+     * @param $name01
+     * @param $name02
+     * @return string
+     */
+    public function getFormatName($name01, $name02 = '')
+    {
+        return trans('common.user_name', ['%last_name%' => $name01, '%first_name%' => $name02]);
     }
 }

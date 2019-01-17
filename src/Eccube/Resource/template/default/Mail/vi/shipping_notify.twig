@@ -6,7 +6,7 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 #}
 {% autoescape false %}
-{{ Shipping.name01 }} {{ Shipping.name02 }} 
+{{ Shipping.name01|format_name(Shipping.name02) }}
 
 Sản phẩm của bạn đang trên đường đến. Xin vui lòng chờ trong giây lát.
 
@@ -33,28 +33,26 @@ Số lượng：{{ OrderItem.quantity|number_format }}
 ************************************************
 　Thông tin người đặt hàng
 ************************************************
-Họ và tên：{{ Order.name01 }} {{ Order.name02 }} 
-お名前(カナ)：{{ Order.kana01 }} {{ Order.kana02 }}
+Họ và tên：{{ Order.name01|format_name(Order.name02) }}
 {% if Order.company_name %}
 Tên công ty：{{ Order.company_name }}
 {% endif %}
-Số bưu điện：〒{{ Order.postal_code }}
-Địa chỉ：{{ Order.Pref.name }}{{ Order.addr01 }}{{ Order.addr02 }}
+Số bưu điện：{{ 'common.postal_symbol'|trans }}{{ Order.postal_code }}
+Địa chỉ：{{ Order.Pref.name }} {{ Order.addr01 }} {{ Order.addr02 }}
 Số điện thoại：{{ Order.phone_number }}
 
 ************************************************
 　Thông tin giao hàng
 ************************************************
 
-Tên người nhận：{{ Shipping.name01 }} {{ Shipping.name02 }} 
-お名前(カナ)：{{ Shipping.kana01 }} {{ Shipping.kana02 }} 
+Tên người nhận：{{ Shipping.name01|format_name(Shipping.name02) }}
 {% if Shipping.company_name %}
 Tên công ty：{{ Shipping.company_name }}
 {% endif %}
-Số bưu điện：〒{{ Shipping.postal_code }}
-Địa chỉ：{{ Shipping.Pref.name }}{{ Shipping.addr01 }}{{ Shipping.addr02 }}
+Số bưu điện：{{ 'common.postal_symbol'|trans }}{{ Shipping.postal_code }}
+Địa chỉ：{{ Shipping.Pref.name }} {{ Shipping.addr01 }} {{ Shipping.addr02 }}
 Số điện thoại：{{ Shipping.phone_number }}
 
-Ngày giao hàng：{{ Shipping.shipping_delivery_date is empty ? 'Không chỉ định' : Shipping.shipping_delivery_date|date_day }}
-Thời gian giao hàng：{{ Shipping.shipping_delivery_time|default('Không chỉ định') }}
+Ngày giao hàng：{{ Shipping.shipping_delivery_date is empty ? 'common.select__unspecified'|trans : Shipping.shipping_delivery_date|date_day }}
+Thời gian giao hàng：{{ Shipping.shipping_delivery_time|default('common.select__unspecified'|trans) }}
 {% endautoescape %}

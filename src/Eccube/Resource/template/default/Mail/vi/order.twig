@@ -6,7 +6,7 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 #}
 {% autoescape false %}
-{{ Order.name01 }} {{ Order.name02 }} 様
+{{ Order.name01|format_name(Order.name02) }}
 
 Cảm ơn bạn đã đặt hàng. Xin hãy xác nhận lại đơn hàng của bạn dưới đây.
 
@@ -19,7 +19,7 @@ Mã đơn đặt hàng：{{ Order.order_no }}
 Tổng số tiền：{{ Order.payment_total|price}}
 Cách thức thanh toán：{{ Order.payment_method }}
 {% if BaseInfo.isOptionPoint and Order.Customer is not null %}
-Điểm sử dụng：{{ Order.usePoint }} pt
+Điểm sử dụng：{{ Order.usePoint }} {{ 'common.point'|trans }}
 {% endif %}
 Liên hệ：{{ Order.message }}
 
@@ -39,7 +39,7 @@ Số lượng：{{ OrderItem.quantity|number_format }}
 -------------------------------------------------
 Thành tiền：{{ Order.subtotal|price }}{% if Order.tax > 0 %}(Thuế {{ Order.tax|price }}){% endif %}
 
-Phí thêm：{{ Order.charge|price }}
+Phí thanh toán：{{ Order.charge|price }}
 Phí vận chuyển：{{ Order.delivery_fee_total|price}}
 {% if Order.discount > 0 %}
 Giảm giá：{{ (0 - Order.discount)|price}}
@@ -48,15 +48,14 @@ Giảm giá：{{ (0 - Order.discount)|price}}
 Tổng số tiền：{{ Order.payment_total|price }}
 
 ************************************************
-　Thông tin ngời đặt hàng
+  Thông tin người đặt hàng
 ************************************************
-Họ và tên：{{ Order.name01 }} {{ Order.name02 }} 様
-お名前(カナ)：{{ Order.kana01 }} {{ Order.kana02 }} 様
+Họ và tên：{{ Order.name01|format_name(Order.name02) }}
 {% if Order.company_name %}
 Tên công ty：{{ Order.company_name }}
 {% endif %}
-Số bưu điện：〒{{ Order.postal_code }}
-Địa chỉ：{{ Order.Pref.name }}{{ Order.addr01 }}{{ Order.addr02 }}
+Số bưu điện：{{ 'common.postal_symbol'|trans }}{{ Order.postal_code }}
+Địa chỉ：{{ Order.Pref.name }} {{ Order.addr01 }} {{ Order.addr02 }}
 Số điện thoại：{{ Order.phone_number }}
 Địa chỉ email：{{ Order.email }}
 
@@ -67,18 +66,17 @@ Số điện thoại：{{ Order.phone_number }}
 {%  for Shipping in Order.Shippings %}
 ◎Nơi giao hàng{% if Order.multiple %}{{ loop.index }}{% endif %}
 
-Tên người nhận：{{ Shipping.name01 }} {{ Shipping.name02 }} 様
-お名前(カナ)：{{ Shipping.kana01 }} {{ Shipping.kana02 }} 様
+Tên người nhận：{{ Shipping.name01|format_name(Shipping.name02) }}
 {% if Shipping.company_name %}
 Tên công ty：{{ Shipping.company_name }}
 {% endif %}
-Số bưu điện：〒{{ Shipping.postal_code }}
+Số bưu điện：{{ 'common.postal_symbol'|trans }}{{ Shipping.postal_code }}
 Địa chỉ：{{ Shipping.Pref.name }}{{ Shipping.addr01 }}{{ Shipping.addr02 }}
 Số điện thoại：{{ Shipping.phone_number }}
 
 Phương thức giao hàng：{{ Shipping.shipping_delivery_name }}
-Ngày giao hàng：{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_day }}
-Thời gian giao hàng：{{ Shipping.shipping_delivery_time|default('指定なし') }}
+Ngày giao hàng：{{ Shipping.shipping_delivery_date is empty ? 'common.select__unspecified'|trans : Shipping.shipping_delivery_date|date_day }}
+Thời gian giao hàng：{{ Shipping.shipping_delivery_time|default('common.select__unspecified'|trans) }}
 
 {%  for OrderItem in Shipping.productOrderItems %}
 Mã sản phẩm：{{ OrderItem.product_code }}
@@ -94,7 +92,7 @@ Số lượng：{{ OrderItem.quantity|number_format }}
 
 ============================================
 
-Đây chỉ là mail thông báo、
-chúng tôi không thể nhận hay trả lời mail của khách hàng bằng email này.
+Đây chỉ là mail thông báo.
+Chúng tôi không thể nhận hay trả lời mail của khách hàng bằng email này.
 Xin lỗi vì sự bất tiện này. 
 {% endautoescape %}

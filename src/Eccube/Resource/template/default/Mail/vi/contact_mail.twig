@@ -12,22 +12,21 @@ file that was distributed with this source code.
 　※Email này gửi đến những khách hàng đã từng 
  gửi thắc mắc về {{ BaseInfo.shop_name }}
 　Nếu không nhớ nội dung này,
-　Nếu không nhớ nội dung này,
 　bạn có thể liên lạc về địa chỉ 
 {# 問い合わせ受付メール #}{{ BaseInfo.email02 }} 
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
-{{ data.name01 }} {{ data.name02 }} 
+{{ data.name01|format_name(data.name02) }}
 
 Chúng tôi đã tiếp nhận câu hỏi của bạn.
 Sẽ mất ít thời gian để chúng tôi xác nhận và liên lạc lại với bạn.
 
-Họ và tên:{{ data.name01 }} {{ data.name02 }}{% if data.kana01 or data.kana02 %} ({{ data.kana01 }} {{ data.kana02 }}){% endif %} 
-郵便番号：{% if data.postal_code %}〒{{ data.postal_code }}{% endif %}
+Họ và tên: {{ data.name01 }} {{ data.name02 }}
+{{ 'common.postal_code'|trans }}：{% if data.postal_code %}{{ 'common.postal_symbol'|trans }}{{ data.postal_code }}{% endif %}
 
-Địa chỉ:{% if data.pref.name is defined %} {{ data.pref.name }}{% endif %}{{ data.addr01 }}{{ data.addr02 }}
-Số điện thoại:{{ data.phone_number }}
-Địa chỉ email:{{ data.email }}
+{{ 'common.address'|trans }}:{% if data.pref.name is defined %} {{ data.pref.name }}{% endif %} {{ data.addr01 }} {{ data.addr02 }}
+{{ 'common.phone_number'|trans }}: {{ data.phone_number }}
+{{ 'common.mail_address'|trans }}: {{ data.email }}
 Nội dung câu hỏi:
 
 {{ data.contents }}

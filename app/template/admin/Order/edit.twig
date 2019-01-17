@@ -427,8 +427,8 @@ file that was distributed with this source code.
                                                 </div>
                                                 <div class="row mb-3">
                                                     <div class="col">
-                                                        {{ form_widget(form.address.addr01) }}
-                                                        {{ form_errors(form.address.addr01) }}
+                                                        {{ form_widget(form.address.addr01, { attr: { placeholder: 'Quận / Huyện / Thị Xã / Thành Phố + Xã / Phường'}}) }}
+                                                        {{ form_errors(form.address.addr01, { attr: { placeholder: 'Tên đường + số nhà'}}) }}
                                                     </div>
                                                 </div>
                                                 <div class="row">

@@ -18,9 +18,9 @@ file that was distributed with this source code.
 {# 問い合わせ受付メール #}{{ BaseInfo.email02 }} 
 ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
-{{ Customer.name01 }} {{ Customer.name02 }} 
+{{ Customer.name01|format_name(Customer.name02) }}
 
-Chúng tôi là {{ BaseInfo.shop_name }}/
+Chúng tôi là {{ BaseInfo.shop_name }}.
 
 Chúng tôi đã hoàn thành thủ tục gỡ bỏ hội viên
 Cảm ơn bạn đã sử dụng {{ BaseInfo.shop_name }}

@@ -25,9 +25,9 @@ file that was distributed with this source code.
                         <div class="title" style="font-family:Helvetica, Arial, sans-serif;font-size:18px;font-weight:600;color:#374550;">Đơn hàng của bạn đã được chuyển đi.</div>
                         <br>
                         <div class="body-text" style="font-family:Helvetica, Arial, sans-serif;font-size:14px;line-height:20px;text-align:left;color:#333333;">
-                            {{ Shipping.name01 }} {{ Shipping.name02 }} <br>
+                            {{ Shipping.name01|format_name(Shipping.name02) }} <br>
                             <br>
-                            Chúng tôi là{{ BaseInfo.shop_name }}.<br/>
+                            Chúng tôi là {{ BaseInfo.shop_name }}.<br/>
                             Sản phẩm của bạn đang trên đường đến. Xin vui lòng chờ trong giây lát.<br/>
                             <br/>
                             {% if Shipping.tracking_number %}
@@ -51,29 +51,27 @@ file that was distributed with this source code.
                             <hr style="border-top: 3px double #8c8b8b;">
                             　Thông tin người đặt hàng<br/>
                             <hr style="border-top: 3px double #8c8b8b;">
-                            Họ và tên：{{ Order.name01 }} {{ Order.name02 }} <br/>
-                            お名前(カナ)：{{ Order.kana01 }} {{ Order.kana02 }} <br/>
+                            Họ và tên：{{ Order.name01|format_name(Order.name02) }} <br/>
                             {% if Order.company_name %}
                                 Tên công ty：{{ Order.company_name }}<br/>
                             {% endif %}
-                            Số bưu điện：〒{{ Order.postal_code }}<br/>
-                            Địa chỉ：{{ Order.Pref.name }}{{ Order.addr01 }}{{ Order.addr02 }}<br/>
+                            Số bưu điện：{{ 'common.postal_symbol'|trans }}{{ Order.postal_code }}<br/>
+                            Địa chỉ：{{ Order.Pref.name }} {{ Order.addr01 }} {{ Order.addr02 }}<br/>
                             Số điện thoại：{{ Order.phone_number }}<br/>
                             <br/>
                             <hr style="border-top: 3px double #8c8b8b;">
                             　Thông tin giao hàng<br/>
                             <hr style="border-top: 3px double #8c8b8b;">
-                            Tên người nhận：{{ Shipping.name01 }} {{ Shipping.name02 }} <br/>
-                            お名前(カナ)：{{ Shipping.kana01 }} {{ Shipping.kana02 }} <br/>
+                            Tên người nhận：{{ Shipping.name01|format_name(Shipping.name02) }} <br/>
                             {% if Shipping.company_name %}
                                 Tên công ty：{{ Shipping.company_name }}<br/>
                             {% endif %}
-                            Số bưu điện：〒{{ Shipping.postal_code }}<br/>
-                            Địa chỉ：{{ Shipping.Pref.name }}{{ Shipping.addr01 }}{{ Shipping.addr02 }}<br/>
+                            Số bưu điện：{{ 'common.postal_symbol'|trans }}{{ Shipping.postal_code }}<br/>
+                            Địa chỉ：{{ Shipping.Pref.name }} {{ Shipping.addr01 }} {{ Shipping.addr02 }}<br/>
                             Số điện thoại：{{ Shipping.phone_number }}<br/>
                             <br/>
-                            Ngày giao hàng：{{ Shipping.shipping_delivery_date is empty ? 'Không chỉ định' : Shipping.shipping_delivery_date|date_day }}<br/>
-                            Thời gian giao hàng：{{ Shipping.shipping_delivery_time|default('Không chỉ định') }}<br/>
+                            Ngày giao hàng：{{ Shipping.shipping_delivery_date is empty ? 'common.select__unspecified'|trans : Shipping.shipping_delivery_date|date_day }}<br/>
+                            Thời gian giao hàng：{{ Shipping.shipping_delivery_time|default('common.select__unspecified'|trans) }}<br/>
                             <br/>
                         </div>
                     </td>

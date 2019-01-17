@@ -22,10 +22,10 @@ file that was distributed with this source code.
                 <tr>
                     <td class="container-padding content" align="left" style="border-collapse:collapse;padding-left:24px;padding-right:24px;padding-top:12px;padding-bottom:12px;background-color:#ffffff;">
                         <br>
-                        <div class="title" style="font-family:Helvetica, Arial, sans-serif;font-size:14px;line-height:20px;text-align:left;color:#333333;">Cảm ơn bạn đã đặt hàng bên chúng tôi. </div>
+                        <div class="title" style="font-family:Helvetica, Arial, sans-serif;font-size:14px;line-height:20px;text-align:left;color:#333333;">Cảm ơn bạn đã đặt hàng bên chúng tôi.</div>
                         <br>
                         <div class="body-text" style="font-family:Helvetica, Arial, sans-serif;font-size:14px;line-height:20px;text-align:left;color:#333333;">
-                            Chào {{ Order.name01 }} {{ Order.name02 }} <br/>
+                            Chào {{ Order.name01|format_name(Order.name02) }}<br/>
                             <br/>
                             Xin hãy xác nhận lại đơn hàng của bạn dưới đây. <br/>
                             <br/>
@@ -37,7 +37,7 @@ file that was distributed with this source code.
                             Tổng số tiền：{{ Order.payment_total|price }}<br/>
                             Cách thức thanh toán：{{ Order.payment_method }}<br/>
                             {% if BaseInfo.isOptionPoint and Order.Customer is not null %}
-                            Điểm sử dụng：{{ Order.usePoint }} pt<br/>
+                            Điểm sử dụng：{{ Order.usePoint }} {{ 'common.point'|trans }}<br/>
                             {% endif %}
                             Liên hệ：{{ Order.message }}<br/>
                             <br/>
@@ -54,7 +54,7 @@ file that was distributed with this source code.
                             <hr style="border-top: 2px dashed #8c8b8b;">
                             Thành tiền：{{ Order.subtotal|price }}{% if Order.tax > 0 %}(Thuế{{ Order.tax|price }}){% endif %}<br/>
                             <br/>
-                            Phí thêm：{{ Order.charge|price }}<br/>
+                            Phí thanh toán：{{ Order.charge|price }}<br/>
                             Phí vận chuyển：{{ Order.delivery_fee_total|price }}<br/>
                             {% if Order.discount > 0 %}
                                 Giảm giá：{{ (0 - Order.discount)|price }}<br/>
@@ -63,15 +63,14 @@ file that was distributed with this source code.
                             Tổng số tiền：{{ Order.payment_total|price }}<br/>
                             <br/>
                             <hr style="border-top: 3px double #8c8b8b;">
-                            Thông tin ngời đặt hàng <br/>
+                            　Thông tin người đặt hàng <br/>
                             <hr style="border-top: 3px double #8c8b8b;">
-                            Họ và tên：{{ Order.name01 }} {{ Order.name02 }} <br/>
-                            お名前(カナ)：{{ Order.kana01 }} {{ Order.kana02 }} <br/>
+                            Họ và tên：{{ Order.name01|format_name(Order.name02) }}<br/>
                             {% if Order.company_name %}
                                 Tên công ty：{{ Order.company_name }}<br/>
                             {% endif %}
-                            Số bưu điện：〒{{ Order.postal_code }}<br/>
-                            Địa chỉ：{{ Order.Pref.name }}{{ Order.addr01 }}{{ Order.addr02 }}<br/>
+                            Số bưu điện：{{ 'common.postal_symbol'|trans }}{{ Order.postal_code }}<br/>
+                            Địa chỉ：{{ Order.Pref.name }} {{ Order.addr01 }} {{ Order.addr02 }}<br/>
                             Số điện thoại：{{ Order.phone_number }}<br/>
                             Địa chỉ email：{{ Order.email }}<br/>
                             <br/>
@@ -82,18 +81,17 @@ file that was distributed with this source code.
                             {% for Shipping in Order.Shippings %}
                                 ◎Nơi giao hàng{% if Order.multiple %}{{ loop.index }}{% endif %}<br/>
                                 <br/>
-                                Tên người nhận：{{ Shipping.name01 }} {{ Shipping.name02 }} 様<br/>
-                                お名前(カナ)：{{ Shipping.kana01 }} {{ Shipping.kana02 }} 様<br/>
+                                Tên người nhận：{{ Shipping.name01|format_name(Shipping.name02) }}<br/>
                                 {% if Shipping.company_name %}
                                     Tên công ty：{{ Shipping.company_name }}<br/>
                                 {% endif %}
-                                Số bưu điện：〒{{ Shipping.postal_code }}<br/>
-                                Địa chỉ：{{ Shipping.Pref.name }}{{ Shipping.addr01 }}{{ Shipping.addr02 }}<br/>
+                                Số bưu điện：{{ 'common.postal_symbol'|trans }}{{ Shipping.postal_code }}<br/>
+                                Địa chỉ：{{ Shipping.Pref.name }} {{ Shipping.addr01 }} {{ Shipping.addr02 }}<br/>
                                 Số điện thoại：{{ Shipping.phone_number }}<br/>
                                 <br/>
                                 Phương thức giao hàng：{{ Shipping.shipping_delivery_name }}<br/>
-                                Ngày giao hàng：{{ Shipping.shipping_delivery_date is empty ? '指定なし' : Shipping.shipping_delivery_date|date_day }}<br/>
-                                Thời gian giao hàng：{{ Shipping.shipping_delivery_time|default('指定なし') }}<br/>
+                                Ngày giao hàng：{{ Shipping.shipping_delivery_date is empty ? 'common.select__unspecified'|trans : Shipping.shipping_delivery_date|date_day }}<br/>
+                                Thời gian giao hàng：{{ Shipping.shipping_delivery_time|default('common.select__unspecified'|trans) }}<br/>
                                 <br/>
                                 {% for OrderItem in Shipping.productOrderItems %}
                                     Mã sản phẩm：{{ OrderItem.product_code }}<br/>
@@ -106,8 +104,8 @@ file that was distributed with this source code.
                                 {{ Order.complete_mail_message|nl2br }}<br/>
                             {% endif %}
                             <hr style="border-top: 2px dotted #8c8b8b;">
-                            Đây chỉ là mail thông báo、<br/>
-                            chúng tôi không thể nhận hay trả lời mail của khách hàng bằng email này. <br/>
+                            Đây chỉ là mail thông báo.<br/>
+                            Chúng tôi không thể nhận hay trả lời mail của khách hàng bằng email này.<br/>
                             Xin lỗi vì sự bất tiện này. <br/>
                         </div>
                     </td>

@@ -270,7 +270,7 @@ file that was distributed with this source code.
                                                     </td>
                                                     <td class="align-middle">
                                                         <a href="{{ url('admin_customer_delivery_edit', { 'id': Customer.id, 'did': CustomerAddress.id }) }}">
-                                                            {{ 'admin.common.postal_symbol'|trans }}{{ CustomerAddress.postal_code }} {{ CustomerAddress.Pref }}{{ CustomerAddress.addr01 }}{{ CustomerAddress.addr02 }}
+                                                            {{ format_address(CustomerAddress.addr01, CustomerAddress.addr02, CustomerAddress.Pref, CustomerAddress.postal_code) }}
                                                         </a>
                                                     </td>
                                                     <td class="align-middle">
@@ -296,7 +296,7 @@ file that was distributed with this source code.
                                                                     </div>
                                                                     <div class="modal-body text-left">
                                                                         <p class="text-left">
-                                                                            {{ 'admin.common.delete_modal__message'|trans({ '%name%' : 'admin.common.postal_symbol'|trans ~ CustomerAddress.postal_code ~ CustomerAddress.Pref ~ ' ' ~ CustomerAddress.name01 ~ CustomerAddress.name02 }) }}</p>
+                                                                            {{ 'admin.common.delete_modal__message'|trans({ '%name%' : format_address(CustomerAddress.addr01, CustomerAddress.addr02, CustomerAddress.Pref, CustomerAddress.postal_code) }) }}</p>
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                         <button class="btn btn-ec-sub" type="button" data-dismiss="modal">

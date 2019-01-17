@@ -63,6 +63,7 @@ class EccubeExtension extends AbstractExtension
             new TwigFunction('product', [$this, 'getProduct']),
             new TwigFunction('php_*', [$this, 'getPhpFunctions'], ['pre_escape' => 'html', 'is_safe' => ['html']]),
             new TwigFunction('currency_symbol', [$this, 'getCurrencySymbol']),
+            new TwigFunction('format_address', [$this, 'getFormattedAddress'])
         ];
     }
 
@@ -356,5 +357,22 @@ class EccubeExtension extends AbstractExtension
         $symbol = Intl::getCurrencyBundle()->getCurrencySymbol($currency);
 
         return $symbol;
+    }
+
+    /**
+     * Format address
+     *
+     * @param string $addr1
+     * @param string $addr2
+     * @param string $pref
+     * @param string $postalCode
+     * @return string
+     */
+    public function getFormattedAddress($addr1 = '', $addr2 = '', $pref = '', $postalCode = '')
+    {
+        $tmp = [$addr2, $addr1, $pref];
+        $address = implode(', ', $tmp);
+
+        return $address . ($postalCode ? ' ' . $postalCode : '');
     }
 }

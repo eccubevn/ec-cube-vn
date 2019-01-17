@@ -166,7 +166,7 @@ file that was distributed with this source code.
                         <p class="ec-halfInput" style="display: none"><span class="customer-edit customer-kana01">{{ Order.kana01 }}</span> <span class="customer-edit customer-kana02">{{ Order.kana02 }}</span></p>
                         <p class="ec-input"><span class="customer-edit customer-company_name">{{ Order.companyName }}</span></p>
                         <p class="ec-zipInput">〒<span class="customer-edit customer-postal_code">{{ Order.postal_code }}</span></p>
-                        <p class="ec-input"><span class="customer-edit customer-pref">{{ Order.pref }}</span> <span class="customer-edit customer-addr01">{{ Order.addr01 }}</span> <span class="customer-edit customer-addr02">{{ Order.addr02 }}</span></p>
+                        <p class="ec-input"><span class="customer-edit customer-addr02">{{ Order.addr02 }}</span><span class="customer-edit customer-addr01">, {{ Order.addr01 }}</span><span class="customer-edit customer-pref">, {{ Order.pref }}</span></p>
                         <p class="ec-telInput"><span class="customer-edit customer-phone_number">{{ Order.phone_number }}</span></p>
                         <p class="ec-input"><span class="customer-edit customer-email">{{ Order.email }}</span></p>
                     </div>
@@ -221,7 +221,7 @@ file that was distributed with this source code.
                                                     <img src="{{ asset('assets/icon/question-white.svg') }}" alt="">
                                                 </div>
                                             </div>
-                                            <a href="https://www.post.japanpost.jp/zipcode/" target="_blank">
+                                            <a href="{{ url('help_postalcode') }}" target="_blank">
                                                 <span>{{ 'common.search_postal_code'|trans }}</span>
                                             </a>
                                         </div>
@@ -315,7 +315,7 @@ file that was distributed with this source code.
                         </div>
                         <div class="ec-orderDelivery__address">
                             <p>{{ 'common.name.prefix'|trans }}{{ shipping.name01 }} {{ shipping.name02 }} {{ 'common.name.suffix'|trans }}</p>
-                            <p>{{ 'common.postal_symbol'|trans }}{{ shipping.postal_code }} {{ shipping.pref }}{{ shipping.addr01 }}{{ shipping.addr02 }}</p>
+                            <p>{{ format_address(shipping.addr01, shipping.addr02, shipping.pref, shipping.postal_code) }}</p>
                             <p>{{ shipping.phone_number }}</p>
                         </div>
                         <div class="ec-orderDelivery__actions">

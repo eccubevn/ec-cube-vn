@@ -41,8 +41,8 @@ file that was distributed with this source code.
                         <dt>
                             <label class="ec-label">{{ 'common.address'|trans }}</label>
                         </dt>
-                        <dd>{{ 'common.postal_symbol'|trans }}{{ BaseInfo.postal_code }}<br />
-                            {{ BaseInfo.pref }}{{ BaseInfo.addr01 }}{{ BaseInfo.addr02 }}
+                        <dd>
+                            {{ format_address(BaseInfo.addr01, BaseInfo.addr02, BaseInfo.pref, BaseInfo.postal_code) }}
                         </dd>
                     </dl>
                 {% endif %}

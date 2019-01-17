@@ -101,7 +101,7 @@ file that was distributed with this source code.
                         {% endfor %}
                         <div class="ec-orderDelivery__address">
                             <p>{{ Shipping.name01 }}&nbsp;{{ Shipping.name02 }}</p>
-                            <p>{{ 'common.postal_symbol'|trans }}{{ Shipping.postal_code }} {{ Shipping.Pref }}{{ Shipping.addr01 }}{{ Shipping.addr02 }}</p>
+                            <p>{{ format_address(Shipping.addr01, Shipping.addr02, Shipping.pref, Shipping.postal_code) }}</p>
                             <p>{{ Shipping.phone_number }}</p>
                         </div>
                         <div class="ec-definitions--soft">

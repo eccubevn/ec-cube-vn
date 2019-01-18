@@ -140,7 +140,7 @@ front.contact.inquiry_notice: |
  Xin lưu ý rằng một số yêu cầu có thể cần thêm thời gian để trả lời.
  Nếu nó rơi vào ngày lễ hoặc ngày nghỉ của chúng tôi, chúng tôi sẽ liên lạc lại với bạn vào / sau ngày làm việc tiếp theo. Cảm ơn bạn.
 front.contact.order_notice: Đối với sự thăc mắc về đơn đặt hàng của bạn, xin vui lòng thông báo cho chúng tôi về số thứ tự.
-front.contact.inquiry_contents: Ghi chú
+front.contact.inquiry_contents: Thắc mắc
 front.contact.complete_title: Cảm ơn bạn đã yêu cầu!
 front.contact.complete_message__title: Yêu cầu của bạn đã được gửi đi.
 front.contact.complete_message__body: Trong trường hợp bạn không nhận được email xác nhận của chúng tôi, yêu cầu của bạn có thể không được nhận. Vui lòng liên hệ với chúng tôi lại một lần nữa, hoặc qua điện thoại. Xin lỗi vì sự bất tiện này.
@@ -516,7 +516,7 @@ admin.common.last_updater: Cập nhật lần cuối
 admin.common.device_type: Loại thiết bị
 admin.common.authority: Vai trò
 admin.common.payment_method: Phương thức thanh toán
-admin.common.charge: Phí
+admin.common.charge: Phí thanh toán
 #------------------------------------------------------------------------------------
 # Home
 #------------------------------------------------------------------------------------
@@ -749,9 +749,9 @@ admin.product.category_csv.delete_flag_description: 'Chỉ định: 0 => Tải l
 admin.order.order_management: Đơn đặt hàng
 admin.order.order_list: Tất cả các đơn đặt hàng
 admin.order.order_registration: Thêm đơn hàng mới
-admin.order.shipping_registration: Thêm lô hàng
+admin.order.shipping_registration: Thêm giao hàng
 admin.order.shipping_csv_upload: Tải lên CSV giao hàng
-admin.order.mail: Email thông báo
+admin.order.mail: Quản lý email
 
 # flash Message
 admin.order.shipping_save_message: Thông tin liên quan đến vận chuyển đã được thay đổi. Nếu phí giao hàng cũng thay đổi, vui lòng cập nhật từ 'Đơn hàng' theo cách thủ công.
@@ -767,8 +767,8 @@ admin.order.payment_date__start: Ngày thanh toán (bắt đầu)
 admin.order.payment_date__end: Ngày thanh toán (kết thúc)
 admin.order.order_no: Mã đơn hàng
 admin.order.shipping_date: Ngày giao hàng
-admin.order.message: Thắc mắc
-admin.order.message_short: Thắc mắc
+admin.order.message: Ghi chú
+admin.order.message_short: Ghi chú
 admin.order.purchase_price: Số tiền
 admin.order.purchase_price__start: Số tiền (nhỏ nhất)
 admin.order.purchase_price__end: Số tiền (lớn nhất)
@@ -787,7 +787,7 @@ admin.order.delete_shipping__confirm_message: 'Thông tin giao hàng sẽ bị x
 admin.order.order_item_info: Thông tin sản phẩm được đặt hàng
 admin.order.order_item_type: Loại sản phẩm
 admin.order.add_product_item: Thêm một sản phẩm
-admin.order.add_other_item: Thêm các sản phẩm khác
+admin.order.add_other_item: Thêm các phí khác
 admin.order.update_calculation_results: Tính lại
 admin.order.amount: Giá
 admin.order.quantity: Số lượng
@@ -799,7 +799,7 @@ admin.order.delivery_fee: Phí giao hàng
 admin.order.add_point: Điểm có được
 admin.order.use_point: Điểm đã sử dụng
 admin.order.total: Tổng cộng
-admin.order.payment_total: Số tiền đến hạn mức
+admin.order.payment_total: Tổng tiền thanh toán
 admin.order.order_status: Tình trạng đặt hàng
 admin.order.last_buy_date: Ngày mua sau cùng
 admin.order.last_buy_date__start: Ngày mua hàng sau cùng (Bắt đầu)
@@ -837,15 +837,15 @@ admin.order.shipping_mail__completed: 'Thông báo giao hàng đã được gử
 admin.order.shipping_mail__sent: Đã gửi
 admin.order.shipping_mail__unsent: Chưa có
 admin.order.bulk_action__confirm_view_mail_body: Xem lại nội dung
-admin.order.bulk_action__confirm_message: Điều này sẽ thay đổi dữ liệu đã lưu. Thông tin chưa được lưu sẽ bị mất. Vui lòng lưu chỉnh sửa của bạn đầu trước.
+admin.order.bulk_action__confirm_message: Điều này sẽ thay đổi dữ liệu đã lưu. Thông tin chưa được lưu sẽ bị mất. Vui lòng lưu chỉnh sửa của bạn trước.
 admin.order.bulk_action__in_progress_message: Đang xử lý ...
 admin.order.bulk_action__complete_message: Đã hoàn thành.
 admin.order.shipping_mail_send: Gửi thông báo giao hàng
 admin.order.shipping_mail_send__confirm_title: Thông báo giao hàng.
 admin.order.shipping_mail_send__confirm_message: Gửi thông báo vận chuyển. Vui lòng xem lại nội dung trước khi nhấn [Gửi]. Lưu ý rằng bạn sẽ không thể hủy hành động này.
 admin.order.shipping_mail_send__complete_message: '%count% thông báo đã được gửi'
-admin.order.to_shipped__confirm_title: Cập nhật thành 'Đã giao hàng'.
-admin.order.to_shipped__confirm_message: Cập nhật thông tin giao hàng thành 'Đã giao hàng'. Vui lòng chọn các hành động khác nhau sau đó nhấn [Gửi]. Lưu ý rằng bạn sẽ không thể hoàn nguyên hành động này.
+admin.order.to_shipped__confirm_title: 'Cập nhật thành `Đã giao hàng`.'
+admin.order.to_shipped__confirm_message: Cập nhật thông tin giao hàng thành `Đã giao hàng`. Vui lòng chọn các hành động khác nhau sau đó nhấn [Gửi]. Lưu ý rằng bạn sẽ không thể hoàn nguyên hành động này.
 admin.order.to_shipped__confirm_send_mail: Gửi Email
 admin.order.to_shipped__confirm_send_mail_in_same_time: Gửi thông báo giao hàng hoàn toàn
 admin.order.change_status: Cập nhật trạng thái
@@ -887,6 +887,8 @@ admin.order.delivery_note_parameter_error: 'ID vận chuyển không được ch
 admin.order.failed_to_change_status: '%name%: Bạn không được phép thay đổi trạng thái từ %from% sang %to%'
 admin.order.failed_to_change_status__short: 'Bạn không được phép thay đổi trạng thái từ %from% sang %to%'
 admin.order.skip_change_status: '%name%: Thay đổi trạng thái đã bị bỏ qua'
+admin.order.shipping.mail_detail: 'Chi tiết email'
+
 
 # Shipping CSV Templates
 admin.order.shipping_csv.shipping_id_col: ID giao hàng
@@ -989,8 +991,8 @@ admin.content.page_url_exists: URL đã tồn tại.
 admin.content.page_file_name: Tên tệp
 admin.content.page_source_code: Mã
 admin.content.page_layout__card_title: Cài đặt bố cục
-admin.content.page_pc: PC
-admin.content.page_mobile: Mobile
+admin.content.page_pc: Máy tính
+admin.content.page_mobile: Di động
 admin.content.page_meta__card_title: Cài đặt các thẻ meta
 admin.content.page_meta_author: author
 admin.content.page_meta_description: description
@@ -1700,3 +1702,5 @@ order_pdf.service.delivery_fee: 'Vận chuyển'
 order_pdf.service.charge: 'Phí giao dịch'
 order_pdf.service.discount: 'Giảm giá'
 order_pdf.service.payment_total: 'Thanh Toán'
+
+Error: lỗi

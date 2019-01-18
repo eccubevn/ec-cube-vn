@@ -72,7 +72,7 @@ common.login: Đăng nhập
 common.remember_me: Ghi nhớ tôi
 common.signup: Đăng ký
 common.forgot_login: Bạn không thể đăng nhập ?
-common.customer_address_count_is_over: Bạn đã có số lượng địa chỉ tối đa là (%eccube_deliv_addr_max% items). Nếu bạn muốn thêm, vui lòng xóa bớt địa chỉ trong danh sách.
+common.customer_address_count_is_over: Bạn đã có số lượng địa chỉ tối đa là (%eccube_deliv_addr_max% địa chỉ). Nếu bạn muốn thêm, vui lòng xóa bớt địa chỉ trong danh sách.
 common.search_keyword: Nhập từ khóa
 common.delete_confirm: Bạn có muốn tiếp tục?
 common.pagetop: Quay về đầu trang
@@ -140,7 +140,7 @@ front.contact.inquiry_notice: |
  Xin lưu ý rằng một số yêu cầu có thể cần thêm thời gian để trả lời.
  Nếu nó rơi vào ngày lễ hoặc ngày nghỉ của chúng tôi, chúng tôi sẽ liên lạc lại với bạn vào / sau ngày làm việc tiếp theo. Cảm ơn bạn.
 front.contact.order_notice: Đối với sự thăc mắc về đơn đặt hàng của bạn, xin vui lòng thông báo cho chúng tôi về số thứ tự.
-front.contact.inquiry_contents: Thắc mắc
+front.contact.inquiry_contents: Ghi chú
 front.contact.complete_title: Cảm ơn bạn đã yêu cầu!
 front.contact.complete_message__title: Yêu cầu của bạn đã được gửi đi.
 front.contact.complete_message__body: Trong trường hợp bạn không nhận được email xác nhận của chúng tôi, yêu cầu của bạn có thể không được nhận. Vui lòng liên hệ với chúng tôi lại một lần nữa, hoặc qua điện thoại. Xin lỗi vì sự bất tiện này.
@@ -757,25 +757,25 @@ admin.order.mail: Email thông báo
 admin.order.shipping_save_message: Thông tin liên quan đến vận chuyển đã được thay đổi. Nếu phí giao hàng cũng thay đổi, vui lòng cập nhật từ 'Đơn hàng' theo cách thủ công.
 
 # Labels / Messages
-admin.order.multi_search_label: Mã đơn hàng / Tên / Tên công ty / Email / Điện thoại
+admin.order.multi_search_label: Mã đơn hàng / Tên / Họ / Tên công ty
 admin.order.order_info: Thông tin đặt hàng
 admin.order.order_date: Ngày đặt hàng
 admin.order.order_date__start: Ngày đặt hàng (Bắt đầu)
 admin.order.order_date__end: Ngày đặt hàng (Kết thúc)
 admin.order.payment_date: Ngày thanh toán
-admin.order.payment_date__start: Ngày thanh toán (Start)
-admin.order.payment_date__end: Ngày thanh toán (End)
+admin.order.payment_date__start: Ngày thanh toán (bắt đầu)
+admin.order.payment_date__end: Ngày thanh toán (kết thúc)
 admin.order.order_no: Mã đơn hàng
 admin.order.shipping_date: Ngày giao hàng
 admin.order.message: Thắc mắc
 admin.order.message_short: Thắc mắc
 admin.order.purchase_price: Số tiền
-admin.order.purchase_price__start: Số tiền (Start)
-admin.order.purchase_price__end: Số tiền (End)
+admin.order.purchase_price__start: Số tiền (nhỏ)
+admin.order.purchase_price__end: Số tiền (lớn)
 admin.order.orderer: Khách hàng
 admin.order.orderer_name: Tên khách hàng
 admin.order.orderer_kana: Customer Name (Phonetic)
-admin.order.orderer_company_name: Tên Công ty (khách hàng)
+admin.order.orderer_company_name: Tên công ty (khách hàng)
 admin.order.copy_orderer: Sao chép thông tin khách hàng
 admin.order.output_delivery_note: In phiếu giao hàng
 admin.order.output_delivery_note_short: In phiếu giao hàng
@@ -790,9 +790,9 @@ admin.order.add_product_item: Thêm một sản phẩm
 admin.order.add_other_item: Thêm các sản phẩm khác
 admin.order.update_calculation_results: Tính lại
 admin.order.amount: Giá
-admin.order.quantity: SL
+admin.order.quantity: Số lượng
 admin.order.tax_rate: Thuế (VAT)
-admin.order.tax_type: Loại thuế (VAT)
+admin.order.tax_type: Loại thuế
 admin.order.subtotal: Tạm tính
 admin.order.discount: Giảm giá
 admin.order.delivery_fee: Phí giao hàng
@@ -814,12 +814,12 @@ admin.order.mail_purchase_product_count: 'và %count% sản phẩm khác'
 admin.order.mail_history: Lịch sử Email
 admin.order.mail_send_date: Ngày gửi
 admin.order.mail_subject: Tiêu đề email
-admin.order.mail_body: Nội dụng Email
+admin.order.mail_body: Nội dụng email
 admin.order.mail_create: Email mới
 admin.order.mail_destination_info: Gửi đến
 admin.order.mail_mail_info: Nội dung Email
 admin.order.mail_confirm: Xem trước nội dung
-admin.order.mail_template: Mẫu (template)
+admin.order.mail_template: Mẫu email
 admin.order.mail_confirm_title: Bạn có chắc chắn gửi email với nội dung sau đây? Xem lại và nhấp vào [Gửi].
 admin.order.mail_send: Gửi
 admin.order.mail_send_complete: Email đã được gửi.
@@ -831,7 +831,7 @@ admin.order.to_shipped: Thiết lập 'Đã giao hàng'
 admin.order.send_mail: Gửi email
 admin.order.shop_memo_for_shipped: Ghi chú giao hàng
 admin.order.shipping__card_title: Thông tin giao hàng
-admin.order.shipping_id: ID giao hàng
+admin.order.shipping_id: Mã giao hàng
 admin.order.shipping_mail: Thông báo giao hàng
 admin.order.shipping_mail__completed: 'Thông báo giao hàng đã được gửi vào %date%'
 admin.order.shipping_mail__sent: Gửi

@@ -15,6 +15,7 @@ namespace Eccube\Repository;
 
 use Doctrine\ORM\NoResultException;
 use Doctrine\ORM\QueryBuilder;
+use Eccube\Common\EccubeConfig;
 use Eccube\Doctrine\Query\Queries;
 use Eccube\Entity\Customer;
 use Eccube\Entity\Master\OrderStatus;
@@ -41,11 +42,13 @@ class OrderRepository extends AbstractRepository
      *
      * @param RegistryInterface $registry
      * @param Queries $queries
+     * @param EccubeConfig $eccubeConfig
      */
-    public function __construct(RegistryInterface $registry, Queries $queries)
+    public function __construct(RegistryInterface $registry, Queries $queries, EccubeConfig $eccubeConfig)
     {
         parent::__construct($registry, Order::class);
         $this->queries = $queries;
+        $this->eccubeConfig = $eccubeConfig;
     }
 
     /**
@@ -146,8 +149,9 @@ class OrderRepository extends AbstractRepository
 
         // name
         if (isset($searchData['name']) && StringUtil::isNotBlank($searchData['name'])) {
+            $space = $this->eccubeConfig->get('eccube_space');
             $qb
-                ->andWhere('CONCAT(o.name01, o.name02) LIKE :name')
+                ->andWhere("CONCAT(o.name01, '{$space}', o.name02) LIKE :name")
                 ->setParameter('name', '%'.$searchData['name'].'%');
         }
 

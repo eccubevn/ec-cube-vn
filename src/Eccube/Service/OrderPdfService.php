@@ -362,7 +362,7 @@ class OrderPdfService extends TcpdfFpdi
 
         $this->Cell(0, 10, '', 0, 1, 'C', 0, '');
 
-        $this->SetFont(self::FONT_GOTHIC, 'B', 9);
+        $this->SetFont($this->font, 'B', 9);
         $this->MultiCell(0, 6, trans('order_pdf.service.note'), 'T', 2, 'L', 0, '');
 
         $this->SetFont($this->font, '', 8);
@@ -390,7 +390,7 @@ class OrderPdfService extends TcpdfFpdi
         $this->backupFont();
 
         //文書タイトル（納品書・請求書）
-        $this->SetFont(self::FONT_GOTHIC, '', 15);
+        $this->SetFont($this->font, '', 15);
         $this->Cell(0, 10, $title, 0, 2, 'C', 0, '');
         $this->Cell(0, 66, '', 0, 2, 'R', 0, '');
         $this->Cell(5, 0, '', 0, 0, 'R', 0, '');

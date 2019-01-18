@@ -770,8 +770,8 @@ admin.order.shipping_date: Ngày giao hàng
 admin.order.message: Thắc mắc
 admin.order.message_short: Thắc mắc
 admin.order.purchase_price: Số tiền
-admin.order.purchase_price__start: Số tiền (nhỏ)
-admin.order.purchase_price__end: Số tiền (lớn)
+admin.order.purchase_price__start: Số tiền (nhỏ nhất)
+admin.order.purchase_price__end: Số tiền (lớn nhất)
 admin.order.orderer: Khách hàng
 admin.order.orderer_name: Tên khách hàng
 admin.order.orderer_kana: Customer Name (Phonetic)
@@ -834,7 +834,7 @@ admin.order.shipping__card_title: Thông tin giao hàng
 admin.order.shipping_id: Mã giao hàng
 admin.order.shipping_mail: Thông báo giao hàng
 admin.order.shipping_mail__completed: 'Thông báo giao hàng đã được gửi vào %date%'
-admin.order.shipping_mail__sent: Gửi
+admin.order.shipping_mail__sent: Đã gửi
 admin.order.shipping_mail__unsent: Chưa có
 admin.order.bulk_action__confirm_view_mail_body: Xem lại nội dung
 admin.order.bulk_action__confirm_message: Điều này sẽ thay đổi dữ liệu đã lưu. Thông tin chưa được lưu sẽ bị mất. Vui lòng lưu chỉnh sửa của bạn đầu trước.
@@ -842,7 +842,7 @@ admin.order.bulk_action__in_progress_message: Đang xử lý ...
 admin.order.bulk_action__complete_message: Đã hoàn thành.
 admin.order.shipping_mail_send: Gửi thông báo giao hàng
 admin.order.shipping_mail_send__confirm_title: Thông báo giao hàng.
-admin.order.shipping_mail_send__confirm_message: Gửi thông báo vận chuyển. Vui lòng xem lại nội dung trước khi nhấn [Gửi]. Lưu ý rằng bạn sẽ không thể hoàn nguyên hành động này.
+admin.order.shipping_mail_send__confirm_message: Gửi thông báo vận chuyển. Vui lòng xem lại nội dung trước khi nhấn [Gửi]. Lưu ý rằng bạn sẽ không thể hủy hành động này.
 admin.order.shipping_mail_send__complete_message: '%count% thông báo đã được gửi'
 admin.order.to_shipped__confirm_title: Cập nhật thành 'Đã giao hàng'.
 admin.order.to_shipped__confirm_message: Cập nhật thông tin giao hàng thành 'Đã giao hàng'. Vui lòng chọn các hành động khác nhau sau đó nhấn [Gửi]. Lưu ý rằng bạn sẽ không thể hoàn nguyên hành động này.
@@ -1527,7 +1527,7 @@ tooltip.category.csv_upload: Đăng ký danh mục hàng loạt có sẵn với 
 tooltip.category.csv_format: Bạn có thể tạo dữ liệu CSV dễ dàng với các mẫu có sẵn để tải xuống.
 tooltip.order.multi_search_label: Để biết các tùy chọn tìm kiếm chi tiết, vui lòng truy cập [Tìm kiếm mở rộng].
 tooltip.order.order_search_status: Bạn có thể lọc danh sách theo trạng thái đơn hàng. (Số) cho biết có bao nhiêu đơn hàng được theo dõi trên mỗi trạng thái.
-tooltip.order.bulk_actions: Xử lý hàng loạt được áp dụng cho các đơn đặt hàng được kiểm tra.
+tooltip.order.bulk_actions: Xử lý hàng loạt được áp dụng cho các đơn đặt hàng được chọn.
 tooltip.order.order_info: Thông tin chung của đơn hàng.
 tooltip.order.order_no: Số thứ tự được tạo tự động khi đặt hàng.
 tooltip.order.order_status: Bạn có thể thay đổi trạng thái tương ứng của đơn đặt hàng. Tuy nhiên, ngoại trừ nhập đơn hàng mới. Ngoài ra, nếu có nhiều điểm giao hàng trong một đơn hàng, tất cả sẽ được "vận chuyển" sau khi tất cả các lô hàng được thực hiện.

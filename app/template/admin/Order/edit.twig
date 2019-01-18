@@ -352,7 +352,7 @@ file that was distributed with this source code.
                                 <div class="col-2">
                                     <div class="d-inline-block"><span class="card-title">{{ 'admin.order.orderer'|trans }}</span></div>
                                 </div>
-                                <div class="col">{% if id %}<span class="mr-5">{% if form.Customer.vars.value is empty %}{{ 'admin.order.non_member'|trans }}{% else %}<a href="{{ url('admin_customer_edit', {'id': form.Customer.vars.value}) }}">{{ form.Customer.vars.value }}</a>{% endif %}</span>{{ Order.full_name }} ({{ Order.full_name_kana }}) 〒{{ Order.postal_code }} {{ Order.pref }}{{ Order.addr01 }}{{ Order.addr02 }} {{ Order.email }}{% endif %}</div>
+                                <div class="col">{% if id %}<span class="mr-5">{% if form.Customer.vars.value is empty %}{{ 'admin.order.non_member'|trans }}{% else %}<a href="{{ url('admin_customer_edit', {'id': form.Customer.vars.value}) }}">{{ form.Customer.vars.value }}</a>{% endif %}</span>{{ Order.full_name }} ({{ Order.full_name_kana }}) {{ format_address(Order.addr01, Order.addr02, Order.pref, Order.postal_code) }} {{ Order.email }}{% endif %}</div>
                                 <div class="col-1 text-right"><a class="d-block" data-toggle="collapse" href="#ordererInfo" aria-expanded="false" aria-controls="ordererInfo"><i class="fa {{ id ? 'fa-angle-down' : 'fa-angle-up' }} fa-lg"></i></a></div>
                             </div>
                         </div>
@@ -427,8 +427,8 @@ file that was distributed with this source code.
                                                 </div>
                                                 <div class="row mb-3">
                                                     <div class="col">
-                                                        {{ form_widget(form.address.addr01) }}
-                                                        {{ form_errors(form.address.addr01) }}
+                                                        {{ form_widget(form.address.addr01, { attr: { placeholder: 'admin.common.address_sample_01'|trans}}) }}
+                                                        {{ form_errors(form.address.addr01, { attr: { placeholder: 'admin.common.address_sample_02'|trans}}) }}
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -498,7 +498,7 @@ file that was distributed with this source code.
                                         <div class="col">
                                             <span class="mr-5">{{ 'admin.order.delivery'|trans }}({{ loop.index }})</span>
                                             {% set shipping_name = shipping.full_name ~ '(' ~ shipping.full_name_kana ~ ')' ~ shipping.company_name is not null ? shipping.company_name : '' %}
-                                            {% set shipping_addr = 'admin.common.postal_symbol'|trans ~ shipping.postal_code ~ ' ' ~ shipping.pref ~ shipping.addr01 ~ shipping.addr02 %}
+                                            {% set shipping_addr = format_address(shipping.addr01, shipping.addr02, shipping.pref, shipping.postal_code) %}
                                             {% set shipping_date = shipping.shipping_date is not null ? shipping.shipping_date|date_day : '' %}
                                             {{ shipping_name }} {{ shipping_addr }} {{ shipping.phone_number }} {{ shipping_date }}
                                         </div>

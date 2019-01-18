@@ -70,7 +70,7 @@ $(function() {
                         </div>
                         <div class="row mb-2">
                             <div class="col-2"><span>{{ 'admin.order.orderer'|trans }}</span></div>
-                            <div class="col-4"><span>{{ Order.name01 }} {{ Order.name02 }}（{{ Order.kana01 }} {{ Order.kana02 }}）</span><br>{{ 'admin.common.postal_symbol'|trans }}{{ Order.postal_code }}<br>{{ Order.pref }}{{ Order.addr01 }}{{ Order.addr02 }}</div>
+                            <div class="col-4"><span>{{ Order.name01 }} {{ Order.name02 }}（{{ Order.kana01 }} {{ Order.kana02 }}）</span><br>{{ format_address(Order.addr01, Order.addr02, Order.pref, Order.postal_code) }}</div>
                             <div class="col-2"><span>{{ 'admin.order.purchase_product'|trans }}</span></div>
                             <div class="col-4"><span>
                             {% if Order.productOrderItems %}

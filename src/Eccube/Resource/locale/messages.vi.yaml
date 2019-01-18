@@ -3,7 +3,7 @@
 #====================================================================================
 
 common.select: Vui lòng chọn
-common.select__pref: Chọn tỉnh thành
+common.select__pref: Chọn tỉnh / Thành phố
 common.select__unspecified: Không chỉ định
 common.select__all_products: Tất cả sản phẩm
 common.required: (*)
@@ -44,14 +44,14 @@ common.phone_number: Điện thoại
 common.phone_number_sample: 'Ví dụ: 0912345678'
 common.mail_address: Email
 common.mail_address_sample: 'Ví dụ: ec-cube@example.com'
-common.repeated_confirm: Vui lòng nhập lại
+common.repeated_confirm: Vui lòng xác nhận lại một lần nữa
 common.password: Mật khẩu
-common.password_sample: Bảng chữ cái, số và ký hiệu %min% - %max% ký tự
+common.password_sample: Bảng chữ cái, số và ký hiệu từ %min% - %max% ký tự
 common.password_for_confirmation: Nhập lại mật khẩu
 common.gender: Giới tính
 common.job: Nghề nghiệp
 common.birth_day: Sinh nhật
-common.tax_include: Đã gồm thuế
+common.tax_include: (VAT)
 common.separator__range: '-'
 common.separator__colon: ':'
 common.quantity: Số lượng
@@ -64,8 +64,8 @@ common.delivery_fee: Phí vận chuyển
 common.charge: Phí thanh toán
 common.discount: Giảm giá
 common.point: Điểm
-common.enabled: Kích hoạt
-common.disabled: Vô hiệu hóa
+common.enabled: Bật
+common.disabled: Tắt
 common.user_name: '(Ông/bà) %last_name% %first_name%'
 common.user_name.honor: '(Mr/Ms)'
 common.login: Đăng nhập
@@ -214,7 +214,7 @@ front.trade.refund: Về hàng trả lại / trao đổi
 
 front.mypage.welcome: Chào %last_name% %first_name%
 front.mypage.title: Tài khoản của tôi
-front.mypage.welcome__point: Bạn có %point% điểm
+front.mypage.welcome__point: Bạn đang có %point% điểm
 front.mypage.nav__history: Lịch sử đặt hàng
 front.mypage.nav__history_detail: Chi tiết lịch sử đặt hàng
 front.mypage.nav__favorite: Yêu thích
@@ -222,7 +222,7 @@ front.mypage.nav__customer: Chỉnh sửa thông tin
 front.mypage.nav__customer_complete: Chỉnh sửa thông tin khách hàng (Đã hoàn thành)
 front.mypage.nav__customer_address: Địa chỉ giao hàng
 front.mypage.nav__withdrow: Hủy bỏ thành viên
-front.mypage.history_count: Bạn có '%count% mục trong lịch sử đặt hàng.'
+front.mypage.history_count: Bạn có %count% mục trong lịch sử đặt hàng.
 front.mypage.history_not_found: Không tìm thấy lịch sử đặt hàng.
 front.mypage.message_not_found: Không tìm thấy
 front.mypage.view_detail: Xem chi tiết
@@ -249,7 +249,7 @@ front.mypage.customer_complete_message__body: Hãy tiếp tục mua sắm của 
 front.mypage.favorite_count: '%count% sản phẩm được tìm thấy trong mục yêu thích'
 front.mypage.favorite_not_found: Không tìm thấy sản phẩm nào trong mục "Yêu thích".
 front.mypage.customer_address_count: '%count% địa chỉ được đăng ký trong địa chỉ giao hàng'
-front.mypage.customer_address_not_found: Không có địa chỉ được tìm thấy.
+front.mypage.customer_address_not_found: Không có địa chỉ nào được tìm thấy.
 front.mypage.add_customer_address: 'Thêm địa chỉ mới'
 front.mypage.withdraw_message__title: Hãy xác nhận chắc chắn là bạn có muốn hủy bỏ thành viên ?
 front.mypage.withdraw_message__body: Xin lưu ý rằng tất cả thông tin trong Lịch sử đặt hàng và Địa chỉ giao hàng, v.v. sẽ bị xóa khi bạn nhấn nút xác nhận.
@@ -319,7 +319,7 @@ front.cart.delivery_fee_free__quantity: <strong class="ec-color-red">Miễn phí
 #------------------------------------------------------------------------------------
 
 front.shopping.title: Chỉ định giao hàng
-front.shopping.order_no: Mã đơn hàng.
+front.shopping.order_no: Mã đơn hàng
 front.shopping.customer_info: Thông tin khách hàng
 front.shopping.delivery_info: Thông tin giao hàng
 front.shopping.delivery_to: Giao hàng đến
@@ -329,7 +329,7 @@ front.shopping.delivery_time: Giờ giao
 front.shopping.to_multiple: Thêm địa chỉ nhận hàng
 front.shopping.payment_info: Phương thức thanh toán
 front.shopping.point_info: Điểm của bạn
-front.shopping.available_point: 'Bạn được %point% điểm.'
+front.shopping.available_point: 'Bạn có %point% điểm.'
 front.shopping.point_prev: Điểm sử dụng
 front.shopping.prev_point: Điểm trước khi mua
 front.shopping.next_point: Điểm sau khi mua
@@ -433,9 +433,9 @@ admin.common.back: Quay lại
 # Generic Labels, Messages
 admin.common.show: Hiển thị
 admin.common.hide: Ẩn
-admin.common.hidden_label: (Ẩn)
-admin.common.to_show: Ẩn | Hiện
-admin.common.to_hide: Hiển thị | Ẩn
+admin.common.hidden_label: Ẩn
+admin.common.to_show: Nhấp vào để hiện
+admin.common.to_hide: Nhấp vào để ẩn
 admin.common.required: Bắt buộc
 admin.common.bulk_actions: Tất cả
 admin.common.select: Vui lòng chọn
@@ -492,8 +492,8 @@ admin.common.address: Địa chỉ
 admin.common.pref: Tình thành
 admin.common.postal_symbol: Mã bưu điện
 admin.common.postal_code_sample: 'Ví dụ: 90000'
-admin.common.address_sample_01: Tỉnh / Thành Phố
-admin.common.address_sample_02: Tên đường, số nhà
+admin.common.address_sample_01: Quận huyện
+admin.common.address_sample_02: Số nhà, tên đường, xã/phường
 admin.common.phone_number: Điện thoại
 admin.common.mail_address: Email
 admin.common.password: Mật khẩu
@@ -526,24 +526,24 @@ admin.home: Home
 admin.login: Đăng nhập
 
 # ラベル
-admin.home.order_status_title: Tình trạng đơn hàng
+admin.home.order_status_title: Trạng thái các đơn hàng
 admin.home.shop_status_title: Tình trạng cửa hàng
 admin.home.shop_status_out_of_stock: Số lượng hàng tồn kho
 admin.home.shop_status_products: Số lượng sản phẩm
 admin.home.shop_status_customers: Số lượng của khách hàng
 admin.home.sales_summary_title: Bán hàng
-admin.home.sales_summary_value: '%amount% / %count% sản phẩm đã bán'
+admin.home.sales_summary_value: '%amount%/%count% SP đã bán'
 admin.home.sales_summary_this_month: 'Tháng này: Số lượng / Khối lượng bán hàng'
 admin.home.sales_summary_today: 'Hôm nay: Số lượng / Khối lượng bán hàng'
 admin.home.sales_summary_yesterday: 'Hôm qua: Số lượng / Khối lượng bán hàng'
-admin.home.sales_summary_weekly: Hàng tuần
-admin.home.sales_summary_monthly: Hàng tháng
-admin.home.sales_summary_yearly: Hàng năm
+admin.home.sales_summary_weekly: Theo tuần
+admin.home.sales_summary_monthly: Theo tháng
+admin.home.sales_summary_yearly: Theo năm
 admin.home.sales_summary_amount: Sản lượng bán ra
 admin.home.sales_summary_count: Khối lượng bán hàng
 admin.home.recommend_plugins_title: Plug-in đề xuất
 admin.home.recommend_plugins.owner_store: Owners' Store
-admin.home.news_title: Có gì mới
+admin.home.news_title: Có gì mới ?
 
 admin.header.user_name: 'Chào %name%!'
 admin.header.logout: Đăng xuất
@@ -991,7 +991,7 @@ admin.content.page_source_code: Mã
 admin.content.page_layout__card_title: Cài đặt bố cục
 admin.content.page_pc: PC
 admin.content.page_mobile: Mobile
-admin.content.page_meta__card_title: Cài đặt thẻ meta
+admin.content.page_meta__card_title: Cài đặt các thẻ meta
 admin.content.page_meta_author: author
 admin.content.page_meta_description: description
 admin.content.page_meta_keyword: keyword
@@ -1030,8 +1030,8 @@ admin.content.maintenance__card_title: Chế độ bảo trì
 admin.content.maintenance_message: |
   Khi chế độ bảo trì được bật, cửa hàng tạm thời bị dừng và chỉ có thể truy cập bảng điều khiển dành cho quản trị viên.
   * Khi cài đặt / bật / tắt / xóa plugin, nó sẽ tự động chuyển sang chế độ bảo trì.
-admin.content.maintenance_switch__on: Kích hoạt
-admin.content.maintenance_switch__off: Vô hiệu hóa
+admin.content.maintenance_switch__on: Bật
+admin.content.maintenance_switch__off: Tắt
 admin.content.maintenance_switch__on_message: Chế độ bảo trì đã được kích hoạt.
 admin.content.maintenance_switch__off_message: Chế độ bảo trì đã bị vô hiệu hóa.
 
@@ -1045,7 +1045,7 @@ admin.setting.shop: Cửa hàng
 admin.setting.shop.shop_setting: Thông tin chung
 admin.setting.shop.tradelaw_setting: Vận chuyển và trả hàng
 admin.setting.shop.agreement_setting: Điều khoản và điều kiện
-admin.setting.shop.payment_list: Tất cả các phương thức thanh toán
+admin.setting.shop.payment_list: Các phương thức thanh toán
 admin.setting.shop.payment_setting: Cài đặt thanh toán
 admin.setting.shop.delivery_list: Tất cả các phương thức giao hàng
 admin.setting.shop.delivery_setting: Cài đặt giao hàng
@@ -1123,7 +1123,7 @@ admin.setting.shop.delivery.delivery_time_setting: Thời gian giao hàng
 admin.setting.shop.delivery.delivery_fee_by_pref: Phí vận chuyển theo tỉnh
 admin.setting.shop.delivery.apply_to_pref__title: Tỉ lệ (Toàn quốc)
 admin.setting.shop.delivery.apply_to_pref__button: Áp dụng cho tất cả danh sách bên dưới
-admin.setting.shop.delivery.fee.invalid: Vui lòng nhập với số.
+admin.setting.shop.delivery.fee.invalid: Vui lòng nhập số.
 
 #------------------------------------------------------------------------------------
 # Settings : Store Settings : Tax Rate
@@ -1605,7 +1605,7 @@ install.update: Cập nhật
 install.title: Chào mừng | Cài đặt EC-CUBE
 install.welcom: Chào mừng
 install.check_permission: Xác minh quyền truy cập
-install.site_configuration: Cấu hình trang web
+install.site_configuration: Cấu hình website
 install.database_configuration: Cấu hình cơ sở dữ liệu
 install.database_initalization: Khởi tạo cơ sở dữ liệu
 install.install_completed: Cài đặt hoàn tất

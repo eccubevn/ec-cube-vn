@@ -52,7 +52,7 @@ file that was distributed with this source code.
                                     </a>
                                     <div class="ec-addressList__address">
                                         <div>{{ CustomerAddress.name01 }}&nbsp;{{ CustomerAddress.name02 }}</div>
-                                        <div>{{ 'common.postal_symbol'|trans }}{{ CustomerAddress.postal_code }} {{ CustomerAddress.Pref }}{{ CustomerAddress.addr01 }}{{ CustomerAddress.addr02 }}</div>
+                                        <div>{{ format_address(CustomerAddress.addr01, CustomerAddress.addr02, CustomerAddress.pref, CustomerAddress.postal_code) }}</div>
                                         <div>{{ CustomerAddress.phone_number }}</div>
                                     </div>
                                     <div class="ec-addressList__action">

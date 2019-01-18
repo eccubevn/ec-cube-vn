@@ -79,4 +79,13 @@ class HelpController extends AbstractController
     {
         return [];
     }
+
+    /**
+     * @Route("/help/postalcode", name="help_postalcode")
+     * @Template("Help/postalcode.twig")
+     */
+    public function postalcode()
+    {
+        return [];
+    }
 }

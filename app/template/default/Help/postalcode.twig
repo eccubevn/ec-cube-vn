@@ -1,0 +1,90 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends 'default_frame.twig' %}
+
+{% block javascript %}
+<script src="{{ asset('assets/js/postalcode.js') }}" charset="UTF-8"></script>
+<script>
+    let table = jQuery('#postalcode-table').find('tbody');
+    Object.keys(postalcodeData).forEach(function (k) {
+
+        let tr = jQuery('<tr></tr>').addClass('active');
+        let td = jQuery('<td></td>').attr('colspan', 2).text(k);
+        table.append(tr.append(td));
+        Object.keys(postalcodeData[k]).forEach(function(i) {
+              let tr = jQuery('<tr></tr>');
+              let td1 = jQuery('<td></td>').text(i);
+              let td2 = jQuery('<td></td>').text(postalcodeData[k][i]);
+              table.append(tr.append(td1).append(td2));
+        });
+    });
+    const filter = function(data, str) {
+        let newData = {};
+        Object.keys(data).forEach(function (k) {
+            newData[k] = {};
+            Object.keys(data[k]).forEach(function(i) {
+                  if (data[k][i].toLowerCase().indexOf(str.toLowerCase()) !== -1) {
+                      newData[k][i] = data[k][i];
+                  }
+            });
+            if (Object.keys(newData[k]).length === 0) {
+                delete newData[k];
+            }
+        });
+
+        return newData;
+    };
+
+    const render = function(data) {
+        let table = jQuery('#postalcode-table').find('tbody');
+        table.empty();
+        Object.keys(data).forEach(function (k) {
+            let tr = jQuery('<tr></tr>').addClass('active');
+            let td = jQuery('<td></td>').attr('colspan', 2).text(k);
+            table.append(tr.append(td));
+            Object.keys(data[k]).forEach(function(i) {
+                let tr = jQuery('<tr></tr>');
+                let td1 = jQuery('<td></td>').text(i);
+                let td2 = jQuery('<td></td>').text(data[k][i]);
+                table.append(tr.append(td1).append(td2));
+            });
+        });
+    };
+    render(postalcodeData);
+
+    jQuery('#search').on('click', function(e) {
+        render(filter(postalcodeData, jQuery('#keyword').val()));
+    });
+    jQuery("#keyword").keypress(function (e) {
+        if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
+            render(filter(postalcodeData, jQuery(this).val()));
+            return false;
+        } else {
+            return true;
+        }
+    });
+</script>
+{% endblock javascript %}
+
+{% block main %}
+    <div class="ec-role">
+        <div class="ec-pageHeader">
+            <h1>{{ 'admin.common.postal_symbol'|trans }}</h1>
+        </div>
+        <div class="ec-halfInput">
+            <input type="text" class="ec-input" id="keyword" /><button type="button" class="ec-inlineBtn" id="search">{{ 'common.search_postal_code'|trans }}</button>
+        </div>
+        <table class="table table-bordered" id="postalcode-table">
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

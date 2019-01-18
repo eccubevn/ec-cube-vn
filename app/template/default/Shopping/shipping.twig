@@ -53,7 +53,7 @@ file that was distributed with this source code.
                             </div>
                             <div class="ec-addressList__address">
                                 <div>{{ Address.name01 }}&nbsp;{{ Address.name02 }}</div>
-                                <div>〒{{ Address.postal_code }} {{ Address.Pref }}{{ Address.addr01 }}{{ Address.addr02 }}</div>
+                                <div>{{ format_address(Address.addr01, Address.addr02, Address.Pref, Address.postal_code) }}</div>
                                 <div>{{ Address.phone_number }}</div>
                             </div>
                         </div>

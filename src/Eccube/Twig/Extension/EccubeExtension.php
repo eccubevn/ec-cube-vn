@@ -63,6 +63,7 @@ class EccubeExtension extends AbstractExtension
             new TwigFunction('product', [$this, 'getProduct']),
             new TwigFunction('php_*', [$this, 'getPhpFunctions'], ['pre_escape' => 'html', 'is_safe' => ['html']]),
             new TwigFunction('currency_symbol', [$this, 'getCurrencySymbol']),
+            new TwigFunction('format_address', [$this, 'getFormatAddress'])
         ];
     }
 
@@ -367,5 +368,22 @@ class EccubeExtension extends AbstractExtension
     public function getFormatName($name01, $name02 = '')
     {
         return trans('common.user_name', ['%last_name%' => $name01, '%first_name%' => $name02]);
+    }
+
+    /**
+     * Format address
+     *
+     * @param string $addr1
+     * @param string $addr2
+     * @param string $pref
+     * @param string $postalCode
+     * @return string
+     */
+    public function getFormatAddress($addr1 = '', $addr2 = '', $pref = '', $postalCode = '')
+    {
+        $tmp = [$addr2, $addr1, $pref];
+        $address = implode(', ', $tmp);
+
+        return $address . ($postalCode ? ' ' . $postalCode : '');
     }
 }

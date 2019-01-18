@@ -452,10 +452,10 @@ admin.common.search_try_change_condition: Vui lòng thay đổi các điều ki�
 admin.common.search_try_advanced_search: 'Thử [Tìm kiếm mở rộng]'
 admin.common.csv_download: Tải CSV
 admin.common.csv_upload: Tải lên tệp CSV
-admin.common.csv_skeleton_download: Tải xuống một mẫu
+admin.common.csv_skeleton_download: Tải xuống mẫu csv
 admin.common.csv_format: Định dạng tập tin CSV
-admin.common.csv_select: Chọn 1 file CSV
-admin.common.file_select: Chọn 1 file
+admin.common.csv_select: Chọn tệp CSV
+admin.common.file_select: Chọn tệp
 admin.common.file_select_empty: Không được chọn
 admin.common.csv_invalid_format: Định dạng CSV chưa khớp
 admin.common.csv_invalid_no_data: Không tìm thấy dữ liệu CSV
@@ -472,7 +472,7 @@ admin.common.csv_invalid_foreign_key: 'Bạn không thể xóa %name% trong dòn
 admin.common.drag_and_drop_description: Bạn có thể thay đổi thứ tự của các mục bằng cách kéo và thả.
 admin.common.drag_and_drop_image_description: Kéo và thả hình ảnh hoặc
 admin.common.delete_modal__title: Xóa
-admin.common.delete_modal__message: Dữ liệu này sẽ không thể lấy lại dữ liệu này. Bạn chắc chắn muốn xóa ''%name%''?
+admin.common.delete_modal__message: Bạn sẽ không thể lấy lại dữ liệu này. Bạn chắc chắn muốn xóa ''%name%''?
 admin.common.move_to_confirm_title: Chuyển đến trang khác
 admin.common.move_to_confirm_message: 'Sẽ chuyển đến trang %name% cài đặt. Bạn có muốn lưu chỉnh sửa hiện tại không?'
 admin.common.move_to_confirm_move_only: Chuyển trang
@@ -574,7 +574,7 @@ admin.product.product_class_registration: Tùy chọn phân loại
 admin.product.class_management: Tùy chọn
 admin.product.class_category_management: Nhóm tùy chọn
 admin.product.category_management: Danh mục
-admin.product.tag_management: Thẻ
+admin.product.tag_management: Quản lý thẻ
 admin.product.product_csv_upload: Sản phẩm CSV
 admin.product.category_csv_upload: Danh mục CSV
 
@@ -588,7 +588,7 @@ admin.product.reset_complete: Tùy chọn sản phẩm đã được đặt lạ
 admin.product.product: Sản phẩm
 admin.product.product__card_title: Thông tin sản phẩm
 admin.product.preview: Xem trước
-admin.product.product_id: ID sản phẩm
+admin.product.product_id: Định danh sản phẩm
 admin.product.product_id__short: ID
 admin.product.display_status: Trạng thái
 admin.product.display_status__short: Trạng thái
@@ -609,35 +609,35 @@ admin.product.image: Hình ảnh sản phẩm
 admin.product.image__short: Hình ảnh
 admin.product.image_size: 'Nên chọn ảnh có độ phân giải lớn hơn 600x600 (px)'
 admin.product.sale_type: Loại hình bán hàng
-admin.product.description_detail: Mô tả sản phẩm
-admin.product.description_list: Mô tả sản phẩm (chi tiết)
+admin.product.description_detail: Mô tả sản phẩm (chi tiết)
+admin.product.description_list: Mô tả sản phẩm
 admin.product.description_list__add: Thêm mô tả sản phẩm
 admin.product.price: Giá
 admin.product.sale_price: Giá bán # price02
 admin.product.normal_price: Giá thường # price01
 admin.product.stock: Tồn kho
 admin.product.stock__short: Tồn kho
-admin.product.stock__in_stock: Có sẵn
-admin.product.stock__out_of_stock: Không có sẵn
+admin.product.stock__in_stock: Còn hàng
+admin.product.stock__out_of_stock: Hết hàng
 admin.product.search_word: Từ khóa tìm kiếm
-admin.product.product_code: SKU
+admin.product.product_code: Mã sản phẩm
 admin.product.product_code__short: SKU
-admin.product.product_name_and_code: Tên sản phẩm / SKU
+admin.product.product_name_and_code: Tên sản phẩm / Mã sản phẩm
 admin.product.sale_limit: Số lượng đặt hàng tối đa
 admin.product.delivery_duration: Ngày giao hàng dự kiến
 admin.product.delivery_fee: Phí giao hàng
-admin.product.tax_rate: VAT
+admin.product.tax_rate: Thuế giá trị gia tăng (VAT)
 admin.product.free_area: Mô tả thêm
 admin.product.free_area__card_title: Mô tả thêm
 admin.product.delete_flag: Cờ xóa sản phẩm
 admin.product.search_category: Tìm kiếm danh mục
-admin.product.save_tag: Tags
+admin.product.save_tag: Lưu thẻ
 admin.product.create_date__card_title: Cập nhật
-admin.product.move_to_category: Thêm/Chỉnh sửa danh mục
-admin.product.move_to_tag: Thêm/Chỉnh sửa thẻ
+admin.product.move_to_category: Thêm/Sửa danh mục
+admin.product.move_to_tag: Thêm/Sửa thẻ
 admin.product.move_to_product_class: Chỉnh sửa tùy chọn
-admin.product.move_to_product_class__confirm_title: '%name% tùy chọn'
-admin.product.multi_search_label: Tên sản phẩm / ID sản phẩm / SKU
+admin.product.move_to_product_class__confirm_title: 'Tùy chọn %name%'
+admin.product.multi_search_label: Tên sản phẩm / Định danh sản phẩm / Mã sản phẩm
 admin.product.product_class: Sản phẩm tùy chọn
 admin.product.product_class__short: Tùy chọn
 admin.product.product_class__create: Đăng ký tùy chọn cho sản phẩm
@@ -653,14 +653,14 @@ admin.product.product_class__reset_confirm_message: |
 admin.product.product_class__reset_confirm_excecute: Đặt lại tùy chọn
 admin.product.product_class_set_stock_quantity: Nhập số lượng sản phẩm hoặc check 'Không giới hạn'.
 admin.product.copy_first_line: Lặp lại trong các dòng đầu tiên cho tất cả
-admin.product.procuct_class_count: 'There are %count% combinations'
+admin.product.procuct_class_count: 'Có %count% kết hợp'
 admin.product.stock_unlimited: Không giới hạn số lượng
 admin.product.stock_unlimited__short: Không giới hạn
 admin.product.class_name: Tên tùy chọn
-admin.product.class_name__backend_name: Bí danh (alias)
+admin.product.class_name__backend_name: Tên khác
 admin.product.class_name__card_title: Thông tin tùy chọn
 admin.product.class_category: Nhóm tùy chọn
-admin.product.class_category__backend_name: Bí danh (alias)
+admin.product.class_category__backend_name: Tên khác
 admin.product.class_category__card_title: Thông tin tùy chọn
 admin.product.class_category_name: Nhóm tùy chọn
 admin.product.class_category_name__short: Tên nhóm
@@ -671,10 +671,10 @@ admin.product.class_category2__short: Tùy chọn 2
 admin.product.category: Danh mục
 admin.product.category__product_card_title: Danh mục
 admin.product.category_id: |
- ID Danh mục
- Để cập nhật danh mục, vui lòng nhập ID danh mục
-admin.product.category_name: ID danh mục
-admin.product.parent_category_id: ID danh mục cha
+ Mã danh mục
+ Để cập nhật danh mục, vui lòng nhập Mã danh mục
+admin.product.category_name: Mã danh mục
+admin.product.parent_category_id: Mã danh mục cha
 admin.product.category_all: Tất cả các danh mục
 admin.product.tag: Thẻ
 admin.product.tag__product_card_title: Thẻ
@@ -684,7 +684,7 @@ admin.product.select__can_not_select_same_class: Bạn không được phép ch�
 admin.product.unselected_class: Không được chọn
 
 # Product CSV Templates
-admin.product.product_csv.product_id_col: ID sản phẩm
+admin.product.product_csv.product_id_col: Định danh sản phẩm
 admin.product.product_csv.product_id_description: Để đăng ký sản phẩm mới, xin vui lòng để trống. Để cập nhật thông tin sản phẩm đã đăng ký, vui lòng ghi rõ
 admin.product.product_csv.display_status_col: Trạng thái (ID)
 admin.product.product_csv.display_status_description: ''
@@ -692,7 +692,7 @@ admin.product.product_csv.product_name_col: Tên sản phẩm
 admin.product.product_csv.product_name_description: ''
 admin.product.product_csv.shop_memo_col: Ghi chú cửa hàng
 admin.product.product_csv.shop_memo_description: ''
-admin.product.product_csv.description_list_col: Mô tả sản phẩm (chi tiết)
+admin.product.product_csv.description_list_col: Mô tả sản phẩm
 admin.product.product_csv.description_list_description: ''
 admin.product.product_csv.description_detail_col: Mô tả sản phẩm (Chi tiết)
 admin.product.product_csv.description_detail_description: ''
@@ -703,27 +703,27 @@ admin.product.product_csv.free_area_description: ''
 admin.product.product_csv.delete_flag_col: Cờ xóa sản phẩm
 admin.product.product_csv.delete_flag_description: 'Chỉ định: 0 => Đăng ký; 1 => Xóa. Nếu không được chỉ định, nó sẽ được đặt thành 0.'
 admin.product.product_csv.product_image_col: Ảnh sản phẩm
-admin.product.product_csv.product_image_description: Chỉ định tên của tập tin hình ảnh. Đối với nhiều hình ảnh, vui lòng trích dẫn hai tên tệp.
+admin.product.product_csv.product_image_description: 'Chỉ định tên của tập tin hình ảnh. Đối với nhiều hình ảnh, cách nhau bởi dấu phẩy, ví dụ: "hình 1,hình 2"'
 admin.product.product_csv.category_col: Danh mục sản phẩm (ID)
-admin.product.product_csv.category_description: Chỉ định ID danh mục. Đối với nhiều danh mục, vui lòng trích dẫn hai ID danh mục.
-admin.product.product_csv.tag_col: Tag (ID)
-admin.product.product_csv.tag_description: Chỉ định tag ID. Đối với nhiều tag, vui lòng trích dẫn hai ID thẻ.
+admin.product.product_csv.category_description: 'Chỉ định mã danh mục. Đối với nhiều danh mục, cách nhau bởi dấu phẩy, ví dụ: "nhóm 1,nhóm 2"'
+admin.product.product_csv.tag_col: Mã thẻ
+admin.product.product_csv.tag_description: 'Chỉ định mã thẻ. Đối với nhiều thẻ, cách nhau bởi dấu phẩy, ví dụ: "thẻ 1,thẻ 2"'
 admin.product.product_csv.sale_type_col: Loại bán hàng (ID)
 admin.product.product_csv.sale_type_description: ''
-admin.product.product_csv.class_category1_col: Nhớm tùy chọn 1(ID)
+admin.product.product_csv.class_category1_col: Nhóm tùy chọn 1 (ID)
 admin.product.product_csv.class_category1_description: ''
-admin.product.product_csv.class_category2_col: Nhớm tùy chọn 2(ID)
+admin.product.product_csv.class_category2_col: Nhóm tùy chọn 2 (ID)
 admin.product.product_csv.class_category2_description: ''
 admin.product.product_csv.delivery_duration_col: Ngày giao hàng dự kiến (ID)
 admin.product.product_csv.delivery_duration_description: ''
-admin.product.product_csv.product_code_col: SKU
+admin.product.product_csv.product_code_col: Mã sản phẩm
 admin.product.product_csv.product_code_description: ''
 admin.product.product_csv.stock_col: Số lượng sản phẩm
-admin.product.product_csv.stock_description: If the unlimited stock flag is set to 0, please set the value more than 0.
-admin.product.product_csv.stock_unlimited_col: Cờ SL sản phẩm không giới hạn
+admin.product.product_csv.stock_description: Nếu cờ 'số lượng sản phẩm không giới' hạn được đặt thành 0 (giới hạn), vui lòng đặt giá trị lớn hơn 0.
+admin.product.product_csv.stock_unlimited_col: Cờ 'số lượng sản phẩm không giới hạn'
 admin.product.product_csv.stock_unlimited_description: 'Chỉ định: 0 => Giới hạn; 1 => Không giới hạn'
 admin.product.product_csv.sale_limit_col: Số lượng bán tối đa
-admin.product.product_csv.sale_limit_description: Đặt giá trị nhiều hơn 1
+admin.product.product_csv.sale_limit_description: Đặt giá trị lớn hơn 1
 admin.product.product_csv.normal_price_col: Giá thường
 admin.product.product_csv.normal_price_description: Đặt giá trị lớn hơn 0
 admin.product.product_csv.sale_price_col: Giá bán
@@ -732,11 +732,11 @@ admin.product.product_csv.delivery_fee_col: Phí giao hàng
 admin.product.product_csv.delivery_fee_description: Nếu phí giao hàng được đặt cho mỗi sản phẩm, hãy đặt giá trị lớn hơn 0
 
 # Category CSV Templates
-admin.product.category_csv.category_id_col: Danh mục ID
-admin.product.category_csv.category_id_description: Đối với một đăng ký loại mới, xin hãy để nó trống. Để cập nhật danh mục đã đăng ký, vui lòng chỉ định ID danh mục.
+admin.product.category_csv.category_id_col: Mã danh mục
+admin.product.category_csv.category_id_description: Đối với một đăng ký loại mới, xin hãy để nó trống. Để cập nhật danh mục đã đăng ký, vui lòng chỉ định mã danh mục.
 admin.product.category_csv.category_name_col: Tên danh mục
 admin.product.category_csv.category_name_description: ''
-admin.product.category_csv.parent_category_id_col: ID danh mục cha
+admin.product.category_csv.parent_category_id_col: Mã danh mục cha
 admin.product.category_csv.parent_category_id_description: ''
 admin.product.category_csv.delete_flag_col: Cờ xóa danh mục
 admin.product.category_csv.delete_flag_description: 'Chỉ định: 0 => Tải lên; 1 => Xóa. Nếu không xác định, nó được đặt thành 0.'

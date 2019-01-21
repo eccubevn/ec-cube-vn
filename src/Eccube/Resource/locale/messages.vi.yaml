@@ -474,14 +474,14 @@ admin.common.drag_and_drop_image_description: Kéo và thả hình ảnh hoặc
 admin.common.delete_modal__title: Xóa
 admin.common.delete_modal__message: Bạn sẽ không thể lấy lại dữ liệu này. Bạn chắc chắn muốn xóa ''%name%''?
 admin.common.move_to_confirm_title: Chuyển đến trang khác
-admin.common.move_to_confirm_message: 'Sẽ chuyển đến trang %name% cài đặt. Bạn có muốn lưu chỉnh sửa hiện tại không?'
+admin.common.move_to_confirm_message: 'Sẽ chuyển đến trang cài đặt %name%. Bạn có muốn lưu chỉnh sửa hiện tại không?'
 admin.common.move_to_confirm_move_only: Chuyển trang
 admin.common.move_to_confirm_save_and_move: Lưu lại & Chuyển trang
 admin.common.admin_url_warning: Vui lòng đặt URL Bảng điều khiển dành cho quản trị viên khó đoán để bảo mật. Bạn có thể đặt nó tại "<a href="%url%">Bảo mật</a>".
 
 
 # Labels related to entity
-admin.common.id: ID
+admin.common.id: Mã
 admin.common.name: Tên
 admin.common.kana: Name (Phonetic)
 admin.common.first_name: Tên
@@ -1702,5 +1702,3 @@ order_pdf.service.delivery_fee: 'Vận chuyển'
 order_pdf.service.charge: 'Phí giao dịch'
 order_pdf.service.discount: 'Giảm giá'
 order_pdf.service.payment_total: 'Thanh Toán'
-
-Error: lỗi

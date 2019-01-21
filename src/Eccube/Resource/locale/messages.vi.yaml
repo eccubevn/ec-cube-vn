@@ -51,7 +51,7 @@ common.password_for_confirmation: Nhập lại mật khẩu
 common.gender: Giới tính
 common.job: Nghề nghiệp
 common.birth_day: Sinh nhật
-common.tax_include: (VAT)
+common.tax_include: (đã có thuế)
 common.separator__range: '-'
 common.separator__colon: ':'
 common.quantity: Số lượng
@@ -418,7 +418,7 @@ admin.common.execute: Gửi đi
 admin.common.close: Đóng
 admin.common.bulk_registration: Đăng ký tất cả
 admin.common.decision: Chấp nhận
-admin.common.create: Tạp
+admin.common.create: Tạo
 admin.common.create__new: Tạo mới
 admin.common.up: Di chuyển lên
 admin.common.down: Di chuyển xuống
@@ -1696,7 +1696,7 @@ order_pdf.service.file_name: 'Donhang.pdf'
 order_pdf.service.file_name_multiple: 'Donhang-No%order_id%.pdf'
 order_pdf.service.tel: 'Số điện thoại: %tel%'
 order_pdf.service.email: 'Email: %email%'
-order_pdf.service.note: '＜Ghi chú＞'
+order_pdf.service.note: '<Ghi chú>'
 order_pdf.service.subtotal: 'Sản phẩm'
 order_pdf.service.delivery_fee: 'Vận chuyển'
 order_pdf.service.charge: 'Phí giao dịch'

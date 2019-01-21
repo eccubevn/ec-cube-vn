@@ -367,8 +367,8 @@ front.shopping.order_error: Có lỗi xảy ra trong quá trình kiểm tra.
 front.shopping.system_error: Xin lỗi, chúng tôi đã gặp phải một lỗi không mong muốn trong quá trình thanh toán. Vui lòng liên hệ với chúng tôi từ mẫu yêu cầu. Chúng tôi xin lỗi vì sự bất tiện này.
 front.shopping.empty_items_error: Xin lỗi, quá trình thanh toán chưa hoàn thành theo thứ tự tốt. Vui lòng đặt hàng một lần nữa. Chúng tôi xin lỗi về sự bất tiện này.
 front.shopping.out_of_stock: 'Xin lỗi, không có đủ hàng cho %product%. Bạn không thể mua nhiều hơn số lượng này.'
-front.shopping.over_sale_limit: 'Rất tiếc, chúng đang hạn chế việc bán các sản phẩm %product%. Bạn không thể mua nhiều hơn số lượng mua tối đa.'
-front.shopping.out_of_stock_zero: 'Xin lỗi, chúng tôi không có đủ cổ số lượng cho %product%. Mục này đã được xóa khỏi giỏ hàng.'
+front.shopping.over_sale_limit: 'Rất tiếc, chúng tôi đang hạn chế bán sản phẩm %product%. Bạn không thể mua nhiều hơn số lượng mua tối đa.'
+front.shopping.out_of_stock_zero: 'Xin lỗi, chúng tôi không có đủ số lượng cho %product%. Mục này đã được xóa khỏi giỏ hàng.'
 front.shopping.over_price_limit: Xin lỗi, số lượng vượt quá số lượng mua tối đa. Vui lòng giảm số lượng mua
 front.shopping.in_preparation: 'Xin lỗi, %product% chưa sẵn sàng cho việc giao hàng. Vui lòng liên hệ với chúng tôi từ form liên. Chúng tôi xin lỗi về sự bất tiện này.'
 front.shopping.not_purchase: Xin lỗi, đơn đặt hàng của bạn bao gồm các sản phẩm hiện không có sẵn. Nó đã bị xóa khỏi giỏ hàng của bạn.
@@ -854,7 +854,7 @@ admin.order.order_csv: CSV đặt hàng
 admin.order.shipping_csv: CSV giao hàng
 admin.order.shipping_status: Trạn thái giao hàng
 admin.order.delivery: Giao hàng đến
-admin.order.not_payment: Chưa trả
+admin.order.not_payment: Chưa thanh toán
 admin.order.unshipped: Chưa được giao
 admin.order.delete__confirm_title: Xóa thông tin đặt hàng
 admin.order.delete__confirm_message: Bạn có chắc chắn để xóa thông tin đặt hàng?

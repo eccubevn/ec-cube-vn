@@ -327,8 +327,8 @@ class NonMemberShoppingController extends AbstractShoppingController
         $errors[] = $this->validator->validate(
             $data['customer_postal_code'],
             [
-                new Assert\NotBlank(),
-                new Assert\Type(['type' => 'numeric', 'message' => 'form_error.numeric_only']),
+//                new Assert\NotBlank(),
+//                new Assert\Type(['type' => 'numeric', 'message' => 'form_error.numeric_only']),
                 new Assert\Length(
                     ['max' => $this->eccubeConfig['eccube_postal_code']]
                 ),

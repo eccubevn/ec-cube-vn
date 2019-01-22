@@ -280,7 +280,7 @@ class EccubeExtension extends AbstractExtension
                 'stock_find' => $ProductClass->getStockFind(),
                 'price01' => $ProductClass->getPrice01() === null ? '' : number_format($ProductClass->getPrice01()),
                 'price02' => number_format($ProductClass->getPrice02()),
-                'price01_inc_tax' => $ProductClass->getPrice01() === null ? '' : number_format($ProductClass->getPrice01IncTax()),
+                'price01_inc_tax' => $ProductClass->getPrice01() === null ? '' : $this->getPriceFilter($ProductClass->getPrice01IncTax()),
                 'price02_inc_tax' => $this->getPriceFilter($ProductClass->getPrice02IncTax()),
                 'product_class_id' => (string) $ProductClass->getId(),
                 'product_code' => $ProductClass->getCode() === null ? '' : $ProductClass->getCode(),

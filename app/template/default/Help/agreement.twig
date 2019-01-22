@@ -17,94 +17,102 @@ file that was distributed with this source code.
     </div>
     <div class="ec-off1Grid">
         <div class="ec-off1Grid__cell">
-{{ '
-Điều 1 (Thành viên)
+            {% set agreement =  '
+1. Hướng dẫn sử dụng Website
+- Khi truy cập vào '~ BaseInfo.shop_name ~', khách hàng phải có độ tuổi từ 18 tuổi trở lên hoặc truy cập dưới sự giám sát của cha mẹ hay người giám hộ hợp pháp.
+- Chúng tôi cấp quyền sử dụng và truy cập Website để bạn có thể mua sắm trên Website theo các điều khoản và điều kiện quy định tại Website.
+- Nghiêm cấm sử dụng bất kỳ phần nào của Website với mục đích thương mại hoặc nhân danh bất kỳ đối tác thứ ba nào nếu không được '~ BaseInfo.shop_name ~' cho phép bằng văn bản. Nếu vi phạm bất cứ
+điều nào trong đây, chúng tôi có quyền ngay lập tức thu hồi quyền sử dụng và/hoặc khóa quyền truy cập Website của khách hàng bằng bất kỳ hình thức hợp pháp nào mà không cần thông báo trước.
+- Các thông tin sản phẩm được đăng tải trên Website để khách hàng có thể tham khảo trước khi quyết định mua hàng. '~ BaseInfo.shop_name ~' không phải nhà sản xuất nên những nhận xét hiển thị trên Website là ý kiến cá nhân và/hoặc chủ quan của khách hàng, không phải là phát ngôn chính thức từ '~ BaseInfo.shop_name ~'.
+- Khách hàng phải đăng ký tài khoản với thông tin xác thực về bản thân và phải cập nhật nếu có bất kỳ thay đổi nào. Khách hàng phải có trách nhiệm với mật khẩu, tài khoản và hoạt động của mình trên Website. Ngoài ra, khách hàng có trách nhiệm thông báo ngay lập tức cho '~ BaseInfo.shop_name ~' khi tài khoản bị truy cập, sử dụng và/hoặc chiếm giữ trái phép. Cửa hàng không chịu bất kỳ trách nhiệm nào, dù trực tiếp hay gián tiếp, đối với những thiệt hại hoặc mất mát gây ra do khách hàng không tuân thủ quy định này.
+- Khi khách hàng đăng ký tài khoản tại Website, điều này đồng nghĩa với việc khách hàng đồng ý nhận email quảng cáo từ cửa hàng. Trong trường hợp khách hàng không muốn tiếp tục nhận email quảng cáo, khách hàng có thể từ chối bằng cách nhấp vào đường link ở dưới cùng được hiển thị trong email quảng cáo.
 
-1. "Thành viên" là cá nhân đăng ký sau khi đồng ý với các điều khoản này theo quy trình do Công ty quy định.
-2. "Thông tin thành viên" nghĩa là thông tin về các thuộc tính của các thành viên được các thành viên cung cấp cho Công ty và thông tin về các giao dịch và giao dịch của thành viên.
-3. Các Điều khoản này áp dụng cho tất cả các thành viên và là những điều khoản mà chúng tôi tuân thủ trong quá trình đăng ký và sau khi đăng ký.
+2. Ý kiến khách hàng
+- Tất cả nội dung hiển thị và đăng tải trên Website, bao gồm nhưng không giới hạn ý kiến, nhận xét đóng góp của khách hàng đều là tài sản của cửa hàng. Nếu chúng tôi phát hiện bất kỳ thông tin giả mạo, vu khống nào, chúng tôi có quyền ngay lập tức khóa tài khoản của khách hàng và/hoặc áp dụng các biện pháp khác theo quy định của pháp luật Việt Nam.
 
-Điều 2 (Đăng ký)
+3. Đặt hàng và xác nhận đơn hàng
+- Để đảm bảo tính công bằng và bảo vệ lợi ích cho khách hàng, cửa hàng có quyền từ chối các đơn hàng thuộc (nhưng không giới hạn) trong những trường hợp sau:
+a. Đơn hàng được đặt không nhằm mục đích sử dụng cho cá nhân, mua hàng số lượng nhiều hoặc có mục đích mua đi bán lại.
+b. Sử dụng mã giảm giá không đúng mục đích (có dấu hiệu lừa đảo, lạm dụng)
 
-1. Tư cách thành viên
-Sau khi đồng ý với thỏa thuận này, khách hàng đăng ký thành viên theo quy định sẽ có đủ tư cách là thành viên sau khi hoàn thành thủ tục đăng ký theo quy định. Thủ tục đăng ký thành viên nên được thực hiện bởi cá nhân trở thành thành viên. Đăng ký bằng proxy không được phép ở tất cả. Ngoài ra, chúng tôi có thể từ chối đơn đăng ký thành viên từ những người đã hủy tư cách thành viên trong quá khứ hoặc những người đánh giá rằng công ty chúng tôi không phù hợp.
+- Trong trường hợp khách hàng không tuân thủ một (hoặc một vài) quy định, quy chế của '~ BaseInfo.shop_name ~', '~ BaseInfo.shop_name ~' có quyền từ chối đơn đặt hàng cũng như đình chỉ hoặc khóa tài khoản vĩnh viễn mà không có nghĩa vụ phải thông báo đến khách hàng.
 
-2. Nhập thông tin thành viên
-Vui lòng thận trọng, đọc kỹ và chính xác khi điền thông tin cần thiết vào mẫu nhập được xác định trước tại thời điểm thủ tục đăng ký thành viên. Khi đăng ký thông tin thành viên, không thể sử dụng các ký hiệu đặc biệt, ký tự Trung Quốc cũ, chữ số La Mã, v.v. Khi những nhân vật này được đăng ký, chúng tôi sẽ thay đổi nó.
+- Địa chỉ giao hàng và/hoặc địa chỉ thanh toán mà quý khách cung cấp trong quá trình đặt hàng sẽ không thể được thay đổi sau khi yêu cầu đặt hàng đã được '~ BaseInfo.shop_name ~' và/hoặc Nhà Bán Hàng tiếp nhận. Để thay đổi (các) thông tin này, quý khách cần hủy đơn hàng hiện tại, và đặt lại một đơn hàng mới với thông tin được cập nhật chính xác.
 
-3. Quản lý mật khẩu
-(1) Mật khẩu chỉ có thể được sử dụng bởi chính các thành viên và không thể chuyển hoặc cho bên thứ ba mượn.
-(2) Hãy thay đổi mật khẩu thường xuyên để người khác không biết nó, hoặc khi có nghi ngờ, chính thành viên phải chịu trách nhiệm quản lý nó.
-(3) Hiển thị ý định được thực hiện cho Công ty bằng cách sử dụng mật khẩu được coi là ý định của chính thành viên đó và tất cả các khoản thanh toán phát sinh vì đó sẽ là trách nhiệm của thành viên.
+4. Hình thức thanh toán
+- Khách hàng có thể thanh toán đơn hàng bằng phương thức thanh toán tiền mặt khi nhận hàng hoặc thanh toán trực tuyến (bằng thẻ tín dụng, thẻ ghi nợ hoặc thẻ ATM nội địa).
+- Thông thường khách hàng có thể lựa chọn một trong các hình thức thanh toán nêu trên khi tiến hành đặt hàng. Tuy nhiên, đối những đơn hàng có giá trị cao từ 50.000.000 VND (Năm mươi triệu Việt Nam Đồng) trở lên, khách hàng chỉ có thể mua hàng bằng phương thức thanh toán trực tuyến nhằm đảm bảo an toàn trong quá trình thanh toán.
+- Trong bất kỳ trường hợp nào, Quý Khách Hàng sẽ không cần phải thanh toán bất kỳ khoản tiền đặt cọc nào cho đơn hàng. Trong trường hợp Quý Khách Hàng nhận được yêu cầu này từ phía '~ BaseInfo.shop_name ~' hoặc bất kỳ Nhà Bán Hàng nào, vui lòng từ chối thanh toán và thông báo với Bộ phận Hỗ trợ khách hàng tại đây để được hỗ trợ thêm.
 
-Điều 3 (Thay đổi)
+5. Chương trình khuyến mãi
+- Với mong muốn mang lại nhiều lợi ích cho khách hàng là người tiêu dùng cuối cùng, '~ BaseInfo.shop_name ~' và/hoặc nhà bán hàng sẽ tổ chức các chương trình khuyến mãi. Vì vậy, để đảm bảo tính công bằng và bảo vệ lợi ích cho khách hàng, chúng tôi có quyền từ chối các đơn hàng không nhằm mục đích sử dụng cho cá nhân, mua hàng số lượng nhiều hoặc có mục đích mua đi bán lại khi khách hàng tham gia các chương trình khuyến mãi. Số lượng sản phẩm tối đa dành cho mỗi khách hàng khi tham gia chương trình khuyến mãi đặc biệt tại '~ BaseInfo.shop_name ~' là hai (02) sản phẩm. Thể lệ của từng chương trình khuyến mãi sẽ được cập nhật tại Website theo từng thời điểm và có thể được thay đổi tùy theo quyết định của '~ BaseInfo.shop_name ~'.
+- '~ BaseInfo.shop_name ~' có quyền từ chối các đơn hàng không thỏa mãn các điều kiện nêu trên mà không có nghĩa vụ phải thông báo đến khách hàng. Vì vậy, khách hàng có trách nhiệm đọc và hiểu rõ thể lệ của từng chương trình khuyến mãi tại thời điểm đặt hàng .
 
-1. Thành viên phải thông báo kịp thời cho Công ty nếu có sự thay đổi trong các vấn đề được thông báo cho chúng tôi như tên, địa chỉ, v.v.
-2. Chúng tôi không chịu trách nhiệm cho bất kỳ thiệt hại gây ra bởi thực tế là đăng ký thay đổi đã không được thực hiện. Ngoài ra, ngay cả khi đăng ký thay đổi được thực hiện, xin lưu ý rằng các giao dịch đã được xử lý trước khi đăng ký thay đổi sẽ được thực hiện dựa trên thông tin trước khi đăng ký thay đổi.
+6. Khu vực giao hàng
+- Đối với các sản phẩm do '~ BaseInfo.shop_name ~' trực tiếp phân phối, chúng tôi thực hiện giao hàng toàn quốc trừ trường hợp một số phạm vi giao hàng bị giới hạn được thể hiện rõ trên phần thông tin sản phẩm.
+- Đối với sản phẩm do các nhà bán hàng phân phối, khu vực giao hàng có thể sẽ được giới hạn theo thông tin cập nhật tại Website. Trong một số trường hợp, mà khu vực giao hàng không được cập nhật kịp thời tại thời điểm khách hàng đặt hàng, '~ BaseInfo.shop_name ~' sẽ liên hệ đến khách hàng để thông báo chi tiết.
+- '~ BaseInfo.shop_name ~'/ Đơn vị vận chuyển sẽ luôn cố gắng giao sản phẩm tận nhà cho khách hàng bất cứ khi nào có thể. Tuy nhiên, tùy thuộc vào địa điểm giao nhận mà '~ BaseInfo.shop_name ~' có thể hoặc không thể giao sản phẩm tận nhà cho khách hàng do sự khác biệt trong chính sách quản lý của mỗi địa điểm (ví dụ như căn hộ/ chung cư hay tòa nhà văn phòng). Trong những trường hợp này, khách hàng vui lòng hỗ trợ '~ BaseInfo.shop_name ~'/ Đơn vị vận chuyển bằng cách nhận hàng tại tầng trệt/sảnh.
 
-Điều 4 (rút tiền)
+7. Giá cả
+- Giá cả sản phẩm được niêm yết tại Website là giá bán cuối cùng đã bao gồm thuế Giá trị gia tăng (VAT). Giá của sản phẩm có thể thay đổi tùy thời điểm và chương trình khuyến mãi kèm theo. Phí vận chuyển và/hoặc phí thực hiện đơn hàng được áp dụng thêm (nếu có), sẽ được hiển thị rõ tại trang thanh toán khi khách hàng tiến hành đặt hàng.
+- Chúng tôi luôn cố gắng để bảo đảm rằng tất cả các thông tin và giá hiển thị là chính xác đối với từng sản phẩm, tuy nhiên, đôi khi sẽ có một số trường hợp bị lỗi hoặc sai sót do yếu tố khách quan. Nếu có bất kỳ lỗi về giá nào được phát hiện, hệ thống sẽ tự động hủy đơn hàng, gửi email để thông báo cho khách hàng. Sau đó, lệnh hoàn tiền ngay lập tức được thực hiện (nếu đơn hàng đã được thanh toán trước).
+- Nhà Bán Hàng trên Website có thể cùng phân phối một sản phẩm giống nhau với chính sách giá khác nhau, khách hàng có quyền lựa chọn và so sánh giá cả giữa các nhà bán hàng để có được mức giá hợp lý nhất cho nhu cầu của mình. '~ BaseInfo.shop_name ~' sẽ không can thiệp về chính sách giá của nhà bán hàng nếu có phát sinh tranh chấp.
 
-Nếu thành viên muốn rút khỏi tư cách thành viên, bản thân thành viên nên làm thủ tục rút tiền. Sau khi hoàn thành thủ tục rút tiền được xác định trước, nó sẽ được rút.
+8. Thông tin sản phẩm
+- Trong trường hợp sản phẩm khách hàng nhận được không đúng như mô tả trong phần thông tin sản phẩm trên Website, khách hàng có thể thông tin đến nhà bán hàng hoặc Bộ phận hỗ trợ khách hàng trong thời gian sớm nhất kể từ khi nhận hàng đồng thời đảm bảo sản phẩm trong tình trạng chưa qua sử dụng để được hỗ trợ đổi trả. Thông tin chi tiết về chính sách đổi trả vui lòng tham khảo tại đây.
 
-Điều 5 (Mất nghĩa vụ thành viên và nghĩa vụ bồi thường)
+9. Chính sách về hàng giả, hàng nhái, hàng không đúng chất lượng
+- '~ BaseInfo.shop_name ~' hướng đến việc cung cấp hàng hóa và chất lượng dịch vụ tốt nhất cho khách hàng qua các sản phẩm được đăng bán trên Website và từ chối bán các sản phẩm vi phạm quy định của pháp luật Việt Nam (bao gồm nhưng không giới hạn sản xuất trái phép, hàng giả, hàng nhái, không rõ nguồn gốc xuất xứ).
+- Nhà bán hàng của '~ BaseInfo.shop_name ~' đều được yêu cầu tuân thủ các quy định pháp luật chất lượng và nguồn gốc, xuất xứ của sản phẩm, cũng như tự chịu trách nhiệm trước khách hàng và pháp luật đối với các hành vi vi phạm. Đối với các trường hợp phát hiện bất kỳ sản phẩm vi phạm nào, '~ BaseInfo.shop_name ~' sẽ áp dụng biện pháp chế tài đối với hành vi vi phạm của nhà bán hàng và/hoặc có biện pháp khắc phục đối với hành vi này, tùy theo quyết định của '~ BaseInfo.shop_name ~'.
+- Trong trường hợp khách hàng phát hiện bất kỳ sản phẩm vi phạm nào, vui lòng thông báo ngay cho chúng tôi bằng cách liên hệ với Bộ phận Hỗ trợ khách hàng tại đây để được xác thực thông tin và hỗ trợ.
 
-1. Khi một thành viên khai báo sai tại thời điểm đăng ký để đạt được tư cách thành viên, hãy bỏ qua nghĩa vụ thanh toán do bán hàng qua thư, khi có bất kỳ lý do nào mà Công ty cho là không phù hợp với tư cách là thành viên, Bạn có thể hủy bỏ nó.
+10. Quy định về bảo mật
+- Website có các biện pháp và công cụ để thực hiện việc bảo mật để có thể bảo vệ thông tin cá nhân và việc thanh toán của khách hàng một cách toàn diện nhất. Thông tin của khách hàng trong quá trình thanh toán sẽ được mã hóa để đảm bảo an toàn tối đa. Mọi thông tin giao dịch sẽ được bảo mật nhưng trong trường hợp cơ quan pháp luật yêu cầu bằng văn bản, chúng tôi sẽ phải cung cấp những thông tin này cho các cơ quan pháp luật theo đúng quy định.
+- Khách hàng không được sử dụng bất kỳ chương trình, công cụ hay hình thức nào khác để can thiệp vào hệ thống hay làm thay đổi cấu trúc dữ liệu. '~ BaseInfo.shop_name ~' nghiêm cấm việc phát tán, truyền bá hay cổ vũ cho bất kỳ hoạt động nào nhằm can thiệp, phá hoại hay xâm nhập vào dữ liệu của hệ thống. Cá nhân hay tổ chức vi phạm sẽ bị tước bỏ mọi quyền lợi cũng như sẽ bị truy tố trước pháp luật nếu cần thiết.
 
-2. Khi thành viên thực hiện các hành vi được quy định trong các mục sau đây, trách nhiệm bồi thường thiệt hại mà Công ty phải chịu là do việc này.
-(1) Sử dụng trái phép thông tin thành viên và mật khẩu
-(2) Để can thiệp vào việc kinh doanh của chúng tôi bằng cách truy cập trang web này để giả mạo thông tin hoặc gửi chương trình máy tính có hại đến trang web này
-(3) Thực hiện các hành vi xâm phạm quyền sở hữu trí tuệ đối với các sản phẩm do Công ty xử lý
-(4) Các hành vi khác trái với Điều khoản dịch vụ này
+11. Thanh toán an toàn
+Mọi khách hàng tham gia giao dịch tại Website qua thẻ tín dụng/thẻ ghi nợ/thẻ ATM nội địa đều được bảo mật thông tin bằng mã hóa. Bên cạnh đó, khi thực hiện thanh toán qua mạng, khách hàng vui lòng lưu ý các chi tiết sau:
 
-Điều 6 (Xử lý thông tin thành viên)
-1. Về nguyên tắc, chúng tôi không cung cấp thông tin thành viên cho bên thứ ba mà không có sự đồng ý trước của các thành viên. Tuy nhiên, trong trường hợp các mục sau đây, Công ty sẽ có thể cung cấp thông tin thành viên và thông tin khách hàng khác mà không cần sự đồng ý trước của thành viên.
-(1) Khi được yêu cầu cung cấp dựa trên luật pháp và pháp lệnh
-(2) Khi Công ty xác định rằng cần phải bảo vệ quyền, lợi ích, danh dự của chúng tôi, v.v.
+- Chỉ thanh toán trên website có chứng chỉ an toàn, bảo mật hệ thống thẻ.
+- Tuyệt đối không cho người khác mượn thẻ tín dụng hoặc tài khoản của mình để thực hiện thanh toán trên Website; trong trường hợp phát sinh giao dịch ngoài ý muốn, khách hàng vui lòng thông báo ngay lập tức cho '~ BaseInfo.shop_name ~' để chúng tôi có thể hỗ trợ kịp thời.
+- Kiểm tra tài khoản ngân hàng của mình thường xuyên để đảm bảo tất cả giao dịch qua thẻ đều nằm trong tầm kiểm soát.
 
-2. Đối với thông tin thành viên, chúng tôi sẽ quản lý thông tin theo "nỗ lực bảo vệ thông tin cá nhân" của chúng tôi. Công ty sẽ có thể sử dụng thông tin thành viên cho mục đích cung cấp dịch vụ cho các thành viên, cải thiện nội dung dịch vụ, thúc đẩy sử dụng dịch vụ và đảm bảo hoạt động dịch vụ hợp lý và trơn tru
+12. Thực hiện giao dịch tại Website
+- Quy trình mua sắm trên Website của khách hàng sẽ được thực hiện theo trình tự sau:
 
-3. Công ty sẽ có thể cung cấp thông tin cho các thành viên (bao gồm quảng cáo) bằng các tạp chí email và các phương pháp khác. Nếu thành viên không muốn cung cấp thông tin, chúng tôi sẽ ngừng cung cấp thông tin nếu bạn thông báo cho chúng tôi theo phương pháp do công ty chúng tôi chỉ định. Tuy nhiên, chúng tôi không thể dừng việc cung cấp thông tin cần thiết cho hoạt động dịch vụ này theo yêu cầu của thành viên.
+Cách 1: Thanh toán trực tuyến
+Bước 1: Khách hàng đặt hàng, cung cấp thông tin đầy đủ, xác thực;
+Bước 2: Khách hàng thanh toán trước;
+Bước 3: '~ BaseInfo.shop_name ~' hoặc nhà bán hàng tiếp nhận, kiểm tra - xác nhận đơn hàng và chuyển hàng;
+Bước 4: Khách hàng kiểm tra và nhận hàng;
 
-Điều 7 (Vấn đề bị cấm)
+Cách 2: Thanh toán sau
+Bước 1: Khách hàng đặt hàng, cung cấp thông tin đầy đủ, xác thực
+Bước 2: '~ BaseInfo.shop_name ~' tiếp nhận đơn hàng;
+Bước 3: '~ BaseInfo.shop_name ~' xác nhận thông tin khách hàng (điện thoại hoặc tin nhắn hoặc email);
+Bước 4: '~ BaseInfo.shop_name ~' hoặc nhà bán hàng chuyển hàng;
+Bước 5: Khách hàng nhận hàng và thanh toán;
 
-Khi sử dụng dịch vụ này, chúng tôi cấm các thành viên thực hiện hành vi của các mục sau đây.
+- Trong các trường hợp, khách hàng có thể tra cứu thông tin giao dịch qua email đã đăng ký tại Website. Ngoài ra, khách hàng có thể tra cứu được lịch sử giao dịch khi đăng nhập vào tài khoản của mình tại Website, vào mục Quản lý đơn hàng.
+- Trường hợp khách hàng muốn chỉnh sửa thông tin, khách hàng thông báo cho '~ BaseInfo.shop_name ~' <a href="'~ url('contact') ~'">tại đây</a>.
 
-1. Vi phạm luật pháp hoặc quy định hoặc thỏa thuận này, thông báo về việc sử dụng dịch vụ này, chú ý mua sắm trên dịch vụ này và các điều khoản và điều kiện khác
-2. Làm hỏng quyền, lợi ích, danh dự, v.v. của Công ty và các bên thứ ba khác
-3. Thực hiện các hành vi có thể ảnh hưởng xấu đến điều kiện thể chất và tinh thần của người trẻ, thực hiện các hành vi khác trái với trật tự và đạo đức công cộng
-4. Thực hiện các hành vi làm phiền người dùng khác hoặc bên thứ ba khác hoặc gây khó chịu
-5. Nhập thông tin sai lệch
-6. Gửi hoặc viết chương trình máy tính có hại, thư vv
-7. Truy cập trái phép vào máy chủ của chúng tôi và các máy tính khác
-8. Cho mượn hoặc chuyển mật khẩu cho bên thứ ba hoặc chia sẻ mật khẩu với bên thứ ba
-9. Những người khác mà chúng tôi đánh giá là không phù hợp
+13. Hủy bỏ giao dịch tại Website
+1. Nếu yêu cầu hủy giao dịch được thực hiện trước khi đơn hàng được chuyển sang trạng thái "đã được đóng gói và đang được chuyển đến đối tác giao hàng", khách hàng có thể Đăng nhập vào tài khoản tại Website/chọn phần Quản Lý đơn hàng và nhấn vào nút HỦY ĐƠN HÀNG đồng thời thực hiện các bước cần thiết theo hướng dẫn hoặc liên hệ Bộ phận hỗ trợ khách hàng tại đây để được hỗ trợ (trong trường hợp khách hàng mua hàng trên Website mà không đăng nhập tài khoản).
+2. Nếu yêu cầu hủy giao dịch được thực hiện sau khi đơn hàng được chuyển qua trạng thái "đã được đóng gói và đang được chuyển đến đối tác giao hàng", khách hàng chỉ có thể hủy đơn hàng bằng cách từ chối nhận hàng khi đơn hàng được giao.
 
-Điều 8 (Gián đoạn / đình chỉ dịch vụ, v.v.)
+14. Hệ quả do lỗi nhập sai thông tin tại Website
+- Khách hàng có trách nhiệm cung cấp thông tin đầy đủ và chính xác khi tham gia giao dịch tại Website. Trong trường hợp Khách hàng nhập sai thông tin khi đăng nhập và/hoặc thanh toán hay bất kỳ thông tin nào khác dẫn tới việc không thực hiện và/hoặc gián đoạn giao dịch, '~ BaseInfo.shop_name ~' có quyền từ chối thực hiện giao dịch mà không phải chịu trách nhiệm đối với việc hủy đơn hàng.
+- Trong trường hợp khi khách hàng liên hệ '~ BaseInfo.shop_name ~' hoặc '~ BaseInfo.shop_name ~' liên hệ khách hàng để xác nhận đơn hàng vì bất cứ lý do gì (bao gồm nhưng không giới hạn, đơn hàng giá trị cao, đơn hàng có dấu hiệu giả mạo hoặc gian dối), khách hàng không thể trả lời và/hoặc xác minh chính xác được những thông tin cần thiết theo yêu cầu của '~ BaseInfo.shop_name ~', '~ BaseInfo.shop_name ~' có quyền đơn phương hủy đơn hàng trong trường hợp này.
 
-1. Để duy trì tốt trạng thái hoạt động của dịch vụ này, chúng tôi có thể tạm dừng tất cả hoặc một phần quy định của dịch vụ này mà không cần thông báo trước nếu nó thuộc một trong các mục sau đây.
-(1) Khi cần thiết để bảo trì định kỳ và bảo trì khẩn cấp hệ thống
-(2) Khi tải tập trung vào hệ thống
-(3) Khi hoạt động của hệ thống trở nên khó khăn do hỏa hoạn, mất điện, hành vi gây rối của bên thứ ba, v.v.
-(4) Các trường hợp khác, nếu chúng tôi quyết định rằng cần phải dừng hệ thống mà không bị buộc phải dừng lại
+15. Giải quyết tranh chấp
+- Bất kỳ tranh cãi, khiếu nại hoặc tranh chấp phát sinh từ hoặc liên quan đến giao dịch tại Website sẽ được giải quyết bằng hình thức thương lượng, hòa giải, trọng tài.
 
-Điều 9 (Thay đổi hoặc bãi bỏ dịch vụ)
-
-Dựa trên phán quyết đó, chúng tôi có thể thay đổi hoặc bãi bỏ dịch vụ khi cần thiết hoặc không cần thông báo trước hoặc toàn bộ.
-
-Điều 10 (Tuyên bố miễn trừ trách nhiệm)
-
-1. Chúng tôi không hoàn toàn chịu trách nhiệm cho bất kỳ sự gián đoạn, chậm phát triển, ngừng, mất dữ liệu do lỗi đường truyền hoặc máy tính, thiệt hại do truy cập trái phép vào dữ liệu hoặc bất kỳ thiệt hại nào gây ra cho các thành viên về dịch vụ của chúng tôi.
-2. Chúng tôi không đảm bảo rằng các mục độc hại như vi-rút máy tính không được bao gồm trong nội dung thư được gửi từ trang web của chúng tôi, tên miền, máy chủ, v.v.
-3. Chúng tôi không chịu trách nhiệm cho bất kỳ thiệt hại nào do các thành viên vi phạm các Điều khoản và Điều kiện này.
-
-Điều 11 (Sửa đổi các Điều khoản này)
-
-Chúng tôi có thể sửa đổi thỏa thuận này và chúng tôi có thể tuyên bố hợp đồng để bổ sung thỏa thuận này (sau đây gọi là "thỏa thuận bổ sung") tại công ty của chúng tôi. Sửa đổi hoặc bổ sung các Điều khoản này sẽ có hiệu lực khi đăng Điều khoản hoặc Điều kiện bổ sung sửa đổi trên trang web do Công ty chỉ định. Trong trường hợp này, thành viên phải tuân thủ các quy định sửa đổi và thỏa thuận bổ sung.
-
-Điều 12 (Luật điều chỉnh, tòa án có thẩm quyền)
-
-Trong trường hợp có tranh chấp liên quan đến các Điều khoản này, tòa án quận có thẩm quyền đối với vị trí của trụ sở chính của Công ty sẽ là tòa án tài phán độc quyền của phiên sơ thẩm.
-'|raw|nl2br }}
+16. Những quy định khác
+- Trong trường hợp có bất kỳ thiệt hại nào phát sinh do việc vi phạm quy định sử dụng Website, chúng tôi có quyền đình chỉ hoặc khóa tài khoản của khách hàng vĩnh viễn.
+- Tất cả các Điều Khoản và Điều Kiện (và tất cả nghĩa vụ phát sinh ngoài Điều khoản và Điều kiện này hoặc có liên quan) sẽ được điều chỉnh và được hiểu theo luật pháp Việt Nam. Chúng tôi có quyền sửa đổi các Điều khoản và Điều kiện này vào bất kỳ thời điểm nào và các sửa đổi đó sẽ có hiệu lực ngay tại thời điểm được được đăng tải tại Website.
+- Khách hàng lưu ý chỉ mua hàng khi chấp nhận và hiểu rõ những quy định nêu tại Website (bao gồm nhưng không giới hạn Điều khoản và Điều kiện này).
+'%}
+{{ agreement|raw|nl2br }}
         </div>
     </div>
 </div>

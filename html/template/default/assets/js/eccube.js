@@ -147,8 +147,7 @@
                 this.price01_origin = $price01.text();
             }
             if (classcat2 && typeof classcat2.price01_inc_tax !== 'undefined' && String(classcat2.price01_inc_tax).length >= 1) {
-                let symbol = typeof eccube.currencySymbol === 'undefined' ? '￥' : eccube.currencySymbol;
-                $price01.text(symbol + classcat2.price01_inc_tax);
+                $price01.text(classcat2.price01_inc_tax);
             } else {
                 $price01.text(this.price01_origin);
             }
@@ -160,8 +159,7 @@
                 price02_origin[product_id] = $price02.text();
             }
             if (classcat2 && typeof classcat2.price02_inc_tax !== 'undefined' && String(classcat2.price02_inc_tax).length >= 1) {
-                let symbol = typeof eccube.currencySymbol === 'undefined' ? '￥' : eccube.currencySymbol;
-                $price02.text(symbol + classcat2.price02_inc_tax);
+                $price02.text(classcat2.price02_inc_tax);
             } else {
                 $price02.text(price02_origin[product_id]);
             }

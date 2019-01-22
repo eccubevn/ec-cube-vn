@@ -34,7 +34,7 @@ common.company_name: Tên công ty
 common.shop_name: Tên cửa hàng
 common.address: Địa chỉ
 common.pref: Tỉnh thành
-common.postal_symbol: "〒"
+common.postal_symbol: ""
 common.postal_code: Mã bưu điện
 common.postal_code_sample: 'Ví dụ: 70000'
 common.search_postal_code: Tìm kiếm mã bưu điện
@@ -51,7 +51,7 @@ common.password_for_confirmation: Nhập lại mật khẩu
 common.gender: Giới tính
 common.job: Nghề nghiệp
 common.birth_day: Sinh nhật
-common.tax_include: (đã có thuế)
+common.tax_include: (có VAT)
 common.separator__range: '-'
 common.separator__colon: ':'
 common.quantity: Số lượng
@@ -603,7 +603,7 @@ admin.product.permanently_delete__complete_message: Sản phẩm đã được x
 admin.product.permanently_delete__complete: Hoàn thành
 admin.product.permanently_delete__system_error: Xảy ra lỗi hệ thống
 admin.product.copy__confirm_title: Sao chép một sản phẩm
-admin.product.copy__confirm_message: Bạn có chắc chắn xóa sản phẩm này?
+admin.product.copy__confirm_message: Bạn có chắc muốn sao chép thông tin sản phẩm này?
 admin.product.name: Tên sản phẩm
 admin.product.image: Hình ảnh sản phẩm
 admin.product.image__short: Hình ảnh
@@ -841,11 +841,11 @@ admin.order.bulk_action__confirm_message: Điều này sẽ thay đổi dữ li�
 admin.order.bulk_action__in_progress_message: Đang xử lý ...
 admin.order.bulk_action__complete_message: Đã hoàn thành.
 admin.order.shipping_mail_send: Gửi thông báo giao hàng
-admin.order.shipping_mail_send__confirm_title: Thông báo giao hàng.
-admin.order.shipping_mail_send__confirm_message: Gửi thông báo vận chuyển. Vui lòng xem lại nội dung trước khi nhấn [Gửi]. Lưu ý rằng bạn sẽ không thể hủy hành động này.
-admin.order.shipping_mail_send__complete_message: '%count% thông báo đã được gửi'
-admin.order.to_shipped__confirm_title: 'Cập nhật thành `Đã giao hàng`.'
-admin.order.to_shipped__confirm_message: Cập nhật thông tin giao hàng thành `Đã giao hàng`. Vui lòng chọn các hành động khác nhau sau đó nhấn [Gửi]. Lưu ý rằng bạn sẽ không thể hoàn nguyên hành động này.
+admin.order.shipping_mail_send__confirm_title: Thông báo giao hàng
+admin.order.shipping_mail_send__confirm_message: Gửi thông báo giao hàng. Vui lòng xem lại nội dung trước khi nhấn [Gửi]. Lưu ý rằng bạn sẽ không thể hủy hành động này.
+admin.order.shipping_mail_send__complete_message: ' %count% thông báo đã được gửi'
+admin.order.to_shipped__confirm_title: 'Cập nhật thành `Đã giao hàng`'
+admin.order.to_shipped__confirm_message: Cập nhật thông tin giao hàng thành `Đã giao hàng`. Vui lòng chọn các hành động khác nhau sau đó nhấn [Gửi]. Lưu ý rằng bạn sẽ không thể quay lại hành động này.
 admin.order.to_shipped__confirm_send_mail: Gửi Email
 admin.order.to_shipped__confirm_send_mail_in_same_time: Gửi thông báo giao hàng hoàn toàn
 admin.order.change_status: Cập nhật trạng thái

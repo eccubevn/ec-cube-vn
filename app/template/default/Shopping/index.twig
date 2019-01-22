@@ -75,7 +75,7 @@ file that was distributed with this source code.
                         $('#customer-kana02').val(data.kana02);
                     }
                 }).fail(function() {
-                    alert('更新に失敗しました。入力内容を確認してください。');
+                    alert("{{ 'front.save_fail'|trans }}");
                 }).always(function(data) {
                     // overlayを無効
                     loadingOverlay('hide');
@@ -165,8 +165,8 @@ file that was distributed with this source code.
                         <p class="ec-halfInput">{{ 'common.name.prefix'|trans }}<span class="customer-edit customer-name01">{{ Order.name01 }}</span> <span class="customer-edit customer-name02">{{ Order.name02 }}</span>{{ 'common.name.suffix'|trans }}</p>
                         <p class="ec-halfInput" style="display: none"><span class="customer-edit customer-kana01">{{ Order.kana01 }}</span> <span class="customer-edit customer-kana02">{{ Order.kana02 }}</span></p>
                         <p class="ec-input"><span class="customer-edit customer-company_name">{{ Order.companyName }}</span></p>
-                        <p class="ec-zipInput">〒<span class="customer-edit customer-postal_code">{{ Order.postal_code }}</span></p>
-                        <p class="ec-input"><span class="customer-edit customer-addr02">{{ Order.addr02 }}</span><span class="customer-edit customer-addr01">, {{ Order.addr01 }}</span><span class="customer-edit customer-pref">, {{ Order.pref }}</span></p>
+                        <p class="ec-zipInput">{{ 'common.postal_symbol'|trans }}<span class="customer-edit customer-postal_code">{{ Order.postal_code }}</span></p>
+                        <p class="ec-input"><span class="customer-edit customer-addr02">{{ Order.addr02 }}</span> <span class="customer-edit customer-addr01">{{ Order.addr01 }}</span> <span class="customer-edit customer-pref">{{ Order.pref }}</span></p>
                         <p class="ec-telInput"><span class="customer-edit customer-phone_number">{{ Order.phone_number }}</span></p>
                         <p class="ec-input"><span class="customer-edit customer-email">{{ Order.email }}</span></p>
                     </div>
@@ -226,14 +226,14 @@ file that was distributed with this source code.
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="ec-select">
-                                        <span class="customer-form customer-address_pref"></span>
-                                    </div>
                                     <div class="ec-input">
                                         <span class="customer-form customer-address_addr01"></span>
                                     </div>
                                     <div class="ec-input">
                                         <span class="customer-form customer-address_addr02"></span>
+                                    </div>
+                                    <div class="ec-select">
+                                        <span class="customer-form customer-address_pref"></span>
                                     </div>
                                 </dd>
                             </dl>
@@ -270,9 +270,9 @@ file that was distributed with this source code.
                         <input type="hidden" id="customer-kana02" class="customer-in" name="customer_kana02" value="{{ Order.kana02 }}">
                         <input type="hidden" id="customer-company-name" class="customer-in" name="customer_company_name" value="{{ Order.companyName }}">
                         <input type="hidden" id="customer-postal_code" class="customer-in" name="customer_postal_code" value="{{ Order.postal_code }}">
-                        <input type="hidden" id="customer-pref" class="customer-in" name="customer_pref" value="{{ Order.pref }}">
                         <input type="hidden" id="customer-addr01" class="customer-in" name="customer_addr01" value="{{ Order.addr01 }}">
                         <input type="hidden" id="customer-addr02" class="customer-in" name="customer_addr02" value="{{ Order.addr02 }}">
+                        <input type="hidden" id="customer-pref" class="customer-in" name="customer_pref" value="{{ Order.pref }}">
                         <input type="hidden" id="customer-phone_number" class="customer-in" name="customer_phone_number" value="{{ Order.phone_number }}">
                         <input type="hidden" id="customer-email" class="customer-in" name="customer_email" value="{{ Order.email }}">
                     {% endif %}

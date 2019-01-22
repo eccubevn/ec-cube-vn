@@ -77,6 +77,7 @@ class PostalType extends AbstractType
 
         $resolver->setDefaults([
             'options' => [],
+            'required' => false,
             'constraints' => $constraints,
             'attr' => [
                 'class' => 'p-postal-code',

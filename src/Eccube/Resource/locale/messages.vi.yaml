@@ -34,7 +34,7 @@ common.company_name: Tên công ty
 common.shop_name: Tên cửa hàng
 common.address: Địa chỉ
 common.pref: Tỉnh thành
-common.postal_symbol: "〒"
+common.postal_symbol: ""
 common.postal_code: Mã bưu điện
 common.postal_code_sample: 'Ví dụ: 70000'
 common.search_postal_code: Tìm kiếm mã bưu điện
@@ -1702,3 +1702,5 @@ order_pdf.service.delivery_fee: 'Vận chuyển'
 order_pdf.service.charge: 'Phí giao dịch'
 order_pdf.service.discount: 'Giảm giá'
 order_pdf.service.payment_total: 'Thanh Toán'
+
+front.save_fail: Cập nhật thất bại. Vui lòng kiểm tra nội dung đã nhập.

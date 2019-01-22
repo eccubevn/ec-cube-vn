@@ -35,7 +35,7 @@ file that was distributed with this source code.
                             </dl>
                             <dl style="display: flex;border-bottom: 1px dotted #ccc;margin: 0;">
                                 <dt style="padding-top: 14px;width: 30%;"><label class="ec-label">{{ 'common.address'|trans }}</label></dt>
-                                <dd style="width: 70%;line-height: 3;"><span>〒</span>{{ data.postal_code }} {{ data.pref }} {{ data.addr01 }} {{ data.addr02 }}</dd>
+                                <dd style="width: 70%; padding: 10px">{{ format_address(data.addr01, data.addr02, data.pref, data.postal_code) }}</dd>
                             </dl>
                             <dl style="display: flex;border-bottom: 1px dotted #ccc;margin: 0;">
                                 <dt style="padding-top: 14px;width: 30%;"><label class="ec-label">{{ 'common.phone_number'|trans }}</label></dt>

@@ -51,7 +51,7 @@ common.password_for_confirmation: Nhập lại mật khẩu
 common.gender: Giới tính
 common.job: Nghề nghiệp
 common.birth_day: Sinh nhật
-common.tax_include: (đã có thuế)
+common.tax_include: (có VAT)
 common.separator__range: '-'
 common.separator__colon: ':'
 common.quantity: Số lượng
@@ -139,7 +139,7 @@ front.contact.title: Liên hệ
 front.contact.inquiry_notice: |
  Xin lưu ý rằng một số yêu cầu có thể cần thêm thời gian để trả lời.
  Nếu nó rơi vào ngày lễ hoặc ngày nghỉ của chúng tôi, chúng tôi sẽ liên lạc lại với bạn vào / sau ngày làm việc tiếp theo. Cảm ơn bạn.
-front.contact.order_notice: Đối với sự thăc mắc về đơn đặt hàng của bạn, xin vui lòng thông báo cho chúng tôi về số thứ tự.
+front.contact.order_notice: Đối với sự thăc mắc về đơn đặt hàng của bạn, xin vui lòng thông báo cho chúng tôi kèm theo mã số của đơn hàng.
 front.contact.inquiry_contents: Thắc mắc
 front.contact.complete_title: Cảm ơn bạn đã yêu cầu!
 front.contact.complete_message__title: Yêu cầu của bạn đã được gửi đi.
@@ -603,7 +603,7 @@ admin.product.permanently_delete__complete_message: Sản phẩm đã được x
 admin.product.permanently_delete__complete: Hoàn thành
 admin.product.permanently_delete__system_error: Xảy ra lỗi hệ thống
 admin.product.copy__confirm_title: Sao chép một sản phẩm
-admin.product.copy__confirm_message: Bạn có chắc chắn xóa sản phẩm này?
+admin.product.copy__confirm_message: Bạn có chắc muốn sao chép thông tin sản phẩm này?
 admin.product.name: Tên sản phẩm
 admin.product.image: Hình ảnh sản phẩm
 admin.product.image__short: Hình ảnh
@@ -841,11 +841,11 @@ admin.order.bulk_action__confirm_message: Điều này sẽ thay đổi dữ li�
 admin.order.bulk_action__in_progress_message: Đang xử lý ...
 admin.order.bulk_action__complete_message: Đã hoàn thành.
 admin.order.shipping_mail_send: Gửi thông báo giao hàng
-admin.order.shipping_mail_send__confirm_title: Thông báo giao hàng.
-admin.order.shipping_mail_send__confirm_message: Gửi thông báo vận chuyển. Vui lòng xem lại nội dung trước khi nhấn [Gửi]. Lưu ý rằng bạn sẽ không thể hủy hành động này.
-admin.order.shipping_mail_send__complete_message: '%count% thông báo đã được gửi'
-admin.order.to_shipped__confirm_title: 'Cập nhật thành `Đã giao hàng`.'
-admin.order.to_shipped__confirm_message: Cập nhật thông tin giao hàng thành `Đã giao hàng`. Vui lòng chọn các hành động khác nhau sau đó nhấn [Gửi]. Lưu ý rằng bạn sẽ không thể hoàn nguyên hành động này.
+admin.order.shipping_mail_send__confirm_title: Thông báo giao hàng
+admin.order.shipping_mail_send__confirm_message: Gửi thông báo giao hàng. Vui lòng xem lại nội dung trước khi nhấn [Gửi]. Lưu ý rằng bạn sẽ không thể hủy hành động này.
+admin.order.shipping_mail_send__complete_message: ' %count% thông báo đã được gửi'
+admin.order.to_shipped__confirm_title: 'Cập nhật thành `Đã giao hàng`'
+admin.order.to_shipped__confirm_message: Cập nhật thông tin giao hàng thành `Đã giao hàng`. Vui lòng chọn các hành động khác nhau sau đó nhấn [Gửi]. Lưu ý rằng bạn sẽ không thể quay lại hành động này.
 admin.order.to_shipped__confirm_send_mail: Gửi Email
 admin.order.to_shipped__confirm_send_mail_in_same_time: Gửi thông báo giao hàng hoàn toàn
 admin.order.change_status: Cập nhật trạng thái
@@ -910,7 +910,7 @@ admin.customer.customer_registration: Thêm khách hàng
 admin.customer.customer_address_registration: Đăng ký địa chỉ giao hàng
 
 # Labels / Messages
-admin.customer.customer_id: Mã khách hành
+admin.customer.customer_id: Mã khách hàng
 admin.customer.customer_info: Thông tin khách hàng
 admin.customer.purchase_history: Lịch sử đặt hàng
 admin.customer.purchase_history__not_found: Không có lịch sử đặt hàng được tìm thấy

@@ -79,6 +79,7 @@ class PostalType extends AbstractType
             'options' => [],
             'required' => false,
             'constraints' => $constraints,
+            'label' => 'common.postal_code',
             'attr' => [
                 'class' => 'p-postal-code',
                 'placeholder' => 'common.postal_code_sample',

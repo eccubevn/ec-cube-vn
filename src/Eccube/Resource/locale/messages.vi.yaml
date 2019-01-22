@@ -212,7 +212,7 @@ front.trade.refund: Về hàng trả lại / trao đổi
 # マイページ
 #------------------------------------------------------------------------------------
 
-front.mypage.welcome: Chào %last_name% %first_name%
+front.mypage.welcome: Chào
 front.mypage.title: Tài khoản của tôi
 front.mypage.welcome__point: Bạn đang có %point% điểm
 front.mypage.nav__history: Lịch sử đặt hàng

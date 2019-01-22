@@ -208,8 +208,7 @@ file that was distributed with this source code.
                             </dl>
                             <dl>
                                 <dt>
-                                    <label class="ec-label required">{{ 'common.address'|trans }}</label>
-                                    <span class="ec-required">{{ 'common.required'|trans }}</span>
+                                    <label class="ec-label">{{ 'common.postal_code'|trans }}</label>
                                 </dt>
                                 <dd>
                                     <div class="ec-zipInput">
@@ -226,6 +225,14 @@ file that was distributed with this source code.
                                             </a>
                                         </div>
                                     </div>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>
+                                    <label class="ec-label required">{{ 'common.address'|trans }}</label>
+                                    <span class="ec-required">{{ 'common.required'|trans }}</span>
+                                </dt>
+                                <dd>
                                     <div class="ec-input">
                                         <span class="customer-form customer-address_addr01"></span>
                                     </div>
@@ -314,7 +321,7 @@ file that was distributed with this source code.
                             </ul>
                         </div>
                         <div class="ec-orderDelivery__address">
-                            <p>{{ 'common.name.prefix'|trans }}{{ shipping.name01 }} {{ shipping.name02 }} {{ 'common.name.suffix'|trans }}</p>
+                            <p>{{ shipping.name01|format_name(shipping.name02) }}</p>
                             <p>{{ format_address(shipping.addr01, shipping.addr02, shipping.pref, shipping.postal_code) }}</p>
                             <p>{{ shipping.phone_number }}</p>
                         </div>

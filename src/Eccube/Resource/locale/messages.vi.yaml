@@ -51,7 +51,7 @@ common.password_for_confirmation: Nhập lại mật khẩu
 common.gender: Giới tính
 common.job: Nghề nghiệp
 common.birth_day: Sinh nhật
-common.tax_include: (VAT)
+common.tax_include: (đã có thuế)
 common.separator__range: '-'
 common.separator__colon: ':'
 common.quantity: Số lượng
@@ -72,7 +72,7 @@ common.login: Đăng nhập
 common.remember_me: Ghi nhớ tôi
 common.signup: Đăng ký
 common.forgot_login: Bạn không thể đăng nhập ?
-common.customer_address_count_is_over: Bạn đã có số lượng địa chỉ tối đa là (%eccube_deliv_addr_max% items). Nếu bạn muốn thêm, vui lòng xóa bớt địa chỉ trong danh sách.
+common.customer_address_count_is_over: Bạn đã có số lượng địa chỉ tối đa là (%eccube_deliv_addr_max% địa chỉ). Nếu bạn muốn thêm, vui lòng xóa bớt địa chỉ trong danh sách.
 common.search_keyword: Nhập từ khóa
 common.delete_confirm: Bạn có muốn tiếp tục?
 common.pagetop: Quay về đầu trang
@@ -367,8 +367,8 @@ front.shopping.order_error: Có lỗi xảy ra trong quá trình kiểm tra.
 front.shopping.system_error: Xin lỗi, chúng tôi đã gặp phải một lỗi không mong muốn trong quá trình thanh toán. Vui lòng liên hệ với chúng tôi từ mẫu yêu cầu. Chúng tôi xin lỗi vì sự bất tiện này.
 front.shopping.empty_items_error: Xin lỗi, quá trình thanh toán chưa hoàn thành theo thứ tự tốt. Vui lòng đặt hàng một lần nữa. Chúng tôi xin lỗi về sự bất tiện này.
 front.shopping.out_of_stock: 'Xin lỗi, không có đủ hàng cho %product%. Bạn không thể mua nhiều hơn số lượng này.'
-front.shopping.over_sale_limit: 'Rất tiếc, chúng đang hạn chế việc bán các sản phẩm %product%. Bạn không thể mua nhiều hơn số lượng mua tối đa.'
-front.shopping.out_of_stock_zero: 'Xin lỗi, chúng tôi không có đủ cổ số lượng cho %product%. Mục này đã được xóa khỏi giỏ hàng.'
+front.shopping.over_sale_limit: 'Rất tiếc, chúng tôi đang hạn chế bán sản phẩm %product%. Bạn không thể mua nhiều hơn số lượng mua tối đa.'
+front.shopping.out_of_stock_zero: 'Xin lỗi, chúng tôi không có đủ số lượng cho %product%. Mục này đã được xóa khỏi giỏ hàng.'
 front.shopping.over_price_limit: Xin lỗi, số lượng vượt quá số lượng mua tối đa. Vui lòng giảm số lượng mua
 front.shopping.in_preparation: 'Xin lỗi, %product% chưa sẵn sàng cho việc giao hàng. Vui lòng liên hệ với chúng tôi từ form liên. Chúng tôi xin lỗi về sự bất tiện này.'
 front.shopping.not_purchase: Xin lỗi, đơn đặt hàng của bạn bao gồm các sản phẩm hiện không có sẵn. Nó đã bị xóa khỏi giỏ hàng của bạn.
@@ -418,7 +418,7 @@ admin.common.execute: Gửi đi
 admin.common.close: Đóng
 admin.common.bulk_registration: Đăng ký tất cả
 admin.common.decision: Chấp nhận
-admin.common.create: Tạp
+admin.common.create: Tạo
 admin.common.create__new: Tạo mới
 admin.common.up: Di chuyển lên
 admin.common.down: Di chuyển xuống
@@ -452,10 +452,10 @@ admin.common.search_try_change_condition: Vui lòng thay đổi các điều ki�
 admin.common.search_try_advanced_search: 'Thử [Tìm kiếm mở rộng]'
 admin.common.csv_download: Tải CSV
 admin.common.csv_upload: Tải lên tệp CSV
-admin.common.csv_skeleton_download: Tải xuống một mẫu
+admin.common.csv_skeleton_download: Tải xuống mẫu csv
 admin.common.csv_format: Định dạng tập tin CSV
-admin.common.csv_select: Chọn 1 file CSV
-admin.common.file_select: Chọn 1 file
+admin.common.csv_select: Chọn tệp CSV
+admin.common.file_select: Chọn tệp
 admin.common.file_select_empty: Không được chọn
 admin.common.csv_invalid_format: Định dạng CSV chưa khớp
 admin.common.csv_invalid_no_data: Không tìm thấy dữ liệu CSV
@@ -472,16 +472,16 @@ admin.common.csv_invalid_foreign_key: 'Bạn không thể xóa %name% trong dòn
 admin.common.drag_and_drop_description: Bạn có thể thay đổi thứ tự của các mục bằng cách kéo và thả.
 admin.common.drag_and_drop_image_description: Kéo và thả hình ảnh hoặc
 admin.common.delete_modal__title: Xóa
-admin.common.delete_modal__message: Dữ liệu này sẽ không thể lấy lại dữ liệu này. Bạn chắc chắn muốn xóa ''%name%''?
+admin.common.delete_modal__message: Bạn sẽ không thể lấy lại dữ liệu này. Bạn chắc chắn muốn xóa ''%name%''?
 admin.common.move_to_confirm_title: Chuyển đến trang khác
-admin.common.move_to_confirm_message: 'Sẽ chuyển đến trang %name% cài đặt. Bạn có muốn lưu chỉnh sửa hiện tại không?'
+admin.common.move_to_confirm_message: 'Sẽ chuyển đến trang cài đặt %name%. Bạn có muốn lưu chỉnh sửa hiện tại không?'
 admin.common.move_to_confirm_move_only: Chuyển trang
 admin.common.move_to_confirm_save_and_move: Lưu lại & Chuyển trang
 admin.common.admin_url_warning: Vui lòng đặt URL Bảng điều khiển dành cho quản trị viên khó đoán để bảo mật. Bạn có thể đặt nó tại "<a href="%url%">Bảo mật</a>".
 
 
 # Labels related to entity
-admin.common.id: ID
+admin.common.id: Mã
 admin.common.name: Tên
 admin.common.kana: Name (Phonetic)
 admin.common.first_name: Tên
@@ -516,7 +516,7 @@ admin.common.last_updater: Cập nhật lần cuối
 admin.common.device_type: Loại thiết bị
 admin.common.authority: Vai trò
 admin.common.payment_method: Phương thức thanh toán
-admin.common.charge: Phí
+admin.common.charge: Phí thanh toán
 #------------------------------------------------------------------------------------
 # Home
 #------------------------------------------------------------------------------------
@@ -574,7 +574,7 @@ admin.product.product_class_registration: Tùy chọn phân loại
 admin.product.class_management: Tùy chọn
 admin.product.class_category_management: Nhóm tùy chọn
 admin.product.category_management: Danh mục
-admin.product.tag_management: Thẻ
+admin.product.tag_management: Quản lý thẻ
 admin.product.product_csv_upload: Sản phẩm CSV
 admin.product.category_csv_upload: Danh mục CSV
 
@@ -588,7 +588,7 @@ admin.product.reset_complete: Tùy chọn sản phẩm đã được đặt lạ
 admin.product.product: Sản phẩm
 admin.product.product__card_title: Thông tin sản phẩm
 admin.product.preview: Xem trước
-admin.product.product_id: ID sản phẩm
+admin.product.product_id: Định danh sản phẩm
 admin.product.product_id__short: ID
 admin.product.display_status: Trạng thái
 admin.product.display_status__short: Trạng thái
@@ -609,35 +609,35 @@ admin.product.image: Hình ảnh sản phẩm
 admin.product.image__short: Hình ảnh
 admin.product.image_size: 'Nên chọn ảnh có độ phân giải lớn hơn 600x600 (px)'
 admin.product.sale_type: Loại hình bán hàng
-admin.product.description_detail: Mô tả sản phẩm
-admin.product.description_list: Mô tả sản phẩm (chi tiết)
+admin.product.description_detail: Mô tả sản phẩm (chi tiết)
+admin.product.description_list: Mô tả sản phẩm
 admin.product.description_list__add: Thêm mô tả sản phẩm
 admin.product.price: Giá
 admin.product.sale_price: Giá bán # price02
 admin.product.normal_price: Giá thường # price01
 admin.product.stock: Tồn kho
 admin.product.stock__short: Tồn kho
-admin.product.stock__in_stock: Có sẵn
-admin.product.stock__out_of_stock: Không có sẵn
+admin.product.stock__in_stock: Còn hàng
+admin.product.stock__out_of_stock: Hết hàng
 admin.product.search_word: Từ khóa tìm kiếm
-admin.product.product_code: SKU
+admin.product.product_code: Mã sản phẩm
 admin.product.product_code__short: SKU
-admin.product.product_name_and_code: Tên sản phẩm / SKU
+admin.product.product_name_and_code: Tên sản phẩm / Mã sản phẩm
 admin.product.sale_limit: Số lượng đặt hàng tối đa
 admin.product.delivery_duration: Ngày giao hàng dự kiến
 admin.product.delivery_fee: Phí giao hàng
-admin.product.tax_rate: VAT
+admin.product.tax_rate: Thuế giá trị gia tăng (VAT)
 admin.product.free_area: Mô tả thêm
 admin.product.free_area__card_title: Mô tả thêm
 admin.product.delete_flag: Cờ xóa sản phẩm
 admin.product.search_category: Tìm kiếm danh mục
-admin.product.save_tag: Tags
+admin.product.save_tag: Lưu thẻ
 admin.product.create_date__card_title: Cập nhật
-admin.product.move_to_category: Thêm/Chỉnh sửa danh mục
-admin.product.move_to_tag: Thêm/Chỉnh sửa thẻ
+admin.product.move_to_category: Thêm/Sửa danh mục
+admin.product.move_to_tag: Thêm/Sửa thẻ
 admin.product.move_to_product_class: Chỉnh sửa tùy chọn
-admin.product.move_to_product_class__confirm_title: '%name% tùy chọn'
-admin.product.multi_search_label: Tên sản phẩm / ID sản phẩm / SKU
+admin.product.move_to_product_class__confirm_title: 'Tùy chọn %name%'
+admin.product.multi_search_label: Tên sản phẩm / Định danh sản phẩm / Mã sản phẩm
 admin.product.product_class: Sản phẩm tùy chọn
 admin.product.product_class__short: Tùy chọn
 admin.product.product_class__create: Đăng ký tùy chọn cho sản phẩm
@@ -653,14 +653,14 @@ admin.product.product_class__reset_confirm_message: |
 admin.product.product_class__reset_confirm_excecute: Đặt lại tùy chọn
 admin.product.product_class_set_stock_quantity: Nhập số lượng sản phẩm hoặc check 'Không giới hạn'.
 admin.product.copy_first_line: Lặp lại trong các dòng đầu tiên cho tất cả
-admin.product.procuct_class_count: 'There are %count% combinations'
+admin.product.procuct_class_count: 'Có %count% kết hợp'
 admin.product.stock_unlimited: Không giới hạn số lượng
 admin.product.stock_unlimited__short: Không giới hạn
 admin.product.class_name: Tên tùy chọn
-admin.product.class_name__backend_name: Bí danh (alias)
+admin.product.class_name__backend_name: Tên khác
 admin.product.class_name__card_title: Thông tin tùy chọn
 admin.product.class_category: Nhóm tùy chọn
-admin.product.class_category__backend_name: Bí danh (alias)
+admin.product.class_category__backend_name: Tên khác
 admin.product.class_category__card_title: Thông tin tùy chọn
 admin.product.class_category_name: Nhóm tùy chọn
 admin.product.class_category_name__short: Tên nhóm
@@ -671,10 +671,10 @@ admin.product.class_category2__short: Tùy chọn 2
 admin.product.category: Danh mục
 admin.product.category__product_card_title: Danh mục
 admin.product.category_id: |
- ID Danh mục
- Để cập nhật danh mục, vui lòng nhập ID danh mục
-admin.product.category_name: ID danh mục
-admin.product.parent_category_id: ID danh mục cha
+ Mã danh mục
+ Để cập nhật danh mục, vui lòng nhập Mã danh mục
+admin.product.category_name: Mã danh mục
+admin.product.parent_category_id: Mã danh mục cha
 admin.product.category_all: Tất cả các danh mục
 admin.product.tag: Thẻ
 admin.product.tag__product_card_title: Thẻ
@@ -684,7 +684,7 @@ admin.product.select__can_not_select_same_class: Bạn không được phép ch�
 admin.product.unselected_class: Không được chọn
 
 # Product CSV Templates
-admin.product.product_csv.product_id_col: ID sản phẩm
+admin.product.product_csv.product_id_col: Định danh sản phẩm
 admin.product.product_csv.product_id_description: Để đăng ký sản phẩm mới, xin vui lòng để trống. Để cập nhật thông tin sản phẩm đã đăng ký, vui lòng ghi rõ
 admin.product.product_csv.display_status_col: Trạng thái (ID)
 admin.product.product_csv.display_status_description: ''
@@ -692,7 +692,7 @@ admin.product.product_csv.product_name_col: Tên sản phẩm
 admin.product.product_csv.product_name_description: ''
 admin.product.product_csv.shop_memo_col: Ghi chú cửa hàng
 admin.product.product_csv.shop_memo_description: ''
-admin.product.product_csv.description_list_col: Mô tả sản phẩm (chi tiết)
+admin.product.product_csv.description_list_col: Mô tả sản phẩm
 admin.product.product_csv.description_list_description: ''
 admin.product.product_csv.description_detail_col: Mô tả sản phẩm (Chi tiết)
 admin.product.product_csv.description_detail_description: ''
@@ -703,27 +703,27 @@ admin.product.product_csv.free_area_description: ''
 admin.product.product_csv.delete_flag_col: Cờ xóa sản phẩm
 admin.product.product_csv.delete_flag_description: 'Chỉ định: 0 => Đăng ký; 1 => Xóa. Nếu không được chỉ định, nó sẽ được đặt thành 0.'
 admin.product.product_csv.product_image_col: Ảnh sản phẩm
-admin.product.product_csv.product_image_description: Chỉ định tên của tập tin hình ảnh. Đối với nhiều hình ảnh, vui lòng trích dẫn hai tên tệp.
+admin.product.product_csv.product_image_description: 'Chỉ định tên của tập tin hình ảnh. Đối với nhiều hình ảnh, cách nhau bởi dấu phẩy, ví dụ: "hình 1,hình 2"'
 admin.product.product_csv.category_col: Danh mục sản phẩm (ID)
-admin.product.product_csv.category_description: Chỉ định ID danh mục. Đối với nhiều danh mục, vui lòng trích dẫn hai ID danh mục.
-admin.product.product_csv.tag_col: Tag (ID)
-admin.product.product_csv.tag_description: Chỉ định tag ID. Đối với nhiều tag, vui lòng trích dẫn hai ID thẻ.
+admin.product.product_csv.category_description: 'Chỉ định mã danh mục. Đối với nhiều danh mục, cách nhau bởi dấu phẩy, ví dụ: "nhóm 1,nhóm 2"'
+admin.product.product_csv.tag_col: Mã thẻ
+admin.product.product_csv.tag_description: 'Chỉ định mã thẻ. Đối với nhiều thẻ, cách nhau bởi dấu phẩy, ví dụ: "thẻ 1,thẻ 2"'
 admin.product.product_csv.sale_type_col: Loại bán hàng (ID)
 admin.product.product_csv.sale_type_description: ''
-admin.product.product_csv.class_category1_col: Nhớm tùy chọn 1(ID)
+admin.product.product_csv.class_category1_col: Nhóm tùy chọn 1 (ID)
 admin.product.product_csv.class_category1_description: ''
-admin.product.product_csv.class_category2_col: Nhớm tùy chọn 2(ID)
+admin.product.product_csv.class_category2_col: Nhóm tùy chọn 2 (ID)
 admin.product.product_csv.class_category2_description: ''
 admin.product.product_csv.delivery_duration_col: Ngày giao hàng dự kiến (ID)
 admin.product.product_csv.delivery_duration_description: ''
-admin.product.product_csv.product_code_col: SKU
+admin.product.product_csv.product_code_col: Mã sản phẩm
 admin.product.product_csv.product_code_description: ''
 admin.product.product_csv.stock_col: Số lượng sản phẩm
-admin.product.product_csv.stock_description: If the unlimited stock flag is set to 0, please set the value more than 0.
-admin.product.product_csv.stock_unlimited_col: Cờ SL sản phẩm không giới hạn
+admin.product.product_csv.stock_description: Nếu cờ 'số lượng sản phẩm không giới' hạn được đặt thành 0 (giới hạn), vui lòng đặt giá trị lớn hơn 0.
+admin.product.product_csv.stock_unlimited_col: Cờ 'số lượng sản phẩm không giới hạn'
 admin.product.product_csv.stock_unlimited_description: 'Chỉ định: 0 => Giới hạn; 1 => Không giới hạn'
 admin.product.product_csv.sale_limit_col: Số lượng bán tối đa
-admin.product.product_csv.sale_limit_description: Đặt giá trị nhiều hơn 1
+admin.product.product_csv.sale_limit_description: Đặt giá trị lớn hơn 1
 admin.product.product_csv.normal_price_col: Giá thường
 admin.product.product_csv.normal_price_description: Đặt giá trị lớn hơn 0
 admin.product.product_csv.sale_price_col: Giá bán
@@ -732,11 +732,11 @@ admin.product.product_csv.delivery_fee_col: Phí giao hàng
 admin.product.product_csv.delivery_fee_description: Nếu phí giao hàng được đặt cho mỗi sản phẩm, hãy đặt giá trị lớn hơn 0
 
 # Category CSV Templates
-admin.product.category_csv.category_id_col: Danh mục ID
-admin.product.category_csv.category_id_description: Đối với một đăng ký loại mới, xin hãy để nó trống. Để cập nhật danh mục đã đăng ký, vui lòng chỉ định ID danh mục.
+admin.product.category_csv.category_id_col: Mã danh mục
+admin.product.category_csv.category_id_description: Đối với một đăng ký loại mới, xin hãy để nó trống. Để cập nhật danh mục đã đăng ký, vui lòng chỉ định mã danh mục.
 admin.product.category_csv.category_name_col: Tên danh mục
 admin.product.category_csv.category_name_description: ''
-admin.product.category_csv.parent_category_id_col: ID danh mục cha
+admin.product.category_csv.parent_category_id_col: Mã danh mục cha
 admin.product.category_csv.parent_category_id_description: ''
 admin.product.category_csv.delete_flag_col: Cờ xóa danh mục
 admin.product.category_csv.delete_flag_description: 'Chỉ định: 0 => Tải lên; 1 => Xóa. Nếu không xác định, nó được đặt thành 0.'
@@ -749,33 +749,33 @@ admin.product.category_csv.delete_flag_description: 'Chỉ định: 0 => Tải l
 admin.order.order_management: Đơn đặt hàng
 admin.order.order_list: Tất cả các đơn đặt hàng
 admin.order.order_registration: Thêm đơn hàng mới
-admin.order.shipping_registration: Thêm lô hàng
+admin.order.shipping_registration: Thêm giao hàng
 admin.order.shipping_csv_upload: Tải lên CSV giao hàng
-admin.order.mail: Email thông báo
+admin.order.mail: Quản lý email
 
 # flash Message
 admin.order.shipping_save_message: Thông tin liên quan đến vận chuyển đã được thay đổi. Nếu phí giao hàng cũng thay đổi, vui lòng cập nhật từ 'Đơn hàng' theo cách thủ công.
 
 # Labels / Messages
-admin.order.multi_search_label: Mã đơn hàng / Tên / Tên công ty / Email / Điện thoại
+admin.order.multi_search_label: Mã đơn hàng / Tên / Họ / Tên công ty
 admin.order.order_info: Thông tin đặt hàng
 admin.order.order_date: Ngày đặt hàng
 admin.order.order_date__start: Ngày đặt hàng (Bắt đầu)
 admin.order.order_date__end: Ngày đặt hàng (Kết thúc)
 admin.order.payment_date: Ngày thanh toán
-admin.order.payment_date__start: Ngày thanh toán (Start)
-admin.order.payment_date__end: Ngày thanh toán (End)
+admin.order.payment_date__start: Ngày thanh toán (bắt đầu)
+admin.order.payment_date__end: Ngày thanh toán (kết thúc)
 admin.order.order_no: Mã đơn hàng
 admin.order.shipping_date: Ngày giao hàng
-admin.order.message: Thắc mắc
-admin.order.message_short: Thắc mắc
+admin.order.message: Ghi chú
+admin.order.message_short: Ghi chú
 admin.order.purchase_price: Số tiền
-admin.order.purchase_price__start: Số tiền (Start)
-admin.order.purchase_price__end: Số tiền (End)
+admin.order.purchase_price__start: Số tiền (nhỏ nhất)
+admin.order.purchase_price__end: Số tiền (lớn nhất)
 admin.order.orderer: Khách hàng
 admin.order.orderer_name: Tên khách hàng
 admin.order.orderer_kana: Customer Name (Phonetic)
-admin.order.orderer_company_name: Tên Công ty (khách hàng)
+admin.order.orderer_company_name: Tên công ty (khách hàng)
 admin.order.copy_orderer: Sao chép thông tin khách hàng
 admin.order.output_delivery_note: In phiếu giao hàng
 admin.order.output_delivery_note_short: In phiếu giao hàng
@@ -787,19 +787,19 @@ admin.order.delete_shipping__confirm_message: 'Thông tin giao hàng sẽ bị x
 admin.order.order_item_info: Thông tin sản phẩm được đặt hàng
 admin.order.order_item_type: Loại sản phẩm
 admin.order.add_product_item: Thêm một sản phẩm
-admin.order.add_other_item: Thêm các sản phẩm khác
+admin.order.add_other_item: Thêm các phí khác
 admin.order.update_calculation_results: Tính lại
 admin.order.amount: Giá
-admin.order.quantity: SL
+admin.order.quantity: Số lượng
 admin.order.tax_rate: Thuế (VAT)
-admin.order.tax_type: Loại thuế (VAT)
+admin.order.tax_type: Loại thuế
 admin.order.subtotal: Tạm tính
 admin.order.discount: Giảm giá
 admin.order.delivery_fee: Phí giao hàng
 admin.order.add_point: Điểm có được
 admin.order.use_point: Điểm đã sử dụng
 admin.order.total: Tổng cộng
-admin.order.payment_total: Số tiền đến hạn mức
+admin.order.payment_total: Tổng tiền thanh toán
 admin.order.order_status: Tình trạng đặt hàng
 admin.order.last_buy_date: Ngày mua sau cùng
 admin.order.last_buy_date__start: Ngày mua hàng sau cùng (Bắt đầu)
@@ -814,12 +814,12 @@ admin.order.mail_purchase_product_count: 'và %count% sản phẩm khác'
 admin.order.mail_history: Lịch sử Email
 admin.order.mail_send_date: Ngày gửi
 admin.order.mail_subject: Tiêu đề email
-admin.order.mail_body: Nội dụng Email
+admin.order.mail_body: Nội dụng email
 admin.order.mail_create: Email mới
 admin.order.mail_destination_info: Gửi đến
 admin.order.mail_mail_info: Nội dung Email
 admin.order.mail_confirm: Xem trước nội dung
-admin.order.mail_template: Mẫu (template)
+admin.order.mail_template: Mẫu email
 admin.order.mail_confirm_title: Bạn có chắc chắn gửi email với nội dung sau đây? Xem lại và nhấp vào [Gửi].
 admin.order.mail_send: Gửi
 admin.order.mail_send_complete: Email đã được gửi.
@@ -831,21 +831,21 @@ admin.order.to_shipped: Thiết lập 'Đã giao hàng'
 admin.order.send_mail: Gửi email
 admin.order.shop_memo_for_shipped: Ghi chú giao hàng
 admin.order.shipping__card_title: Thông tin giao hàng
-admin.order.shipping_id: ID giao hàng
+admin.order.shipping_id: Mã giao hàng
 admin.order.shipping_mail: Thông báo giao hàng
 admin.order.shipping_mail__completed: 'Thông báo giao hàng đã được gửi vào %date%'
-admin.order.shipping_mail__sent: Gửi
+admin.order.shipping_mail__sent: Đã gửi
 admin.order.shipping_mail__unsent: Chưa có
 admin.order.bulk_action__confirm_view_mail_body: Xem lại nội dung
-admin.order.bulk_action__confirm_message: Điều này sẽ thay đổi dữ liệu đã lưu. Thông tin chưa được lưu sẽ bị mất. Vui lòng lưu chỉnh sửa của bạn đầu trước.
+admin.order.bulk_action__confirm_message: Điều này sẽ thay đổi dữ liệu đã lưu. Thông tin chưa được lưu sẽ bị mất. Vui lòng lưu chỉnh sửa của bạn trước.
 admin.order.bulk_action__in_progress_message: Đang xử lý ...
 admin.order.bulk_action__complete_message: Đã hoàn thành.
 admin.order.shipping_mail_send: Gửi thông báo giao hàng
 admin.order.shipping_mail_send__confirm_title: Thông báo giao hàng.
-admin.order.shipping_mail_send__confirm_message: Gửi thông báo vận chuyển. Vui lòng xem lại nội dung trước khi nhấn [Gửi]. Lưu ý rằng bạn sẽ không thể hoàn nguyên hành động này.
+admin.order.shipping_mail_send__confirm_message: Gửi thông báo vận chuyển. Vui lòng xem lại nội dung trước khi nhấn [Gửi]. Lưu ý rằng bạn sẽ không thể hủy hành động này.
 admin.order.shipping_mail_send__complete_message: '%count% thông báo đã được gửi'
-admin.order.to_shipped__confirm_title: Cập nhật thành 'Đã giao hàng'.
-admin.order.to_shipped__confirm_message: Cập nhật thông tin giao hàng thành 'Đã giao hàng'. Vui lòng chọn các hành động khác nhau sau đó nhấn [Gửi]. Lưu ý rằng bạn sẽ không thể hoàn nguyên hành động này.
+admin.order.to_shipped__confirm_title: 'Cập nhật thành `Đã giao hàng`.'
+admin.order.to_shipped__confirm_message: Cập nhật thông tin giao hàng thành `Đã giao hàng`. Vui lòng chọn các hành động khác nhau sau đó nhấn [Gửi]. Lưu ý rằng bạn sẽ không thể hoàn nguyên hành động này.
 admin.order.to_shipped__confirm_send_mail: Gửi Email
 admin.order.to_shipped__confirm_send_mail_in_same_time: Gửi thông báo giao hàng hoàn toàn
 admin.order.change_status: Cập nhật trạng thái
@@ -854,7 +854,7 @@ admin.order.order_csv: CSV đặt hàng
 admin.order.shipping_csv: CSV giao hàng
 admin.order.shipping_status: Trạn thái giao hàng
 admin.order.delivery: Giao hàng đến
-admin.order.not_payment: Chưa trả
+admin.order.not_payment: Chưa thanh toán
 admin.order.unshipped: Chưa được giao
 admin.order.delete__confirm_title: Xóa thông tin đặt hàng
 admin.order.delete__confirm_message: Bạn có chắc chắn để xóa thông tin đặt hàng?
@@ -887,6 +887,8 @@ admin.order.delivery_note_parameter_error: 'ID vận chuyển không được ch
 admin.order.failed_to_change_status: '%name%: Bạn không được phép thay đổi trạng thái từ %from% sang %to%'
 admin.order.failed_to_change_status__short: 'Bạn không được phép thay đổi trạng thái từ %from% sang %to%'
 admin.order.skip_change_status: '%name%: Thay đổi trạng thái đã bị bỏ qua'
+admin.order.shipping.mail_detail: 'Chi tiết email'
+
 
 # Shipping CSV Templates
 admin.order.shipping_csv.shipping_id_col: ID giao hàng
@@ -989,8 +991,8 @@ admin.content.page_url_exists: URL đã tồn tại.
 admin.content.page_file_name: Tên tệp
 admin.content.page_source_code: Mã
 admin.content.page_layout__card_title: Cài đặt bố cục
-admin.content.page_pc: PC
-admin.content.page_mobile: Mobile
+admin.content.page_pc: Máy tính
+admin.content.page_mobile: Di động
 admin.content.page_meta__card_title: Cài đặt các thẻ meta
 admin.content.page_meta_author: author
 admin.content.page_meta_description: description
@@ -1527,7 +1529,7 @@ tooltip.category.csv_upload: Đăng ký danh mục hàng loạt có sẵn với 
 tooltip.category.csv_format: Bạn có thể tạo dữ liệu CSV dễ dàng với các mẫu có sẵn để tải xuống.
 tooltip.order.multi_search_label: Để biết các tùy chọn tìm kiếm chi tiết, vui lòng truy cập [Tìm kiếm mở rộng].
 tooltip.order.order_search_status: Bạn có thể lọc danh sách theo trạng thái đơn hàng. (Số) cho biết có bao nhiêu đơn hàng được theo dõi trên mỗi trạng thái.
-tooltip.order.bulk_actions: Xử lý hàng loạt được áp dụng cho các đơn đặt hàng được kiểm tra.
+tooltip.order.bulk_actions: Xử lý hàng loạt được áp dụng cho các đơn đặt hàng được chọn.
 tooltip.order.order_info: Thông tin chung của đơn hàng.
 tooltip.order.order_no: Số thứ tự được tạo tự động khi đặt hàng.
 tooltip.order.order_status: Bạn có thể thay đổi trạng thái tương ứng của đơn đặt hàng. Tuy nhiên, ngoại trừ nhập đơn hàng mới. Ngoài ra, nếu có nhiều điểm giao hàng trong một đơn hàng, tất cả sẽ được "vận chuyển" sau khi tất cả các lô hàng được thực hiện.
@@ -1694,7 +1696,7 @@ order_pdf.service.file_name: 'Donhang.pdf'
 order_pdf.service.file_name_multiple: 'Donhang-No%order_id%.pdf'
 order_pdf.service.tel: 'Số điện thoại: %tel%'
 order_pdf.service.email: 'Email: %email%'
-order_pdf.service.note: '＜Ghi chú＞'
+order_pdf.service.note: '<Ghi chú>'
 order_pdf.service.subtotal: 'Sản phẩm'
 order_pdf.service.delivery_fee: 'Vận chuyển'
 order_pdf.service.charge: 'Phí giao dịch'

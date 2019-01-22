@@ -249,9 +249,14 @@ file that was distributed with this source code.
                 </div>
                 <div class="row">
                     <div class="col">
+                        <p class="col-form-label">{{ 'admin.order.shipping_mail'|trans }}</p>
+                        {{ form_widget(searchForm.shipping_mail,  { 'label_attr': { 'class': 'checkbox-inline' }}) }}
+                        {{ form_errors(searchForm.shipping_mail) }}
+                        <div class=" d-none">
                         <label class="col-form-label">{{ 'admin.order.orderer_kana'|trans }}</label>
                         {{ form_widget(searchForm.kana) }}
                         {{ form_errors(searchForm.kana) }}
+                        </div>
                     </div>
                     <div class="col">
                         <label class="col-form-label">{{ 'admin.order.order_date'|trans }}</label>
@@ -377,18 +382,18 @@ file that was distributed with this source code.
                     </div>
                 </div>
 
-                <div class="row mb-2">
-                    <div class="col">
-                        <div class="form-row">
-                            <div class="col-12">
-                                <p class="col-form-label">{{ 'admin.order.shipping_mail'|trans }}</p>
-                                {{ form_widget(searchForm.shipping_mail,  { 'label_attr': { 'class': 'checkbox-inline' }}) }}
-                                {{ form_errors(searchForm.shipping_mail) }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col"></div>
-                </div>
+                {#<div class="row mb-2">#}
+                    {#<div class="col">#}
+                        {#<div class="form-row">#}
+                            {#<div class="col-12">#}
+                                {#<p class="col-form-label">{{ 'admin.order.shipping_mail'|trans }}</p>#}
+                                {#{{ form_widget(searchForm.shipping_mail,  { 'label_attr': { 'class': 'checkbox-inline' }}) }}#}
+                                {#{{ form_errors(searchForm.shipping_mail) }}#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="col"></div>#}
+                {#</div>#}
 
                 {# エンティティ拡張の自動出力 #}
                 {% for f in searchForm if f.vars.eccube_form_options.auto_render %}
@@ -537,7 +542,9 @@ file that was distributed with this source code.
                                                     />
                                                 </td>
                                                 <td class="align-middle text-left">
-                                                    <a class="action-edit" href="{{ url('admin_order_edit', { id : Order.id }) }}">{{ Order.order_no }}<br>{{ Order.name01 ~ Order.name02 }}<br>{{ Order.order_date|date_min }}</a>
+                                                    <a class="action-edit" href="{{ url('admin_order_edit', { id : Order.id }) }}">{{ Order.order_no }}
+                                                        <br>
+                                                        {{ Order.name01|format_name(Order.name02) }}<br>{{ Order.order_date|date_min }}</a>
                                                 </td>
                                                 <td class="align-middle text-center">
                                                     {{ Order.payment_method }}
@@ -588,7 +595,7 @@ file that was distributed with this source code.
                                                     </div>
                                                 </td>
                                                 <td class="align-middle text-center">
-                                                    {{ Shipping.name01 ~ Shipping.name02 }}<br>
+                                                    {{ Shipping.name01|format_name(Shipping.name02) }}<br>
                                                     {{ Shipping.Pref.name }}
                                                 </td>
                                                 <td class="align-middle pr-3">

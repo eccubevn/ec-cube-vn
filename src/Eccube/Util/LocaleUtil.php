@@ -20,7 +20,7 @@ class LocaleUtil
      */
     public static function convertPath($path, $fileName = null, $isNeedDefaultFolder = false)
     {
-        $locale = env('ECCUBE_LOCALE', 'ja_JP');
+        $locale = env('ECCUBE_LOCALE', 'vi_VN');
         $locale = str_replace('_', '-', $locale);
         $locales = \Locale::parseLocale($locale);
 

@@ -13,15 +13,32 @@
 
 namespace Eccube\Repository;
 
+use Eccube\Common\EccubeConfig;
 use Eccube\Entity\AbstractEntity;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 abstract class AbstractRepository extends ServiceEntityRepository
 {
     /**
-     * @var array
+     * @var EccubeConfig
      */
     protected $eccubeConfig;
+
+    /**
+     * @return EccubeConfig
+     */
+    public function getEccubeConfig(): EccubeConfig
+    {
+        return $this->eccubeConfig;
+    }
+
+    /**
+     * @param EccubeConfig $eccubeConfig
+     */
+    public function setEccubeConfig(EccubeConfig $eccubeConfig): void
+    {
+        $this->eccubeConfig = $eccubeConfig;
+    }
 
     /**
      * エンティティを削除します。

@@ -70,3 +70,4 @@ form.type.add.quantity: Chọn giá trị lớn hơn 1.
 form.type.select.select_is_future_or_now_date: Ngày sinh không hợp lệ.
 form.type.admin.nottrackingnumberstyle: Tracking No. chỉ nhập các chữ cái hoặc dấu gạch.
 form.type.float.invalid: Chỉ chập nhận số và số thập phân.
+Error: lỗi

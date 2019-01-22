@@ -63,7 +63,7 @@ class SearchProductType extends AbstractType
             ->add('category_id', MasterCategoryType::class, [
                 'choice_label' => 'NameWithLevel',
                 'label' => 'admin.product.category',
-                'placeholder' => 'common.select__all_products',
+                'placeholder' => 'common.select__unspecified',
                 'required' => false,
                 'multiple' => false,
                 'expanded' => false,

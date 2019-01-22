@@ -39,3 +39,4 @@ id,page_name,url,file_name,edit_type,author,description,keyword,create_date,upda
 42,Mua hàng / Thay đổi địa chỉ giao hàng,shopping_shipping_edit_change,Shopping/index,2,,,,2017-03-07 01:15:03,2017-03-07 01:15:03,noindex,,page
 44,Tài khoản của tôi / Chỉnh sửa địa chỉ giao hàng,mypage_delivery_edit,Mypage/delivery_edit,2,,,,2017-03-07 01:15:05,2017-03-07 01:15:05,noindex,8,page
 45,Mua sắm / Xác nhận,shopping_confirm,Shopping/confirm,2,,,,2017-03-07 01:15:03,2017-03-07 01:15:03,noindex,,page
+46,Tìm kiếm mã bưu điện,help_postalcode,Help/postalcode,2,,,,2017-03-07 01:15:03,2017-03-07 01:15:03,noindex,,page

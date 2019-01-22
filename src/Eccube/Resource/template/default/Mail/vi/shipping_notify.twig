@@ -8,7 +8,7 @@ file that was distributed with this source code.
 {% autoescape false %}
 {{ Shipping.name01|format_name(Shipping.name02) }}
 
-Sản phẩm của bạn đang trên đường đến. Xin vui lòng chờ trong giây lát.
+Sản phẩm của bạn đang trên đường đến. Xin vui lòng chờ.
 
 {% if Shipping.tracking_number %}
 Mã kiểm tra đơn hàng：{{ Shipping.tracking_number }}

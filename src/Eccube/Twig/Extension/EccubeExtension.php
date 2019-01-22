@@ -384,6 +384,6 @@ class EccubeExtension extends AbstractExtension
         $tmp = [$addr2, $addr1, $pref];
         $address = implode(', ', $tmp);
 
-        return $address . ($postalCode ? ' ' . $postalCode : '');
+        return $address . ($postalCode ? ' (' . $postalCode.')' : '');
     }
 }

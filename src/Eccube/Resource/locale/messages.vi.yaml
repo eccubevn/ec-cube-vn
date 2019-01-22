@@ -139,7 +139,7 @@ front.contact.title: Liên hệ
 front.contact.inquiry_notice: |
  Xin lưu ý rằng một số yêu cầu có thể cần thêm thời gian để trả lời.
  Nếu nó rơi vào ngày lễ hoặc ngày nghỉ của chúng tôi, chúng tôi sẽ liên lạc lại với bạn vào / sau ngày làm việc tiếp theo. Cảm ơn bạn.
-front.contact.order_notice: Đối với sự thăc mắc về đơn đặt hàng của bạn, xin vui lòng thông báo cho chúng tôi về số thứ tự.
+front.contact.order_notice: Đối với sự thăc mắc về đơn đặt hàng của bạn, xin vui lòng thông báo cho chúng tôi kèm theo mã số của đơn hàng.
 front.contact.inquiry_contents: Thắc mắc
 front.contact.complete_title: Cảm ơn bạn đã yêu cầu!
 front.contact.complete_message__title: Yêu cầu của bạn đã được gửi đi.
@@ -908,7 +908,7 @@ admin.customer.customer_registration: Thêm khách hàng
 admin.customer.customer_address_registration: Đăng ký địa chỉ giao hàng
 
 # Labels / Messages
-admin.customer.customer_id: Mã khách hành
+admin.customer.customer_id: Mã khách hàng
 admin.customer.customer_info: Thông tin khách hàng
 admin.customer.purchase_history: Lịch sử đặt hàng
 admin.customer.purchase_history__not_found: Không có lịch sử đặt hàng được tìm thấy

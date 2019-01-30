@@ -90,7 +90,7 @@ common.copyright: 'Bản quyền © '
 # Block
 #------------------------------------------------------------------------------------
 
-front.block.cart.go_to_cart: Tới giỏ hàng
+front.block.cart.go_to_cart: Xem giỏ hàng
 front.block.cart.no_item: Chưa có sản phẩm nào trong giỏ hàng của bạn.
 front.block.footer.about_us: Về chúng tôi
 front.block.footer.privacy_policy: Chính sách bảo mật
@@ -203,7 +203,7 @@ front.guide.title: Hướng dẫn mua hàng
 front.trade.distributor: Một nhà phân phối
 front.trade.responsible: Đại diện chịu trách nhiệm
 front.trade.location: Địa điểm
-front.trade.fee: Phí yêu cầu khác với giá vật phẩm
+front.trade.fee: Những chi phí khác ngoài giá sản phẩm
 front.trade.delivery: Thời gian giao hàng
 front.trade.payment: Phương thức thanh toán
 front.trade.refund: Về hàng trả lại / trao đổi
@@ -571,12 +571,12 @@ admin.product.product_management: Sản phẩm
 admin.product.product_list: Tất cả sản phẩm
 admin.product.product_registration: Thêm sản phẩm
 admin.product.product_class_registration: Tùy chọn phân loại
-admin.product.class_management: Tùy chọn
+admin.product.class_management: Quản lý tùy chọn
 admin.product.class_category_management: Nhóm tùy chọn
-admin.product.category_management: Danh mục
+admin.product.category_management: Quản lý danh mục
 admin.product.tag_management: Quản lý thẻ
-admin.product.product_csv_upload: Sản phẩm CSV
-admin.product.category_csv_upload: Danh mục CSV
+admin.product.product_csv_upload: Thêm SP bằng CSV
+admin.product.category_csv_upload: Thêm category CSV
 
 # flash messages
 admin.product.bulk_change_status_complete: '%status%: %count% mục được áp dụng thành công.'
@@ -614,7 +614,7 @@ admin.product.description_list: Mô tả sản phẩm
 admin.product.description_list__add: Thêm mô tả sản phẩm
 admin.product.price: Giá
 admin.product.sale_price: Giá bán # price02
-admin.product.normal_price: Giá thường # price01
+admin.product.normal_price: Đơn giá # price01
 admin.product.stock: Tồn kho
 admin.product.stock__short: Tồn kho
 admin.product.stock__in_stock: Còn hàng
@@ -685,7 +685,7 @@ admin.product.unselected_class: Không được chọn
 
 # Product CSV Templates
 admin.product.product_csv.product_id_col: Định danh sản phẩm
-admin.product.product_csv.product_id_description: Để đăng ký sản phẩm mới, xin vui lòng để trống. Để cập nhật thông tin sản phẩm đã đăng ký, vui lòng ghi rõ
+admin.product.product_csv.product_id_description: Nếu là đăng ký sản phẩm mới, xin vui lòng để trống. Để cập nhật thông tin sản phẩm đã đăng ký, xin vui lòng ghi rõ ID
 admin.product.product_csv.display_status_col: Trạng thái (ID)
 admin.product.product_csv.display_status_description: ''
 admin.product.product_csv.product_name_col: Tên sản phẩm
@@ -733,7 +733,7 @@ admin.product.product_csv.delivery_fee_description: Nếu phí giao hàng đư�
 
 # Category CSV Templates
 admin.product.category_csv.category_id_col: Mã danh mục
-admin.product.category_csv.category_id_description: Đối với một đăng ký loại mới, xin hãy để nó trống. Để cập nhật danh mục đã đăng ký, vui lòng chỉ định mã danh mục.
+admin.product.category_csv.category_id_description: Nếu là đăng ký danh mục mới, xin vui lòng để trống. Để cập nhật danh mục đã đăng ký, xin vui lòng ghi rõ ID
 admin.product.category_csv.category_name_col: Tên danh mục
 admin.product.category_csv.category_name_description: ''
 admin.product.category_csv.parent_category_id_col: Mã danh mục cha
@@ -746,11 +746,11 @@ admin.product.category_csv.delete_flag_description: 'Chỉ định: 0 => Tải l
 #------------------------------------------------------------------------------------
 
 # Menu Items
-admin.order.order_management: Đơn đặt hàng
-admin.order.order_list: Tất cả các đơn đặt hàng
+admin.order.order_management: Đơn hàng
+admin.order.order_list: Tất cả đơn hàng
 admin.order.order_registration: Thêm đơn hàng mới
 admin.order.shipping_registration: Thêm giao hàng
-admin.order.shipping_csv_upload: Tải lên CSV giao hàng
+admin.order.shipping_csv_upload: Đăng ký bằng CSV
 admin.order.mail: Quản lý email
 
 # flash Message
@@ -935,7 +935,7 @@ admin.customer.no_purchase_history: Không có lịch sử mua hàng được t�
 
 # Menu Items
 admin.content.contents_management: Nội dung
-admin.content.news_management: Tin mới
+admin.content.news_management: Thông tin cập nhật
 admin.content.file_management: Các tập tin
 admin.content.layout_management: Bố cục
 admin.content.page_management: Trang
@@ -1514,7 +1514,7 @@ tooltip.product.sale_type: Loại bán hàng này có thể được chỉnh s�
 tooltip.product.image: Bạn có thể đăng ký nhiều hình ảnh sản phẩm bằng cách kéo và thả.
 tooltip.product.description_detail: Đây là những mô tả sản phẩm trên mỗi trang sản phẩm. Thẻ HTML được chấp nhận.
 tooltip.product.description_list: Nếu để trống, người dùng sẽ không thấy mô tả sản phẩm nào ở đó.
-tooltip.product.normal_price: Nếu bạn có giá bán đặc biệt, bạn có thể hiển thị giá thông thường cùng nhau.
+tooltip.product.normal_price: Trường hợp bán giá đặc biệt, có thể hiển thị đồng thời đơn giá và giá bán
 tooltip.product.search_word: Đây là những từ khóa được sử dụng để tìm kiếm tại chỗ.
 tooltip.product.product_code: Bạn có thể đặt mã sản phẩm của riêng bạn.
 tooltip.product.sale_limit: Điều này sẽ giới hạn số lượng sản phẩm người mua có thể mua tại một thời điểm.

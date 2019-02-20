@@ -139,8 +139,8 @@ front.contact.title: Liên hệ
 front.contact.inquiry_notice: |
  Xin lưu ý rằng một số yêu cầu có thể cần thêm thời gian để trả lời.
  Nếu nó rơi vào ngày lễ hoặc ngày nghỉ của chúng tôi, chúng tôi sẽ liên lạc lại với bạn vào / sau ngày làm việc tiếp theo. Cảm ơn bạn.
-front.contact.order_notice: Đối với sự thăc mắc về đơn đặt hàng của bạn, xin vui lòng thông báo cho chúng tôi kèm theo mã số của đơn hàng.
-front.contact.inquiry_contents: Thắc mắc
+front.contact.order_notice: Đối với sự thắc mắc về đơn đặt hàng của bạn, xin vui lòng thông báo cho chúng tôi kèm theo mã số của đơn hàng.
+front.contact.inquiry_contents: Nội dụng
 front.contact.complete_title: Cảm ơn bạn đã yêu cầu!
 front.contact.complete_message__title: Yêu cầu của bạn đã được gửi đi.
 front.contact.complete_message__body: Trong trường hợp bạn không nhận được email xác nhận của chúng tôi, yêu cầu của bạn có thể không được nhận. Vui lòng liên hệ với chúng tôi lại một lần nữa, hoặc qua điện thoại. Xin lỗi vì sự bất tiện này.
@@ -273,13 +273,13 @@ front.product.all_products: Tất cả sản phẩm
 front.product.search__category_not_found: Không có danh mục được tìm thấy
 front.product.search__product_not_found: Không có sản phẩm nào được tìm thấy
 front.product.search_result__keyword:  Kết quả tìm kiếm cho ''%name%''
-front.product.search_result__detail: '<span class="ec-font-bold">%count% sản phẩm</span><span> tìm được</span>'
+front.product.search_result__detail: '<span>Tìm được </span> <span class="ec-font-bold">%count% sản phẩm</span>'
 front.product.add_cart: Thêm vào giỏ hàng
-front.product.add_cart_complete: Các sản phẩm đã được thêm vào giỏ hàng.
-front.product.add_cart_error: Bạn đã thất bại trong việc thêm các mục vào giỏ hàng.
+front.product.add_cart_complete: Sản phẩm đã được thêm vào giỏ hàng.
+front.product.add_cart_error: Không thể thêm sản phẩm vào giỏ hàng. Vui lòng chọn các thêm các điểu kiện trước khi thêm.
 front.product.add_favorite: Thêm vào mục yêu thích
 front.product.add_favorite_alrady: Sản phẩm này đã có trong mục Yêu thích
-front.product.out_of_stock: Các sản phẩm đã hết.
+front.product.out_of_stock: Hết hàng
 front.product.out_of_stock_label: (Hết hàng)
 front.product.added_to_favorite: Sản phẩm này đã có trong mục Yêu thích
 front.product.normal_price: Giá thường
@@ -306,9 +306,9 @@ front.cart.delete.confirm: 'Bạn có chắc muốn xóa mục này ra khỏi gi
 front.cart.delete: ''
 front.cart.delete__confirm: Bạn có chắc chắn để xóa mục này khỏi giỏ hàng?
 front.cart.product: Sản phẩm
-front.cart.checkout: Tiến hành kiểm tra
+front.cart.checkout: Tiến hành mua hàng
 front.cart.continue: Tiếp tục mua sắm
-front.cart.no_items: Giỏ hàng của bạn rỗng.
+front.cart.no_items: Không có sản phẩm trong giỏ hàng.
 front.cart.delivery_fee_free__now: Miễn phí vận chuyển.
 front.cart.delivery_fee_free__price_and_quantity: <strong class="ec-color-red">Miễn phí vận chuyển</strong> với việc mua <strong>%price%</strong>, hoặc <strong>%quantity% sản phẩm</strong>.
 front.cart.delivery_fee_free__price: <strong class="ec-color-red">Miễn phí vận chuyển</strong> với việc mua <strong>%price%</strong>.
@@ -533,9 +533,9 @@ admin.home.shop_status_products: Số lượng sản phẩm
 admin.home.shop_status_customers: Số lượng của khách hàng
 admin.home.sales_summary_title: Bán hàng
 admin.home.sales_summary_value: '%amount%/%count% SP đã bán'
-admin.home.sales_summary_this_month: 'Tháng này: Số lượng / Khối lượng bán hàng'
-admin.home.sales_summary_today: 'Hôm nay: Số lượng / Khối lượng bán hàng'
-admin.home.sales_summary_yesterday: 'Hôm qua: Số lượng / Khối lượng bán hàng'
+admin.home.sales_summary_this_month: 'Tháng này: Doanh thu / số lượng sản phẩm'
+admin.home.sales_summary_today: 'Hôm nay: Doanh thu / số lượng sản phẩm'
+admin.home.sales_summary_yesterday: 'Hôm qua: Doanh thu / số lượng sản phẩm'
 admin.home.sales_summary_weekly: Theo tuần
 admin.home.sales_summary_monthly: Theo tháng
 admin.home.sales_summary_yearly: Theo năm
@@ -574,9 +574,9 @@ admin.product.product_class_registration: Tùy chọn phân loại
 admin.product.class_management: Quản lý tùy chọn
 admin.product.class_category_management: Nhóm tùy chọn
 admin.product.category_management: Quản lý danh mục
-admin.product.tag_management: Quản lý thẻ
+admin.product.tag_management: Quản lý tag
 admin.product.product_csv_upload: Thêm SP bằng CSV
-admin.product.category_csv_upload: Thêm category CSV
+admin.product.category_csv_upload: Thêm danh mục CSV
 
 # flash messages
 admin.product.bulk_change_status_complete: '%status%: %count% mục được áp dụng thành công.'
@@ -631,10 +631,10 @@ admin.product.free_area: Mô tả thêm
 admin.product.free_area__card_title: Mô tả thêm
 admin.product.delete_flag: Cờ xóa sản phẩm
 admin.product.search_category: Tìm kiếm danh mục
-admin.product.save_tag: Lưu thẻ
+admin.product.save_tag: Lưu tag
 admin.product.create_date__card_title: Cập nhật
 admin.product.move_to_category: Thêm/Sửa danh mục
-admin.product.move_to_tag: Thêm/Sửa thẻ
+admin.product.move_to_tag: Thêm/Sửa tag
 admin.product.move_to_product_class: Chỉnh sửa tùy chọn
 admin.product.move_to_product_class__confirm_title: 'Tùy chọn %name%'
 admin.product.multi_search_label: Tên sản phẩm / Định danh sản phẩm / Mã sản phẩm
@@ -676,8 +676,8 @@ admin.product.category_id: |
 admin.product.category_name: Mã danh mục
 admin.product.parent_category_id: Mã danh mục cha
 admin.product.category_all: Tất cả các danh mục
-admin.product.tag: Thẻ
-admin.product.tag__product_card_title: Thẻ
+admin.product.tag: Tag
+admin.product.tag__product_card_title: Tag
 admin.product.select__class1: Chọn tùy chọn 1
 admin.product.select__class2: Chọn tùy chon 2
 admin.product.select__can_not_select_same_class: Bạn không được phép chọn tùy chọn tương tự như Tùy chọn 1
@@ -866,7 +866,7 @@ admin.order.search_customer_title: Tìm kiếm khách hàng
 admin.order.product_info: Thông tin sản phẩm
 admin.order.edit_multiple_shipping: Chỉnh sửa địa chỉ giao hàng
 admin.order.edit_multiple_shipping_description: Nếu bạn đã chọn nhiều địa chỉ giao hàng, bạn có thể chỉnh sửa từng địa chỉ từ nút này.
-admin.order.product_item_not_found: Không có mục nào được tìm thấy
+admin.order.product_item_not_found: Không có sản phẩm nào được tìm thấy
 admin.order.delivery_note_create_date: Ngày phát hành
 admin.order.delivery_note_title: Tiêu đề
 admin.order.delivery_note_title__default: Phiếu giao hàng

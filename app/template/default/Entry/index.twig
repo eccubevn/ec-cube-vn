@@ -60,7 +60,7 @@ file that was distributed with this source code.
                                 {{ form_label(form.postal_code) }}
                             </dt>
                             <dd>
-                                <div class="ec-zipInput{{ has_errors(form.postal_code) ? ' error' }}"><span>{{ 'common.postal_symbol'|trans }}</span>
+                                <div class="ec-zipInput{{ has_errors(form.postal_code) ? ' error' }}">
                                     {{ form_widget(form.postal_code) }}
                                     <div class="ec-zipInputHelp">
                                         <div class="ec-zipInputHelp__icon">
@@ -193,10 +193,10 @@ file that was distributed with this source code.
                                 </dl>
                             {% endif %}
                         {% endfor %}
-                    </div>
-                    <div class="ec-registerRole__actions">
-                        <div class="ec-off4Grid">
-                            <div class="ec-off4Grid__cell">
+
+                        <dl>
+                            <dt></dt>
+                            <dd>
                                 <div class="ec-checkbox{{ has_errors(form.user_policy_check) ? ' error' }}">
                                     <label>
                                         {{ form_widget(form.user_policy_check) }}
@@ -204,6 +204,12 @@ file that was distributed with this source code.
                                     </label>
                                     {{ form_errors(form.user_policy_check) }}
                                 </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="ec-registerRole__actions">
+                        <div class="ec-off4Grid">
+                            <div class="ec-off4Grid__cell">
                                 <button class="ec-blockBtn--action" type="submit" name="mode" value="confirm">{{ 'front.entry.agree'|trans }}</button>
                                 <a class="ec-blockBtn--cancel" href="{{ url('homepage') }}">{{ 'front.entry.disagree'|trans }}</a>
                             </div>

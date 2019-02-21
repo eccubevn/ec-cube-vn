@@ -296,7 +296,7 @@ class AdminController extends AbstractController
 
         // 年間の売上金額
         $fromDate = Carbon::now()->subYear()->startOfMonth();
-        $rawYear = $this->getData($fromDate, $toDate, 'd/m/Y');
+        $rawYear = $this->getData($fromDate, $toDate, 'm/Y');
 
         $datas = [$rawWeekly, $rawMonthly, $rawYear];
 

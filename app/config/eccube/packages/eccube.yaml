@@ -84,9 +84,9 @@ parameters:
     eccube_csv_import_escape: \
     eccube_info_url: 'https://www.ec-cube.net/info/4/'
     eccube_owners_store_url: '%env(ECCUBE_OWNERS_STORE_URL)%'
-    eccube_official_site_url: https://www.ec-cube.net
-    eccube_community_site_url: https://xoops.ec-cube.net
-    eccube_document_url: http://doc4.ec-cube.net
+    eccube_official_site_url: http://ec-cube.vn
+    eccube_community_site_url: https://www.facebook.com/groups/eccube.vn/
+    eccube_document_url: http://docs.ec-cube.vn/
     eccube_name_len: 20
     eccube_kana_len: 25
     eccube_address1_len: 50

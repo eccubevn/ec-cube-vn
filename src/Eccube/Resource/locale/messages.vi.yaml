@@ -140,7 +140,7 @@ front.contact.inquiry_notice: |
  Xin lưu ý rằng một số yêu cầu có thể cần thêm thời gian để trả lời.
  Nếu nó rơi vào ngày lễ hoặc ngày nghỉ của chúng tôi, chúng tôi sẽ liên lạc lại với bạn vào / sau ngày làm việc tiếp theo. Cảm ơn bạn.
 front.contact.order_notice: Đối với sự thắc mắc về đơn đặt hàng của bạn, xin vui lòng thông báo cho chúng tôi kèm theo mã số của đơn hàng.
-front.contact.inquiry_contents: Nội dụng
+front.contact.inquiry_contents: Nội dung
 front.contact.complete_title: Cảm ơn bạn đã yêu cầu!
 front.contact.complete_message__title: Yêu cầu của bạn đã được gửi đi.
 front.contact.complete_message__body: Trong trường hợp bạn không nhận được email xác nhận của chúng tôi, yêu cầu của bạn có thể không được nhận. Vui lòng liên hệ với chúng tôi lại một lần nữa, hoặc qua điện thoại. Xin lỗi vì sự bất tiện này.
@@ -276,7 +276,7 @@ front.product.search_result__keyword:  Kết quả tìm kiếm cho ''%name%''
 front.product.search_result__detail: '<span>Tìm được </span> <span class="ec-font-bold">%count% sản phẩm</span>'
 front.product.add_cart: Thêm vào giỏ hàng
 front.product.add_cart_complete: Sản phẩm đã được thêm vào giỏ hàng.
-front.product.add_cart_error: Không thể thêm sản phẩm vào giỏ hàng. Vui lòng chọn các thêm các điểu kiện trước khi thêm.
+front.product.add_cart_error: Không thể thêm sản phẩm vào giỏ hàng. Vui lòng chọn các điểu kiện trước khi thêm.
 front.product.add_favorite: Thêm vào mục yêu thích
 front.product.add_favorite_alrady: Sản phẩm này đã có trong mục Yêu thích
 front.product.out_of_stock: Hết hàng
@@ -814,7 +814,7 @@ admin.order.mail_purchase_product_count: 'và %count% sản phẩm khác'
 admin.order.mail_history: Lịch sử Email
 admin.order.mail_send_date: Ngày gửi
 admin.order.mail_subject: Tiêu đề email
-admin.order.mail_body: Nội dụng email
+admin.order.mail_body: Nội dung email
 admin.order.mail_create: Email mới
 admin.order.mail_destination_info: Gửi đến
 admin.order.mail_mail_info: Nội dung Email

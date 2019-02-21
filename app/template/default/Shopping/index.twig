@@ -162,13 +162,13 @@ file that was distributed with this source code.
                         </div>
                     {% endif %}
                     <div class="ec-orderAccount__account non-customer-display">
-                        <p class="ec-halfInput">{{ 'common.name.prefix'|trans }}<span class="customer-edit customer-name01">{{ Order.name01 }}</span> <span class="customer-edit customer-name02">{{ Order.name02 }}</span>{{ 'common.name.suffix'|trans }}</p>
+                        <p class="ec-halfInput">{{ 'common.name'|trans }}: <span class="customer-edit customer-name01">{{ Order.name01 }}</span> <span class="customer-edit customer-name02">{{ Order.name02 }}</span>{{ 'common.name.suffix'|trans }}</p>
                         <p class="ec-halfInput" style="display: none"><span class="customer-edit customer-kana01">{{ Order.kana01 }}</span> <span class="customer-edit customer-kana02">{{ Order.kana02 }}</span></p>
-                        <p class="ec-input"><span class="customer-edit customer-company_name">{{ Order.companyName }}</span></p>
-                        <p class="ec-zipInput">{{ 'common.postal_symbol'|trans }}<span class="customer-edit customer-postal_code">{{ Order.postal_code }}</span></p>
-                        <p class="ec-input"><span class="customer-edit customer-addr02">{{ Order.addr02 }}</span> <span class="customer-edit customer-addr01">{{ Order.addr01 }}</span> <span class="customer-edit customer-pref">{{ Order.pref }}</span></p>
-                        <p class="ec-telInput"><span class="customer-edit customer-phone_number">{{ Order.phone_number }}</span></p>
-                        <p class="ec-input"><span class="customer-edit customer-email">{{ Order.email }}</span></p>
+                        <p class="ec-input">{{ 'common.company_name'|trans }}: <span class="customer-edit customer-company_name">{{ Order.companyName }}</span></p>
+                        <p class="ec-zipInput">{{ 'common.postal_code'|trans }}: <span class="customer-edit customer-postal_code">{{ Order.postal_code }}</span></p>
+                        <p class="ec-input">{{ 'common.address'|trans }}: <span class="customer-edit customer-addr02">{{ Order.addr02 }}</span> <span class="customer-edit customer-addr01">{{ Order.addr01 }}</span> <span class="customer-edit customer-pref">{{ Order.pref }}</span></p>
+                        <p class="ec-telInput">{{ 'common.phone_number'|trans }}: <span class="customer-edit customer-phone_number">{{ Order.phone_number }}</span></p>
+                        <p class="ec-input">{{ 'common.mail_address'|trans }}: <span class="customer-edit customer-email">{{ Order.email }}</span></p>
                     </div>
                     {% if is_granted('ROLE_USER') == false %}
                         <div class="ec-borderedDefs non-customer-edit" style="display:none;">

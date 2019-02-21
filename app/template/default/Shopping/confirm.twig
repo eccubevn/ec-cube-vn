@@ -69,12 +69,12 @@ file that was distributed with this source code.
                     <h2>{{ 'front.shopping.customer_info'|trans }}</h2>
                 </div>
                 <div class="ec-orderAccount__account">
-                    <p class="ec-halfInput">{{ Order.name01|format_name(Order.name02) }}</p>
-                    <p class="ec-input">{{ Order.companyName }}</span></p>
-                    <p class="ec-zipInput">{{ Order.postal_code }}</p>
-                    <p class="ec-input">{{ format_address(Order.addr01, Order.addr02, Order.pref) }}</p>
-                    <p class="ec-telInput">{{ Order.phone_number }}</span></p>
-                    <p class="ec-input">{{ Order.email }}</span></p>
+                    <p class="ec-halfInput">{{ 'common.name'|trans }}: {{ Order.name01 }} {{ Order.name02 }}</p>
+                    <p class="ec-input">{{ 'common.company_name'|trans }}: {{ Order.companyName }}</span></p>
+                    <p class="ec-zipInput">{{ 'common.postal_code'|trans }}: {{ Order.postal_code }}</p>
+                    <p class="ec-input">{{ 'common.address'|trans }}: {{ format_address(Order.addr01, Order.addr02, Order.pref) }}</p>
+                    <p class="ec-telInput">{{ 'common.phone_number'|trans }}: {{ Order.phone_number }}</span></p>
+                    <p class="ec-input">{{ 'common.mail_address'|trans }}: {{ Order.email }}</span></p>
                 </div>
             </div>
             <div class="ec-orderDelivery">

@@ -858,7 +858,7 @@ admin.order.not_payment: Chưa thanh toán
 admin.order.unshipped: Chưa được giao
 admin.order.delete__confirm_title: Xóa thông tin đặt hàng
 admin.order.delete__confirm_message: Bạn có chắc chắn để xóa thông tin đặt hàng?
-admin.order.delete_item__confirm_message: 'Các mục sẽ bị xóa khỏi đơn đặt hàng. Bạn có chắc chắn xóa %name%'
+admin.order.delete_item__confirm_message: 'Sản phẩm được chọn sẽ bị xóa khỏi đơn đặt hàng. Bạn có chắc chắn muốn xóa %name%'
 admin.order.change_payment_method_message: Nếu phí thanh toán thay đổi, vui lòng cập nhật thủ công.
 admin.order.non_member: Không phải thành viên
 admin.order.search_from_customer: Tìm kiếm theo khách hàng

@@ -38,7 +38,7 @@ Họ và tên：{{ Order.name01|format_name(Order.name02) }}
 Tên công ty：{{ Order.company_name }}
 {% endif %}
 Số bưu điện：{{ 'common.postal_symbol'|trans }}{{ Order.postal_code }}
-Địa chỉ：{{ Order.Pref.name }} {{ Order.addr01 }} {{ Order.addr02 }}
+Địa chỉ：{{ format_address(Order.addr01, Order.addr02, Order.Pref.name) }}
 Số điện thoại：{{ Order.phone_number }}
 
 ************************************************
@@ -50,7 +50,7 @@ Tên người nhận：{{ Shipping.name01|format_name(Shipping.name02) }}
 Tên công ty：{{ Shipping.company_name }}
 {% endif %}
 Số bưu điện：{{ 'common.postal_symbol'|trans }}{{ Shipping.postal_code }}
-Địa chỉ：{{ Shipping.Pref.name }} {{ Shipping.addr01 }} {{ Shipping.addr02 }}
+Địa chỉ：{{ format_address(Shipping.addr01, Shipping.addr02, Shipping.Pref.name) }}
 Số điện thoại：{{ Shipping.phone_number }}
 
 Ngày giao hàng：{{ Shipping.shipping_delivery_date is empty ? 'common.select__unspecified'|trans : Shipping.shipping_delivery_date|date_day }}

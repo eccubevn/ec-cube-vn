@@ -1794,7 +1794,7 @@ Styleguide 2.3.1
 .ec-blockTopBtn {
   display: none;
   position: fixed;
-  width: 120px;
+  padding: 0 15px;
   height: 40px;
   right: 0;
   bottom: 10px;
@@ -2159,7 +2159,7 @@ Styleguide 3.1.4
     display: inline-block;
     text-align: left;
     width: auto;
-    max-width: 8em;
+    max-width: 12em;
     font-size: 16px; }
   .ec-zipInput span {
     display: inline-block;
@@ -2215,7 +2215,7 @@ Markup:
 Styleguide 3.1.5
 */
 .ec-telInput input {
-  max-width: 10em;
+  max-width: 12em;
   text-align: left; }
 
 /**
@@ -2574,7 +2574,7 @@ Styleguide 3.1.4
     display: inline-block;
     text-align: left;
     width: auto;
-    max-width: 8em;
+    max-width: 12em;
     font-size: 16px; }
   .ec-zipInput span {
     display: inline-block;
@@ -2630,7 +2630,7 @@ Markup:
 Styleguide 3.1.5
 */
 .ec-telInput input {
-  max-width: 10em;
+  max-width: 12em;
   text-align: left; }
 
 /*
@@ -8101,6 +8101,7 @@ Styleguide 22.1
     font-size: 14px;
     font-weight: normal;
     vertical-align: middle;
+    padding-left: 10px;
   }
 
   .ec-cartNavi.is-active .ec-cartNavi__badge{

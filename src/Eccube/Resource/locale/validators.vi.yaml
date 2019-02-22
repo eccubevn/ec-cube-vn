@@ -14,7 +14,7 @@
 # Overwriting standardized Symfony error messages.
 # https://github.com/symfony/validator/blob/3.4/Resources/translations/validators.ja.xlf
 #------------------------------------------------------------------------------------
-This value should not be blank.: Không có giá trị.
+This value should not be blank.: Vui lòng nhập thông tin.
 This value should be the user\'s current password.: Sai mật mã.
 Invalid credentials.: |
   Đăng nhập thất bại.
@@ -37,7 +37,7 @@ form_error.graph_and_hyphen_only: Chỉ nhập các chữ cái hoặc dấu gạ
 form_error.not_selected: Chưa chọn.
 form_error.select_is_future_or_now_date: Ngày sinh không hợp lệ.
 form_error.float_only: Chỉ nhập số và dấu thập phân.
-form_error.same_password: Nhập mật mã chưa giống nhau.
+form_error.same_password: Nhập mật khẩu chưa giống nhau.
 form_error.same_email: Nhập email chưa giống nhau.
 form_error.admin_is_not_available: Không sử dụng "admin" cho tên thư mục.
 form_error.member_already_exists: Đã tồn tại trong hệ thống.

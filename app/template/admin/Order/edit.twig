@@ -515,7 +515,7 @@ file that was distributed with this source code.
                                         </div>
                                         {% if Order.id is not empty %}
                                             <div class="col-6 text-right">
-                                                <a id="shipping-add" class="btn btn-ec-regular w-25" data-action="confirm" title="{{ 'admin.common.move_to_confirm_message'|trans({'%name%' : 'admin.order.shipping_registration'|trans
+                                                <a id="shipping-add" class="btn btn-ec-regular" data-action="confirm" title="{{ 'admin.common.move_to_confirm_message'|trans({'%name%' : 'admin.order.shipping_registration'|trans
                                            }) }}" href="{{ path("admin_shipping_edit", {id: Order.id}) }}">{{ 'admin.order.add_shipping'|trans }}</a>
                                             </div>
                                         {% endif %}

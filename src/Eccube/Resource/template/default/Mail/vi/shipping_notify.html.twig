@@ -56,7 +56,7 @@ file that was distributed with this source code.
                                 Tên công ty：{{ Order.company_name }}<br/>
                             {% endif %}
                             Số bưu điện：{{ 'common.postal_symbol'|trans }}{{ Order.postal_code }}<br/>
-                            Địa chỉ：{{ Order.Pref.name }} {{ Order.addr01 }} {{ Order.addr02 }}<br/>
+                            Địa chỉ：{{ format_address(Order.addr01, Order.addr02, Order.Pref.name) }}<br/>
                             Số điện thoại：{{ Order.phone_number }}<br/>
                             <br/>
                             <hr style="border-top: 3px double #8c8b8b;">
@@ -67,7 +67,7 @@ file that was distributed with this source code.
                                 Tên công ty：{{ Shipping.company_name }}<br/>
                             {% endif %}
                             Số bưu điện：{{ 'common.postal_symbol'|trans }}{{ Shipping.postal_code }}<br/>
-                            Địa chỉ：{{ Shipping.Pref.name }} {{ Shipping.addr01 }} {{ Shipping.addr02 }}<br/>
+                            Địa chỉ：{{ format_address(Shipping.addr01, Shipping.addr02, Shipping.Pref.name) }}<br/>
                             Số điện thoại：{{ Shipping.phone_number }}<br/>
                             <br/>
                             Ngày giao hàng：{{ Shipping.shipping_delivery_date is empty ? 'common.select__unspecified'|trans : Shipping.shipping_delivery_date|date_day }}<br/>

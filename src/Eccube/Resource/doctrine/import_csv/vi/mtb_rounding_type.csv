@@ -1,4 +1,4 @@
 id,name,sort_no,discriminator_type
-1,Làm tròn góc,0,roundingtype
+1,Làm tròn,0,roundingtype
 2,Làm tròn lên,1,roundingtype
 3,Làm tròn xuống,2,roundingtype

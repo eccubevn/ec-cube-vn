@@ -523,6 +523,17 @@ class OrderController extends AbstractController
                             }
                         }
                     }
+
+                    // Update status event
+                    $event = new EventArgs(
+                        [
+                            'Order' => $Order,
+                            'Shipping' => $Shipping,
+                        ],
+                        $request
+                    );
+                    $this->eventDispatcher->dispatch(EccubeEvents::ADMIN_ORDER_UPDATE_STATUS_COMPLETE, $event);
+
                     $this->entityManager->flush($Order);
                     $this->entityManager->flush($Shipping);
 

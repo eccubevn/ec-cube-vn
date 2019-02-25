@@ -492,6 +492,28 @@ file that was distributed with this source code.
                                     <div class="col-12">
                                         <hr>
                                     </div>
+
+                                    {% for fs in form if fs.vars.eccube_form_options.auto_render %}
+                                        {% if fs.vars.eccube_form_options.form_theme %}
+                                            {% form_theme fs fs.vars.eccube_form_options.form_theme %}
+                                            {{ form_row(fs) }}
+                                        {% else %}
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="row mb-3">
+                                                        <div class="col-3">
+                                                            <span>{{ fs.vars.label|trans }}</span>
+                                                        </div>
+                                                        <div class="col">
+                                                            {{ form_widget(fs) }}
+                                                            {{ form_errors(fs) }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+
                                     <!-- 明細追加ボタン -->
                                     <div id="shipping-product_{{ loop.index0 }}" class="row justify-content-between mb-2">
                                         <div class="col-6">

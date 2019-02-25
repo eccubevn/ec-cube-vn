@@ -630,6 +630,29 @@ file that was distributed with this source code.
                                                 </div>
                                             </div>
                                         </div>
+
+                                        {% for fs in form.Shipping if fs.vars.eccube_form_options.auto_render %}
+                                            {% if fs.vars.eccube_form_options.form_theme %}
+                                                {#{{ dump(fs) }}#}
+                                                {% form_theme fs fs.vars.eccube_form_options.form_theme %}
+                                                {{ form_row(fs) }}
+                                            {% else %}
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="row mb-3">
+                                                            <div class="col-3">
+                                                                <span>{{ fs.vars.label|trans }}</span>
+                                                            </div>
+                                                            <div class="col">
+                                                                {{ form_widget(fs) }}
+                                                                {{ form_errors(fs) }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+
                                     </div>
                                 {% endif %}
                             </div>

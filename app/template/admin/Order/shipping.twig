@@ -493,7 +493,7 @@ file that was distributed with this source code.
                                         <hr>
                                     </div>
 
-                                    {% for fs in form if fs.vars.eccube_form_options.auto_render %}
+                                    {% for fs in shippingForm if fs.vars.eccube_form_options.auto_render %}
                                         {% if fs.vars.eccube_form_options.form_theme %}
                                             {% form_theme fs fs.vars.eccube_form_options.form_theme %}
                                             {{ form_row(fs) }}

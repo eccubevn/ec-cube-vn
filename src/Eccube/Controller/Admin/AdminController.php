@@ -288,15 +288,15 @@ class AdminController extends AbstractController
         // 週間の売上金額
         $toDate = Carbon::now();
         $fromDate = Carbon::today()->subWeek();
-        $rawWeekly = $this->getData($fromDate, $toDate, 'Y/m/d');
+        $rawWeekly = $this->getData($fromDate, $toDate, 'd/m/Y');
 
         // 月間の売上金額
         $fromDate = Carbon::now()->startOfMonth();
-        $rawMonthly = $this->getData($fromDate, $toDate, 'Y/m/d');
+        $rawMonthly = $this->getData($fromDate, $toDate, 'd/m/Y');
 
         // 年間の売上金額
         $fromDate = Carbon::now()->subYear()->startOfMonth();
-        $rawYear = $this->getData($fromDate, $toDate, 'Y/m');
+        $rawYear = $this->getData($fromDate, $toDate, 'm/Y');
 
         $datas = [$rawWeekly, $rawMonthly, $rawYear];
 

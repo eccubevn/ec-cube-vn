@@ -169,7 +169,7 @@ Styleguide 3.1.4
     display: inline-block;
         text-align: left;
     width: auto;
-        max-width: 8em;
+        max-width: 12em;
     font-size: 16px;
   }
   span{
@@ -233,7 +233,7 @@ Styleguide 3.1.5
 .ec-telInput{
   @extend .ec-input;
   input {
-    max-width: 10em;
+    max-width: 12em;
     text-align: left;
   }
 }

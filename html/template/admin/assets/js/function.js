@@ -208,3 +208,45 @@ var searchWord = function (searchText, el) {
         }
     });
 };
+
+$(document).ready(function () {
+    var dateInputs = $('input[data-toggle="datepicker"]');
+    if (dateInputs.length) {
+        initInputDatePicker();
+    }
+
+    function initInputDatePicker() {
+        $.when(
+            $.getScript("/html/template/admin/assets/gijgo/gijgo.min.js")
+        ).done(function () {
+            $.each(dateInputs, function () {
+                var el = $(this);
+                var option_1 = {
+                    iconsLibrary: 'fontawesome',
+                    uiLibrary: 'bootstrap4',
+                    format: 'dd-mm-yyyy',
+                };
+                var maxDate = $(this).attr('maxDate');
+                var minDate = $(this).attr('minDate');
+                if (typeof maxDate !== typeof undefined && maxDate !== false) {
+                    var option_2 = {
+                        maxDate: function () {
+                            return $(maxDate).val();
+                        }
+                    };
+                } else if (typeof minDate !== typeof undefined && minDate !== false) {
+                    var option_2 = {
+                        minDate: function () {
+                            return $(minDate).val();
+                        }
+                    };
+                } else {
+                    var option_2 = {};
+                }
+
+                $.extend(option_1, option_2);
+                el.datepicker(option_1);
+            });
+        });
+    }
+});

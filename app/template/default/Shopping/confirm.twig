@@ -117,7 +117,7 @@ file that was distributed with this source code.
                                 {% for item in shipping.order_items if item.isDeliveryFee %}
                                     {% set delivery_fee = item.total_price %}
                                 {% endfor %}
-                                {{ Order.Shippings[idx].Delivery }}({{ delivery_fee|price }})
+                                {{ Order.Shippings[idx].Delivery }} ({{ delivery_fee|price }})
                             </div>
                             <div class="ec-select ec-select__delivery">
                                 <label>{{ 'front.shopping.delivery_date'|trans }}</label>
@@ -140,7 +140,7 @@ file that was distributed with this source code.
                     {% for item in Order.order_items if item.isCharge %}
                         {% set charge = item.total_price %}
                     {% endfor %}
-                    {{ Order.Payment }}({{ charge|price }})
+                    {{ Order.Payment }} ({{ charge|price }})
                 </div>
             </div>
             {% if BaseInfo.isOptionPoint and Order.Customer is not null %}

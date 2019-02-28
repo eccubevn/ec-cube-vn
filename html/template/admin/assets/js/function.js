@@ -219,12 +219,15 @@ $(document).ready(function () {
         $.when(
             $.getScript("/html/template/admin/assets/gijgo/gijgo.min.js")
         ).done(function () {
+            var dFormat = $('meta[name="date"]').attr('scheme');
             $.each(dateInputs, function () {
                 var el = $(this);
+                el.attr('autocomplete', 'off');
+
                 var option_1 = {
                     iconsLibrary: 'fontawesome',
                     uiLibrary: 'bootstrap4',
-                    format: 'dd-mm-yyyy',
+                    format: dFormat ? dFormat : 'dd-mm-yyyy',
                 };
                 var maxDate = $(this).attr('maxDate');
                 var minDate = $(this).attr('minDate');

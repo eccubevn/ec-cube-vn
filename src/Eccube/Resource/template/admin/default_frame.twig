@@ -14,6 +14,7 @@ file that was distributed with this source code.
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="eccube-csrf-token" content="{{ csrf_token(constant('Eccube\\Common\\Constant::TOKEN_NAME')) }}">
+    <meta name="date" content="{{ "now"|date() }}" scheme="{{ eccube_config.eccube_form_date_format_js_calendar }}">
     <title>{{ block('sub_title') }} {{ block('title') }} - {{ BaseInfo.shop_name }}</title>
     <link rel="icon" href="{{ asset('assets/img/favicon.ico', 'admin') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css', 'admin') }}">

@@ -131,5 +131,6 @@ parameters:
     eccube_result_cache_lifetime_short: 10  # doctrineのresult cacheのlifetime. 商品一覧画面など長期間キャッシュできない箇所で使用する.
     eccube_content_maintenance_file_path: '%kernel.project_dir%/.maintenance'
     eccube_form_date_format: 'dd-MM-yyyy'
+    eccube_form_date_format_js_calendar: 'dd-mm-yyyy'
     eccube_space: ' '
 

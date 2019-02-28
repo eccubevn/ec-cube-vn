@@ -191,9 +191,6 @@ class ProductController extends AbstractController
 
         if ('POST' === $request->getMethod()) {
             $searchForm->handleRequest($request);
-//            dump($_POST);
-//            dump($searchForm->getData());
-//            die;
 
             if ($searchForm->isValid()) {
                 /**

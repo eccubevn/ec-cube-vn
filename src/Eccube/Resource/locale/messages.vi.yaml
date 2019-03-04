@@ -177,8 +177,8 @@ front.forgot.message2: "*Bạn sẽ nhận được một email để thiết l�
 front.forgot.complete_title: Đặt lại mật khẩu (Đã gửi email)
 front.forgot.complete_message__title: Email đã được gửi để thiết lập lại mật khẩu của bạn.
 front.forgot.complete_message__body: |
- Một email để thiết lập lại mật khẩu của bạn đã được gửi đến địa chỉ email đã đăng ký của bạn.
- Vui lòng làm theo hướng dẫn trong email.
+ - Một email để thiết lập lại mật khẩu của bạn đã được gửi đến địa chỉ email đã đăng ký của bạn.
+ - Vui lòng làm theo hướng dẫn trong email.
  * Trong trường hợp bạn không nhận được email, vui lòng xác minh địa chỉ email của bạn và thử lại một lần nữa.
 front.forgot.reset_title: Đặt lại mật khẩu
 front.forgot.reset_complete: Mật khẩu của bạn đã được cập nhật.
@@ -276,7 +276,7 @@ front.product.search_result__keyword:  Kết quả tìm kiếm cho ''%name%''
 front.product.search_result__detail: '<span>Tìm được </span> <span class="ec-font-bold">%count% sản phẩm</span>'
 front.product.add_cart: Thêm vào giỏ hàng
 front.product.add_cart_complete: Sản phẩm đã được thêm vào giỏ hàng.
-front.product.add_cart_error: Không thể thêm sản phẩm vào giỏ hàng. Vui lòng chọn các điểu kiện trước khi thêm.
+front.product.add_cart_error: Không thể thêm sản phẩm vào giỏ hàng. Vui lòng chọn các điều kiện trước khi thêm.
 front.product.add_favorite: Thêm vào mục yêu thích
 front.product.add_favorite_alrady: Sản phẩm này đã có trong mục Yêu thích
 front.product.out_of_stock: Hết hàng
@@ -362,7 +362,7 @@ front.shopping.nonmember: Nhập thông tin khách hàng
 front.shopping.shipping_edit_title_nomember: Mua / Thay đổi địa chỉ giao hàng
 front.shopping.shipping_edit_header_customer: Thêm địa chỉ giao hàng
 front.shopping.shipping_edit_header_nonmember: Thay đổi địa chỉ giao hàng
-front.shopping.error: Có lỗi trong khi kiểm tra
+front.shopping.error: Mua hàng không thành công
 front.shopping.order_error: Có lỗi xảy ra trong quá trình kiểm tra.
 front.shopping.system_error: Xin lỗi, chúng tôi đã gặp phải một lỗi không mong muốn trong quá trình thanh toán. Vui lòng liên hệ với chúng tôi từ mẫu yêu cầu. Chúng tôi xin lỗi vì sự bất tiện này.
 front.shopping.empty_items_error: Xin lỗi, quá trình thanh toán chưa hoàn thành theo thứ tự tốt. Vui lòng đặt hàng một lần nữa. Chúng tôi xin lỗi về sự bất tiện này.

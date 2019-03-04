@@ -12,8 +12,8 @@ file that was distributed with this source code.
 
 {% set menus = ['store', 'plugin', 'plugin_list'] %}
 
-{% block title %}独自プラグインのアップロード{% endblock %}
-{% block sub_title %}オーナーズストア{% endblock %}
+{% block title %}{{ 'admin.plugin.install.upload.title'|trans }}{% endblock %}
+{% block sub_title %}{{ 'admin.store.plugin'|trans }}{% endblock %}
 
 {% block main %}
     <form id="upload-form" class="" method="post" action="{{ url('admin_store_plugin_install') }}" enctype="multipart/form-data">

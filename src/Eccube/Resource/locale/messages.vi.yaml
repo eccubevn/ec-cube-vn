@@ -1492,7 +1492,7 @@ admin.store.unregistered_plugin_table.947: Không biết
 admin.store.unregistered_plugin_table.948: Hiển thị chi tiết
 admin.store.unregistered_plugin_table.949: Không biết
 admin.store.unregistered_plugin_table.950: Cài đặt
-admin.store.install.label: 'Plugin (zip, tar, tar.gz)'
+admin.store.install.label: 'Tiện ích (zip, tar, tar.gz)'
 
 
 #------------------------------------------------------------------------------------
@@ -1704,3 +1704,5 @@ order_pdf.service.discount: 'Giảm giá'
 order_pdf.service.payment_total: 'Thanh Toán'
 
 front.save_fail: Cập nhật thất bại. Vui lòng kiểm tra nội dung đã nhập.
+
+admin.plugin.install.upload.title: Tải lên plugin của riêng bạn

@@ -137,15 +137,18 @@ class EccubeExtension extends AbstractExtension
     }
 
     /**
-     * Name of this extension
-     *
-     * @return string
+     * @param $number
+     * @param bool $isWithoutIcon
+     * @return bool|string
      */
-    public function getPriceFilter($number, $decimals = 0, $decPoint = '.', $thousandsSep = ',')
+    public function getPriceFilter($number, $isWithoutIcon = false)
     {
         $locale = $this->eccubeConfig['locale'];
         $currency = $this->eccubeConfig['currency'];
         $formatter = new \NumberFormatter($locale, \NumberFormatter::CURRENCY);
+        if ($isWithoutIcon) {
+            return \NumberFormatter::create($locale, \NumberFormatter::DECIMAL)->format($number);
+        }
 
         return $formatter->formatCurrency($number, $currency);
     }
@@ -278,8 +281,8 @@ class EccubeExtension extends AbstractExtension
                 'classcategory_id2' => $class_category_id2,
                 'name' => $class_category_name2,
                 'stock_find' => $ProductClass->getStockFind(),
-                'price01' => $ProductClass->getPrice01() === null ? '' : number_format($ProductClass->getPrice01()),
-                'price02' => number_format($ProductClass->getPrice02()),
+                'price01' => $ProductClass->getPrice01() === null ? '' : $this->getPriceFilter($ProductClass->getPrice01(), true),
+                'price02' => $this->getPriceFilter($ProductClass->getPrice02(), true),
                 'price01_inc_tax' => $ProductClass->getPrice01() === null ? '' : $this->getPriceFilter($ProductClass->getPrice01IncTax()),
                 'price02_inc_tax' => $this->getPriceFilter($ProductClass->getPrice02IncTax()),
                 'product_class_id' => (string) $ProductClass->getId(),

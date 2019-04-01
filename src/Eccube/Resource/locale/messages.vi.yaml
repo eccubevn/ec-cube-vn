@@ -435,7 +435,7 @@ admin.common.back: Quay lại
 # Generic Labels, Messages
 admin.common.show: Hiển thị
 admin.common.hide: Ẩn
-admin.common.hidden_label: Ẩn
+admin.common.hidden_label: " (Đang ẩn)"
 admin.common.to_show: Nhấp vào để hiện
 admin.common.to_hide: Nhấp vào để ẩn
 admin.common.required: Bắt buộc

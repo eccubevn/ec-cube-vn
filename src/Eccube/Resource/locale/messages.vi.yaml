@@ -1228,7 +1228,7 @@ admin.setting.system.security.force_ssl_description: Chỉ truy cập https mớ
 admin.setting.system.security.ip_limit_invalid_ipv4: '%ip% không phải là địa chỉ IPv4.'
 admin.setting.system.security.ip_limit_invalid_https: 'http không được phép thực hiện cài đặt này.'
 admin.setting.system.security.admin_url_warning: Vui lòng đặt URL Bảng điều khiển dành cho quản trị viên khó đoán để bảo mật.
-admin.setting.system.security.not_found_env_file: Không tìm thấy tệp .env. Nếu bạn không sử dụng .env, bạn không thể thay đổi cài đặt bảo mật từ màn hình quản trị.
+admin.setting.system.security.not_found_env_file: Tệp .env không được tìm thấy. Nếu bạn không sử dụng .env, bạn không thể thay đổi cài đặt bảo mật từ màn hình quản trị.
 
 #------------------------------------------------------------------------------------
 # Settings : System : Logs

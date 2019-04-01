@@ -18,11 +18,11 @@ $(function() {
     $('#officialPluginDeleteButton').on('click', function() {
 
         var footer = $('div.modal-footer', modal).hide();
-        var message = $('div.modal-body p', modal).text('「' + currentPlugin.name + ' (' + currentPlugin.version + ')」 ' + {{ 'admin.product.permanently_delete__in_progress'|trans }})
+        var message = $('div.modal-body p', modal).text('「' + currentPlugin.name + ' (' + currentPlugin.version + ')」 ' + '{{ 'admin.product.permanently_delete__in_progress'|trans }}');
         var progress = $('div.progress', modal).show();
         $.ajax({url: currentPlugin['deleteUrl'], type: 'delete'}).then(
             function(data) {
-                message.text({{ 'admin.common.delete_complete'|trans }});
+                message.text('{{ 'admin.common.delete_complete'|trans }}');
                 $('#deleteLog').text(data.log);
                 $('#deleteLogPane').show();
                 progress.hide();
@@ -32,7 +32,7 @@ $(function() {
                 if (res.responseJSON.message) {
                     message.text(res.responseJSON.message);
                 } else {
-                    message.text({{ 'admin.common.delete_complete'|trans }});
+                    message.text('{{ 'admin.common.delete_complete'|trans }}');
                 }
                 if (res.responseJSON.log) {
                     $('#deleteLog').text(res.responseJSON.log);

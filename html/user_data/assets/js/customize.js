@@ -1,1 +1,2 @@
-/* カスタマイズ用Javascript */
+/* Javascript Code */
+alert(112121);

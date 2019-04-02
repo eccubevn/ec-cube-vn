@@ -409,6 +409,8 @@ admin.common.registration__new: Tạo mới
 admin.common.edit: Cập nhật
 admin.common.copy: Nhân đôi
 admin.common.display: Hiển thị
+admin.common.copy_path: Sao chép đường dẫn
+admin.common.copy_path_complete: Đường dẫn được sao chép
 admin.common.delete: Xóa
 admin.common.cancel: Hủy
 admin.common.search: Tìm kiếm
@@ -433,7 +435,7 @@ admin.common.back: Quay lại
 # Generic Labels, Messages
 admin.common.show: Hiển thị
 admin.common.hide: Ẩn
-admin.common.hidden_label: Ẩn
+admin.common.hidden_label: " (Đang ẩn)"
 admin.common.to_show: Nhấp vào để hiện
 admin.common.to_hide: Nhấp vào để ẩn
 admin.common.required: Bắt buộc
@@ -939,6 +941,8 @@ admin.content.news_management: Thông tin cập nhật
 admin.content.file_management: Các tập tin
 admin.content.layout_management: Bố cục
 admin.content.page_management: Trang
+admin.content.css_management: Quản lý CSS
+admin.content.js_management: Quản lý Javascript
 admin.content.block_management: Khối
 admin.content.cache_management: Bộ nhớ đệm
 admin.content.maintenance_management: Bảo trì
@@ -1011,6 +1015,8 @@ admin.content.page_meta_metatag_placeholder: |
     <meta property="product:product_link" content="{{ url('product_detail', {'id': Product.id}) }}"/>
     <meta property="product:retailer_title" content="{{ Product.name }}"/>
 admin.content.page_file_name_exists: Dữ liệu có cùng tên tệp đã tồn tại. Vui lòng nhập một tên khác.
+admin.content.css__card_title: Cài đặt CSS
+admin.content.js__card_title: Cài đặt JavaScript
 admin.content.block_name: Tên khối
 admin.content.block__card_title: Cài đặt khối
 admin.content.block_file_name: Tên tệp
@@ -1222,6 +1228,7 @@ admin.setting.system.security.force_ssl_description: Chỉ truy cập https mớ
 admin.setting.system.security.ip_limit_invalid_ipv4: '%ip% không phải là địa chỉ IPv4.'
 admin.setting.system.security.ip_limit_invalid_https: 'http không được phép thực hiện cài đặt này.'
 admin.setting.system.security.admin_url_warning: Vui lòng đặt URL Bảng điều khiển dành cho quản trị viên khó đoán để bảo mật.
+admin.setting.system.security.not_found_env_file: Tệp .env không được tìm thấy. Nếu bạn không sử dụng .env, bạn không thể thay đổi cài đặt bảo mật từ màn hình quản trị.
 
 #------------------------------------------------------------------------------------
 # Settings : System : Logs
@@ -1303,7 +1310,6 @@ admin.store.plugin.payment: Tiện ích thanh toán EC-CUBE
 admin.store.plugin.payment.last-version: (Phiên bản mới nhất :1.0.2)
 admin.store.plugin.payment.introduction: Tiện ích thanh toán được cung cấp bởi nhà phát triển EC-CUBE. Đây là một dịch vụ được cung cấp bởi nhà phát triển EC-CUBE và nó có tất cả các chức năng chúng ta có thể đạt được.
 admin.store.plugin.delete.title: Xác nhận xóa
-
 admin.store.setting: Cài đặt
 admin.store.setting.api_key_setting: Cài đặt mã xác thực API
 admin.store.setting.api_key: Xác thực API key
@@ -1559,6 +1565,8 @@ tooltip.content.page_source_code: Chỉnh sửa tập tin mẫu. Code phải vi�
 tooltip.content.page_layout: Chọn bố cục sẽ được áp dụng cho trang này.
 tooltip.content.page_meta: Bạn có thể nhập nội dung thẻ META của trang.
 tooltip.content.page_meta_tags: Bạn có thể thêm thẻ META một cách tự do. Bạn cũng có thể sử dụng các biến được sử dụng trong twig.
+tooltip.content.css_source_code: Tùy chỉnh CSS, viết bằng CSS
+tooltip.content.js_source_code: Tùy chỉnh Javascript, viết bằng Javascript
 tooltip.content.block_name: Đây là tên của một khối để sử dụng quản lý.
 tooltip.content.block_file_name: Đây là tên của tệp mẫu twig có nội dung khối này. Bạn không thể thay đổi nó sau này trong Bảng điều khiển dành cho quản trị viên.
 tooltip.content.block_source_code: Chỉnh sửa tập tin mẫu. Code phải viết theo chuẩn của twig.

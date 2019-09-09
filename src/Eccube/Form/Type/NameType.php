@@ -95,7 +95,7 @@ class NameType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $locale = $this->eccubeConfig->get('locale');
-        if (in_array($locale, ['en', 'vi'])) {
+        if ($locale != 'ja') {
             $resolver->setDefaults([
                 'options' => [],
                 'lastname_options' => [

@@ -1,26 +1,12 @@
-{#
-This file is part of EC-CUBE
 
-Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
-
-http://www.lockon.co.jp/
-
-For the full copyright and license information, please view the LICENSE
-file that was distributed with this source code.
-#}
 {% extends 'default_frame.twig' %}
 
 {% block main %}
-    <div class="ec-role">
-        <div class="ec-pageHeader">
-            <h1>{{ 'front.shopping.shipping_title'|trans }}</h1>
-        </div>
-    </div>
-
-    <div class="ec-registerRole">
-        <div class="ec-off1Grid">
-            <div class="ec-off1Grid__cell">
-                <div class="ec-addressRole">
+    {% include "Components/heading.twig" with {'title': 'front.shopping.shipping_title' } %}
+    <div class="row">
+        <div class="col-12 mb-4">
+            <div class="card">
+                <div class="card-header">
                     {% if Customer.CustomerAddresses|length < eccube_config.eccube_deliv_addr_max %}
                         <div class="ec-addressRole__actions"><a class="ec-inlineBtn" href="{{ url('shopping_shipping_edit', {'id': shippingId}) }}">{{ 'front.shopping.shipping_add_new_shipping'|trans }}</a></div>
                     {% else %}
@@ -40,38 +26,37 @@ file that was distributed with this source code.
                         </div>
                     {% endif %}
                 </div>
-
-                <form method="post" action="{{ url('shopping_shipping', {'id': shippingId}) }}">
-                    {{ form_widget(form._token) }}
-                    <div class="ec-addressList">
+                <div class="card-body">
+                    <form id="shopping-shipping" method="post" action="{{ url('shopping_shipping', {'id': shippingId}) }}">
+                        {{ form_widget(form._token) }}
                         {% for choice in form.addresses.vars.choices %}
                             {% set Address = choice.data %}
-                        <div class="ec-addressList__item">
-                            <div class="ec-addressList__remove">
-                                {% set checked = choice is selectedchoice(form.addresses.vars.value) ? 'checked="checked"' : '' %}
-                                <input type="radio" id="address{{ choice.value }}" name="{{ form.addresses.vars.full_name }}" value="{{ choice.value }}" {{ checked }} />
+                            <div class="card p-0 rounded-0 mb-3">
+                                <div class="row no-gutters">
+                                    {% set checked = choice is selectedchoice(form.addresses.vars.value) ? 'checked="checked"' : '' %}
+                                    <div class="col-3 d-flex align-items-center justify-content-center">
+                                        <label class="position-absolute w-100 h-100" for="address{{ choice.value }}"></label>
+                                        <input type="radio" id="address{{ choice.value }}" name="{{ form.addresses.vars.full_name }}" value="{{ choice.value }}" {{ checked }} />
+                                    </div>
+                                    <div class="col-9 d-flex align-items-center justify-content-center">
+                                        <div class="card-body">
+                                            <p>{{ Address.name01 }}&nbsp;{{ Address.name02 }}</p>
+                                            <p>{{ format_address(Address.addr01, Address.addr02, Address.Pref, Address.postal_code) }}</p>
+                                            <p>{{ Address.phone_number }}</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="ec-addressList__address">
-                                <div>{{ Address.name01 }}&nbsp;{{ Address.name02 }}</div>
-                                <div>{{ format_address(Address.addr01, Address.addr02, Address.Pref, Address.postal_code) }}</div>
-                                <div>{{ Address.phone_number }}</div>
-                            </div>
-                        </div>
                         {% endfor %}
-                    </div>
-
-                    <div class="ec-registerRole__actions">
-                        <div class="ec-off4Grid">
-                            <div class="ec-off4Grid__cell">
-                                <button type="submit" class="ec-blockBtn--action">{{ 'front.shopping.shipping_send_selected_shipping'|trans }}</button>
-                                <a class="ec-blockBtn--cancel" href="{{ url('shopping') }}">{{ 'common.back'|trans }}</a>
+                        <div class="row">
+                            <div class="col-md-6 mx-auto">
+                                <button type="submit" class="btn btn-primary btn-block">{{ 'front.shopping.shipping_send_selected_shipping'|trans }}</button>
+                                <a class="btn btn-secondary btn-block" href="{{ url('shopping') }}">{{ 'common.back'|trans }}</a>
                             </div>
                         </div>
-                    </div>
-
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-
     </div>
 {% endblock %}

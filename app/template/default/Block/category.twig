@@ -1,35 +1,35 @@
-{#
-This file is part of EC-CUBE
-
-Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
-
-http://www.lockon.co.jp/
-
-For the full copyright and license information, please view the LICENSE
-file that was distributed with this source code.
-#}
-
-<div class="ec-categoryRole">
-    <div class="ec-role">
-        <div class="ec-secHeading">
-            <span class="ec-secHeading__en">{{ 'front.block.category.category__en'|trans }}</span>
-            <span class="ec-secHeading__line"></span>
-            <span class="ec-secHeading__ja">{{ 'front.block.category.category__ja'|trans }}</span>
-        </div>
-        <div class="ec-categoryRole__list">
-            <div class="ec-categoryRole__listItem">
+<div class="feature-category">
+    <div class="row mb-4">
+        <h4 class="col-12 text-center pb-2">
+            {{ 'front.block.category.category__en'|trans }}
+        </h4>
+        <div class="col-md-4 mb-4">
+            <div class="card border-0 shadow">
                 <a href="{{ url('product_list') }}?category_id=2">
-                    <img src="{{ asset('assets/img/top/fpo_355x150.png') }}">
+                    <img src="https://source.unsplash.com/3YsctnmJ2m8/500x350" class="card-img-top" alt="">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-0">Sản phẩm mới</h5>
+                    </div>
                 </a>
             </div>
-            <div class="ec-categoryRole__listItem">
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card border-0 shadow">
                 <a href="{{ url('product_list') }}?category_id=1">
-                    <img src="{{ asset('assets/img/top/fpo_355x150.png') }}">
+                    <img src="https://source.unsplash.com/3U2V5WqK1PQ/500x350" class="card-img-top" alt="">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-0">Galeto</h5>
+                    </div>
                 </a>
             </div>
-            <div class="ec-categoryRole__listItem">
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card border-0 shadow">
                 <a href="{{ url('product_list') }}?category_id=5">
-                    <img src="{{ asset('assets/img/top/fpo_355x150.png') }}">
+                    <img src="https://source.unsplash.com/rsWZ-P9FbQ4/500x350" class="card-img-top" alt="">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-0">Bánh mì</h5>
+                    </div>
                 </a>
             </div>
         </div>

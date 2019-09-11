@@ -1,13 +1,4 @@
-{#
-This file is part of EC-CUBE
 
-Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
-
-http://www.lockon.co.jp/
-
-For the full copyright and license information, please view the LICENSE
-file that was distributed with this source code.
-#}
 {% extends 'default_frame.twig' %}
 
 {% set mypageno = 'delivery' %}
@@ -15,55 +6,63 @@ file that was distributed with this source code.
 {% set body_class = 'mypage' %}
 
 {% block main %}
-    <div class="ec-layoutRole__main">
-        <div class="ec-mypageRole">
-            <div class="ec-pageHeader">
-                <h1>{{ 'front.mypage.title'|trans }}/{{ 'front.mypage.nav__customer_address'|trans }}</h1>
-            </div>
-            {{ include('Mypage/navi.twig') }}
-        </div>
-        <div class="ec-mypageRole">
+    {% include "Components/heading.twig" with {'title': 'front.mypage.title', 'subTitle': 'front.mypage.nav__customer_address' } %}
+
+    {% include 'Mypage/navi.twig' %}
+
+    <div id="my-account-address" class="card">
+        <div class="card-header">
             {% if Customer.CustomerAddresses|length > 0 %}
-                <p class="ec-para-normal">{{ 'front.mypage.customer_address_count'|trans({'%count%':Customer.CustomerAddresses|length}) }}</p>
+                <b>
+                    {{ 'front.mypage.customer_address_count'|trans({'%count%':Customer.CustomerAddresses|length}) }}
+                </b>
             {% else %}
-                <p class="ec-para-normal">{{ 'front.mypage.customer_address_not_found'|trans }}</p>
+                <b>{{ 'front.mypage.customer_address_not_found'|trans }}</b>
             {% endif %}
         </div>
-        <div class="ec-mypageRole">
-            <div class="ec-off1Grid">
-                <div class="ec-off1Grid__cell">
-                    <div class="ec-addressRole">
-                        <div class="ec-addressRole__actions">
-                            {% if Customer.CustomerAddresses|length < eccube_config.eccube_deliv_addr_max %}
-                                <a class="ec-inlineBtn" href="{{ url('mypage_delivery_new') }}">{{ 'front.mypage.add_customer_address'|trans }}</a>
-                            {% else %}
-                                <span class="ec-errorMessage">{{ 'common.customer_address_count_is_over'|trans({ '%count%': eccube_config.eccube_deliv_addr_max }) }}</span>
-                            {% endif %}
-                        </div>
-                    </div>
-                    {% if Customer.CustomerAddresses|length > 0 %}
-                        <div class="ec-addressList">
-                            {% for CustomerAddress in Customer.CustomerAddresses %}
-                                <div class="ec-addressList__item">
-                                    <a class="ec-addressList__remove" href="{{ url('mypage_delivery_delete', { id : CustomerAddress.id }) }}" {{ csrf_token_for_anchor() }} data-method="delete">
-                                        <div class="ec-icon">
-                                            <img src="{{ asset('assets/icon/cross.svg') }}" alt="remove">
-                                        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                {% if Customer.CustomerAddresses|length > 0 %}
+                    {% for CustomerAddress in Customer.CustomerAddresses %}
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-2 text-center align-self-center">
+                                    <a class="text-danger h4" href="{{ url('mypage_delivery_delete', { id : CustomerAddress.id }) }}" {{ csrf_token_for_anchor() }} data-method="delete">
+                                        <i class="fas fa-times"></i>
                                     </a>
-                                    <div class="ec-addressList__address">
-                                        <div>{{ CustomerAddress.name01 }}&nbsp;{{ CustomerAddress.name02 }}</div>
-                                        <div>{{ format_address(CustomerAddress.addr01, CustomerAddress.addr02, CustomerAddress.pref, CustomerAddress.postal_code) }}</div>
-                                        <div>{{ CustomerAddress.phone_number }}</div>
-                                    </div>
-                                    <div class="ec-addressList__action">
-                                        <a class="ec-inlineBtn" href="{{ url('mypage_delivery_edit', { id : CustomerAddress.id }) }}">{{ 'common.change'|trans }}</a>
-                                    </div>
                                 </div>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
+                                <div class="col-md-5 align-self-center">
+                                    <p>
+                                        {{ CustomerAddress.name01 }}&nbsp;{{ CustomerAddress.name02 }}
+                                    </p>
+                                    <p>
+                                        {{ format_address(CustomerAddress.addr01, CustomerAddress.addr02, CustomerAddress.pref, CustomerAddress.postal_code) }}
+                                    </p>
+                                    <p>
+                                        {{ CustomerAddress.phone_number }}
+                                    </p>
+                                </div>
+                                <div class="col-md-5 text-right align-self-center">
+                                    <a class="btn btn-primary" href="{{ url('mypage_delivery_edit', { id : CustomerAddress.id }) }}">
+                                        {{ 'common.change'|trans }}
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+        <div class="card-footer">
+            {% if Customer.CustomerAddresses|length < eccube_config.eccube_deliv_addr_max %}
+                <a class="btn btn-primary" href="{{ url('mypage_delivery_new') }}">
+                    {{ 'front.mypage.add_customer_address'|trans }}
+                </a>
+            {% else %}
+                <div class="alert alert-danger" role="alert">
+                    {{ 'common.customer_address_count_is_over'|trans({ '%count%': eccube_config.eccube_deliv_addr_max }) }}
                 </div>
-            </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

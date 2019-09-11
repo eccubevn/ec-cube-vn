@@ -1,95 +1,55 @@
-{#
-This file is part of EC-CUBE
 
-Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
-
-http://www.lockon.co.jp/
-
-For the full copyright and license information, please view the LICENSE
-file that was distributed with this source code.
-#}
 {% extends 'default_frame.twig' %}
 
 {% block main %}
-    <div class="ec-role">
-        <div class="ec-pageHeader">
-            <h1> {{ 'front.tradelaw.title'|trans }}</h1>
-        </div>
-        <div class="ec-off1Grid">
-            <div class="ec-off1Grid__cell">
-                <div class="ec-borderedDefs">
-                    <dl>
-                        <dt>
-                            <label class="ec-label">{{ 'front.trade.distributor'|trans }}:</label>
-                        </dt>
-                        <dd></dd>
-                    </dl>
-                    <dl>
-                        <dt>
-                            <label class="ec-label">{{ 'front.trade.responsible'|trans }}:</label>
-                        </dt>
-
-                        <dd>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt>
-                            <label class="ec-label">{{ 'front.trade.location'|trans }}:</label>
-                        </dt>
-                        <dd>
-
-                        </dd>
-                    </dl>
-
-                    <dl>
-                        <dt>
-                            <label class="ec-label">{{ 'admin.common.phone_number'|trans }}:</label>
-                        </dt>
-                        <dd></dd>
-                    </dl>
-
-                    <dl>
-                        <dt>
-                            <label class="ec-label">{{ 'admin.common.mail_address'|trans }}:</label>
-                        </dt>
-                        <dd><a href="mailto:"></a></dd>
-                    </dl>
-
-                    <dl>
-                        <dt>
-                            <label class="ec-label">{{ 'admin.content.page_url'|trans }}:</label>
-                        </dt>
-                        <dd><a href=""></a></dd>
-                    </dl>
-
-                    <dl>
-                        <dt>
-                            <label class="ec-label">{{ 'front.trade.fee'|trans }}:</label>
-                        </dt>
-                        <dd></dd>
-                    </dl>
-
-                    <dl>
-                        <dt>
-                            <label class="ec-label">{{ 'front.trade.delivery'|trans }}:</label>
-                        </dt>
-                        <dd></dd>
-                    </dl>
-
-                    <dl>
-                        <dt>
-                            <label class="ec-label">{{ 'front.trade.payment'|trans }}:</label>
-                        </dt>
-                        <dd></dd>
-                    </dl>
-
-                    <dl>
-                        <dt>
-                            <label class="ec-label">{{ 'front.trade.refund'|trans }}:</label>
-                        </dt>
-                        <dd></dd>
-                    </dl>
-                </div>
+    {% include "Components/heading.twig" with {'title': 'front.tradelaw.title' } %}
+    <div class="row">
+        <div class="col-12">
+            <div class="page-help-section page-tradelaw">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td class="w-50"><label class="ec-label">{{ 'front.trade.distributor'|trans }}:</label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="w-50"><label class="ec-label">{{ 'front.trade.responsible'|trans }}:</label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="w-50"><label class="ec-label">{{ 'front.trade.location'|trans }}:</label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="w-50"><label class="ec-label">{{ 'admin.common.phone_number'|trans }}:</label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="w-50"><label class="ec-label">{{ 'admin.common.mail_address'|trans }}:</label></td>
+                            <td><a href="mailto:"></a></td>
+                        </tr>
+                        <tr>
+                            <td class="w-50"><label class="ec-label">{{ 'admin.content.page_url'|trans }}:</label></td>
+                            <td><a href=""></a></td>
+                        </tr>
+                        <tr>
+                            <td class="w-50"><label class="ec-label">{{ 'front.trade.fee'|trans }}:</label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="w-50"><label class="ec-label">{{ 'front.trade.delivery'|trans }}:</label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="w-50"><label class="ec-label">{{ 'front.trade.payment'|trans }}:</label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="w-50"><label class="ec-label">{{ 'front.trade.refund'|trans }}:</label></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

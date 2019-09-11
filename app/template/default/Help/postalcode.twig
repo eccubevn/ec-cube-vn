@@ -1,13 +1,4 @@
-{#
-This file is part of EC-CUBE
 
-Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
-
-http://www.lockon.co.jp/
-
-For the full copyright and license information, please view the LICENSE
-file that was distributed with this source code.
-#}
 {% extends 'default_frame.twig' %}
 {% block stylesheet %}
     <style type="text/css">
@@ -82,19 +73,25 @@ file that was distributed with this source code.
 </script>
 {% endblock javascript %}
 
+
 {% block main %}
-    <div class="ec-role">
-        <div class="ec-pageHeader">
-            <h1>{{ 'admin.common.postal_symbol'|trans }}</h1>
-        </div>
-        <div class="ec-halfInput">
-            <input type="text" class="ec-input" id="keyword" /><button type="button" class="ec-inlineBtn" id="search">{{ 'common.search_postal_code'|trans }}</button>
-        </div>
-        <div class="table-scroll">
-        <table class="table table-bordered" id="postalcode-table">
-            <tbody>
-            </tbody>
-        </table>
+    {% include "Components/heading.twig" with {'title': 'admin.common.postal_symbol' } %}
+    <div class="row">
+        <div class="col-12">
+            <div class="page-help-section page-postalcode">
+                <div class="form-inline mb-4">
+                    <div class="form-group">
+                        <input type="text" class="form-control mr-2" id="keyword" />
+                        <button type="button" class="btn btn-primary" id="search">{{ 'common.search_postal_code'|trans }}</button>
+                    </div>
+                </div>
+                <div class="table-scroll">
+                    <table class="table" id="postalcode-table">
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

@@ -1,13 +1,4 @@
-{#
-This file is part of EC-CUBE
 
-Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
-
-http://www.lockon.co.jp/
-
-For the full copyright and license information, please view the LICENSE
-file that was distributed with this source code.
-#}
 {% extends 'default_frame.twig' %}
 
 {% set mypageno = 'change' %}
@@ -15,26 +6,17 @@ file that was distributed with this source code.
 {% set body_class = 'mypage' %}
 
 {% block main %}
-    <div class="ec-layoutRole__main">
-        <div class="ec-mypageRole">
-            <div class="ec-pageHeader">
-                <h1>{{ 'front.mypage.title'|trans }}/{{ 'front.mypage.nav__customer_complete'|trans }}</h1>
-            </div>
-            {% include 'Mypage/navi.twig' %}
-        </div>
-        <div class="ec-registerCompleteRole">
-            <div class="ec-off2Grid ec-text-ac">
-                <div class="ec-off2Grid__cell">
-                    <div class="ec-reportHeading">
-                        <h2>{{ 'front.mypage.customer_complete_message__title'|trans }}</h2>
-                    </div>
-                    <p class="ec-reportDescription">{{ 'front.mypage.customer_complete_message__body'|trans }}</p>
-                    <div class="ec-off4Grid">
-                        <div class="ec-off4Grid__cell"><a class="ec-blockBtn--cancel"
-                                                          href="{{ url('homepage') }}">{{ 'common.back'|trans }}</a>
-                        </div>
-                    </div>
-                </div>
+    {% include "Components/heading.twig" with {'title': 'front.mypage.title', 'subTitle': 'front.mypage.nav__customer_complete' } %}
+
+    {% include 'Mypage/navi.twig' %}
+    
+    <div class="row">
+        <div class="col-12">
+            <div class="jumbotron py-4 text-center bg-light">
+                <h4>{{ 'front.mypage.customer_complete_message__title'|trans }}</h4>
+                <p>{{ 'front.mypage.customer_complete_message__body'|trans }}</p>
+                <hr class="my-4">
+                <a class="btn btn-primary" href="{{ url('homepage') }}">{{ 'common.back'|trans }}</a>
             </div>
         </div>
     </div>

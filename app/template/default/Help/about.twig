@@ -1,89 +1,59 @@
-{#
-This file is part of EC-CUBE
 
-Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
-
-http://www.lockon.co.jp/
-
-For the full copyright and license information, please view the LICENSE
-file that was distributed with this source code.
-#}
 {% extends 'default_frame.twig' %}
 
 {% block main %}
 
-<div class="ec-role">
-    <div class="ec-pageHeader">
-        <h1>{{ 'front.about.title'|trans }}</h1>
-    </div>
-    <div class="ec-off1Grid">
-        <div class="ec-off1Grid__cell">
-            <div class="ec-borderedDefs">
-                {% if BaseInfo.shop_name|default is not empty %}
-                    <dl id="help_about_box__shop_name">
-                        <dt>
-                            <label class="ec-label">{{ 'common.shop_name'|trans }}</label>
-                        </dt>
-                        <dd>{{ BaseInfo.shop_name }}</dd>
-                    </dl>
-                {% endif %}
-                {% if BaseInfo.company_name|default is not empty %}
-                    <dl id="help_about_box__company_name">
-                        <dt>
-                            <label class="ec-label">{{ 'common.company_name'|trans }}</label>
-                        </dt>
-                        <dd>{{ BaseInfo.company_name }}</dd>
-                    </dl>
-                {% endif %}
+{% include "Components/heading.twig" with {'title': 'front.about.title' } %}
 
-                {% if BaseInfo.postal_code|default is not empty %}
-                    <dl id="help_about_box__address">
-                        <dt>
-                            <label class="ec-label">{{ 'common.address'|trans }}</label>
-                        </dt>
-                        <dd>
-                            {{ format_address(BaseInfo.addr01, BaseInfo.addr02, BaseInfo.pref, BaseInfo.postal_code) }}
-                        </dd>
-                    </dl>
-                {% endif %}
-
-                {% if BaseInfo.phone_number|default is not empty %}
-                    <dl id="help_about_box__phone_number">
-                        <dt>
-                            <label class="ec-label">{{ 'common.phone_number'|trans }}</label>
-                        </dt>
-                        <dd>{{ BaseInfo.phone_number }}</dd>
-                    </dl>
-                {% endif %}
-
-                {% if BaseInfo.business_hour|default is not empty %}
-                    <dl id="help_about_box__business_hour">
-                        <dt>
-                            <label class="ec-label">{{ 'front.about.business_hour'|trans }}</label>
-                        </dt>
-                        <dd>{{ BaseInfo.business_hour }}</dd>
-                    </dl>
-                {% endif %}
-
-                {% if BaseInfo.good_traded|default is not empty %}
-                    <dl id="help_about_box__good_traded">
-                        <dt>
-                            <label class="ec-label">{{ 'front.about.good_traded'|trans }}</label>
-                        </dt>
-                        <dd>{{ BaseInfo.good_traded|nl2br }}</dd>
-                    </dl>
-                {% endif %}
-
-                {% if BaseInfo.message|default is not empty %}
-                    <dl id="help_about_box__message">
-                        <dt>
-                            <label class="ec-label">{{ 'front.about.message'|trans }}</label>
-                        </dt>
-                        <dd>{{ BaseInfo.message|nl2br }}</dd>
-                    </dl>
-                {% endif %}
-            </div>
-
+<div class="row">
+    <div class="col-12">
+        <div class="page-help-section page-about-us">
+            <table class="table">
+                <tbody>
+                    {% if BaseInfo.shop_name|default is not empty %}
+                        <tr class="help_about_box__shop_name">
+                            <td class="w-50"><label class="ec-label">{{ 'common.shop_name'|trans }}</label></td>
+                            <td>{{ BaseInfo.shop_name }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if BaseInfo.company_name|default is not empty %}
+                        <tr class="help_about_box__company_name">
+                            <td class="w-50"><label class="ec-label">{{ 'common.company_name'|trans }}</label></td>
+                            <td>{{ BaseInfo.company_name }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if BaseInfo.postal_code|default is not empty %}
+                        <tr class="help_about_box__address">
+                            <td class="w-50"><label class="ec-label">{{ 'common.address'|trans }}</label></td>
+                            <td>{{ format_address(BaseInfo.addr01, BaseInfo.addr02, BaseInfo.pref, BaseInfo.postal_code) }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if BaseInfo.phone_number|default is not empty %}
+                        <tr class="help_about_box__phone_number">
+                            <td class="w-50"><label class="ec-label">{{ 'common.phone_number'|trans }}</label></td>
+                            <td>{{ BaseInfo.phone_number }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if BaseInfo.business_hour|default is not empty %}
+                        <tr class="help_about_box__business_hour">
+                            <td class="w-50"><label class="ec-label">{{ 'front.about.business_hour'|trans }}</label></td>
+                            <td>{{ BaseInfo.business_hour }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if BaseInfo.good_traded|default is not empty %}
+                        <tr class="help_about_box__good_traded">
+                            <td class="w-50"><label class="ec-label">{{ 'front.about.good_traded'|trans }}</label></td>
+                            <td>{{ BaseInfo.good_traded|nl2br }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if BaseInfo.message|default is not empty %}
+                        <tr class="help_about_box__message">
+                            <td class="w-50"><label class="ec-label">{{ 'front.about.message'|trans }}</label></td>
+                            <td>{{ BaseInfo.message|nl2br }}</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

@@ -153,7 +153,7 @@
             }
 
             // 販売価格
-            var $price02 = $form.parent().find('.price02-default').first();
+            var $price02 = $form.parent().parent().find('.price02-default').first();
             if (typeof price02_origin[product_id] === 'undefined') {
                 // 初期値を保持しておく
                 price02_origin[product_id] = $price02.text();

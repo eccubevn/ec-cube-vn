@@ -1,0 +1,11 @@
+{% if product.freearea %}
+  <div class="product-freearea {{class|default('')}}">
+    {% if truncate is defined %}
+      {{ product.freearea|raw|nl2br|length > 90 ? 
+      product.freearea|raw|nl2br|slice(0, 90) ~ '...' : 
+      product.freearea|raw|nl2br  }}
+    {% else %}
+        {{ product.freearea|raw|nl2br }}
+    {% endif %}
+  </div>
+{% endif %}

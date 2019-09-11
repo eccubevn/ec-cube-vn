@@ -1,0 +1,17 @@
+{% if product.ProductCategories is not empty %}
+  <div id="product-category-ref" class="product-category-ref {{class|default('mb-3')}}">
+    <ul class="list-group">
+      <li class="list-group-item active">{{ 'front.product.related_category'|trans }}</li>
+      {% for ProductCategory in product.ProductCategories %}
+        <li class="list-group-item">
+          {% for Category in ProductCategory.Category.path %}
+            <a href="{{ url('product_list') }}?category_id={{ Category.id }}">
+                {{ Category.name }}
+            </a> 
+            {%- if loop.last == false %}<span>/</span>{% endif -%}
+          {% endfor %}
+        </li>
+      {% endfor %} 
+    </ul>
+  </div>
+{% endif %}

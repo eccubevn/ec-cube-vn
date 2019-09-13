@@ -1,0 +1,4 @@
+id,name,sort_no,discriminator_type
+1,Chịu thuế,0,taxtype
+2,Không chịu thuế,1,taxtype
+3,Miễn thuế,2,taxtype

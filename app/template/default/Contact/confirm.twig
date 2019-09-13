@@ -1,0 +1,136 @@
+
+{% extends 'default_frame.twig' %}
+
+{% form_theme form 'Form/form_div_layout.twig' %}
+
+{% block main %}
+    {% include "Components/heading.twig" with {'title': 'front.contact.title' } %}
+    <div class="row">
+        <div class="col-12">
+            <div class="page-contact-confirm">
+                <form method="post" action="{{ url('contact') }}" >
+                    {{ form_widget(form._token) }}
+                    <div class="alert alert-warning" role="alert">
+                        {{ 'front.contact.inquiry_notice'|trans|nl2br }}
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item active">
+                            <b>{{ 'common.go_to_confirm'|trans }}</b>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row clear-margin-label">
+                                <div class="col-sm-4">
+                                    {{ form_label(form.name, 'common.name') }}
+                                </div>
+                                <div class="col-sm-8">
+                                    {{ form.name.name01.vars.data }}
+                                    {{ form.name.name02.vars.data }}
+                                    {{ form_widget(form.name.name01, { type : 'hidden' }) }}
+                                    {{ form_widget(form.name.name02, { type : 'hidden' }) }}
+                                    {{ form_widget(form.kana.kana01, { type : 'hidden' }) }}
+                                    {{ form_widget(form.kana.kana02, { type : 'hidden' }) }}
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    {{ form_label(form.postal_code, 'common.postal_code') }}
+                                </div>
+                                <div class="col-sm-8">
+                                    {{ 'common.postal_symbol'|trans }}</span></span>{{ form.postal_code.vars.data }}
+                                    {{ form_widget(form.postal_code, { type : 'hidden' }) }}
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    {{ form_label(form.address, 'common.address') }}
+                                </div>
+                                <div class="col-sm-8">
+                                    {{ format_address(form.address.addr01.vars.data, form.address.addr02.vars.data, form.address.pref.vars.data) }}
+                                    {{ form_widget(form.address.pref, { type : 'hidden' }) }}
+                                    {{ form_widget(form.address.addr01, { type : 'hidden' }) }}
+                                    {{ form_widget(form.address.addr02, { type : 'hidden' }) }}
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    {{ form_label(form.phone_number, 'common.phone_number') }}
+                                </div>
+                                <div class="col-sm-8">
+                                    {{ form.phone_number.vars.data }}
+                                    {{ form_widget(form.phone_number, { type : 'hidden' }) }}
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    {{ form_label(form.email, 'common.mail_address') }}
+                                </div>
+                                <div class="col-sm-8">
+                                    {{ form.email.vars.data }}
+                                    {{ form_widget(form.email, { type : 'hidden' }) }}
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    {{ form_label(form.contents, 'front.contact.inquiry_contents') }}
+                                </div>
+                                <div class="col-sm-8">
+                                    {{ form.contents.vars.data|nl2br }}
+                                    {{ form_widget(form.contents, { type : 'hidden' }) }}
+                                </div>
+                            </div>
+                        </li>
+                        {% for f in form if f.vars.eccube_form_options.auto_render %}
+                            {% if f.vars.eccube_form_options.form_theme %}
+                                {% form_theme f f.vars.eccube_form_options.form_theme %}
+                                {{ form_row(f) }}
+                            {% else %}
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            {{ form_label(f) }}
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="row {{ f.vars.eccube_form_options.style_class }} {{ has_errors(f) ? 'is-invalid'}}">
+                                                <div class="col-12">
+                                                    {{ form_widget(f, { 'attr': { 'class': 'form-control' }}) }}
+                                                    {{ form_errors(f) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-4"></div>
+                                <div class="col-sm-4">
+                                    <button type="submit"
+                                            class="btn btn-primary btn-block"
+                                            name="mode"
+                                            value="complete">{{ 'common.send'|trans }}
+                                    </button>
+                                    <button type="submit"
+                                            class="btn btn-secondary btn-block"
+                                            name="mode"
+                                            value="back">{{ 'common.back'|trans }}
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

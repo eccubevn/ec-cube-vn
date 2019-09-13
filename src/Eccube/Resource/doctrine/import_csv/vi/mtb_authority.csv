@@ -1,0 +1,3 @@
+id,name,sort_no,discriminator_type
+0,Quản lý hệ thống,0,authority
+1,Chủ cửa hàng,1,authority

@@ -1,0 +1,58 @@
+{#
+This file is part of EC-CUBE
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+http://www.lockon.co.jp/
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% autoescape false %}
+{{ Shipping.name01|format_name(Shipping.name02) }}
+
+Sản phẩm của bạn đang trên đường đến. Xin vui lòng chờ.
+
+{% if Shipping.tracking_number %}
+Mã kiểm tra đơn hàng：{{ Shipping.tracking_number }}
+{% if Shipping.Delivery.confirm_url %}
+Link kiểm tra đơn hàng：{{ Shipping.Delivery.confirm_url }}
+{% endif %}
+{% endif %}
+
+************************************************
+　Chi tiết về đơn hàng
+************************************************
+
+{% for OrderItem in Shipping.productOrderItems %}
+Mã sản phẩm：{{ OrderItem.product_code }}
+Tên sản phẩm：{{ OrderItem.product_name }}  {{ OrderItem.classcategory_name1 }}  {{ OrderItem.classcategory_name2 }}
+Số lượng：{{ OrderItem.quantity|number_format }}
+
+{% endfor %}
+
+============================================
+
+************************************************
+　Thông tin người đặt hàng
+************************************************
+Họ và tên：{{ Order.name01|format_name(Order.name02) }}
+{% if Order.company_name %}
+Tên công ty：{{ Order.company_name }}
+{% endif %}
+Số bưu điện：{{ 'common.postal_symbol'|trans }}{{ Order.postal_code }}
+Địa chỉ：{{ format_address(Order.addr01, Order.addr02, Order.Pref.name) }}
+Số điện thoại：{{ Order.phone_number }}
+
+************************************************
+　Thông tin giao hàng
+************************************************
+
+Tên người nhận：{{ Shipping.name01|format_name(Shipping.name02) }}
+{% if Shipping.company_name %}
+Tên công ty：{{ Shipping.company_name }}
+{% endif %}
+Số bưu điện：{{ 'common.postal_symbol'|trans }}{{ Shipping.postal_code }}
+Địa chỉ：{{ format_address(Shipping.addr01, Shipping.addr02, Shipping.Pref.name) }}
+Số điện thoại：{{ Shipping.phone_number }}
+
+Ngày giao hàng：{{ Shipping.shipping_delivery_date is empty ? 'common.select__unspecified'|trans : Shipping.shipping_delivery_date|date_day }}
+Thời gian giao hàng：{{ Shipping.shipping_delivery_time|default('common.select__unspecified'|trans) }}
+{% endautoescape %}

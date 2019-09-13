@@ -1,0 +1,4 @@
+id,name,sort_no,discriminator_type
+1,Tạm thời,0,customerstatus
+2,Chính thức,1,customerstatus
+3,Đã hủy,2,customerstatus

@@ -1,0 +1,19 @@
+id,name,sort_no,discriminator_type
+1,Công chức nhà nước,0,job
+2,Tư vấn,1,job
+3,Kỹ sư (IT),2,job
+4,Kỹ sư (Khác IT),3,job
+5,Tài chính,4,job
+6,Bác sĩ,5,job
+7,Luật sư,6,job
+8,Quản trị / Nhân sự / Thư ký,7,job
+9,Bán hàng,8,job
+10,Nghiên cứu và phát triển (R&D),9,job
+11,PR,10,job
+12,Lập kế hoạch / Tiếp thị,11,job
+13,Thiết kế,12,job
+14,Chủ doanh nghiệp / Thành viên hội đồng quản trị,13,job
+15,Nhà xuất bản / Truyền thông đại chúng,14,job
+16,Sinh viên / Bán thời gian,15,job
+17,Người nội trợ,16,job
+18,Khác,17,job

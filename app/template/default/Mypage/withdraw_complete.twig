@@ -1,0 +1,23 @@
+
+{% extends 'default_frame.twig' %}
+
+{% set mypageno = 'withdraw' %}
+
+{% set body_class = 'mypage' %}
+
+{% block main %}
+    {% include "Components/heading.twig" with {'title': 'front.mypage.title', 'subTitle': 'front.mypage.nav__withdrow' } %}
+
+    <div class="row">
+        <div class="col-12">
+            <div class="jumbotron py-4 mb-0 text-center bg-warning text-dark">
+                <h4>{{ 'front.mypage.withdraw_complete_message__title'|trans }}</h4>
+                <p>{{ 'front.mypage.withdraw_complete_message__body'|trans|nl2br }}</p>
+                <hr class="my-4">
+                <a href="{{ url('homepage') }}" class="btn btn-primary">
+                    {{ 'common.go_to_top'|trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

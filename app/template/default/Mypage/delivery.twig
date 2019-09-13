@@ -1,0 +1,68 @@
+
+{% extends 'default_frame.twig' %}
+
+{% set mypageno = 'delivery' %}
+
+{% set body_class = 'mypage' %}
+
+{% block main %}
+    {% include "Components/heading.twig" with {'title': 'front.mypage.title', 'subTitle': 'front.mypage.nav__customer_address' } %}
+
+    {% include 'Mypage/navi.twig' %}
+
+    <div id="my-account-address" class="card">
+        <div class="card-header">
+            {% if Customer.CustomerAddresses|length > 0 %}
+                <b>
+                    {{ 'front.mypage.customer_address_count'|trans({'%count%':Customer.CustomerAddresses|length}) }}
+                </b>
+            {% else %}
+                <b>{{ 'front.mypage.customer_address_not_found'|trans }}</b>
+            {% endif %}
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                {% if Customer.CustomerAddresses|length > 0 %}
+                    {% for CustomerAddress in Customer.CustomerAddresses %}
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-2 text-center align-self-center">
+                                    <a class="text-danger h4" href="{{ url('mypage_delivery_delete', { id : CustomerAddress.id }) }}" {{ csrf_token_for_anchor() }} data-method="delete">
+                                        <i class="fas fa-times"></i>
+                                    </a>
+                                </div>
+                                <div class="col-md-5 align-self-center">
+                                    <p>
+                                        {{ CustomerAddress.name01 }}&nbsp;{{ CustomerAddress.name02 }}
+                                    </p>
+                                    <p>
+                                        {{ format_address(CustomerAddress.addr01, CustomerAddress.addr02, CustomerAddress.pref, CustomerAddress.postal_code) }}
+                                    </p>
+                                    <p>
+                                        {{ CustomerAddress.phone_number }}
+                                    </p>
+                                </div>
+                                <div class="col-md-5 text-right align-self-center">
+                                    <a class="btn btn-primary" href="{{ url('mypage_delivery_edit', { id : CustomerAddress.id }) }}">
+                                        {{ 'common.change'|trans }}
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+        <div class="card-footer">
+            {% if Customer.CustomerAddresses|length < eccube_config.eccube_deliv_addr_max %}
+                <a class="btn btn-primary" href="{{ url('mypage_delivery_new') }}">
+                    {{ 'front.mypage.add_customer_address'|trans }}
+                </a>
+            {% else %}
+                <div class="alert alert-danger" role="alert">
+                    {{ 'common.customer_address_count_is_over'|trans({ '%count%': eccube_config.eccube_deliv_addr_max }) }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

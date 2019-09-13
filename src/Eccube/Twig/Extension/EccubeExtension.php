@@ -63,6 +63,7 @@ class EccubeExtension extends AbstractExtension
             new TwigFunction('product', [$this, 'getProduct']),
             new TwigFunction('php_*', [$this, 'getPhpFunctions'], ['pre_escape' => 'html', 'is_safe' => ['html']]),
             new TwigFunction('currency_symbol', [$this, 'getCurrencySymbol']),
+            new TwigFunction('format_address', [$this, 'getFormatAddress'])
         ];
     }
 
@@ -80,6 +81,7 @@ class EccubeExtension extends AbstractExtension
             new TwigFilter('ellipsis', [$this, 'getEllipsis']),
             new TwigFilter('time_ago', [$this, 'getTimeAgo']),
             new TwigFilter('file_ext_icon', [$this, 'getExtensionIcon'], ['is_safe' => ['html']]),
+            new TwigFilter('format_name', [$this, 'getFormatName']),
         ];
     }
 
@@ -135,15 +137,18 @@ class EccubeExtension extends AbstractExtension
     }
 
     /**
-     * Name of this extension
-     *
-     * @return string
+     * @param $number
+     * @param bool $isWithoutIcon
+     * @return bool|string
      */
-    public function getPriceFilter($number, $decimals = 0, $decPoint = '.', $thousandsSep = ',')
+    public function getPriceFilter($number, $isWithoutIcon = false)
     {
         $locale = $this->eccubeConfig['locale'];
         $currency = $this->eccubeConfig['currency'];
         $formatter = new \NumberFormatter($locale, \NumberFormatter::CURRENCY);
+        if ($isWithoutIcon) {
+            return \NumberFormatter::create($locale, \NumberFormatter::DECIMAL)->format($number);
+        }
 
         return $formatter->formatCurrency($number, $currency);
     }
@@ -276,10 +281,10 @@ class EccubeExtension extends AbstractExtension
                 'classcategory_id2' => $class_category_id2,
                 'name' => $class_category_name2,
                 'stock_find' => $ProductClass->getStockFind(),
-                'price01' => $ProductClass->getPrice01() === null ? '' : number_format($ProductClass->getPrice01()),
-                'price02' => number_format($ProductClass->getPrice02()),
-                'price01_inc_tax' => $ProductClass->getPrice01() === null ? '' : number_format($ProductClass->getPrice01IncTax()),
-                'price02_inc_tax' => number_format($ProductClass->getPrice02IncTax()),
+                'price01' => $ProductClass->getPrice01() === null ? '' : $this->getPriceFilter($ProductClass->getPrice01(), true),
+                'price02' => $this->getPriceFilter($ProductClass->getPrice02(), true),
+                'price01_inc_tax' => $ProductClass->getPrice01() === null ? '' : $this->getPriceFilter($ProductClass->getPrice01IncTax()),
+                'price02_inc_tax' => $this->getPriceFilter($ProductClass->getPrice02IncTax()),
                 'product_class_id' => (string) $ProductClass->getId(),
                 'product_code' => $ProductClass->getCode() === null ? '' : $ProductClass->getCode(),
                 'sale_type' => (string) $ProductClass->getSaleType()->getId(),
@@ -365,5 +370,32 @@ class EccubeExtension extends AbstractExtension
         $symbol = Intl::getCurrencyBundle()->getCurrencySymbol($currency);
 
         return $symbol;
+    }
+
+    /**
+     * @param $name01
+     * @param $name02
+     * @return string
+     */
+    public function getFormatName($name01, $name02 = '')
+    {
+        return trans('common.user_name', ['%last_name%' => $name01, '%first_name%' => $name02]);
+    }
+
+    /**
+     * Format address
+     *
+     * @param string $addr1
+     * @param string $addr2
+     * @param string $pref
+     * @param string $postalCode
+     * @return string
+     */
+    public function getFormatAddress($addr1 = '', $addr2 = '', $pref = '', $postalCode = '')
+    {
+        $tmp = [$addr2, $addr1, $pref];
+        $address = implode(', ', $tmp);
+
+        return $address . ($postalCode ? ' (' . $postalCode.')' : '');
     }
 }

@@ -1,0 +1,136 @@
+{#
+This file is part of EC-CUBE
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+http://www.lockon.co.jp/
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<body bgcolor="#F0F0F0" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="margin-top:0;margin-bottom:0;margin-right:0;margin-left:0;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;">
+<br>
+<br>
+<div align="center"><a href="{{ url('homepage') }}" style="font-family:Helvetica, Arial, sans-serif;font-size:30px;color:#333333;text-decoration:none;">{{ BaseInfo.shop_name }}</a></div>
+<!-- 100% background wrapper (grey background) -->
+<table border="0" width="100%" height="100%" cellpadding="0" cellspacing="0" bgcolor="#F0F0F0" style="border-spacing:0;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+    <tr>
+        <td align="center" valign="top" bgcolor="#F0F0F0" style="background-color:#F0F0F0;border-collapse:collapse;">
+            <br>
+            <!-- 600px container (white background) -->
+            <table id="html-mail-table1" border="0" width="600px" cellpadding="10" cellspacing="0" class="container" style="border-spacing:0;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                <tr>
+                    <td class="container-padding content" align="left" style="border-collapse:collapse;padding-left:24px;padding-right:24px;padding-top:12px;padding-bottom:12px;background-color:#ffffff;">
+                        <br>
+                        <div class="title" style="font-family:Helvetica, Arial, sans-serif;font-size:14px;line-height:20px;text-align:left;color:#333333;">Cảm ơn bạn đã đặt hàng bên chúng tôi.</div>
+                        <br>
+                        <div class="body-text" style="font-family:Helvetica, Arial, sans-serif;font-size:14px;line-height:20px;text-align:left;color:#333333;">
+                            Chào {{ Order.name01|format_name(Order.name02) }}<br/>
+                            <br/>
+                            Xin hãy xác nhận lại đơn hàng của bạn dưới đây. <br/>
+                            <br/>
+                            <hr style="border-top: 3px double #8c8b8b;">
+                            　Tóm tắt đơn hàng<br/>
+                            <hr style="border-top: 3px double #8c8b8b;">
+                            Thời gian đặt hàng：{{ Order.create_date|date_sec }}<br/>
+                            Mã đơn đặt hàng：{{ Order.order_no }}<br/>
+                            Tổng số tiền：{{ Order.payment_total|price }}<br/>
+                            Cách thức thanh toán：{{ Order.payment_method }}<br/>
+                            {% if BaseInfo.isOptionPoint and Order.Customer is not null %}
+                            Điểm sử dụng：{{ Order.usePoint }} {{ 'common.point'|trans }}<br/>
+                            {% endif %}
+                            Liên hệ：{{ Order.message }}<br/>
+                            <br/>
+                            <hr style="border-top: 3px double #8c8b8b;">
+                            　Chi tiết về đơn hàng<br/>
+                            <hr style="border-top: 3px double #8c8b8b;">
+                            {% for OrderItem in Order.MergedProductOrderItems %}
+                                Mã sản phẩm：{{ OrderItem.product_code }}<br/>
+                                Tên sản phẩm：{{ OrderItem.product_name }}  {{ OrderItem.classcategory_name1 }}  {{ OrderItem.classcategory_name2 }}<br/>
+                                Đơn giá：{{ OrderItem.total_price|price }}<br/>
+                                Số lượng：{{ OrderItem.quantity|number_format }}<br/>
+                                <br/>
+                            {% endfor %}
+                            <hr style="border-top: 2px dashed #8c8b8b;">
+                            Thành tiền：{{ Order.subtotal|price }}{% if Order.tax > 0 %}(Thuế{{ Order.tax|price }}){% endif %}<br/>
+                            <br/>
+                            Phí thanh toán：{{ Order.charge|price }}<br/>
+                            Phí vận chuyển：{{ Order.delivery_fee_total|price }}<br/>
+                            {% if Order.discount > 0 %}
+                                Giảm giá：{{ (0 - Order.discount)|price }}<br/>
+                            {% endif %}
+                            <hr style="border-top: 1px dotted #8c8b8b;">
+                            Tổng số tiền：{{ Order.payment_total|price }}<br/>
+                            <br/>
+                            <hr style="border-top: 3px double #8c8b8b;">
+                            　Thông tin người đặt hàng <br/>
+                            <hr style="border-top: 3px double #8c8b8b;">
+                            Họ và tên：{{ Order.name01|format_name(Order.name02) }}<br/>
+                            {% if Order.company_name %}
+                                Tên công ty：{{ Order.company_name }}<br/>
+                            {% endif %}
+                            Số bưu điện：{{ 'common.postal_symbol'|trans }}{{ Order.postal_code }}<br/>
+                            Địa chỉ：{{ Order.Pref.name }} {{ Order.addr01 }} {{ Order.addr02 }}<br/>
+                            Số điện thoại：{{ Order.phone_number }}<br/>
+                            Địa chỉ email：{{ Order.email }}<br/>
+                            <br/>
+                            <hr style="border-top: 3px double #8c8b8b;">
+                            　Thông tin giao hàng <br/>
+                            <hr style="border-top: 3px double #8c8b8b;">
+
+                            {% for Shipping in Order.Shippings %}
+                                ◎Nơi giao hàng{% if Order.multiple %}{{ loop.index }}{% endif %}<br/>
+                                <br/>
+                                Tên người nhận：{{ Shipping.name01|format_name(Shipping.name02) }}<br/>
+                                {% if Shipping.company_name %}
+                                    Tên công ty：{{ Shipping.company_name }}<br/>
+                                {% endif %}
+                                Số bưu điện：{{ 'common.postal_symbol'|trans }}{{ Shipping.postal_code }}<br/>
+                                Địa chỉ：{{ Shipping.Pref.name }} {{ Shipping.addr01 }} {{ Shipping.addr02 }}<br/>
+                                Số điện thoại：{{ Shipping.phone_number }}<br/>
+                                <br/>
+                                Phương thức giao hàng：{{ Shipping.shipping_delivery_name }}<br/>
+                                Ngày giao hàng：{{ Shipping.shipping_delivery_date is empty ? 'common.select__unspecified'|trans : Shipping.shipping_delivery_date|date_day }}<br/>
+                                Thời gian giao hàng：{{ Shipping.shipping_delivery_time|default('common.select__unspecified'|trans) }}<br/>
+                                <br/>
+                                {% for OrderItem in Shipping.productOrderItems %}
+                                    Mã sản phẩm：{{ OrderItem.product_code }}<br/>
+                                    Tên sản phẩm：{{ OrderItem.product_name }}  {{ OrderItem.classcategory_name1 }}  {{ OrderItem.classcategory_name2 }}<br/>
+                                    Số lượng：{{ OrderItem.quantity|number_format }}<br/>
+                                    <br/>
+                                {% endfor %}
+                            {% endfor %}
+                            {% if Order.complete_mail_message is not empty %}
+                                {{ Order.complete_mail_message|nl2br }}<br/>
+                            {% endif %}
+                            <hr style="border-top: 2px dotted #8c8b8b;">
+                            Đây chỉ là mail thông báo.<br/>
+                            Chúng tôi không thể nhận hay trả lời mail của khách hàng bằng email này.<br/>
+                            Xin lỗi vì sự bất tiện này. <br/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <!--/600px container -->
+            <br>
+            <br>
+            <table id="html-mail-table2" border="0" width="600px" cellpadding="10" cellspacing="0" class="container" style="border-spacing:0;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                <tr>
+                    <td class="container-padding content footer-text" align="left" style="border-collapse:collapse;font-family:Helvetica, Arial, sans-serif;font-size:12px;line-height:16px;color:#aaaaaa;padding-left:24px;padding-right:24px;padding-top:12px;padding-bottom:12px;background-color:#ffffff;">
+                        Mail này được gửi đến từ {{ BaseInfo.shop_name }}<br/>
+                        Nếu bạn không phải là người đã đặt đơn hàng、vui lòng nhấp vào đây <a href="mailto:{{ BaseInfo.email02 }}" style="text-decoration:none;">{{ BaseInfo.email02 }}</a> để được hướng dẫn thêm. <br/>
+                        <br/>
+                        <div class="title" style="font-size:14px;font-family:Helvetica, Arial, sans-serif;font-weight:600;color:#374550;"><a href="{{ url('homepage') }}" style="color:#aaaaaa;text-decoration:none;">{{ BaseInfo.shop_name }}</a></div>
+                        <div>copyright &copy; {{ BaseInfo.shop_name }} all rights reserved.</div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<!--/100% background wrapper-->
+<br>
+<br>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <ul class="footer-links">
+                <li>
+                    <a href="{{ url('help_about') }}">
+                        {{ 'front.block.footer.about_us'|trans }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('help_privacy') }}">
+                        {{ 'front.block.footer.privacy_policy'|trans }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('help_tradelaw') }}">
+                        {{ 'front.block.footer.act_on_specified_commercial_transactions'|trans }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('contact') }}">
+                        {{ 'front.block.footer.inquiry'|trans }}
+                    </a>
+                </li>
+            </ul>
+
+            <div class="footer-content">
+                <h4>
+                    <a href="{{ url('homepage') }}"><strong>{{ BaseInfo.shop_name }}</strong></a>
+                </h4>
+                <small class="copyright">{{ 'common.copyright'|trans }} {{ BaseInfo.shop_name }}</small>
+            </div>
+        </div>
+    </div>
+</div>

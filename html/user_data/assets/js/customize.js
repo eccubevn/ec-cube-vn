@@ -1,1 +1,1 @@
-/* カスタマイズ用Javascript */
+/* Javascript Code */

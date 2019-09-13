@@ -58,7 +58,7 @@ parameters:
     plugin_realdir: '%kernel.project_dir%/app/Plugin'
     plugin_data_realdir: '%kernel.project_dir%/app/PluginData'
     plugin_temp_realdir: /PATH/TO/WEB_ROOT/src/Eccube/Repository/Master/upload/temp_plugin/ # upload_tmp_dir に任せればよい？
-    eccube_price_len: 8                                                    # 最大値で制御したい
+    eccube_price_len: 16                                                    # 最大値で制御したい
     eccube_search_pmax: 10
     eccube_stext_len: 255
     eccube_sltext_len: 500
@@ -71,9 +71,12 @@ parameters:
     # CSVの区切り文字(タブ区切りにしたい場合は'\t'ではなく'    'で設定する
     eccube_csv_export_separator: ,
     # 出力エンコーディング
-    eccube_csv_export_encoding: SJIS-win
+    # ja: SJIS-win
+    # vi: Windows-1258 - alias: CP1258 use iconv function
+    # ref: https://symfony.com/doc/3.4/components/polyfill_iconv.html
+    eccube_csv_export_encoding: 'UTF-8'
     # 日付のフォーマット
-    eccube_csv_export_date_format: 'Y-m-d H:i:s'
+    eccube_csv_export_date_format: 'H:i:s d-m-Y'
     # 複数データの区切り文字
     eccube_csv_export_multidata_separator: ,
     eccube_csv_import_delimiter: ,
@@ -81,13 +84,13 @@ parameters:
     eccube_csv_import_escape: \
     eccube_info_url: 'https://www.ec-cube.net/info/4/'
     eccube_owners_store_url: '%env(ECCUBE_OWNERS_STORE_URL)%'
-    eccube_official_site_url: https://www.ec-cube.net
-    eccube_community_site_url: https://xoops.ec-cube.net
-    eccube_document_url: http://doc4.ec-cube.net
-    eccube_name_len: 16
+    eccube_official_site_url: http://ec-cube.vn
+    eccube_community_site_url: https://www.facebook.com/groups/eccube.vn/
+    eccube_document_url: http://docs.ec-cube.vn/
+    eccube_name_len: 20
     eccube_kana_len: 25
-    eccube_address1_len: 32
-    eccube_address2_len: 32
+    eccube_address1_len: 50
+    eccube_address2_len: 50
     eccube_birth_max: 110
     eccube_product_order_price_lower: 1
     eccube_product_order_newer: 2
@@ -118,8 +121,16 @@ parameters:
     # {random,桁数}: ランダムな数値を桁数分作成
     # {random_alnum,桁数} : ランダムな半角英数大文字を桁数分作成
     eccube_order_no_format: ''
-    eccube_order_pdf_message_len: 30
+    eccube_order_pdf_message_len: 50
+    # Font for print pdf file:
+    # ja: kozminproregular
+    # vi: dejavusans
+    eccube_order_pdf_font: 'dejavusans'
     eccube_news_start_year: 2000
     eccube_result_cache_lifetime: 3600 # doctrineのresult cacheのlifetime.
     eccube_result_cache_lifetime_short: 10  # doctrineのresult cacheのlifetime. 商品一覧画面など長期間キャッシュできない箇所で使用する.
     eccube_content_maintenance_file_path: '%kernel.project_dir%/.maintenance'
+    eccube_form_date_format: 'dd-MM-yyyy'
+    eccube_form_date_format_js_calendar: 'dd-mm-yyyy'
+    eccube_space: ' '
+

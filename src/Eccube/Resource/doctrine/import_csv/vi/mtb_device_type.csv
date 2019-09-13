@@ -1,0 +1,3 @@
+id,name,sort_no,discriminator_type
+2,Di động,0,devicetype
+10,Máy tính,1,devicetype

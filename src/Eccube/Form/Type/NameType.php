@@ -94,42 +94,74 @@ class NameType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([
-            'options' => [],
-            'lastname_options' => [
-                'attr' => [
-                    'placeholder' => 'common.last_name',
+        $locale = $this->eccubeConfig->get('locale');
+        if (in_array($locale, ['en', 'vi'])) {
+            $resolver->setDefaults([
+                'options' => [],
+                'lastname_options' => [
+                    'attr' => [
+                        'placeholder' => 'common.last_name',
+                    ],
+                    'constraints' => [
+                        new Assert\Length([
+                            'max' => $this->eccubeConfig['eccube_name_len'],
+                        ]),
+                    ],
                 ],
-                'constraints' => [
-                    new Assert\Length([
-                        'max' => $this->eccubeConfig['eccube_name_len'],
-                    ]),
-                    new Assert\Regex([
-                        'pattern' => '/^[^\s ]+$/u',
-                        'message' => 'form_error.not_contain_spaces',
-                    ]),
+                'firstname_options' => [
+                    'attr' => [
+                        'placeholder' => 'common.first_name',
+                    ],
+                    'constraints' => [
+                        new Assert\Length([
+                            'max' => $this->eccubeConfig['eccube_name_len'],
+                        ]),
+                    ],
                 ],
-            ],
-            'firstname_options' => [
-                'attr' => [
-                    'placeholder' => 'common.first_name',
+                'lastname_name' => '',
+                'firstname_name' => '',
+                'error_bubbling' => false,
+                'inherit_data' => true,
+                'trim' => true,
+            ]);
+        } else {
+            $resolver->setDefaults([
+                'options' => [],
+                'lastname_options' => [
+                    'attr' => [
+                        'placeholder' => 'common.last_name',
+                    ],
+                    'constraints' => [
+                        new Assert\Length([
+                            'max' => $this->eccubeConfig['eccube_name_len'],
+                        ]),
+                        new Assert\Regex([
+                            'pattern' => '/^[^\s ]+$/u',
+                            'message' => 'form_error.not_contain_spaces',
+                        ]),
+                    ],
                 ],
-                'constraints' => [
-                    new Assert\Length([
-                        'max' => $this->eccubeConfig['eccube_name_len'],
-                    ]),
-                    new Assert\Regex([
-                        'pattern' => '/^[^\s ]+$/u',
-                        'message' => 'form_error.not_contain_spaces',
-                    ]),
+                'firstname_options' => [
+                    'attr' => [
+                        'placeholder' => 'common.first_name',
+                    ],
+                    'constraints' => [
+                        new Assert\Length([
+                            'max' => $this->eccubeConfig['eccube_name_len'],
+                        ]),
+                        new Assert\Regex([
+                            'pattern' => '/^[^\s ]+$/u',
+                            'message' => 'form_error.not_contain_spaces',
+                        ]),
+                    ],
                 ],
-            ],
-            'lastname_name' => '',
-            'firstname_name' => '',
-            'error_bubbling' => false,
-            'inherit_data' => true,
-            'trim' => true,
-        ]);
+                'lastname_name' => '',
+                'firstname_name' => '',
+                'error_bubbling' => false,
+                'inherit_data' => true,
+                'trim' => true,
+            ]);
+        }
     }
 
     /**

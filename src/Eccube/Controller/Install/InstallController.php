@@ -480,7 +480,9 @@ class InstallController extends AbstractController
             'ECCUBE_ADMIN_ROUTE' => isset($sessionData['admin_dir']) ? $sessionData['admin_dir'] : 'admin',
             'ECCUBE_COOKIE_PATH' => $request->getBasePath() ? $request->getBasePath() : '/',
             'ECCUBE_TEMPLATE_CODE' => 'default',
-            'ECCUBE_LOCALE' => 'ja',
+            'ECCUBE_LOCALE' => $this->eccubeConfig->get('env(eccube_locale)'),
+            'ECCUBE_TIMEZONE' => $this->eccubeConfig->get('env(eccube_timezone)'),
+            'ECCUBE_CURRENCY' => $this->eccubeConfig->get('env(eccube_currency)')
         ];
 
         $env = StringUtil::replaceOrAddEnv($env, $replacement);
@@ -824,7 +826,7 @@ class InstallController extends AbstractController
     protected function importCsv(EntityManager $em)
     {
         // for full locale code cases
-        $locale = env('ECCUBE_LOCALE', 'ja_JP');
+        $locale = $this->container->getParameter('env(eccube_locale)');
         $locale = str_replace('_', '-', $locale);
         $locales = \Locale::parseLocale($locale);
         $localeDir = is_null($locales) ? 'ja' : $locales['language'];

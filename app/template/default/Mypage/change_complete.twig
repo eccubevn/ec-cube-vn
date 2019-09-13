@@ -1,0 +1,23 @@
+
+{% extends 'default_frame.twig' %}
+
+{% set mypageno = 'change' %}
+
+{% set body_class = 'mypage' %}
+
+{% block main %}
+    {% include "Components/heading.twig" with {'title': 'front.mypage.title', 'subTitle': 'front.mypage.nav__customer_complete' } %}
+
+    {% include 'Mypage/navi.twig' %}
+    
+    <div class="row">
+        <div class="col-12">
+            <div class="jumbotron py-4 text-center bg-light">
+                <h4>{{ 'front.mypage.customer_complete_message__title'|trans }}</h4>
+                <p>{{ 'front.mypage.customer_complete_message__body'|trans }}</p>
+                <hr class="my-4">
+                <a class="btn btn-primary" href="{{ url('homepage') }}">{{ 'common.back'|trans }}</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

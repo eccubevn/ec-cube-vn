@@ -1,0 +1,38 @@
+
+{% set NewsList = repository('Eccube\\Entity\\News').getList() %}
+
+<div class="news">
+    <div class="row mb-5">
+        <h4 class="col-12 text-center pb-2">
+            {{ 'front.block.news.title__en'|trans }}
+        </h4>
+        <div class="accordion col-12" id="news-accordion">
+            {% set firstItem = NewsList|first %}
+            {% for News in NewsList %}
+                <div class="card">
+                    <div class="card-header" id="news-{{ News.id }}">
+                        <h2 class="mb-0">
+                            {% if News.description or News.url %}
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse-{{ News.id }}" aria-expanded="true" aria-controls="collapse-{{ News.id }}">
+                                    <span><small>{{ News.publish_date|date_day }}</small> - {{ News.title }}</span>
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            {% else %}
+                                {{ News.publish_date|date_day }}</small> - {{ News.title }}
+                            {% endif %}
+                        </h2>
+                    </div>
+
+                    <div id="collapse-{{ News.id }}" class="collapse" aria-labelledby="news-{{ News.id }}" data-parent="#news-accordion">
+                        <div class="card-body">
+                            <p>{{ News.description|raw|nl2br }}</p>
+                            {% if News.url %}
+                                <a class="btn btn-secondary mt-3" href="{{ News.url }}" {% if News.link_method == '1' %}target="_blank"{% endif %}>{{ 'front.block.news.see_details'|trans }}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

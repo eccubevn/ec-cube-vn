@@ -1,0 +1,403 @@
+
+{% extends 'default_frame.twig' %}
+
+{% form_theme form 'Form/form_div_layout.twig' %}
+
+{% block javascript %}
+    <script>
+        $(function() {
+            var $redirectCallback = function() {
+                loadingOverlay();
+                $('#shopping_order_redirect_to').val($(this).attr('data-path'));
+                $('#shopping-form').attr('action', '{{ url("shopping_redirect_to") }}').submit();
+                setTimeout(function () {
+                    loadingOverlay("hide");
+                }, 2000);
+            };
+            $('[data-trigger]').each(function() {
+                $(this).on($(this).attr('data-trigger'), $redirectCallback);
+            });
+
+            const $guest = $('#customer');
+            const $nonCustomerDisplay = $('.non-customer-display');
+            const $nonCustomerEdit = $('.non-customer-edit');
+            const $modButton = $('.mod-button');
+
+            {% if is_granted('ROLE_USER') == false %}
+                var edit = $('.customer-edit');
+                var hidden = $('.customer-in');
+                var form = $('.customer-form');
+
+                $('#customer').click(function() {
+                    $(edit).each(function(index) {
+                        var name = $(this).text();
+                        var input = $('<input id="edit' + index + '" type="text" class="form-control" />').val(name);
+                        $(form[index]).empty().append(input);
+                    });
+
+                    $nonCustomerDisplay.hide();
+                    $nonCustomerEdit.show();
+                    $modButton.show();
+                });
+
+                $('#customer-ok').click(function() {
+                    $(form).each(function(index) {
+                        $(hidden[index]).val($(form[index]).children('input').val());
+                    });
+
+                    var postData = {};
+                    $(hidden).each(function() {
+                        postData[$(this).attr('name')] = $(this).val();
+                    });
+
+                    loadingOverlay();
+
+                    $.ajax({
+                        url: "{{ url('shopping_customer') }}",
+                        type: 'POST',
+                        data: postData,
+                        dataType: 'json'
+                    }).done(function(data) {
+                        if (data.status == 'OK') {
+                            $(form).each(function(index) {
+                                $(edit[index]).empty().text($(form[index]).children('input').val());
+                                $(form[index]).empty();
+                            });
+
+                            // kana field
+                            $(edit[2]).empty().text(data.kana01);
+                            $(edit[3]).empty().text(data.kana02);
+                            $('#customer-kana01').val(data.kana01);
+                            $('#customer-kana02').val(data.kana02);
+                        }
+                    }).fail(function() {
+                        alert("{{ 'front.save_fail'|trans }}");
+                    }).always(function(data) {
+                        // overlayを無効
+                        loadingOverlay('hide');
+                    });
+
+                    $nonCustomerDisplay.show();
+                    $nonCustomerEdit.hide();
+                    $modButton.hide();
+                });
+
+                $('#customer-cancel').click(function() {
+                    $nonCustomerDisplay.show();
+                    $nonCustomerEdit.hide();
+                    $modButton.hide();
+                });
+            {% endif %}
+        });
+    </script>
+{% endblock javascript %}
+
+
+{% block main %}
+    {% include "Components/heading.twig" with {'title': 'front.shopping.title' } %}
+
+    {% include "Components/checkout/progress-bar.twig" with {'step3': 'is-complete' } %}
+
+    {{ include('Shopping/alert.twig') }}
+
+    <form id="shopping-form" method="post" action="{{ url('shopping_confirm') }}">
+        {{ form_widget(form._token) }}
+        {{ form_widget(form.redirect_to) }}
+        <div class="row">
+            <div class="col-md-8">
+                <div id="checkout-info" class="checkout-info mb-4">
+                    <div class="card card-account">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <b>{{ 'front.shopping.customer_info'|trans }}</b>
+                            {% if is_granted('ROLE_USER') == false %}
+                                <div class="non-customer-display">
+                                    <button id="customer" class="btn btn-primary" type="button">{{ 'common.change'|trans }}</button>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <ul class="list-group list-group-flush guest-information non-customer-display">
+                            <li class="list-group-item">
+                                {{ 'common.name'|trans }}: <span class="customer-edit customer-name01">{{ Order.name01 }}</span> <span class="customer-edit customer-name02">{{ Order.name02 }}</span>{{ 'common.name.suffix'|trans }}
+                            </li>
+                            <li class="list-group-item" style="display: none">
+                                <span class="customer-edit customer-kana01">{{ Order.kana01 }}</span> <span class="customer-edit customer-kana02">{{ Order.kana02 }}</span>
+                            </li>
+                            <li class="list-group-item">
+                                {{ 'common.company_name'|trans }}: <span class="customer-edit customer-company_name">{{ Order.companyName }}</span>
+                            </li>
+                            <li class="list-group-item">
+                                {{ 'common.postal_code'|trans }}: <span class="customer-edit customer-postal_code">{{ Order.postal_code }}</span>
+                            </li>
+                            <li class="list-group-item">
+                                {{ 'common.address'|trans }}: <span class="customer-edit customer-addr02">{{ Order.addr02 }}</span> <span class="customer-edit customer-addr01">{{ Order.addr01 }}</span> <span class="customer-edit customer-pref">{{ Order.pref }}</span>
+                            </li>
+                            <li class="list-group-item">
+                                {{ 'common.phone_number'|trans }}: <span class="customer-edit customer-phone_number">{{ Order.phone_number }}</span>
+                            </li>
+                            <li class="list-group-item">
+                                {{ 'common.mail_address'|trans }}: <span class="customer-edit customer-email">{{ Order.email }}</span>
+                            </li>
+                        </ul>
+                        {% if is_granted('ROLE_USER') == false %}
+                            <div class="card-body non-customer-edit" style="display:none;">
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        <label class="col-form-label required">{{ 'common.name'|trans }}</label>
+                                        <span class="ec-required">{{ 'common.required'|trans }}</span>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span class="customer-form customer-name01"></span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span class="customer-form customer-name02"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row" style="display: none">
+                                    <div class="col-sm-4">
+                                        <label class="col-form-label required">{{ 'common.kana'|trans }}</label>
+                                        <span class="ec-required">{{ 'common.required'|trans }}</span>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span class="customer-form customer-kana01"></span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span class="customer-form customer-kana02"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        <label class="col-form-label" for="nonmember_company_name">{{ 'common.company_name'|trans }}</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <span class="customer-form customer-company_name"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        <label class="col-form-label">{{ 'common.postal_code'|trans }}</label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-row">
+                                                    <div class="col-auto w-50">
+                                                        <span class="customer-form customer-postal_code"></span>
+                                                    </div>
+                                                    <div class="col-auto w-50 d-flex align-items-center">
+                                                        <i class="fas fa-question-circle mx-2"></i>
+                                                        <a href="{{ url('help_postalcode') }}" target="_blank">
+                                                            <span>{{ 'common.search_postal_code'|trans }}</span>
+                                                        </a>
+                                                    </div>
+                                                </div>                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        <label class="col-form-label required">{{ 'common.address'|trans }}</label>
+                                        <span class="ec-required">{{ 'common.required'|trans }}</span>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="row mb-3">
+                                            <div class="col-12">
+                                                <span class="customer-form customer-address_addr01"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-12">
+                                                <span class="customer-form customer-address_addr02"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <span class="customer-form customer-address_pref"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        <label class="col-form-label required" for="nonmember_phone_number">{{ 'common.phone_number'|trans }}</label>
+                                        <span class="ec-required">{{ 'common.required'|trans }}</span>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <span class="customer-form customer-phone_number"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-4">
+                                        <label class="col-form-label required">{{ 'common.mail_address'|trans }}</label>
+                                        <span class="ec-required">{{ 'common.required'|trans }}</span>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <span class="customer-form customer-email"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-8">
+                                        <div class="mod-button" style="display:none;">
+                                            <span id="customer-ok"><button type="button" class="btn btn-primary">{{ 'common.ok'|trans }}</button></span>
+                                            <span id="customer-cancel"><button type="button" class="btn btn-secondary">{{ 'common.cancel'|trans }}</button></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <input type="hidden" id="customer-name01" class="customer-in" name="customer_name01" value="{{ Order.name01 }}">
+                            <input type="hidden" id="customer-name02" class="customer-in" name="customer_name02" value="{{ Order.name02 }}">
+                            <input type="hidden" id="customer-kana01" class="customer-in" name="customer_kana01" value="{{ Order.kana01 }}">
+                            <input type="hidden" id="customer-kana02" class="customer-in" name="customer_kana02" value="{{ Order.kana02 }}">
+                            <input type="hidden" id="customer-company-name" class="customer-in" name="customer_company_name" value="{{ Order.companyName }}">
+                            <input type="hidden" id="customer-postal_code" class="customer-in" name="customer_postal_code" value="{{ Order.postal_code }}">
+                            <input type="hidden" id="customer-addr01" class="customer-in" name="customer_addr01" value="{{ Order.addr01 }}">
+                            <input type="hidden" id="customer-addr02" class="customer-in" name="customer_addr02" value="{{ Order.addr02 }}">
+                            <input type="hidden" id="customer-pref" class="customer-in" name="customer_pref" value="{{ Order.pref }}">
+                            <input type="hidden" id="customer-phone_number" class="customer-in" name="customer_phone_number" value="{{ Order.phone_number }}">
+                            <input type="hidden" id="customer-email" class="customer-in" name="customer_email" value="{{ Order.email }}">
+                        {% endif %}
+                    </div>
+                </div>
+                <div id="checkout-delivery" class="checkout-delivery mb-4">
+                    <div class="alert alert-primary" role="alert">
+                        <b>{{ 'front.shopping.delivery_info'|trans }}</b>
+                    </div>
+                    {% for shipping in Order.shippings %}
+                        {% set idx = loop.index0 %}
+                        <div class="card mb-4">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <b>{{ 'front.shopping.delivery_to'|trans }} {% if Order.multiple %}({{ loop.index }}){% endif %}</b>
+                                {% if is_granted('ROLE_USER') %}
+                                    <button class="btn btn-primary" data-id="{{ shipping.id }}" data-trigger="click" data-path="{{ path('shopping_shipping', {'id': shipping.id}) }}">{{ 'common.change'|trans }}</button>
+                                {% else %}
+                                    <button class="btn btn-primary" data-id="{{ shipping.id }}" data-trigger="click" data-path="{{ path('shopping_shipping_edit', {'id': shipping.id}) }}">{{ 'common.change'|trans }}</button>
+                                {% endif %}
+                            </div>
+                            <div class="card-body">
+                                <div class="delivery-items">
+                                    {% for orderItem in shipping.productOrderItems %}
+                                        <div class="media py-2">
+                                            {# Image #}
+                                            {% include "Components/product/image.twig" with {'product': orderItem.Product, 'imgClass': 'align-self-center mr-3 img-thumbnail rounded-0 product-thumb'} %}
+
+                                            <div class="media-body align-self-center">
+                                                {# Name #}
+                                                {% include "Components/product/name.twig" with {'product': orderItem.Product, type: 'text'} %}
+
+                                                {# Options #}
+                                                {% include "Components/product/options.twig" with {'productClass': orderItem.productClass} %}
+
+                                                {# Price #}
+                                                {% include "Components/product/price.twig" with {'product': orderItem, type: 'checkout'} %}
+
+                                                <p>
+                                                    <b>{{ 'common.subtotal__with_separator'|trans }}</b>
+                                                    <span class="text-danger">{{ orderItem.totalPrice|price }}</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="delivery-address card-body border-top">
+                                <p><b>{{ 'common.name'|trans }}:</b> {{ shipping.name01|format_name(shipping.name02) }}</p>
+                                <p><b>{{ 'common.address'|trans }}:</b> {{ format_address(shipping.addr01, shipping.addr02, shipping.pref, shipping.postal_code) }}</p>
+                                <p><b>{{ 'common.phone_number'|trans }}:</b> {{ shipping.phone_number }}</p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="delivery-actions">
+                                    <div class="row">
+                                        <div class="ec-select__provider form-group col-md-6">
+                                            <label>{{ 'front.shopping.delivery_provider'|trans }}</label>
+                                            {{ form_widget(form.Shippings[idx].Delivery, { 'attr': { 'class': 'form-control', 'data-trigger': 'change', 'aria-label': 'Phương thức giao hàng' }}) }}
+                                            {{ form_errors(form.Shippings[idx].Delivery) }}
+                                        </div>
+                                        <div class="ec-select__delivery form-group col-md-3">
+                                            <label>{{ 'front.shopping.delivery_date'|trans }}</label>
+                                            {{ form_widget(form.Shippings[idx].shipping_delivery_date, {'attr': {'class': 'form-control', 'aria-label': 'Ngày giao'}}) }}
+                                            {{ form_errors(form.Shippings[idx].shipping_delivery_date) }}
+                                        </div>
+                                        <div class="ec-select__time form-group col-md-3">
+                                            <label>{{ 'front.shopping.delivery_time'|trans }}</label>
+                                            {{ form_widget(form.Shippings[idx].DeliveryTime, {'attr': {'class': 'form-control', 'aria-label': 'Giờ giao'}}) }}
+                                            {{ form_errors(form.Shippings[idx].DeliveryTime) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="ec-orderDelivery__edit">
+                        <button type="button" class="btn btn-primary" data-trigger="click" data-path="{{ path('shopping_shipping_multiple') }}">{{ 'front.shopping.to_multiple'|trans }}</button>
+                    </div>
+                </div>
+                <div id="checkout-billing" class="checkout-billing mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <b>{{ 'front.shopping.payment_info'|trans }}</b>
+                        </div>
+                        <div class="card-body">
+                            {% for key, child in form.Payment %}
+                                <div style="display: block;">
+                                    {% set Payment = form.Payment.vars.choices[key].data %}
+
+                                    {{ form_widget(child, { 'attr': { 'data-trigger': 'change' }}) }}
+
+                                    {% if Payment.payment_image is not null %}
+                                        <p><img src="{{ asset(Payment.payment_image, 'save_image') }}"></p>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="ec-input {{ has_errors(form.Payment) ? ' error' }}">{{ form_errors(form.Payment) }}</div>
+                </div>
+                {% if BaseInfo.isOptionPoint and Order.Customer is not null %}
+                    <div id="checkout-points" class="checkout-billing mb-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <b>{{ 'front.shopping.point_info'|trans }}</b>
+                            </div>
+                            <div class="card-body">
+                                <div class="ec-input {{ has_errors(form.use_point) ? ' error' }}">
+                                    <label>{{ 'front.shopping.available_point'|trans({ '%point%': Order.Customer.Point|number_format }) }}</label>
+                                    {{ form_widget(form.use_point, { 'attr': { 'type': 'text', 'class': 'form-control', 'data-trigger': 'change', 'aria-label': 'Điểm' }}) }}
+                                    {{ form_errors(form.use_point) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                <div id="checkout-message" class="checkout-message mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <b>{{ form_label(form.message, 'front.shopping.message_info') }}</b>
+                        </div>
+                        <div class="card-body p-0">
+                            {{ form_widget(form.message, {'attr': {'class': 'form-control border-0 rounded-0', 'placeholder': 'front.shopping.message_placeholder'|trans, 'rows': '6'}}) }}
+                            {{ form_errors(form.message) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                {% include "Components/checkout/order-summary.twig" %}
+            </div>
+        </div>
+    </form>
+{% endblock %}

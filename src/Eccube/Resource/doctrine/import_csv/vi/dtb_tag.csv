@@ -1,0 +1,4 @@
+id,name,sort_no,discriminator_type
+1,Sản phẩm mới,1,tag
+2,Lựa chọn của chúng tôi,2,tag
+3,Sản phẩm giới hạn,3,tag

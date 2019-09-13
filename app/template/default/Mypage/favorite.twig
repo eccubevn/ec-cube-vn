@@ -1,0 +1,57 @@
+
+{% extends 'default_frame.twig' %}
+
+{% set mypageno = 'favorite' %}
+
+{% set body_class = 'mypage' %}
+
+{% block main %}
+    {% include "Components/heading.twig" with {'title': 'front.mypage.title', 'subTitle': 'front.mypage.nav__favorite' } %}
+    
+    {% include 'Mypage/navi.twig' %}
+    <div id="my-account-favorite" class="row">
+        <div class="col-md-12">
+            {% if pagination.totalItemCount > 0 %}
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <b>{{ 'front.mypage.favorite_count'|trans({'%count%':pagination.totalItemCount}) }}</b>
+                    </div>
+                    <div class="card-body pb-0">
+                        <div class="row">
+                            {% for FavoriteProduct in pagination %}
+                                {% set Product = FavoriteProduct.Product %}
+                                <div class="col-sm-6 col-md-4 col-lg-3 mb-4 d-flex align-items-stretch">
+                                    <div class="card">
+                                        {# Image #}
+                                        {% include "Components/product/image.twig" with {'product': Product, 'type': 'link', 'imgClass': 'rounded-top'} %}
+
+                                        <div class="card-body">
+                                            {# Name #}
+                                            {% include "Components/product/name.twig" with {'product': Product, 'type': 'text', class: 'h6 card-title'} %}
+
+                                            {# Price #}
+                                            {% include "Components/product/price.twig" with {'product': Product, type: 'list'} %}
+                                        </div>
+                                        <div class="card-footer">
+                                            <a class="btn btn-danger btn-block"
+                                            href="{{ url('mypage_favorite_delete', { id : Product.id }) }}" {{ csrf_token_for_anchor() }}
+                                            data-method="delete">
+                                                {{ 'common.delete'|trans }}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        
+                        </div>
+                    </div>
+                </div>
+                {% include "pager.twig" with {'pages': pagination.paginationData, 'class': 'mb-4'} %}
+            {% else %}
+                <div class="alert alert-primary" role="alert">
+                    {{ 'front.mypage.favorite_not_found'|trans }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

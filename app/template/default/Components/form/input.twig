@@ -1,0 +1,24 @@
+{% extends 'Components/form/base_input.twig' %}
+{% set custom_class = customClass|default('') %}
+
+{% block formLabel %}
+  {{ form_label(form[field], label, { 'label_attr': { 'class': 'col-form-label' }}) }}
+{% endblock %}
+
+{% block formContent %}
+  <div class="row {{ has_errors(form[field]) ? 'is-invalid'}}">
+    <div class="col-12">
+      {{ form_widget(form[field], { 'attr': 
+                                    { 
+                                      'class': 'form-control',
+                                      'placeholder' : placeholder|default('')|trans
+                                    }
+                                  }) 
+      }}
+      {{ form_errors(form[field]) }}
+      {% if help|default('false') %}
+          <small class="form-text text-muted">{{ helpText|default('')|trans }}</small> 
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

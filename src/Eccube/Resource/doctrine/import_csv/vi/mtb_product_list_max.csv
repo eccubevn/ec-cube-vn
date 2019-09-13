@@ -1,0 +1,4 @@
+id,name,sort_no,discriminator_type
+20,20 mục,0,productlistmax
+40,40 mục,1,productlistmax
+60,60 mục,2,productlistmax

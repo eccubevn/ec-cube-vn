@@ -71,9 +71,7 @@ class CustomerType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('postal_code', PostalType::class, [
-                'required' => true,
-            ])
+            ->add('postal_code', PostalType::class)
             ->add('address', AddressType::class, [
                 'required' => true,
             ])
@@ -101,8 +99,11 @@ class CustomerType extends AbstractType
                 'input' => 'datetime',
                 'years' => range(date('Y'), date('Y') - $this->eccubeConfig['eccube_birth_max']),
                 'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
+                'format' => $this->eccubeConfig->get('eccube_form_date_format'),
                 'placeholder' => ['year' => '----', 'month' => '--', 'day' => '--'],
+                'attr' => [
+                    'data-toggle' => 'datepicker'
+                ],
                 'constraints' => [
                     new Assert\LessThanOrEqual([
                         'value' => date('Y-m-d', strtotime('-1 day')),

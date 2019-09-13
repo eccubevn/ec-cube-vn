@@ -1,0 +1,35 @@
+
+{% extends 'default_frame.twig' %}
+
+{% set mypageno = 'withdraw' %}
+
+{% set body_class = 'mypage' %}
+
+{% block main %}
+    {% include "Components/heading.twig" with {'title': 'front.mypage.title', 'subTitle': 'front.mypage.nav__withdrow' } %}
+
+    {% include 'Mypage/navi.twig' %}
+
+    <div class="row">
+        <div class="col-12">
+            <form method="post" action="{{ url('mypage_withdraw') }}">
+                {{ form_widget(form._token) }}
+                <div class="jumbotron py-4 text-center bg-light">
+                    <span class="display-2"><i class="text-danger fas fa-bomb"></i></span>
+                    <h4>{{ 'front.mypage.withdraw_execute_message__title'|trans }}</h4>
+                    <p>{{ 'front.mypage.withdraw_message__body'|trans }}</p>
+                    <hr class="my-4">
+                    <form method="post" action="{{ url('mypage_withdraw') }}">
+                        {{ form_widget(form._token) }}
+                        <a class="btn btn-primary" href="{{ url('mypage') }}">
+                            {{ 'front.mypage.withdraw_cancel'|trans }}
+                        </a>
+                        <button type="submit" class="btn btn-secondary" name="mode" value="complete">
+                            {{ 'front.mypage.withdraw_execute'|trans }}
+                        </button>
+                    </form>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,230 @@
+
+{% extends 'default_frame.twig' %}
+
+{% set mypageno = 'index' %}
+
+{% set body_class = 'mypage' %}
+
+{% block main %}
+    {% include "Components/heading.twig" with {'title': 'front.mypage.title', 'subTitle': 'front.mypage.nav__history_detail' } %}
+
+    {% include 'Mypage/navi.twig' %}
+
+    {% set remessage = false %}
+
+    <div id="my-account-history-detail" class="row">
+        <div class="col-md-8">
+            <div class="checkout-info mb-4">
+                <div class="card card-account">
+                    <ul class="list-group list-group-flush guest-information non-customer-display">
+                        <li class="list-group-item">
+                            <b>{{ 'front.mypage.order_date'|trans }}:</b>
+                            {{ Order.create_date|date_sec }}
+                        </li>
+                        <li class="list-group-item">
+                            <b>{{ 'front.mypage.order_no'|trans }}</b>
+                            {{ Order.order_no }}
+                        </li>
+                        {% if BaseInfo.option_mypage_order_status_display %}
+                            <li class="list-group-item">
+                                <b>{{ 'front.mypage.order_status'|trans }}:</b>
+                                {{ Order.CustomerOrderStatus }}
+                            </li>
+                        {% endif %}
+                        {% if BaseInfo.isOptionPoint %}
+                            <li class="list-group-item">
+                                <b>{{ 'front.mypage.use_point'|trans }}:</b>
+                                {{ Order.usePoint }} {{ 'common.point'|trans }}
+                            </li>
+                            <li class="list-group-item">
+                                <b>{{ 'front.mypage.add_point'|trans }}:</b>
+                                {{ Order.addPoint }} {{ 'common.point'|trans }}
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="checkout-delivery mb-4">
+                <div class="alert alert-primary" role="alert">
+                    <b>{{ 'front.mypage.delivery_info'|trans }}</b>
+                </div>
+                {% for Shipping in Order.Shippings %}
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <b>{{ 'front.mypage.delivery_info'|trans }}{% if Order.multiple %} {{ loop.index }}{% endif %}</b>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="delivery-items p-3">
+                                {% for orderItem in Shipping.productOrderItems %}
+                                    <div class="media py-2">
+                                        {# Image #}
+                                        {% include "Components/product/image.twig" with {'product': orderItem.Product, 'imgClass': 'align-self-center mr-3 img-thumbnail rounded-0 product-thumb'} %}
+
+                                        <div class="media-body align-self-center">
+                                            <div class="name-x-quantity h6">
+                                                {% if orderItem.Product is not null and orderItem.Product.Status.id == constant('Eccube\\Entity\\Master\\ProductStatus::DISPLAY_SHOW') %}
+                                                    {# Name with link #}
+                                                    {% include "Components/product/name.twig" with {'product': orderItem.Product} %} 
+                                                {% else %}
+                                                    {# Name #} 
+                                                    {% include "Components/product/name.twig" with {'product': orderItem.Product, type: 'text'} %}
+                                                {% endif %} × {{ orderItem.quantity }}
+                                            </div>
+
+                                            {# Options #}
+                                            {% include "Components/product/options.twig" with {'productClass': orderItem.ProductClass} %}
+                                            
+                                            {# Price #}
+                                            {% include "Components/product/price.twig" with {'product': orderItem, type: 'checkout'} %}
+                                           
+                                            {% if orderItem.product and orderItem.price_inc_tax != orderItem.productClass.price02IncTax %}
+                                                <p class="ec-color-accent">
+                                                    <b>{{ 'front.mypage.current_price'|trans }}</b>
+                                                    <span>{{ orderItem.productClass.price02IncTax|price }}</span>
+                                                </p>
+                                                {% set remessage = true %}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <div class="card-header border-top">
+                                {{ 'front.shopping.customer_info'|trans }}{% if Order.multiple %} {{ loop.index }}{% endif %}
+                            </div>
+                            <div class="delivery-address card-body">
+                                <p>{{ Shipping.name01|format_name(Shipping.name02) }}</p>
+                                <p>{{ format_address(Shipping.addr01, Shipping.addr02, Shipping.pref, Shipping.postal_code) }}</p>
+                                <p>{{ Shipping.phone_number }}</p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="delivery-actions">
+                                    <div class="mb-2">
+                                        <b>{{ 'front.mypage.delivery_provider'|trans }}:</b>
+                                        {{ Shipping.shipping_delivery_name }}
+                                    </div>
+                                    <div class="mb-2">
+                                        <b>{{ 'front.mypage.delivery_date'|trans }}:</b>
+                                        {{ Shipping.shipping_delivery_date|date_day_with_weekday|default('common.select__unspecified'|trans) }}
+                                    </div>
+                                    <div class="mb-2">
+                                        <b>{{ 'front.mypage.delivery_time'|trans }}:</b>
+                                        {{ Shipping.shipping_delivery_time|default('common.select__unspecified'|trans) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="checkout-billing mb-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <b>{{ 'front.mypage.payment_info'|trans }}</b>
+                    </div>
+                    <div class="card-body">
+                        <b>{{ 'front.mypage.payment'|trans }}:</b> {{ Order.PaymentMethod }}
+                    </div>
+                </div>
+            </div>
+            {% if Order.message %} 
+                <div class="checkout-message mb-4">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <b>{{ 'front.mypage.message'|trans }}</b>
+                        </div>
+                        <div class="card-body">
+                            {{ Order.message|nl2br|default('front.mypage.message_not_found'|trans) }}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="order-emails mb-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <b>{{ 'front.mypage.mail_list'|trans }}</b>
+                    </div>
+                    <div class="card-body">
+                        <div class="accordion" id="accordion-mail">
+                            {% for MailHistory in Order.MailHistories %}
+                                <div class="card">
+                                    <div class="card-header" id="heading-mail-{{ loop.index }}">
+                                    <h2 class="mb-0">
+                                        <a class="text-decoration-none d-block h6 mb-0" data-toggle="collapse" href="#collapse-mail-{{ loop.index }}" role="button" aria-expanded="false" aria-controls="collapse-mail-{{ loop.index }}">
+                                            <span class="d-block">{{ MailHistory.mail_subject }}</span>
+                                            <small class="text-muted">{{ MailHistory.send_date|date_sec }}</small>
+                                        </a>
+                                    </h2>
+                                    </div>
+                                    <div id="collapse-mail-{{ loop.index }}" class="collapse" aria-labelledby="heading-mail-{{ loop.index }}" data-parent="#accordion-mail">
+                                        <div class="card-body">
+                                            {{ MailHistory.mail_body|nl2br }}
+                                            <a class="btn btn-primary btn-block mt-4" data-toggle="collapse" href="#collapse-mail-{{ loop.index }}" role="button" aria-expanded="false" aria-controls="collapse-mail-{{ loop.index }}">
+                                                {{ 'common.close'|trans }}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="alert alert-warning" role="alert">
+                                    {{ 'front.mypage.mail_not_found'|trans }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <b>{{ 'common.subtotal'|trans }}</b>
+                        <span class="font-weight-bold">{{ Order.subtotal|price }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ 'common.charge'|trans }}
+                        <span>{{ Order.charge|price }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ 'common.delivery_fee'|trans }}
+                        <span>{{ Order.delivery_fee_total|price }}</span>
+                    </li>
+                    {% if Order.discount > 0 %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ 'common.discount'|trans }}
+                            <span>{{ (0 - Order.discount)|price }}</span>
+                        </li>
+                    {% endif %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <b>{{ 'common.total'|trans }}</b>
+                        <p class="text-danger font-weight-bold">
+                            <span class="h4">{{ Order.payment_total|price }}</span>
+                            <span class="h6">{{ 'common.tax_include'|trans }}</span>
+                        </p>
+                    </li>
+                </ul>
+                <div class="card-footer">
+                    {% if stockOrder %}
+                        <a href="{{ url('mypage_order', {'order_no': Order.order_no }) }}"
+                    class="btn btn-primary btn-block load-overlay" {{ csrf_token_for_anchor() }} data-method="put"
+                    data-confirm="false">
+                        {{ 'front.mypage.reorder'|trans }}
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+            {% if remessage %}
+                <div class="alert alert-danger mt-2" role="alert">
+                    <strong>{{ 'front.mypage.reorder_message'|trans }}</strong>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <a href="{{ url('mypage') }}" class="btn btn-primary d-block d-md-inline-block">{{ 'common.back'|trans }}</a>
+        </div>
+    </div>
+{% endblock %}

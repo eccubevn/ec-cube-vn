@@ -1,0 +1,18 @@
+
+{% extends 'default_frame.twig' %}
+
+{% set body_class = 'registration_page' %}
+
+{% block main %}
+    {% include "Components/heading.twig" with {'title': 'front.entry.complete_title__temporary' } %}
+    <div class="row">
+        <div class="col-12">
+            <div class="jumbotron py-4 text-center bg-light">
+                <h4>{{ 'front.entry.complete_message__title'|trans }}</h4>
+                <p>{{ 'front.entry.complete_message__temporary'|trans|nl2br }}</p>
+                <hr class="my-4">
+                <a class="btn btn-primary" href="{{ url('homepage') }}">{{ 'common.go_to_top'|trans }}</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

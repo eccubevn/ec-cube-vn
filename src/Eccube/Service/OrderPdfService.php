@@ -22,7 +22,10 @@ use Eccube\Repository\OrderPdfRepository;
 use Eccube\Repository\OrderRepository;
 use Eccube\Repository\ShippingRepository;
 use Eccube\Twig\Extension\EccubeExtension;
+use Eccube\Twig\Extension\IntlExtension;
+use Eccube\Util\LocaleUtil;
 use setasign\Fpdi\TcpdfFpdi;
+use Twig\Environment;
 
 /**
  * Class OrderPdfService.
@@ -52,6 +55,16 @@ class OrderPdfService extends TcpdfFpdi
      */
     private $eccubeExtension;
 
+    /**
+     * @var IntlExtension
+     */
+    private $intlExtension;
+
+    /**
+     * @var Environment
+     */
+    private $environment;
+
     // ====================================
     // 定数宣言
     // ====================================
@@ -69,7 +82,12 @@ class OrderPdfService extends TcpdfFpdi
     // ====================================
 
     /** @var BaseInfo */
-    public $baseInfoRepository;
+    protected $baseInfoRepository;
+
+    /**
+     * @var mixed default font when export
+     */
+    private $font;
 
     /** 購入詳細情報 ラベル配列
      * @var array
@@ -106,14 +124,17 @@ class OrderPdfService extends TcpdfFpdi
 
     /**
      * OrderPdfService constructor.
-     *
      * @param EccubeConfig $eccubeConfig
      * @param OrderRepository $orderRepository
      * @param ShippingRepository $shippingRepository
      * @param TaxRuleService $taxRuleService
      * @param BaseInfoRepository $baseInfoRepository
+     * @param EccubeExtension $eccubeExtension
+     * @param IntlExtension $intlExtension
+     * @param Environment $environment
+     * @throws \Exception
      */
-    public function __construct(EccubeConfig $eccubeConfig, OrderRepository $orderRepository, ShippingRepository $shippingRepository, TaxRuleService $taxRuleService, BaseInfoRepository $baseInfoRepository, EccubeExtension $eccubeExtension)
+    public function __construct(EccubeConfig $eccubeConfig, OrderRepository $orderRepository, ShippingRepository $shippingRepository, TaxRuleService $taxRuleService, BaseInfoRepository $baseInfoRepository, EccubeExtension $eccubeExtension, IntlExtension $intlExtension, Environment $environment)
     {
         $this->eccubeConfig = $eccubeConfig;
         $this->baseInfoRepository = $baseInfoRepository->get();
@@ -121,18 +142,21 @@ class OrderPdfService extends TcpdfFpdi
         $this->shippingRepository = $shippingRepository;
         $this->taxRuleService = $taxRuleService;
         $this->eccubeExtension = $eccubeExtension;
+        $this->intlExtension = $intlExtension;
+        $this->environment = $environment;
+        $this->font = $this->eccubeConfig->get('eccube_order_pdf_font');
         parent::__construct();
 
         // 購入詳細情報の設定を行う
         // 動的に入れ替えることはない
-        $this->labelCell[] = '商品名 / 商品コード';
-        $this->labelCell[] = '数量';
-        $this->labelCell[] = '単価';
-        $this->labelCell[] = '金額(税込)';
+        $this->labelCell[] = trans('order_pdf.service.detail.col1');
+        $this->labelCell[] = trans('order_pdf.service.detail.col2');
+        $this->labelCell[] = trans('order_pdf.service.detail.col3');
+        $this->labelCell[] = trans('order_pdf.service.detail.col4');
         $this->widthCell = [110.3, 12, 21.7, 24.5];
 
         // Fontの設定しておかないと文字化けを起こす
-        $this->SetFont(self::FONT_SJIS);
+        $this->SetFont($this->font);
 
         // PDFの余白(上左右)を設定
         $this->SetMargins(15, 20);
@@ -143,7 +167,7 @@ class OrderPdfService extends TcpdfFpdi
         // フッターの出力を無効化
         $this->setPrintFooter(true);
         $this->setFooterMargin();
-        $this->setFooterFont([self::FONT_SJIS, '', 8]);
+        $this->setFooterFont([$this->font, '', 8]);
     }
 
     /**
@@ -166,7 +190,8 @@ class OrderPdfService extends TcpdfFpdi
     public function makePdf(array $formData)
     {
         // 発行日の設定
-        $this->issueDate = '作成日: '.$formData['issue_date']->format('Y年m月d日');
+        $this->issueDate = trans('order_pdf.service.print_date', ['%date%' => $this->intlExtension->date_day($this->environment, $formData['issue_date'])]);
+
         // ダウンロードファイル名の初期化
         $this->downloadFileName = null;
 
@@ -194,12 +219,14 @@ class OrderPdfService extends TcpdfFpdi
 
             // テンプレートファイルを読み込む
             $Order = $Shipping->getOrder();
+            $pathFile = $this->eccubeConfig->get('eccube_html_admin_dir') . '/assets/pdf';
             if ($Order->isMultiple()) {
                 // 複数配送の時は読み込むテンプレートファイルを変更する
-                $userPath = $this->eccubeConfig->get('eccube_html_admin_dir').'/assets/pdf/nouhinsyo_multiple.pdf';
+                $fileName = 'nouhinsyo_multiple.pdf';
             } else {
-                $userPath = $this->eccubeConfig->get('eccube_html_admin_dir').'/assets/pdf/nouhinsyo.pdf';
+                $fileName = 'nouhinsyo.pdf';
             }
+            $userPath = LocaleUtil::convertPath($pathFile, $fileName);
             $this->setSourceFile($userPath);
 
             // PDFにページを追加する
@@ -248,9 +275,9 @@ class OrderPdfService extends TcpdfFpdi
         if (!is_null($this->downloadFileName)) {
             return $this->downloadFileName;
         }
-        $this->downloadFileName = self::DEFAULT_PDF_FILE_NAME;
+        $this->downloadFileName = trans('order_pdf.service.file_name');
         if ($this->PageNo() == 1) {
-            $this->downloadFileName = 'nouhinsyo-No'.$this->lastOrderId.'.pdf';
+            $this->downloadFileName = trans('order_pdf.service.file_name_multiple', ['%order_id%' => $this->lastOrderId ]);
         }
 
         return $this->downloadFileName;
@@ -297,17 +324,17 @@ class OrderPdfService extends TcpdfFpdi
         $this->lfText(125, 69, $this->baseInfoRepository->getAddr02(), 8);
 
         // 電話番号
-        $text = 'TEL: '.$this->baseInfoRepository->getPhoneNumber();
+        $text = trans('order_pdf.service.tel', ['%tel%' => $this->baseInfoRepository->getPhoneNumber()]);
         $this->lfText(125, 72, $text, 8); //TEL・FAX
 
         // メールアドレス
         if (strlen($this->baseInfoRepository->getEmail01()) > 0) {
-            $text = 'Email: '.$this->baseInfoRepository->getEmail01();
+            $text = trans('order_pdf.service.email', ['%email%' => $this->baseInfoRepository->getEmail01()]);
             $this->lfText(125, 75, $text, 8); // Email
         }
 
         // ロゴ画像(app配下のロゴ画像を優先して読み込む)
-        $logoFile = $this->eccubeConfig->get('eccube_html_admin_dir').'/assets/pdf/logo.png';
+        $logoFile = LocaleUtil::convertPath($this->eccubeConfig->get('eccube_html_admin_dir').'/assets/pdf', 'logo.png');
         $this->Image($logoFile, 124, 46, 40);
     }
 
@@ -335,10 +362,10 @@ class OrderPdfService extends TcpdfFpdi
 
         $this->Cell(0, 10, '', 0, 1, 'C', 0, '');
 
-        $this->SetFont(self::FONT_GOTHIC, 'B', 9);
-        $this->MultiCell(0, 6, '＜ 備考 ＞', 'T', 2, 'L', 0, '');
+        $this->SetFont($this->font, 'B', 9);
+        $this->MultiCell(0, 6, trans('order_pdf.service.note'), 'T', 2, 'L', 0, '');
 
-        $this->SetFont(self::FONT_SJIS, '', 8);
+        $this->SetFont($this->font, '', 8);
 
         $this->Ln();
         // rtrimを行う
@@ -363,7 +390,7 @@ class OrderPdfService extends TcpdfFpdi
         $this->backupFont();
 
         //文書タイトル（納品書・請求書）
-        $this->SetFont(self::FONT_GOTHIC, '', 15);
+        $this->SetFont($this->font, '', 15);
         $this->Cell(0, 10, $title, 0, 2, 'C', 0, '');
         $this->Cell(0, 66, '', 0, 2, 'R', 0, '');
         $this->Cell(5, 0, '', 0, 0, 'R', 0, '');
@@ -398,18 +425,18 @@ class OrderPdfService extends TcpdfFpdi
         $this->lfText(27, 51, $Shipping->getAddr02(), 10); //購入者住所2
 
         // 購入者氏名
-        $text = $Shipping->getName01().'　'.$Shipping->getName02().'　様';
+        $text = trans('common.user_name', ['%last_name%' => $Shipping->getName02(), '%first_name%' => $Shipping->getName01()]);
         $this->lfText(27, 59, $text, 11);
 
         // =========================================
         // お買い上げ明細部
         // =========================================
-        $this->SetFont(self::FONT_SJIS, '', 10);
+        $this->SetFont($this->font, '', 10);
 
         //ご注文日
-        $orderDate = $Order->getCreateDate()->format('Y/m/d H:i');
+        $orderDate = $this->intlExtension->date_sec($this->environment, $Order->getCreateDate());
         if ($Order->getOrderDate()) {
-            $orderDate = $Order->getOrderDate()->format('Y/m/d H:i');
+            $orderDate = $this->intlExtension->date_sec($this->environment, $Order->getOrderDate());
         }
 
         $this->lfText(25, 125, $orderDate, 10);
@@ -418,7 +445,7 @@ class OrderPdfService extends TcpdfFpdi
 
         // 総合計金額
         if (!$Order->isMultiple()) {
-            $this->SetFont(self::FONT_SJIS, 'B', 15);
+            $this->SetFont($this->font, 'B', 15);
             $paymentTotalText = $this->eccubeExtension->getPriceFilter($Order->getPaymentTotal());
 
             $this->setBasePosition(120, 95.5);
@@ -492,31 +519,31 @@ class OrderPdfService extends TcpdfFpdi
             ++$i;
             $arrOrder[$i][0] = '';
             $arrOrder[$i][1] = '';
-            $arrOrder[$i][2] = '商品合計';
+            $arrOrder[$i][2] = trans('order_pdf.service.subtotal');
             $arrOrder[$i][3] = $this->eccubeExtension->getPriceFilter($Order->getSubtotal());
 
             ++$i;
             $arrOrder[$i][0] = '';
             $arrOrder[$i][1] = '';
-            $arrOrder[$i][2] = '送料';
+            $arrOrder[$i][2] = trans('order_pdf.service.delivery_fee');
             $arrOrder[$i][3] = $this->eccubeExtension->getPriceFilter($Order->getDeliveryFeeTotal());
 
             ++$i;
             $arrOrder[$i][0] = '';
             $arrOrder[$i][1] = '';
-            $arrOrder[$i][2] = '手数料';
+            $arrOrder[$i][2] = trans('order_pdf.service.charge');
             $arrOrder[$i][3] = $this->eccubeExtension->getPriceFilter($Order->getCharge());
 
             ++$i;
             $arrOrder[$i][0] = '';
             $arrOrder[$i][1] = '';
-            $arrOrder[$i][2] = '値引き';
+            $arrOrder[$i][2] = trans('order_pdf.service.discount');
             $arrOrder[$i][3] = '- '.$this->eccubeExtension->getPriceFilter($Order->getDiscount());
 
             ++$i;
             $arrOrder[$i][0] = '';
             $arrOrder[$i][1] = '';
-            $arrOrder[$i][2] = '請求金額';
+            $arrOrder[$i][2] = trans('order_pdf.service.payment_total');
             $arrOrder[$i][3] = $this->eccubeExtension->getPriceFilter($Order->getPaymentTotal());
         }
 
@@ -568,7 +595,7 @@ class OrderPdfService extends TcpdfFpdi
         $this->SetTextColor(0);
         $this->SetDrawColor(0, 0, 0);
         $this->SetLineWidth(.3);
-        $this->SetFont(self::FONT_SJIS, 'B', 8);
+        $this->SetFont($this->font, 'B', 8);
         $this->SetFont('', 'B');
 
         // Header

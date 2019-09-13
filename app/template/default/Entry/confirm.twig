@@ -1,0 +1,153 @@
+
+{% extends 'default_frame.twig' %}
+
+{% set body_class = 'registration_page' %}
+
+{% form_theme form 'Form/form_div_layout.twig' %}
+
+{% block main %}
+    {% include "Components/heading.twig" with {'title': 'front.entry.confirm_title' } %}
+    <div class="row">
+        <div class="col-12">
+            <div class="page-register-confirm">
+                <form method="post" action="{{ url('entry') }}">
+                    {{ form_widget(form._token) }}
+                    <p class="h6 pb-2">{{ 'front.entry.confirm_message'|trans|nl2br }}</p>
+
+                    <table class="table table-striped clear-margin-label ">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    {{ form_label(form.name, 'common.name') }}
+                                </td>
+                                <td>
+                                    {{ form.name.name01.vars.data }} 
+                                    {# form.vars.value = form.vars.data = Customer #}
+                                    {{ form.name.name02.vars.data }}
+                                    {{ form_widget(form.name.name01, { type : 'hidden' }) }}
+                                    {{ form_widget(form.name.name02, { type : 'hidden' }) }}
+
+                                    {{ form_widget(form.kana.kana01, { type : 'hidden' }) }}
+                                    {{ form_widget(form.kana.kana02, { type : 'hidden' }) }}    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ form_label(form.company_name, 'common.company_name') }}
+                                </td>
+                                <td>
+                                    {{ form.company_name.vars.data }}
+                                    {{ form_widget(form.company_name, { type : 'hidden' }) }}  
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ form_label(form.postal_code) }}
+                                </td>
+                                <td>
+                                    <span>{{ 'common.postal_symbol'|trans }}</span>{{ form.postal_code.vars.data }}
+                                    {{ form_widget(form.postal_code, { type : 'hidden' }) }}  
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ form_label(form.address, 'common.address') }}
+                                </td>
+                                <td>
+                                    {{ format_address(form.address.addr01.vars.data, form.address.addr02.vars.data, form.address.pref.vars.data) }}
+                                    {{ form_widget(form.address.pref, { type : 'hidden' }) }}
+                                    {{ form_widget(form.address.addr01, { type : 'hidden' }) }}
+                                    {{ form_widget(form.address.addr02, { type : 'hidden' }) }}  
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ form_label(form.phone_number, 'common.phone_number') }}
+                                </td>
+                                <td>
+                                    {{ form.phone_number.vars.data }}
+                                    {{ form_widget(form.phone_number, { type : 'hidden' }) }}  
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ form_label(form.email, 'common.mail_address') }}
+                                </td>
+                                <td>
+                                    {{ form.email.vars.data }}
+                                    {{ form_widget(form.email.first, { type : 'hidden' }) }}
+                                    {{ form_widget(form.email.second, { type : 'hidden' }) }}  
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ form_label(form.password, 'common.password') }}
+                                </td>
+                                <td>
+                                    ********
+                                    {{ form_widget(form.password.first, { type : 'hidden' }) }}
+                                    {{ form_widget(form.password.second, { type : 'hidden' }) }}  
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ form_label(form.birth, 'common.birth_day') }}
+                                </td>
+                                <td>
+                                    {{ form.birth.vars.data ? form.birth.vars.data|date_day() }}
+                                    {{ form_widget(form.birth.day, { type : 'hidden' }) }}
+                                    {{ form_widget(form.birth.month, { type : 'hidden' }) }}
+                                    {{ form_widget(form.birth.year, { type : 'hidden' }) }}  
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ form_label(form.sex, 'common.gender') }}
+                                </td>
+                                <td>
+                                    {{ form.sex.vars.data }}
+                                {{ form_widget(form.sex, { type: 'hidden'}) }}  
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ form_label(form.job, 'common.job') }}
+                                </td>
+                                <td>
+                                    {{ form.job.vars.data }}
+                                    {{ form_widget(form.job, { type: 'hidden'}) }}  
+
+                                    {{ form_widget(form.user_policy_check, { type: 'hidden'}) }}
+                                </td>
+                            </tr>
+                            {% for f in form if f.vars.eccube_form_options.auto_render %}
+                                {% if f.vars.eccube_form_options.form_theme %}
+                                    {% form_theme f f.vars.eccube_form_options.form_theme %}
+                                    {{ form_row(f) }}
+                                {% else %}
+                                    <tr>
+                                        <td>
+                                            {{ form_label(f) }}
+                                        </td>
+                                        <td class="{{ f.vars.eccube_form_options.style_class }}{{ has_errors(f) ? ' error' }}">
+                                            {{ f.vars.data }}
+                                            {{ form_widget(f, { type: 'hidden'}) }}  
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                            
+                        </tbody>
+                    </table>
+                    
+                    <div class="row">
+                        <div class="col-12 d-flex flex-wrap justify-content-between">
+                        <button class="btn btn-primary col-12 col-md-5 mb-3 mb-md-0" type="submit" name="mode" value="complete">{{ 'front.entry.do_register'|trans }}</button>
+                        <button class="btn btn-secondary col-12 col-md-5" type="submit" name="mode" value="back">{{ 'common.back'|trans }}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,66 @@
+
+{% extends 'default_frame.twig' %}
+
+{% set body_class = 'mypage' %}
+
+{% set mypageno = 'change' %}
+
+{% form_theme form 'Form/form_div_layout.twig' %}
+
+{% block main %}
+    {% include "Components/heading.twig" with {'title': 'front.mypage.title', 'subTitle': 'front.mypage.nav__customer' } %}
+
+    {% include 'Mypage/navi.twig' %}
+
+    <div id="my-account-edit" class="row">
+        <div class="col-12">
+            <div class="page-account-edit">
+                <form method="post" action="{{ url('mypage_change') }}" novalidate >
+                    {{ form_widget(form._token) }}
+                    
+                    {# Name #}
+                    {% include "Components/form/name.twig" with {'form': form} %}
+
+                    {# Company Name #}
+                    {% include "Components/form/company.twig" with {'form': form} %}
+                    
+                    {# Postcode #}
+                    {% include "Components/form/postcode.twig" with {'form': form} %}
+
+                    {# Address #}
+                    {% include "Components/form/address.twig" with {'form': form} %}
+                    
+                    {# Phone #}
+                    {% include "Components/form/phone.twig" with {'form': form} %}
+
+                    {# Email #}
+                    {% include "Components/form/email.twig" with {'form': form} %}
+
+                    {# Password #}
+                    {% include "Components/form/password.twig" with {'form': form} %}
+                    
+                    {# Birthday #}
+                    {% include "Components/form/birthday.twig" with {'form': form} %}
+                    
+                    {# Gender #}
+                    {% include "Components/form/gender.twig" with {'form': form} %}
+
+                    {# Job #}
+                    {% include "Components/form/job.twig" with {'form': form} %}
+
+                    {# Options Render #}
+                    {% include "Components/form/options_render.twig" with {'form': form} %}
+
+                    <div class="row">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-8">
+                            <button type="submit" class="btn btn-primary">
+                                {{ 'common.registration'|trans }}
+                            </button>
+                        </div>
+                    </div> 
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

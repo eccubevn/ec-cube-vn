@@ -1,0 +1,9 @@
+id,creator_id,name,file_name,mail_subject,create_date,update_date,discriminator_type
+1,,Nhận đơn đặt hàng,Mail/vi/order.twig,Rất cảm ơn bạn đã đặt hàng!,2017-03-07 10:14:52,2017-03-07 10:14:52,mailtemplate
+2,,Đăng ký tạm thời,Mail/vi/entry_confirm.twig,Xác nhận đăng ký thành viên,2017-03-07 10:14:52,2017-03-07 10:14:52,mailtemplate
+3,,Đăng ký chính thức,Mail/vi/entry_complete.twig,Hoàn thành đăng ký thành viên,2017-03-07 10:14:52,2017-03-07 10:14:52,mailtemplate
+4,,Hủy thành viên,Mail/vi/customer_withdraw_mail.twig,Hoàn tất hủy thành viên,2017-03-07 10:14:52,2017-03-07 10:14:52,mailtemplate
+5,,Biên nhận yêu cầu,Mail/vi/contact_mail.twig,Cảm ơn bạn đã yêu cầu,2017-03-07 10:14:52,2017-03-07 10:14:52,mailtemplate
+6,,Đặt lại mật khẩu,Mail/vi/forgot_mail.twig,Đặt lại mật khẩu của bạn,2017-03-07 10:14:52,2017-03-07 10:14:52,mailtemplate
+7,,Nhắc nhở mật khẩu,Mail/vi/reset_complete_mail.twig,Mật khẩu của bạn đã được thay đổi,2017-03-07 10:14:52,2017-03-07 10:14:52,mailtemplate
+8,,Thông báo giao hàng,Mail/vi/shipping_notify.twig,Đơn hàng của bạn đã được giao,2017-03-07 10:14:52,2017-03-07 10:14:52,mailtemplate

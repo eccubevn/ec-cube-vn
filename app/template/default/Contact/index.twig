@@ -1,0 +1,62 @@
+
+{% extends 'default_frame.twig' %}
+
+{% form_theme form 'Form/form_div_layout.twig' %}
+
+{% block main %}
+    {% include "Components/heading.twig" with {'title': 'front.contact.title' } %}
+    <div class="row">
+        <div class="col-12">
+            <div class="page-contact">
+                <form method="post" action="{{ url('contact') }}"  novalidate>
+                    {{ form_widget(form._token) }}
+                    <div class="alert alert-warning" role="alert">
+                        {{ 'front.contact.inquiry_notice'|trans|nl2br }}
+                    </div>
+                    {# Name #}
+                    {% include "Components/form/name.twig" with {'form': form} %}
+
+                    {# Postcode #}
+                    {% include "Components/form/postcode.twig" with {'form': form} %}
+                    
+                    {# Address #}
+                    {% include "Components/form/address.twig" with {'form': form} %}
+                    
+                    {# Phone #}
+                    {% include "Components/form/phone.twig" with {'form': form} %}
+                    
+                    {# Email #}
+                    {% include "Components/form/input.twig" 
+                        with {
+                            'form': form, 
+                            'field': 'email', 
+                            'label': 'common.mail_address'
+                        } 
+                    %}
+
+                    {# Content/Textarea #}
+                    {% include "Components/form/input.twig" 
+                        with {
+                            'form': form, 
+                            'field': 'contents', 
+                            'label': 'front.contact.inquiry_contents', 
+                            'help': true,
+                            'helpText': 'front.contact.order_notice'
+                        } 
+                    %}
+
+                    {# Options Render #}
+                    {% include "Components/form/options_render.twig" with {'form': form} %}
+                    
+                    <div class="row">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4">
+                            <button type="submit" class="btn btn-primary btn-block" name="mode" value="confirm">{{ 'common.go_to_confirm'|trans }}
+                                    </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

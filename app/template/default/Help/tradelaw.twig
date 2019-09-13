@@ -1,0 +1,56 @@
+
+{% extends 'default_frame.twig' %}
+
+{% block main %}
+    {% include "Components/heading.twig" with {'title': 'front.tradelaw.title' } %}
+    <div class="row">
+        <div class="col-12">
+            <div class="page-help-section page-tradelaw">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td class="w-50"><label class="ec-label">{{ 'front.trade.distributor'|trans }}:</label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="w-50"><label class="ec-label">{{ 'front.trade.responsible'|trans }}:</label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="w-50"><label class="ec-label">{{ 'front.trade.location'|trans }}:</label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="w-50"><label class="ec-label">{{ 'admin.common.phone_number'|trans }}:</label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="w-50"><label class="ec-label">{{ 'admin.common.mail_address'|trans }}:</label></td>
+                            <td><a href="mailto:"></a></td>
+                        </tr>
+                        <tr>
+                            <td class="w-50"><label class="ec-label">{{ 'admin.content.page_url'|trans }}:</label></td>
+                            <td><a href=""></a></td>
+                        </tr>
+                        <tr>
+                            <td class="w-50"><label class="ec-label">{{ 'front.trade.fee'|trans }}:</label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="w-50"><label class="ec-label">{{ 'front.trade.delivery'|trans }}:</label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="w-50"><label class="ec-label">{{ 'front.trade.payment'|trans }}:</label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="w-50"><label class="ec-label">{{ 'front.trade.refund'|trans }}:</label></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

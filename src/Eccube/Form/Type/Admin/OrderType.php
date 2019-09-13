@@ -116,10 +116,6 @@ class OrderType extends AbstractType
                 ],
             ])
             ->add('postal_code', PostalType::class, [
-                'required' => false,
-                'constraints' => [
-                    new Assert\NotBlank(),
-                ],
                 'options' => [
                     'attr' => ['class' => 'p-postal-code'],
                 ],

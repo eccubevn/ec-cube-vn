@@ -1,0 +1,29 @@
+
+{% extends 'default_frame.twig' %}
+
+{% set body_class = 'front_page' %}
+
+{% set container_class = 'container-full' %}
+
+{% block javascript %}
+    <script>
+        $(function() {
+            $('.main_visual').slick({
+                dots: true,
+                arrows: true,
+                autoplay: true,
+                speed: 300
+            });
+        });
+    </script>
+{% endblock javascript %}
+
+{% block main %}
+    <div class="main-slider">
+        <div class="main_visual">
+            <div class="heroCarousel-slide"><img src="{{ asset('assets/img/top/img_hero_pc01.jpg') }}"></div>
+            <div class="heroCarousel-slide"><img src="{{ asset('assets/img/top/img_hero_pc02.jpg') }}"></div>
+            <div class="heroCarousel-slide"><img src="{{ asset('assets/img/top/img_hero_pc03.jpg') }}"></div>
+        </div>
+    </div>
+{% endblock %}

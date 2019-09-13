@@ -1,0 +1,106 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+
+{% extends '@admin/default_frame.twig' %}
+
+{% set menus = ['setting', 'system', 'masterdata'] %}
+
+{% block title %}{{ 'admin.setting.system.master_data_management'|trans }}{% endblock %}
+{% block sub_title %}{{ 'admin.setting.system'|trans }}{% endblock %}
+
+{% block main %}
+    <div class="c-contentsArea__cols">
+        <div class="c-contentsArea__primaryCol">
+            <div class="c-primaryCol">
+                <form id="form1" name="form1" method="post" action="{{ url('admin_setting_system_masterdata') }}">
+                    {{ form_widget(form._token) }}
+                    <div class="card rounded border-0 mb-4">
+                        <div class="card-header">
+                            <div class="d-inline-block" data-tooltip="true" data-placement="top" title="{{ 'tooltip.setting.system.master_data_management'|trans }}">
+                                <span>{{ 'admin.setting.system.master_data_management'|trans }}</span></div><i class="fa fa-question-circle fa-lg ml-1"></i>
+                            </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-3">
+                                    {{ form_widget(form.masterdata) }}
+                                    {{ form_errors(form.masterdata) }}
+                                </div>
+                                <div class="col mb-2">
+                                    <button class="btn btn-primary" type="submit">{{ 'admin.setting.system.master_data.select'|trans }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                {% if form2.data is not empty %}
+                    <form id="form2" name="form2" method="post" action="{{ url('admin_setting_system_masterdata_edit') }}">
+                        {{ form_widget(form2.masterdata_name) }}
+                        {{ form_widget(form2._token) }}
+                        <div class="card rounded border-0 mb-4">
+                            <div class="card-header">
+                                <div class="read">
+                                    {{ 'admin.setting.system.master_data.description'|trans|nl2br }}
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-sm">
+                                    <thead>
+                                    <tr>
+                                        <th class="border-top-0 pt-2 pb-2 text-center" style="width: 20%">
+                                            {{ 'admin.setting.system.master_data.id'|trans }}
+                                        </th>
+                                        <th class="border-top-0 pt-2 pb-2 text-center">
+                                            {{ 'admin.setting.system.master_data.name'|trans }}
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for data in form2.data %}
+                                        <tr id="ex-masterdata-{{ data.vars.name }}">
+                                            <td class="align-middle text-center pl-3">
+                                                {{ form_widget(data.id) }}
+                                                {{ form_errors(data.id) }}
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                {{ form_widget(data.name) }}
+                                                {{ form_errors(data.name) }}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="c-conversionArea">
+                            <div class="c-conversionArea__container">
+                                <div class="row justify-content-between align-items-center">
+                                    <div class="col-6">
+                                        <div class="c-conversionArea__leftBlockItem">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div id="ex-conversion-action" class="row align-items-center justify-content-end">
+                                            <div class="col-auto">
+                                                <button class="btn btn-ec-conversion px-5" type="submit">{{ 'admin.common.save'|trans }}</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

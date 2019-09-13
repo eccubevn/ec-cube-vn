@@ -1,0 +1,38 @@
+
+{% extends 'default_frame.twig' %}
+
+{% set body_class = 'cart_page' %}
+
+{% block main %}
+{% include "Components/heading.twig" with {'title': 'front.shopping.complete_title' } %}
+
+{% include "Components/checkout/progress-bar.twig" with {'step5': 'is-complete' } %}
+
+<div id="shopping-complete" class="row">
+    <div class="col-12">
+        <div class="jumbotron py-4 text-center bg-light">
+            <h4>{{ 'front.shopping.complete_message__title'|trans }}</h4>
+            <div class="complete-message my-3">
+                {{ 'front.shopping.complete_message__body'|trans|nl2br }}
+            </div>
+            {% if Order.id %}
+                <h5>
+                    <b>{{ 'front.shopping.order_no'|trans }}: </b>
+                    <span class="badge badge-primary">{{ Order.orderNo }}</span>
+                </h5>
+            {% endif %}
+            {% if Order.complete_message is not empty %}
+                <div class="complete-message my-3">
+                    {{ Order.complete_message|raw }}
+                </div>
+            {% endif %}
+            <hr class="my-4">
+            {% if hasNextCart %}
+                <a class="btn btn-primary" href="{{ url('cart') }}">{{ 'front.shopping.continue'|trans }}</a>
+            {% else %}
+                <a class="btn btn-primary" href="{{ url('homepage') }}">{{ 'common.go_to_top'|trans }}</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% if error_only is not defined %}
+    {% set error_only = false %}
+{% endif %}
+
+{% for error in app.session.flashbag.get('eccube.front.error') %}
+    <div class="row">
+        <div class="col-12">
+            <div class="bg-danger p-2 mb-3 text-white text-center">
+                <i class="fas fa-exclamation-triangle"></i>
+                {{ error|trans|nl2br }}
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+{% if error_only == false %}
+    {% for error in app.session.flashbag.get('eccube.front.warning') %}
+        <div class="row">
+            <div class="col-12">
+                <div class="bg-warning p-2 mb-3 text-black text-center">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    {{ error|trans|nl2br }}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}

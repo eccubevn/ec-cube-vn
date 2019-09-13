@@ -1,0 +1,26 @@
+{#
+This file is part of EC-CUBE
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+http://www.lockon.co.jp/
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% autoescape false %}
+※Đây là email trả lời tự động.
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+　※Chúng tôi
+　{{ BaseInfo.shop_name }} xin gửi email
+ xác nhận việc tạo lại mật khẩu.
+　Nếu như bạn không yêu cầu tạo lại mật khẩu,、
+　vui lòng nhập vào đây
+ {# 問い合わせ受付メール #}{{ BaseInfo.email02 }} 
+　để liên hệ với chúng tôi.
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+Bạn đã tạo lại mật khẩu thành công.
+
+Mật khẩu mới：{{ password }}
+
+Đây chỉ là mật khẩu tạm thời, vui lòng đổi lại mật khẩu khi đăng nhập.
+{% endautoescape %}

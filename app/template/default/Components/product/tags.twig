@@ -1,0 +1,7 @@
+{% if product.Tags is not empty %}
+  <div class="product-tags {{class|default('mb-2')}}">
+      {% for Tag in product.Tags %}
+          <span class="badge badge-info">{{ Tag }}</span>
+      {% endfor %}
+  </div>
+{% endif %}

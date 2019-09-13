@@ -1,0 +1,422 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends '@admin/default_frame.twig' %}
+
+{% set menus = ['product', 'product_edit'] %}
+
+{% block title %}{{ 'admin.product.product_class_registration'|trans }}{% endblock %}
+{% block sub_title %}{{ 'admin.product.product_management'|trans }}{% endblock %}
+
+{% form_theme form '@admin/Form/bootstrap_4_horizontal_layout.html.twig' %}
+{% form_theme clearForm '@admin/Form/bootstrap_4_horizontal_layout.html.twig' %}
+
+{% block javascript %}
+    <script>
+        $(function() {
+
+            // 無制限チェックボックス初期表示
+            $('input[id$=_stock_unlimited]').each(function() {
+                var check = $(this).prop('checked');
+                var index = $(this).attr('id').match(/\d+/);
+
+                if (check) {
+                    $('#product_class_matrix_product_classes_' + index + '_stock').prop('disabled', true);
+                } else {
+                    $('#product_class_matrix_product_classes_' + index + '_stock').prop('disabled', false);
+                }
+            });
+
+
+            // 無制限チェックボックス
+            $('input[id$=_stock_unlimited]').on('click', function() {
+                var check = $(this).prop('checked');
+                var index = $(this).attr('id').match(/\d+/);
+
+                if (check) {
+                    $('#product_class_matrix_product_classes_' + index + '_stock').prop('disabled', true);
+                } else {
+                    $('#product_class_matrix_product_classes_' + index + '_stock').prop('disabled', false);
+                }
+            });
+
+            // 登録チェックボックス
+            $('#check-all').click(function() {
+                var checked = $('#check-all').prop('checked');
+                if (checked) {
+                    $('input[id$=_checked]').prop('checked', true);
+                } else {
+                    $('input[id$=_checked]').prop('checked', false);
+                }
+            });
+
+            // 1行目をコピーボタン
+            $('#copy').on('click', function(event) {
+                event.preventDefault();
+
+                var check = $('#product_class_matrix_product_classes_0_add').prop('checked');
+                $('input[id$=_add]').prop('checked', check);
+
+                var product_code = $('#product_class_matrix_product_classes_0_code').val();
+                $('input[id$=_code]').val(product_code);
+
+                var stock = $('#product_class_matrix_product_classes_0_stock').val();
+                $('input[id$=_stock]').val(stock);
+
+                var stock_unlimited = $('#product_class_matrix_product_classes_0_stock_unlimited').prop('checked');
+                // 無制限チェックボックス
+                $('input[id$=_stock_unlimited]').each(function() {
+                    var index = $(this).attr('id').match(/\d+/);
+
+                    if (stock_unlimited) {
+                        $(this).prop('checked', true);
+                        $('#product_class_matrix_product_classes_' + index + '_stock').prop('disabled', true);
+                    } else {
+                        $(this).prop('checked', false);
+                        $('#product_class_matrix_product_classes_' + index + '_stock').prop('disabled', false);
+                    }
+                });
+
+                var sale_limit = $('#product_class_matrix_product_classes_0_sale_limit').val();
+                $('input[id$=_sale_limit]').val(sale_limit);
+
+                var price01 = $('#product_class_matrix_product_classes_0_price01').val();
+                $('input[id$=_price01]').val(price01);
+
+                var price02 = $('#product_class_matrix_product_classes_0_price02').val();
+                $('input[id$=_price02]').val(price02);
+
+                var delivery_fee = $('#product_class_matrix_product_classes_delivery_fee').val();
+                $('input[id$=_delivery_fee]').val(delivery_fee);
+
+                var delivery_duration = $('#product_class_matrix_product_classes_0_delivery_duration').val();
+                $('select[id$=_delivery_duration]').val(delivery_duration);
+
+                var tax_rate = $('#product_class_matrix_product_classes_0_tax_rate').val();
+                $('input[id$=_tax_rate]').val(tax_rate);
+
+                var sale_type = $('#product_class_matrix_product_classes_0_sale_type').val();
+                $('select[id$=_sale_type]').val(sale_type);
+            });
+        });
+    </script>
+{% endblock javascript %}
+
+
+{% block main %}
+    <div class="c-contentsArea__cols">
+        <div class="c-contentsArea__primaryCol">
+            <div class="c-primaryCol">
+                <div class="card rounded border-0 mb-4">
+                    {% if Product.hasProductClass %}
+
+                        {# 規格あり商品 #}
+                        <div id="ex-product_class-header" class="card-header">
+                            <div class="row">
+                                <div class="col-8">
+                                    <span class="card-title align-middle">{{ Product.name }}</span>
+                                </div>
+                                <div class="col-4 text-right">
+                                    {# 規格の初期化ボタン #}
+                                    <button class="btn btn-ec-delete" type="button"
+                                            data-toggle="modal"
+                                            data-target="#initializationConfirm">{{ 'admin.product.product_class__reset'|trans }}
+                                    </button>
+                                    {# 規格の初期化モーダル #}
+                                    <div class="modal fade" id="initializationConfirm" tabindex="-1"
+                                         role="dialog"
+                                         aria-labelledby="deleteConfirm" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title font-weight-bold">{{ 'admin.product.product_class__reset_confirm_title'|trans }}</h5>
+                                                    <button class="close" type="button" data-dismiss="modal"
+                                                            aria-label="Close"><span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p class="text-left">
+                                                        {{ 'admin.product.product_class__reset_confirm_message'|trans }}</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-ec-sub" type="button"
+                                                            data-dismiss="modal">
+                                                        {{ 'admin.common.cancel'|trans }}
+                                                    </button>
+                                                    <form method="post"
+                                                          action="{{ url('admin_product_product_class_clear', { id: Product.id, return_product_list: return_product_list }) }}">
+                                                        {{ form_widget(clearForm._token) }}
+                                                        <button class="btn btn-ec-delete" type="submit">
+                                                            {{ 'admin.product.product_class__reset_confirm_excecute'|trans }}
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="ex-product_class-body" class="card-body">
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <div class="d-inline-block mr-2">
+                                        <span>{{ 'admin.product.class_category1__short'|trans }}</span>
+                                    </div>
+                                    <div class="d-inline-block">
+                                        <span>{{ ClassName1.name }} [{{ 'admin.product.class_name__backend_name'|trans }}{{ 'admin.common.separator__colon'|trans }}{{ ClassName1.backend_name }}]</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if ClassName2 %}
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="d-inline-block mr-2">
+                                            <span>{{ 'admin.product.class_category2__short'|trans }}</span>
+                                        </div>
+                                        <div class="d-inline-block">
+                                            <span>{{ ClassName2.name }} [{{ 'admin.product.class_name__backend_name'|trans }}{{ 'admin.common.separator__colon'|trans }}{{ ClassName2.backend_name }}]</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% else %}
+                        {# 規格なし商品 #}
+                        <form method="post" action="{{ url('admin_product_product_class', { id: Product.id, return_product_list: return_product_list }) }}">
+                            <input type="hidden" name="_token" value="{{ csrf_token('_token') }}">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <span class="card-title align-middle">{{ Product.name }}</span>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        {# 商品規格の設定ボタン #}
+                                        <button class="btn btn-ec-conversion" type="submit">
+                                            {{ 'admin.product.product_class__create'|trans }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row mb-2">
+                                    {{ form_widget(form.class_name1) }}
+                                    {{ form_errors(form.class_name1) }}
+                                </div>
+                                <div class="form-row">
+                                    {{ form_widget(form.class_name2) }}
+                                    {{ form_errors(form.class_name2) }}
+                                </div>
+                            </div>
+                        </form>
+                    {% endif %}
+                </div>
+
+                {% if form.product_classes|length > 0 %}
+                    <form method="post" action="{{ url('admin_product_product_class', {'id': Product.id, return_product_list: return_product_list }) }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token('_token') }}">
+                        <input type="hidden" name="{{ form.class_name1.vars.full_name }}"
+                               value="{{ form.class_name1.vars.value }}">
+                        <input type="hidden" name="{{ form.class_name2.vars.full_name }}"
+                               value="{{ form.class_name2.vars.value }}">
+                        <div class="card rounded border-0 mb-4">
+                            <div class="card-header">
+                                <div class="row justify-content-between">
+                                    <div class="col-6">
+                                        <span class="align-middle">
+                                            {{ 'admin.product.procuct_class_count'|trans({
+                                                '%count%' : form.product_classes|length
+                                            }) }}</span>
+                                        {{ form_errors(form.product_classes) }}
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <button type="button" id="copy" class="btn btn-ec-regular">
+                                            <i class="fa fa-files-o mr-1"></i>
+                                            <span>{{ 'admin.product.copy_first_line'|trans }}</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="ex-product_class" class="card-body p-0">
+                                <table class="table table-sm">
+                                    <thead>
+                                    <th class="pt-2 pb-2 pl-3">
+                                        <input type="checkbox" id="check-all">
+                                    </th>
+                                    <th class="pt-2 pb-2">{{ ClassName1 ? ClassName1.name }}</th>
+                                    <th class="pt-2 pb-2">{{ ClassName2 ? ClassName2.name }}</th>
+                                    <th class="pt-2 pb-2">{{ 'admin.product.product_code__short'|trans }}</th>
+                                    <th class="pt-2 pb-2">{{ 'admin.product.stock__short'|trans }}</th>
+                                    <th class="pt-2 pb-2">{{ 'admin.product.sale_limit'|trans }}</th>
+                                    <th class="pt-2 pb-2">{{ 'admin.product.normal_price'|trans }}</th>
+                                    <th class="pt-2 pb-2">{{ 'admin.product.sale_price'|trans }}</th>
+                                    {% if BaseInfo.option_product_delivery_fee %}
+                                        <th class="pt-2 pb-2">{{ 'admin.product.delivery_fee'|trans }}</th>
+                                    {% endif %}
+                                    {% if BaseInfo.option_product_tax_rule %}
+                                        <th class="pt-2 pb-2">{{ 'admin.product.tax_rate'|trans }}</th>
+                                    {% endif %}
+                                    <th class="pt-2 pb-2">{{ 'admin.product.delivery_duration'|trans }}</th>
+                                    <th class="pt-2 pb-2 pr-3">{{ 'admin.product.sale_type'|trans }}</th>
+
+                                    {# エンティティ拡張の自動出力 #}
+                                    {% for product_class_form in form.product_classes %}
+                                        {# product_class_formはcollection typeなので, 1行目だけ出力する #}
+                                        {% if loop.first %}
+                                            {% for f in product_class_form if f.vars.eccube_form_options.auto_render %}
+                                                <th class="pt-2 pb-2">{{ f.vars.label|trans }}</th>
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
+
+                                    </thead>
+                                    {% for product_class_form in form.product_classes %}
+                                        <tr id="ex-product_class-{{ product_class_form.vars.name }}">
+                                            <td class="align-middle pl-3">
+                                                {{ form_widget(product_class_form.checked) }}
+                                            </td>
+                                            <td class="align-middle">
+                                                {{ product_class_form.vars.value.ClassCategory1 }}
+                                                {{ form_widget(product_class_form.ClassCategory1) }}
+                                            </td>
+                                            <td class="align-middle">
+                                                {{ product_class_form.vars.value.ClassCategory2 }}
+                                                {{ form_widget(product_class_form.ClassCategory2) }}
+                                            </td>
+                                            <td class="align-middle">
+                                                {{ form_widget(product_class_form.code) }}
+                                                {{ form_errors(product_class_form.code) }}
+                                            </td>
+                                            <td class="align-middle">
+                                                <div class="form-row">
+                                                    <div class="col-5">
+                                                        {{ form_widget(product_class_form.stock) }}
+                                                        {{ form_errors(product_class_form.stock) }}
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <div class="form-check form-check-inline">
+                                                            {{ form_widget(product_class_form.stock_unlimited) }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="align-middle">
+                                                <div class="form-row">
+                                                    <div class="col-6">
+                                                        {{ form_widget(product_class_form.sale_limit) }}
+                                                        {{ form_errors(product_class_form.sale_limit) }}
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="align-middle">
+                                                {{ form_widget(product_class_form.price01) }}
+                                                {{ form_errors(product_class_form.price01) }}
+                                            </td>
+                                            <td class="align-middle">
+                                                {{ form_widget(product_class_form.price02) }}
+                                                {{ form_errors(product_class_form.price02) }}
+                                            </td>
+                                            {% if BaseInfo.option_product_delivery_fee %}
+                                                <td class="align-middle">
+                                                    {{ form_widget(product_class_form.delivery_fee) }}
+                                                    {{ form_errors(product_class_form.delivery_fee) }}
+                                                </td>
+                                            {% endif %}
+                                            {% if BaseInfo.option_product_tax_rule %}
+                                                <td class="align-middle">
+                                                    {{ form_widget(product_class_form.tax_rate) }}
+                                                    {{ form_errors(product_class_form.tax_rate) }}
+                                                </td>
+                                            {% endif %}
+                                            <td class="align-middle">
+                                                {{ form_widget(product_class_form.delivery_duration) }}
+                                                {{ form_errors(product_class_form.delivery_duration) }}
+                                            </td>
+                                            <td class="align-middle pr-3">
+                                                {{ form_widget(product_class_form.sale_type) }}
+                                                {{ form_errors(product_class_form.sale_type) }}
+                                            </td>
+                                            {# エンティティ拡張の自動出力 #}
+                                            {% for f in product_class_form if f.vars.eccube_form_options.auto_render %}
+                                                {% if f.vars.eccube_form_options.form_theme %}
+                                                    {% form_theme f f.vars.eccube_form_options.form_theme %}
+                                                    {{ form_row(f) }}
+                                                {% else %}
+                                                    <td class="align-middle pr-3">
+                                                        {{ form_widget(f) }}
+                                                        {{ form_errors(f) }}
+                                                    </td>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                        <div class="c-conversionArea">
+                            <div class="c-conversionArea__container">
+                                <div class="row justify-content-between align-items-center">
+                                    <div class="col-6">
+                                        <div class="c-conversionArea__leftBlockItem">
+                                            {% if return_product_list %}
+                                                <a class="c-baseLink" href="{{ url('admin_product', {'resume': 1}) }}">
+                                                    <i class="fa fa-backward" aria-hidden="true"></i>
+                                                    <span>{{ 'admin.product.product_list'|trans }}</span>
+                                                </a>
+                                            {% else %}
+                                                <a class="c-baseLink" href="{{ url('admin_product_product_edit', {'id': Product.id}) }}">
+                                                    <i class="fa fa-backward" aria-hidden="true"></i>
+                                                    <span>{{ 'admin.product.product_registration'|trans }}</span>
+                                                </a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div id="ex-conversion-action" class="row align-items-center justify-content-end">
+                                            <div class="col-auto">
+                                                <button class="btn btn-ec-conversion px-5" name="{{ form.save.vars.full_name }}" type="submit">
+                                                    {{ 'admin.common.registration'|trans }}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                {% else %}
+                    <div class="c-conversionArea">
+                        <div class="c-conversionArea__container">
+                            <div class="row justify-content-between align-items-center">
+                                <div class="col-6">
+                                    <div class="c-conversionArea__leftBlockItem">
+                                        {% if return_product_list %}
+                                            <a class="c-baseLink" href="{{ url('admin_product', {'resume': 1}) }}">
+                                                <i class="fa fa-backward" aria-hidden="true"></i>
+                                                <span>{{ 'admin.product.product_list'|trans }}</span>
+                                            </a>
+                                        {% else %}
+                                            <a class="c-baseLink" href="{{ url('admin_product_product_edit', {'id': Product.id}) }}">
+                                                <i class="fa fa-backward" aria-hidden="true"></i>
+                                                <span>{{ 'admin.product.product_registration'|trans }}</span>
+                                            </a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

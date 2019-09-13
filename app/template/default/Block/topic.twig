@@ -1,0 +1,27 @@
+<div class="topics">
+    <div class="row mb-4">
+        <h4 class="col-12 text-center pb-2">
+            {{ 'front.block.topic.topic__en'|trans }}
+        </h4>
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="card border-0 shadow">
+                        <a href="{{ url('product_list') }}?category_id=1" class="card-img-top">
+                            <img src="{{ asset('assets/img/top/img_bnr01.jpg') }}">
+                        </a>
+                        <div class="card-body text-center">{{ 'front.block.topic.title__gelato'|trans }}</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="card border-0 shadow">
+                        <a href="{{ url('product_list') }}?category_id=5" class="card-img-top">
+                            <img src="{{ asset('assets/img/top/img_bnr02.jpg') }}">
+                        </a>
+                        <div class="card-body text-center">{{ 'front.block.topic.title__ice'|trans }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

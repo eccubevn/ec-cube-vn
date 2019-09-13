@@ -1,0 +1,83 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+
+{% extends '@admin/default_frame.twig' %}
+
+{% set menus = ['setting', 'system', 'system_index'] %}
+
+{% block title %}{{ 'admin.setting.system.system_info'|trans }}{% endblock %}
+{% block sub_title %}{{ 'admin.setting.system'|trans }}{% endblock %}
+
+{% block main %}
+    <div class="c-contentsArea__cols">
+        <div class="c-contentsArea__primaryCol">
+            <div class="c-primaryCol">
+                <div class="card rounded border-0 mb-4">
+                    <div class="card-header">
+                        <div class="row" >
+                            <div class="col-8" id="server_info_box__header">
+                                <div class="d-inline-block" data-tooltip="true" data-placement="top" title="{{ 'tooltip.setting.system.system_info'|trans }}">
+                                    <span class="card-title ">{{ 'admin.setting.system.system_info'|trans }}</span>
+                                    <i class="fa fa-question-circle fa-lg ml-1"></i>
+                                </div>
+                            </div>
+                            <div class="col-4 text-right">
+                                <a data-toggle="collapse" href="#systemInfo"
+                                   aria-expanded="false" aria-controls="systemInfo">
+                                    <i class="fa fa-angle-up fa-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collapse show ec-cardCollapse" id="systemInfo" >
+                        <div class="card-body" id="server_info_box__body_inner">
+                            {% for key, item in info %}
+                                <div class="row mb-2">
+                                    <div class="col-2">
+                                        <span>{{item.title}}</span>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col" id="server_info_box__value--{{ loop.index }}">
+                                                {{item.value}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="c-primaryCol">
+                <div class="card rounded border-0 mb-4">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-8" id="php_info_box__header" >
+                                <div class="d-inline-block" data-tooltip="true" data-placement="top" title="{{ 'tooltip.setting.system.system.php_info'|trans }}">
+                                    <span class="card-title">{{ 'admin.setting.system.system.php_info'|trans }}</span>
+                                    <i class="fa fa-question-circle fa-lg ml-1"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="php_info_box__frame">
+                        <iframe name="php_info" src="{{ url('admin_setting_system_system_phpinfo') }}" height="500" frameborder="0" style="width: 100%;"></iframe>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

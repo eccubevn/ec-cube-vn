@@ -1,0 +1,152 @@
+
+{% extends 'default_frame.twig' %}
+
+{% set body_class = 'product_page' %}
+
+{% block javascript %}
+    <script>
+        eccube.currencySymbol = '{{ currency_symbol() }}';
+        eccube.classCategories = {{ class_categories_as_json(Product)|raw }};
+        // 規格2に選択肢を割り当てる。
+        function fnSetClassCategories(form, classcat_id2_selected) {
+            var $form = $(form);
+            var product_id = $form.find('input[name=product_id]').val();
+            var $sele1 = $form.find('select[name=classcategory_id1]');
+            var $sele2 = $form.find('select[name=classcategory_id2]');
+            eccube.setClassCategories($form, product_id, $sele1, $sele2, classcat_id2_selected);
+        }
+        {% if form.classcategory_id2 is defined %}
+        fnSetClassCategories(
+            $('#form1'), {{ form.classcategory_id2.vars.value|json_encode|raw }}
+        );
+        {% elseif form.classcategory_id1 is defined %}
+        eccube.checkStock($('#form1'), {{ Product.id }}, {{ form.classcategory_id1.vars.value|json_encode|raw }}, null);
+        {% endif %}
+    </script>
+    <script>
+        $(function() {
+            // bfcache無効化
+            $(window).bind('pageshow', function(event) {
+                if (event.originalEvent.persisted) {
+                    location.reload(true);
+                }
+            });
+            $('.item_visual').slick({
+                dots: false,
+                arrows: false,
+                responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        dots: true
+                    }
+                }]
+            });
+            $('.slideThumb').on('click', function() {
+                var index = $(this).attr('data-index');
+                $('.item_visual').slick('slickGoTo', index, false);
+            })
+        });
+    </script>
+    <script>
+        $(function() {
+            $('.add-cart').on('click', function(event) {
+                {% if form.classcategory_id1 is defined %}
+                // 規格1フォームの必須チェック
+                if ($('#classcategory_id1').val() == '__unselected' || $('#classcategory_id1').val() == '') {
+                    $('#classcategory_id1')[0].setCustomValidity('{{ 'front.product.product_class_unselected'|trans }}');
+                    return true;
+                } else {
+                    $('#classcategory_id1')[0].setCustomValidity('');
+                }
+                {% endif %}
+                {% if form.classcategory_id2 is defined %}
+                // 規格2フォームの必須チェック
+                if ($('#classcategory_id2').val() == '__unselected' || $('#classcategory_id2').val() == '') {
+                    $('#classcategory_id2')[0].setCustomValidity('{{ 'front.product.product_class_unselected'|trans }}');
+                    return true;
+                } else {
+                    $('#classcategory_id2')[0].setCustomValidity('');
+                }
+                {% endif %}
+                // 個数フォームのチェック
+                if ($('#quantity').val() < 1) {
+                    $('#quantity')[0].setCustomValidity('{{ 'front.product.invalid_quantity'|trans }}');
+                    return true;
+                } else {
+                    $('#quantity')[0].setCustomValidity('');
+                }
+                event.preventDefault();
+                $form = $('#form1');
+                $.ajax({
+                    url: $form.attr('action'),
+                    type: $form.attr('method'),
+                    data: $form.serialize(),
+                    dataType: 'json',
+                    beforeSend: function(xhr, settings) {
+                        // Buttonを無効にする
+                        $('.add-cart').prop('disabled', true);
+                    }
+                }).done(function(data) {
+                    // レスポンス内のメッセージをalertで表示
+                    $.each(data.messages, function() {
+                        $('#ecModalLabel').html(this);
+                    });
+
+                    // Open modal
+                    $('#eccube-modal').modal('show');
+                    
+                    // カートブロックを更新する
+                    $.ajax({
+                        url: "{{ url('block_cart') }}",
+                        type: 'GET',
+                        dataType: 'html'
+                    }).done(function(html) {
+                        $('.mini-cart-wrapper').html(html);
+                    });
+                }).fail(function(data) {
+                    alert('{{ 'front.product.add_cart_error'|trans }}');
+                }).always(function(data) {
+                    // Buttonを有効にする
+                    $('.add-cart').prop('disabled', false);
+                });
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block main %}
+    <div id="product-details" class="row my-4">
+        <div id="product-main-images" class="col-12 col-md-6">
+            {# Images #}
+            {% include "Components/product/pdp-images.twig" with {'product': Product} %}
+        </div>
+        <div id="product-informations" class="col-12 col-md-6">
+            <div class="ec-productRole__profile">
+                {# Name #}
+                {% include "Components/product/name.twig" with {'product': Product, type: 'text', class: 'pdp-product-name'} %}
+                
+                {# Tags #}
+                {% include "Components/product/tags.twig" with {'product': Product} %}
+
+                {# Price #}
+                {% include "Components/product/price.twig" with {'product': Product, type: 'detail'} %}
+                
+                {# Product code #}
+                {% include "Components/product/code.twig" with {'product': Product} %}
+
+                {# Category related #}
+                {% include "Components/product/category.twig" with {'product': Product} %}
+
+                {# Add to cart #}
+                {% include "Components/product/add-to-cart.twig" with {'product': Product} %}
+                
+                {# Favorite #}
+                {% include "Components/product/favorite.twig" with {'product': Product} %}
+            </div>
+        </div>
+    </div>
+    <div id="product-tab-content">
+        {% include "Components/product/tabs.twig" with {'product': Product} %}
+    </div> 
+    {% include "Components/modal.twig" %}
+{% endblock %}

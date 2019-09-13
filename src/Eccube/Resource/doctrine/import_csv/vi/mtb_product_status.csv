@@ -1,0 +1,4 @@
+id,name,sort_no,discriminator_type
+1,Hiện,0,productstatus
+2,Ẩn,1,productstatus
+3,Ngưng,2,productstatus

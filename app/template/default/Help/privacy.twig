@@ -1,0 +1,21 @@
+
+{% extends 'default_frame.twig' %}
+
+{% block main %}
+    {% include "Components/heading.twig" with {'title': 'front.privacy.title' } %}
+    <div class="row">
+        <div class="col-12">
+            <div class="page-help-section page-privacy">
+                <p>
+                    {{ 'front.privacy.content'|trans }}
+                </p>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="page-help-section page-privacy">
+                <div class="ec-heading-bold">{{ 'front.privacy.personal'|trans }}</div>
+                <p>{{ 'front.privacy.personal_infor'|trans }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

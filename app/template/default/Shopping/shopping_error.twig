@@ -1,0 +1,21 @@
+
+{% extends 'default_frame.twig' %}
+
+{% set body_class = 'cart_page' %}
+
+{% block main %}
+
+{% include "Components/heading.twig" with {'title': 'front.shopping.error' } %}
+
+<!-- アラートメッセージ -->
+{{ include('Shopping/alert.twig', { 'error_only': true }) }}
+
+<div class="row">
+    <div class="col-12 justify-content-center">
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-primary" href="{{ url('cart') }}">{{ 'front.shopping.back_to_cart'|trans }}</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

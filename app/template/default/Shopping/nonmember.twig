@@ -1,0 +1,49 @@
+
+{% extends 'default_frame.twig' %}
+
+{% set body_class = 'cart_page' %}
+
+{% form_theme form 'Form/form_div_layout.twig' %}
+
+{% block main %}
+{% include "Components/heading.twig" with {'title': 'front.shopping.nonmember' } %}
+
+{% include "Components/checkout/progress-bar.twig" with {'step2': 'is-complete' } %}
+
+<div class="row">
+    <div class="col-12">
+        <form id="shopping-nonmember" method="post" action="{{ url('shopping_nonmember') }}">
+            {{ form_widget(form._token) }}
+            {# Name #}
+            {% include "Components/form/name.twig" with {'form': form} %}
+
+            {# Company Name #}
+            {% include "Components/form/company.twig" with {'form': form} %}
+
+            {# Postcode #}
+            {% include "Components/form/postcode.twig" with {'form': form} %}
+
+            {# Address #}
+            {% include "Components/form/address.twig" with {'form': form} %}
+            
+            {# Phone #}
+            {% include "Components/form/phone.twig" with {'form': form} %}
+
+            {# Email #}
+            {% include "Components/form/email.twig" with {'form': form} %}
+            
+            <div class="form-group row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-8">
+                    <div class="row">
+                        <div class="col-md-8 mx-auto">
+                            <button class="btn btn-primary btn-block" type="submit">{{ 'common.next'|trans }}</button>
+                            <a class="btn btn-secondary btn-block" href="{{ url('cart') }}">{{ 'common.back'|trans }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

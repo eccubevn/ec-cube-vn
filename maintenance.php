@@ -13,7 +13,7 @@ file that was distributed with this source code.
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>ただいまメンテナンス中です。</title>
+    <title>Website đang được bảo trì</title>
     <link rel="icon" href="<?php echo $baseUrl; ?>/html/template/<?php echo $templateCode; ?>/assets/img/common/favicon.ico">
     <link rel="stylesheet" href="<?php echo $baseUrl; ?>/html/template/<?php echo $templateCode; ?>/assets/css/style.css">
 </head>
@@ -27,8 +27,8 @@ file that was distributed with this source code.
                         <img src="<?php echo $baseUrl; ?>/html/template/<?php echo $templateCode; ?>/assets/icon/exclamation-pale.svg" alt="">
                     </div>
                 </div>
-                <p class="ec-404Role__title ec-reportHeading">ただいまメンテナンス中です。</p>
-                <p class="ec-404Role__description ec-reportDescription">大変お手数ですが、しばらくしてから再度アクセスをお願いします。</p>
+                <p class="ec-404Role__title ec-reportHeading">Website đang được bảo trì.</p>
+                <p class="ec-404Role__description ec-reportDescription">Chúng tôi xin lỗi vì sự bất tiện này, vui lòng thử lại sau.</p>
             </div>
         </div>
     </div>

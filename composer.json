@@ -1,14 +1,14 @@
 {
-    "name": "ec-cube/ec-cube",
+    "name": "eccubevn/ec-cube-vn",
     "description": "EC-CUBE EC open platform.",
     "type": "project",
-    "homepage": "https://www.ec-cube.net/",
+    "homepage": "https://www.ec-cube.vn/",
     "license": [
        "GPL-2.0-only",
        "proprietary"
     ],
     "support": {
-        "issues": "https://github.com/EC-CUBE/ec-cube/issues"
+        "issues": "https://github.com/eccubevn/ec-cube-vn/issues"
     },
     "minimum-stability": "stable",
     "require": {

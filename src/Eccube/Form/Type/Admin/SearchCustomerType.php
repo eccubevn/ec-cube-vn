@@ -100,12 +100,11 @@ class SearchCustomerType extends AbstractType
                 'required' => false,
                 'input' => 'datetime',
                 'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
+                'format' => $this->eccubeConfig->get('eccube_form_date_format'),
                 'placeholder' => ['year' => '----', 'month' => '--', 'day' => '--'],
                 'attr' => [
-                    'class' => 'datetimepicker-input',
-                    'data-target' => '#'.$this->getBlockPrefix().'_birth_start',
-                    'data-toggle' => 'datetimepicker',
+                    'maxDate' => '#'.$this->getBlockPrefix().'_birth_end',
+                    'data-toggle' => 'datepicker',
                 ],
             ])
             ->add('birth_end', BirthdayType::class, [
@@ -113,12 +112,11 @@ class SearchCustomerType extends AbstractType
                 'required' => false,
                 'input' => 'datetime',
                 'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
+                'format' => $this->eccubeConfig->get('eccube_form_date_format'),
                 'placeholder' => ['year' => '----', 'month' => '--', 'day' => '--'],
                 'attr' => [
-                    'class' => 'datetimepicker-input',
-                    'data-target' => '#'.$this->getBlockPrefix().'_birth_end',
-                    'data-toggle' => 'datetimepicker',
+                    'minDate' => '#'.$this->getBlockPrefix().'_birth_start',
+                    'data-toggle' => 'datepicker',
                 ],
             ])
             ->add('pref', PrefType::class, [
@@ -175,12 +173,11 @@ class SearchCustomerType extends AbstractType
                 'required' => false,
                 'input' => 'datetime',
                 'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
+                'format' => $this->eccubeConfig->get('eccube_form_date_format'),
                 'placeholder' => ['year' => '----', 'month' => '--', 'day' => '--'],
                 'attr' => [
-                    'class' => 'datetimepicker-input',
-                    'data-target' => '#'.$this->getBlockPrefix().'_create_date_start',
-                    'data-toggle' => 'datetimepicker',
+                    'maxDate' => '#'.$this->getBlockPrefix().'_create_date_end',
+                    'data-toggle' => 'datepicker',
                 ],
             ])
             ->add('create_date_end', DateType::class, [
@@ -188,12 +185,11 @@ class SearchCustomerType extends AbstractType
                 'required' => false,
                 'input' => 'datetime',
                 'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
+                'format' => $this->eccubeConfig->get('eccube_form_date_format'),
                 'placeholder' => ['year' => '----', 'month' => '--', 'day' => '--'],
                 'attr' => [
-                    'class' => 'datetimepicker-input',
-                    'data-target' => '#'.$this->getBlockPrefix().'_create_date_end',
-                    'data-toggle' => 'datetimepicker',
+                    'minDate' => '#'.$this->getBlockPrefix().'_create_date_start',
+                    'data-toggle' => 'datepicker',
                 ],
             ])
             ->add('update_date_start', DateType::class, [
@@ -201,12 +197,12 @@ class SearchCustomerType extends AbstractType
                 'required' => false,
                 'input' => 'datetime',
                 'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
+                'format' => $this->eccubeConfig->get('eccube_form_date_format'),
                 'placeholder' => ['year' => '----', 'month' => '--', 'day' => '--'],
                 'attr' => [
-                    'class' => 'datetimepicker-input',
-                    'data-target' => '#'.$this->getBlockPrefix().'_update_date_start',
-                    'data-toggle' => 'datetimepicker',
+                    'maxDate' => '#'.$this->getBlockPrefix().'_update_date_end',
+                    'data-toggle' => 'datepicker',
+
                 ],
             ])
             ->add('update_date_end', DateType::class, [
@@ -214,12 +210,11 @@ class SearchCustomerType extends AbstractType
                 'required' => false,
                 'input' => 'datetime',
                 'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
+                'format' => $this->eccubeConfig->get('eccube_form_date_format'),
                 'placeholder' => ['year' => '----', 'month' => '--', 'day' => '--'],
                 'attr' => [
-                    'class' => 'datetimepicker-input',
-                    'data-target' => '#'.$this->getBlockPrefix().'_update_date_end',
-                    'data-toggle' => 'datetimepicker',
+                    'minDate' => '#'.$this->getBlockPrefix().'_update_date_start',
+                    'data-toggle' => 'datepicker',
                 ],
             ])
             ->add('last_buy_start', DateType::class, [
@@ -227,12 +222,11 @@ class SearchCustomerType extends AbstractType
                 'required' => false,
                 'input' => 'datetime',
                 'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
+                'format' => $this->eccubeConfig->get('eccube_form_date_format'),
                 'placeholder' => ['year' => '----', 'month' => '--', 'day' => '--'],
                 'attr' => [
-                    'class' => 'datetimepicker-input',
-                    'data-target' => '#'.$this->getBlockPrefix().'_last_buy_start',
-                    'data-toggle' => 'datetimepicker',
+                    'maxDate' => '#'.$this->getBlockPrefix().'_last_buy_end',
+                    'data-toggle' => 'datepicker',
                 ],
             ])
             ->add('last_buy_end', DateType::class, [
@@ -240,12 +234,11 @@ class SearchCustomerType extends AbstractType
                 'required' => false,
                 'input' => 'datetime',
                 'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
+                'format' => $this->eccubeConfig->get('eccube_form_date_format'),
                 'placeholder' => ['year' => '----', 'month' => '--', 'day' => '--'],
                 'attr' => [
-                    'class' => 'datetimepicker-input',
-                    'data-target' => '#'.$this->getBlockPrefix().'_last_buy_end',
-                    'data-toggle' => 'datetimepicker',
+                    'minDate' => '#'.$this->getBlockPrefix().'_last_buy_start',
+                    'data-toggle' => 'datepicker',
                 ],
             ])
         ;

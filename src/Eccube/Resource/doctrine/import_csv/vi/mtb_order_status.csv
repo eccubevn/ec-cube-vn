@@ -1,0 +1,9 @@
+id,name,sort_no,display_order_count,discriminator_type
+1,Mới,0,1,orderstatus
+3,Đã hủy,3,0,orderstatus
+4,Đang xử lý,2,1,orderstatus
+5,Đã giao hàng,4,0,orderstatus
+6,Đã thanh toán,1,1,orderstatus
+7,Đang thanh toán,6,0,orderstatus
+8,Đang mua,5,0,orderstatus
+9,Đã trả lại,7,0,orderstatus

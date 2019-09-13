@@ -1,0 +1,528 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+{% extends '@admin/default_frame.twig' %}
+
+{% set menus = ['product', 'product_master'] %}
+
+{% block title %}{{ 'admin.product.product_list'|trans }}{% endblock %}
+{% block sub_title %}{{ 'admin.product.product_management'|trans }}{% endblock %}
+
+{% form_theme searchForm '@admin/Form/bootstrap_4_layout.html.twig' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('assets/css/tempusdominus-bootstrap-4.min.css', 'admin') }}">
+    <style type="text/css">
+        .datepicker-days th.dow:first-child,
+        .datepicker-days td:first-child {
+            color: #f00;
+        }
+
+        .datepicker-days th.dow:last-child,
+        .datepicker-days td:last-child {
+            color: #00f;
+        }
+    </style>
+{% endblock stylesheet %}
+
+{% block javascript %}
+    <script>
+        $(function() {
+            $('#bulkDelete').on('click', function() {
+
+                var modal = $('#bulkDeleteModal');
+
+                // 削除中のUI変更処理
+                modal.find('button').attr('disabled', 'disabled');
+                $('.modal-body p', modal).text("{{ 'admin.product.permanently_delete__in_progress'|trans }}");
+                $('.progress', modal).show();
+
+                var checkedList = $('input[type=checkbox][data-delete-url]:checked');
+                var totalCount = checkedList.length;
+                var currentCount = 0;
+
+                var promises = checkedList.map(function() {
+                    return $.ajax({
+                        'url': $(this).data('delete-url'),
+                        'type': 'delete',
+                        'data': {'_token': $(this).attr('token-for-anchor')}
+                    }).always(function() {
+                        $('.progress-bar', modal).css('width', (++currentCount / totalCount * 100) + '%');
+                    });
+                });
+
+                var addError = function(errorMessage) {
+                    $('<li><span class="badge badge-danger">ERROR</span> </li>')
+                        .append($('<span></span>').text(errorMessage))
+                        .appendTo('#bulkErrors');
+                };
+
+                $.when.apply($, promises)
+                    .done(function() {
+                        // 削除できなかった場合はエラーメッセージを表示
+                        var args = promises.length === 1 ? [arguments[0]] : [].slice.call(arguments).map(function(result) {
+                            return result[0];
+                        });
+                        args.filter(function(result) {
+                            return result.success === false;
+                        }).forEach(function(result) {
+                            addError(result.message);
+                        });
+                    })
+                    .fail(function() {
+                        // システムエラー
+                        addError("{{ 'admin.product.permanently_delete__system_error'|trans }}");
+                    })
+                    .always(function() {
+                        $('.progress', modal).hide();
+                        $('.modal-body p', modal).text("{{ 'admin.product.permanently_delete__complete_message'|trans }}");
+                        modal.find('button').removeAttr('disabled').toggle();
+                    })
+            });
+
+            $('#bulkDeleteDone').on('click', function() {
+                location.reload(true);
+            });
+
+            toggleBtnBulk('input[id^="check_"]', '#btn_bulk');
+            $('input[id^="check_"]').on('change', function() {
+                $('#trigger_check_all').prop('checked', false);
+                toggleBtnBulk('input[id^="check_"]', '#btn_bulk');
+            });
+
+            $('#trigger_check_all').on('change', function() {
+                var checked = $(this).prop('checked');
+                if (checked) {
+                    $('input[id^="check_"]').prop('checked', true);
+                } else {
+                    $('input[id^="check_"]').prop('checked', false);
+                }
+                toggleBtnBulk('input[id^="check_"]', '#btn_bulk');
+            });
+
+            $('#form_bulk').find('.action-submit').on('click', function(event) {
+                event.preventDefault();
+                var form = $(this).closest('form');
+                if (!form.find('input:checkbox[name^="ids"]:checked').length) {
+                    {# TODO: should use modal instead of alert #}
+                    alert('please check');
+                    return false;
+                }
+
+                $('<input />').attr('type', 'hidden').attr('name', '{{ constant('Eccube\\Common\\Constant::TOKEN_NAME') }}')
+                    .val($(this).attr('token-for-anchor'))
+                    .appendTo(form);
+                form.attr('action', $(this).data('action')).submit();
+                return false;
+            });
+
+            var dataClass = [];
+            var modalClass = $('#productClassesModal');
+            $('form#form_bulk').on('click', 'table.table button[data-class-url]', function() {
+                var btnClass = $(this);
+                btnClass.attr('disabled', true);
+                var productId = btnClass.data('product-id');
+
+                if (dataClass[productId] != undefined) {
+                    renderClass(dataClass[productId], btnClass);
+                    return;
+                }
+
+                $.ajax({
+                    url: btnClass.data('class-load'),
+                    type: 'GET',
+                }).done(function(data) {
+                    dataClass[productId] = data;
+                    renderClass(dataClass[productId], btnClass);
+                }).fail(function() {
+                    alert('Failed');
+                });
+            });
+
+            // Append html and show popup
+            function renderClass(data, btnClass) {
+                $('div.modal-body', modalClass).html(data);
+                $('h5.modal-title', modalClass).text(btnClass.data('message'));
+                $('a.btn-ec-conversion', modalClass).attr('href', btnClass.data('class-url'));
+                modalClass.modal('show');
+                btnClass.attr('disabled', false);
+            }
+        });
+    </script>
+{% endblock javascript %}
+
+{% block main %}
+    <div class="c-outsideBlock">
+        <form id='search_form' method="post" action="{{ url('admin_product') }}">
+            {{ form_widget(searchForm._token) }}
+            <div class="c-outsideBlock__contents">
+                <div class="row justify-content-start">
+
+                    <div class="col-6">
+                        <div class="mb-2">
+                            <label class="col-form-label" data-tooltip="true" data-placement="top" title="{{ 'tooltip.product.multi_search_label'|trans }}">{{ 'admin.product.multi_search_label'|trans }}<i class="fa fa-question-circle fa-lg ml-1"></i></label>
+                            {{ form_widget(searchForm.id) }}
+                            {{ form_errors(searchForm.id) }}
+                        </div>
+                        <div class="d-inline-block mb-3" data-toggle="collapse" href="#searchDetail"
+                             aria-expanded="false" aria-controls="searchDetail"><a><i
+                                        class="fa fa-plus-square-o font-weight-bold mr-1"></i><span
+                                        class="font-weight-bold">{{ 'admin.common.search_detail'|trans }}</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="c-subContents collapse ec-collapse{{ has_errors ? ' show' }}" id="searchDetail">
+                <div class="row mb-2">
+                    <div class="col-6">
+                        <div class="form-row mb-2">
+                            <div class="col-6">
+                                <label class="col-form-label">{{ 'admin.product.category'|trans }}</label>
+                                {{ form_widget(searchForm.category_id) }}
+                                {{ form_errors(searchForm.category_id) }}
+                            </div>
+                        </div>
+                        <div class="form-row mb-2">
+                            <div class="col-12">
+                                <p class="col-form-label">{{ 'admin.product.display_status'|trans }}</p>
+                                {{ form_widget(searchForm.status, {'label_attr': {'class': 'checkbox-inline'}}) }}
+                                {{ form_errors(searchForm.status, {'label_attr': {'class': 'checkbox-inline'}}) }}
+                            </div>
+                        </div>
+                        <div class="form-row mb-2">
+                            <div class="col-12">
+                                <p class="col-form-label">{{ 'admin.product.stock__short'|trans }}</p>
+                                {{ form_widget(searchForm.stock, {'label_attr': {'class': 'checkbox-inline'}}) }}
+                                {{ form_errors(searchForm.stock) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-2">
+                            <label class="col-form-label">
+                                {{ 'admin.common.create_date'|trans }}
+                            </label>
+                            <div class="form-row align-items-center">
+                                <div class="col">
+                                    {# TODO: カレンダー表示の調整 #}
+                                    {{ form_widget(searchForm.create_date_start) }}
+                                    {{ form_errors(searchForm.create_date_start) }}
+                                </div>
+                                <div class="col-auto text-center"><span>{{ 'admin.common.separator__range'|trans }}</span>
+                                </div>
+                                <div class="col">
+                                    {{ form_widget(searchForm.create_date_end) }}
+                                    {{ form_errors(searchForm.create_date_end) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <label class="col-form-label">{{ 'admin.common.update_date'|trans }}</label>
+                            <div class="form-row align-items-center">
+                                <div class="col">
+                                    {# TODO: カレンダー表示の調整 #}
+                                    {{ form_widget(searchForm.update_date_start) }}
+                                    {{ form_errors(searchForm.update_date_start) }}
+                                </div>
+                                <div class="col-auto"><span>{{ 'admin.common.separator__range'|trans }}</span></div>
+                                <div class="col">
+                                    {{ form_widget(searchForm.update_date_end) }}
+                                    {{ form_errors(searchForm.update_date_end) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {# エンティティ拡張の自動出力 #}
+                {% for f in searchForm if f.vars.eccube_form_options.auto_render %}
+                    {# TODO 1項目1行になるのを改善 #}
+                    <div class="row mb-2">
+                        {% if f.vars.eccube_form_options.form_theme %}
+                            {% form_theme f f.vars.eccube_form_options.form_theme %}
+                            {{ form_row(f) }}
+                        {% else %}
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label>{{ f.vars.label|trans }}</label>
+                                    {{ form_widget(f) }}
+                                    {{ form_errors(f) }}
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="c-outsideBlock__contents mb-5">
+                <button class="btn btn-ec-conversion px-5" type="submit">{{ 'admin.common.search'|trans }}</button>
+                {% if pagination %}
+                    <span class="font-weight-bold ml-2">{{ 'admin.common.search_result'|trans({"%count%":pagination.totalItemCount})|raw }}</span>
+                {% endif %}
+            </div>
+            <div class="c-outsideBlock__contents mb-5">
+                {{ include('@admin/search_items.twig', { 'form': searchForm }, ignore_missing = true) }}
+            </div>
+        </form>
+    </div>
+    <div class="c-contentsArea__cols">
+        <div class="c-contentsArea__primaryCol">
+            <div class="c-primaryCol">
+                {% if pagination and pagination.totalItemCount %}
+                    <form id="form_bulk" method="POST" action="">
+                        <div class="row justify-content-between mb-2">
+                            <div class="col-6">
+                                <div id="btn_bulk" class="d-none">
+                                    <label class="mr-2">{{ 'admin.common.bulk_actions'|trans }}</label>
+                                    <div class="btn-group mr-2" role="group">
+                                        <button {{ csrf_token_for_anchor() }} data-action="{{ url('admin_product_bulk_product_status', {id: constant('Eccube\\Entity\\Master\\ProductStatus::DISPLAY_SHOW')}) }}" class="btn btn-ec-regular action-submit" type="button">
+                                            <span>{{ 'admin.product.display_status__show'|trans }}</span>
+                                        </button>
+                                        <button {{ csrf_token_for_anchor() }} data-action="{{ url('admin_product_bulk_product_status', {id: constant('Eccube\\Entity\\Master\\ProductStatus::DISPLAY_HIDE')}) }}" class="btn btn-ec-regular action-submit" type="button">
+                                            <span>{{ 'admin.product.display_status__hide'|trans }}</span>
+                                        </button>
+                                    </div>
+                                    <button {{ csrf_token_for_anchor() }} data-action="{{ url('admin_product_bulk_product_status', {id: constant('Eccube\\Entity\\Master\\ProductStatus::DISPLAY_ABOLISHED')}) }}" class="btn btn-ec-regular mr-2 action-submit">
+                                        {{ 'admin.product.display_status__abolished'|trans }}
+                                    </button>
+                                    <button type="button" data-toggle="modal" data-target="#bulkDeleteModal" class="btn btn-ec-delete">{{ 'admin.product.permanently_delete'|trans }}</button>
+                                </div>
+                            </div>
+                            <div class="col-5 text-right">
+                                <div class="d-inline-block mr-2">
+                                    <div>
+                                        <select class="custom-select" onchange="location = this.value;">
+                                            {% for pageMax in pageMaxis %}
+                                                <option {% if pageMax.name == page_count %}selected=""{% endif %} value="{{ path('admin_product_page', {'page_no': 1, 'page_count': pageMax.name}) }}">{{ 'admin.common.count'|trans({ '%count%': pageMax.name }) }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="d-inline-block">
+                                    <div class="btn-group" role="group">
+                                        <a class="btn btn-ec-regular" href="{{ url('admin_product_export') }}">
+                                            <i class="fa fa-cloud-download mr-1 text-secondary"></i><span>{{ 'admin.common.csv_download'|trans }}</span>
+                                        </a>
+                                        <a class="btn btn-ec-regular" href="{{ url('admin_setting_shop_csv', { id : constant('\\Eccube\\Entity\\Master\\CsvType::CSV_TYPE_PRODUCT') }) }}">
+                                            <i class="fa fa-cog mr-1 text-secondary"></i><span>{{ 'admin.setting.shop.csv_setting'|trans }}</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card rounded border-0 mb-4 d-block">
+                            <div class="card-body p-0">
+                                <table class="table table-sm">
+                                    <thead>
+                                    <tr>
+                                        <th class="border-top-0 pl-3 pt-2 pb-2">
+                                            <input type="checkbox" name="filter" value="open" id="trigger_check_all">
+                                        </th>
+                                        <th class="border-top-0 pt-2 pb-2">{{ 'admin.product.product_id__short'|trans }}</th>
+                                        <th class="border-top-0 pt-2 pb-2">{{ 'admin.product.image__short'|trans }}</th>
+                                        <th class="border-top-0 pt-2 pb-2">{{ 'admin.product.name'|trans }}</th>
+                                        <th class="border-top-0 pt-2 pb-2">{{ 'admin.product.product_code__short'|trans }}</th>
+                                        <th class="border-top-0 pt-2 pb-2">{{ 'admin.product.price'|trans }}</th>
+                                        <th class="border-top-0 pt-2 pb-2">{{ 'admin.product.stock'|trans }}</th>
+                                        <th class="border-top-0 pt-2 pb-2 text-nowrap">{{ 'admin.product.display_status__short'|trans }}</th>
+                                        <th class="border-top-0 pt-2 pb-2">{{ 'admin.common.create_date'|trans }}</th>
+                                        <th class="border-top-0 pt-2 pb-2">{{ 'admin.common.update_date'|trans }}</th>
+                                        <th class="border-top-0 pt-2 pb-2 pr-3" colspan="3"></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for Product in pagination %}
+                                        <tr id="ex-product-{{ Product.id }}">
+                                            <td class="align-middle pl-3">
+                                                <input type="checkbox" name="ids[]" value="{{ Product.id }}" id="check_{{ Product.id }}" data-delete-url="{{ url('admin_product_product_delete', { id: Product.id }) }}">
+                                            </td>
+                                            <td class="align-middle">{{ Product.id }}</td>
+                                            {# TODO: 画像のサイズをベタ指定しているので、styleguide側を直す #}
+                                            <td class="align-middle">
+                                                <a href="{{ url('admin_product_product_edit', { id : Product.id }) }}">
+                                                    <img src="{{ asset(Product.mainFileName|no_image_product, 'save_image') }}"
+                                                         style="max-width: 50px">
+                                                </a>
+                                            </td>
+                                            <td class="align-middle"><a
+                                                        href="{{ url('admin_product_product_edit', { id : Product.id }) }}">{{ Product.name }}</a>
+                                            </td>
+                                            <td class="align-middle">
+                                                {{ Product.code_min }}
+                                                {% if Product.code_min != Product.code_max %}{{ 'admin.common.separator__range'|trans }}{{ Product.code_max }}
+                                                {% endif %}
+                                            </td>
+                                            <td class="align-middle">
+                                                {{ Product.price02_min|price }}
+                                                {% if Product.price02_min != Product.price02_max %}{{ 'admin.common.separator__range'|trans }}{{ Product.price02_max|price }}
+                                                {% endif %}
+                                            </td>
+                                            <td class="align-middle">
+                                                {% if Product.hasProductClass %}
+                                                    <button type="button" class="btn page-link text-dark d-inline-block"
+                                                            data-product-id="{{ Product.id }}"
+                                                            data-message="{{ 'admin.product.move_to_product_class__confirm_title'|trans({'%name%': Product.name}) }}"
+                                                            data-class-load="{{ url('admin_product_classes_load', { 'id' : Product.id }) }}"
+                                                            data-class-url="{{ url('admin_product_product_class', { 'id' : Product.id, 'return_product_list' : true }) }}">
+                                                        {{ 'admin.product.product_class__confirm'|trans }}
+                                                    </button>
+                                                {% else %}
+                                                    {# 規格なし商品 は在庫数を表示 #}
+                                                    {% if Product.stockunlimited_min %}
+                                                        {{ 'admin.product.stock_unlimited__short'|trans }}
+                                                    {% else %}
+                                                        {{ Product.stock_min }}
+                                                    {% endif %}
+                                                {% endif %}
+                                            </td>
+                                            <td class="align-middle">
+                                                {{ Product.status.name }}
+                                            </td>
+                                            <td class="align-middle">
+                                                {{ Product.create_date|date_min }}
+                                            </td>
+                                            <td class="align-middle">
+                                                {{ Product.update_date|date_min }}
+                                            </td>
+                                            <td class="align-middle pr-3" colspan="3">
+                                                <div class="text-right">
+                                                    <div class="px-1 d-inline-block text-center" data-tooltip="true"
+                                                         data-placement="top"
+                                                         title="{{ 'admin.common.display'|trans }}"><a class="btn btn-ec-actionIcon"
+                                                                                                       href="{{ url('product_detail', {id:Product.id}) }}"
+                                                                                                       target="_blank"><i
+                                                                    class="fa fa-eye fa-lg text-secondary"
+                                                                    aria-hidden="true"></i></a></div>
+                                                    <div class="px-1 d-inline-block text-center" data-tooltip="true"
+                                                         data-placement="top"
+                                                         title="{{ 'admin.common.copy'|trans }}">
+                                                        <a href="#" class="btn btn-ec-actionIcon"
+                                                           data-toggle="modal"
+                                                           data-target="#confirmModal-{{ Product.id }}">
+                                                            <i class="fa fa-files-o fa-lg text-secondary"
+                                                               aria-hidden="true"></i></a>
+                                                        <div class="modal fade" id="confirmModal-{{ Product.id }}" tabindex="-1"
+                                                             role="dialog"
+                                                             aria-labelledby="confirmModal-{{ Product.id }}" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title font-weight-bold">
+                                                                            {{ 'admin.product.copy__confirm_title'|trans }}</h5>
+                                                                        <button class="close" type="button"
+                                                                                data-dismiss="modal"
+                                                                                aria-label="Close"><span
+                                                                                    aria-hidden="true">×</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body text-left">
+                                                                        <p class="text-left">
+                                                                            {{ 'admin.product.copy__confirm_message'|trans }}</p>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button class="btn btn-ec-sub" type="button"
+                                                                                data-dismiss="modal">{{ 'admin.common.cancel'|trans }}
+                                                                        </button>
+                                                                        <a
+                                                                                href="{{ url('admin_product_product_copy', {'id' : Product.id}) }}"
+                                                                                class="btn btn-ec-conversion"
+                                                                                data-confirm="false"
+                                                                                {{ csrf_token_for_anchor() }}
+                                                                                data-method="post">
+                                                                            {{ 'admin.common.copy'|trans }}
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            {% if pagination.totalItemCount > 0 %}
+                                <div class="row justify-content-md-center mb-4 pb-4">
+                                    {% include "@admin/pager.twig" with { 'pages' : pagination.paginationData, 'routes' : 'admin_product_page' } %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </form>
+                {% elseif has_errors %}
+                    <div class="card rounded border-0">
+                        <div class="card-body p-4">
+                            <div class="text-center text-muted mb-4 h5">{{ 'admin.common.search_invalid_condition'|trans }}</div>
+                            <div class="text-center text-muted">{{ 'admin.common.search_try_change_condition'|trans }}</div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="card rounded border-0">
+                        <div class="card-body p-4">
+                            <div class="text-center text-muted mb-4 h5">{{ 'admin.common.search_no_result'|trans }}</div>
+                            <div class="text-center text-muted">{{ 'admin.common.search_try_change_condition'|trans }}</div>
+                            <div class="text-center text-muted">{{ 'admin.common.search_try_advanced_search'|trans }}</div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- 完全に削除の確認モーダル-->
+            <div class="modal fade" id="bulkDeleteModal" tabindex="-1" role="dialog" aria-labelledby="discontinuance" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title font-weight-bold">{{ 'admin.product.permanently_delete__confirm_title'|trans }}</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        </div>
+                        <div class="modal-body text-left">
+                            <p class="text-left">{{ 'admin.product.permanently_delete__confirm_message'|trans }}</p>
+                            <ul id="bulkErrors"></ul>
+                            <div class="progress" style="display: none">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-ec-sub" type="button" data-dismiss="modal">{{ 'admin.common.cancel'|trans }}</button>
+                            <button class="btn btn-ec-delete" type="button" id="bulkDelete">{{ 'admin.product.permanently_delete' | trans }}</button>
+                            <button class="btn btn-ec-regular" id="bulkDeleteDone" style="display: none" type="button" data-dismiss="modal">{{ 'admin.product.permanently_delete__complete'|trans }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="productClassesModal" tabindex="-1" role="dialog" aria-labelledby="productClassesModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-weight-bold">{# Title #}</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {# Append data list #}
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-v-sub" type="button" data-dismiss="modal">
+                        {{ 'admin.common.cancel'|trans }}
+                    </button>
+                    <a class="btn btn-ec-conversion"
+                       href="#">
+                        {{ 'admin.product.move_to_product_class'|trans }}
+                    </a>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /#productClassesModal -->
+{% endblock %}
+

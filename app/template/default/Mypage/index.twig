@@ -1,0 +1,74 @@
+
+{% extends 'default_frame.twig' %}
+
+{% set mypageno = 'index' %}
+
+{% set body_class = 'mypage' %}
+
+{% block main %}
+    {% include "Components/heading.twig" with {'title': 'front.mypage.title', 'subTitle': 'front.mypage.nav__history' } %}
+    
+    {% include 'Mypage/navi.twig' %}
+    
+    <div id="my-account-history" class="my-account-history">
+        {% if pagination.totalItemCount > 0 %}
+            <div class="card">
+                <div class="card-header">
+                    <b>{{ 'front.mypage.history_count'|trans({'%count%':pagination.totalItemCount}) }}</b>
+                </div>
+                <div class="card-body">
+                    {% for Order in pagination %}
+                        <div class="history-item {% if loop.index != loop.length %}pb-4 mb-4 border-bottom{% endif %}">
+                            <div class="row">
+                                <div class="col-md-6 align-self-center mb-3 mb-md-0">
+                                    {% for OrderItem in Order.MergedProductOrderItems %}
+                                        <div class="row mb-4">
+                                            <div class="col-6 align-self-center">
+                                                {# Image #}
+                                                {% include "Components/product/image.twig" with {'product': OrderItem.Product} %}
+                                            </div>
+                                            <div class="col-6 align-self-center">
+
+                                                {# Name #}
+                                                {% include "Components/product/name.twig" with {'product': OrderItem.Product, type: 'text'} %}
+
+                                                {# Options #}
+                                                {% include "Components/product/options.twig" with {'productClass': OrderItem, type: 'order-history'} %}
+
+                                                {# Price #}
+                                                {% include "Components/product/price.twig" with {'product': OrderItem, type: 'checkout'} %}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-md-6 align-self-center">
+                                    <p>
+                                        <b>{{ 'front.mypage.order_no'|trans }}</b>
+                                        {{ Order.order_no }}
+                                    </p>
+                                    {% if (BaseInfo.option_mypage_order_status_display) %}
+                                        <p>
+                                            <b>{{ 'front.mypage.order_status'|trans }}:</b>
+                                            {{ Order.CustomerOrderStatus }}
+                                        </p>
+                                    {% endif %}
+                                    <small class="text-muted">{{ Order.order_date|date_sec }}</small>
+                                    <p class="pt-3">
+                                        <a class="btn btn-primary d-block d-md-inline-block" href="{{ url('mypage_history', {'order_no': Order.order_no}) }}">
+                                            {{ 'front.mypage.view_detail'|trans }}
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% include "pager.twig" with {'pages': pagination.paginationData} %}
+        {% else %}
+            <div class="alert alert-primary" role="alert">
+                {{ 'front.mypage.history_not_found'|trans }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

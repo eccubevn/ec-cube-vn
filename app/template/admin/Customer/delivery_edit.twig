@@ -1,0 +1,185 @@
+{#
+This file is part of EC-CUBE
+
+Copyright(c) LOCKON CO.,LTD. All Rights Reserved.
+
+http://www.lockon.co.jp/
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+#}
+
+{% extends '@admin/default_frame.twig' %}
+
+{% set menus = ['customer', 'customer_edit'] %}
+
+{% block title %}{{ 'admin.customer.customer_address_registration'|trans }}{% endblock %}
+{% block sub_title %}{{ 'admin.customer.customer_management'|trans }}{% endblock %}
+
+{% form_theme form '@admin/Form/bootstrap_4_horizontal_layout.html.twig' %}
+
+{% block javascript %}
+    <script src="{{ asset('assets/js/postalcode.js') }}" charset="UTF-8"></script>
+{% endblock javascript %}
+
+{% block main %}
+
+    <form name="customer_address_form"
+          role="form"
+          id="customer_address_form"
+          method="post"
+          action="{%- if CustomerAddress.id %}{{ url('admin_customer_delivery_edit', { id : Customer.id, did: CustomerAddress.id }) }}{% else %}{{ url('admin_customer_delivery_new', { id: Customer.id }) }}{% endif -%}"
+          novalidate class="h-adr">
+        {{ form_widget(form._token) }}
+        <span class="p-country-name" style="display:none;">Japan</span>
+        <div class="c-contentsArea__cols">
+            <div class="c-contentsArea__primaryCol">
+                <div class="c-primaryCol">
+                    <div class="card rounded border-0 mb-4">
+                        <div class="card-header">
+                            <span class="card-title">{{ 'admin.customer.customer_address_info'|trans }}</span>
+                        </div>
+                        <div class="card-body">
+                            {% if CustomerAddress.id %}
+                                <div class="row mb-2">
+                                    <div class="col-3">
+                                        {{ 'admin.common.id'|trans }}
+                                    </div>
+                                    <div class="col">
+                                        {{ CustomerAddress.id }}
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            <div class="row mb-2">
+                                <div class="col-3">
+                                    {{ 'admin.common.name'|trans }}
+                                </div>
+                                <div class="col">
+                                    <div class="row mb-2">
+                                        <div class="col">
+                                            {{ form_widget(form.name.name01) }}
+                                            {{ form_errors(form.name.name01) }}
+                                        </div>
+                                        <div class="col">
+                                            {{ form_widget(form.name.name02) }}
+                                            {{ form_errors(form.name.name02) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{ form_widget(form.kana.kana01, { type : 'hidden', attr : { value: 'カナ'}}) }}
+                            {{ form_widget(form.kana.kana02, { type : 'hidden', attr : { value: 'カナ'}}) }}
+                            <div class="row mb-2">
+                                <div class="col-3 mb-2">
+                                    {{ 'admin.common.company_name'|trans }}
+                                </div>
+                                <div class="col mb-2">
+                                    {{ form_widget(form.company_name) }}
+                                    {{ form_errors(form.company_name) }}
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-3">
+                                    {{ 'admin.common.address'|trans }}
+                                </div>
+                                <div class="col">
+                                    <div class="row mb-2">
+                                        <div class="col-auto pr-0 align-self-center"><span>{{ 'admin.common.postal_symbol'|trans }}</span></div>
+                                        <div class="col-2">
+                                            {{ form_widget(form.postal_code) }}
+                                            {{ form_errors(form.postal_code) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-3">
+                                    &nbsp;
+                                </div>
+                                <div class="col form-inline mb-2">
+                                    {{ form_widget(form.address.pref) }}
+                                    {{ form_errors(form.address.pref) }}
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-3">
+                                    &nbsp;
+                                </div>
+                                <div class="col mb-2">
+                                    {{ form_widget(form.address.addr01) }}
+                                    {{ form_errors(form.address.addr01) }}
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-3">
+                                    &nbsp;
+                                </div>
+                                <div class="col mb-2">
+                                    {{ form_widget(form.address.addr02) }}
+                                    {{ form_errors(form.address.addr02) }}
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-3">
+                                    {{ 'admin.common.phone_number'|trans }}
+                                </div>
+                                <div class="col">
+                                    {{ form_widget(form.phone_number) }}
+                                    {{ form_errors(form.phone_number) }}
+                                </div>
+                            </div>
+
+                            {# エンティティ拡張の自動出力 #}
+                            {% for f in form if f.vars.eccube_form_options.auto_render %}
+                                {% if f.vars.eccube_form_options.form_theme %}
+                                    {% form_theme f f.vars.eccube_form_options.form_theme %}
+                                    {{ form_row(f) }}
+                                {% else %}
+                                    <div class="row mb-2">
+                                        <div class="col-3">
+                                            <span>{{ f.vars.label|trans }}</span>
+                                        </div>
+                                        <div class="col">
+                                            {{ form_widget(f) }}
+                                            {{ form_errors(f) }}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="c-conversionArea">
+            <div class="c-conversionArea__container">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-6">
+                        <div class="c-conversionArea__leftBlockItem">
+                            <a class="c-baseLink" href="{{ url('admin_customer_edit', { id: Customer.id }) }}">
+                                <i class="fa fa-backward" aria-hidden="true"></i>
+                                <span>{{ 'admin.customer.customer_registration'|trans }}</span></a>
+                        </div>
+                    </div>
+                    <div id="ex-conversion-action" class="col-6">
+                        <div class="row align-items-center justify-content-end">
+                            <div class="col-auto">
+                                <button class="btn btn-ec-conversion px-5"
+                                        type="submit">{{ 'admin.common.registration'|trans }}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+
+{% extends 'default_frame.twig' %}
+
+{% form_theme form 'Form/form_div_layout.twig' %}
+
+{% block main %}
+    {% include "Components/heading.twig" with {'title': 'front.forgot.title' } %}
+    <div class="row">
+        <div class="col-12">
+            <form name="form1" id="form1" method="post" action="{{ url('forgot') }}">
+                {{ form_widget(form._token) }}
+                <div class="form-group">
+                    <p>{{ 'front.forgot.message1'|trans }}</p>
+                    <p>{{ 'front.forgot.message2'|trans }}</p>
+                </div>
+
+                {# Email #}
+                {% include "Components/form/input.twig" 
+                    with {
+                        'form': form, 
+                        'field': 'login_email', 
+                        'label': 'common.mail_address'
+                    } 
+                %}
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-primary">{{ 'common.next'|trans }}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+

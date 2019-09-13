@@ -1,0 +1,18 @@
+{% extends 'Components/form/base_input.twig' %}
+{% set custom_class = customClass|default('') %}
+
+{% block formLabel %}{% endblock %}
+
+{% block formContent %}
+    <div class="row {{ has_errors(form.user_policy_check) ? 'is-invalid'}}">
+        <div class="col-12">
+            <div class="form-check">
+                {{ form_widget(form.user_policy_check, { 'attr': { 'class': 'form-check-input' }}) }}
+                <label class="form-check-label" for="entry_user_policy_check">
+                    {{ 'front.entry.agree_with_terms'|trans({ '%url%': url('help_agreement') })|raw }}
+                </label>
+                {{ form_errors(form.user_policy_check) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,4 @@
+id,name,sort_no,discriminator_type
+1,Giá thấp đến cao,0,productlistorderby
+2,Hàng mới nhất,2,productlistorderby
+3,Giá cao tới thấp,1,productlistorderby

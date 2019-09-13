@@ -1,0 +1,16 @@
+
+{% extends 'default_frame.twig' %}
+
+{% block main %}
+    {% include "Components/heading.twig" with {'title': 'front.contact.complete_title' } %}
+    <div class="row">
+        <div class="col-12">
+            <div class="jumbotron py-4">
+                <h4>{{ 'front.contact.complete_message__title'|trans }}</h4>
+                <p>{{ 'front.contact.complete_message__body'|trans }}</p>
+                <hr class="my-4">
+                <a class="btn btn-primary" href="{{ url('homepage') }}">{{'common.go_to_top'|trans}}</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

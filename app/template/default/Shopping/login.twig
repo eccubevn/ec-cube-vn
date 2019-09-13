@@ -1,0 +1,64 @@
+
+{% extends 'default_frame.twig' %}
+
+{% set body_class = 'cart_page' %}
+
+{% block main %}
+    {% include "Components/heading.twig" with {'title': 'common.login' } %}
+    
+    <div class="row">
+        <div class="col-12">
+            <div class="page-login">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <form name="shopping_login" id="shopping_login" method="post" action="{{ url('mypage_login') }}">
+                            <input type="hidden" name="_target_path" value="shopping" />
+                            <input type="hidden" name="_failure_path" value="shopping_login" />
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                            <div class="text-center">
+                                <img class="w-25" src="{{ asset('assets/icon/user.svg') }}" alt="">
+                            </div>
+                            <div class="form-group">
+                                {{ form_widget(form.login_email, { attr: { 'style' : 'ime-mode: disabled;', placeholder: 'common.mail_address'|trans, 'autofocus': true, 'class': 'form-control' }}) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form_widget(form.login_pass, { attr: {'class': 'form-control', placeholder: 'common.password'|trans }}) }}
+                            </div>
+                            <div class="form-group">
+                                {% if BaseInfo.option_remember_me %}
+                                    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                                        <input type="hidden" name="login_memory" value="1">
+                                    {% else %}
+                                        {{ form_widget(form.login_memory, { 'label': 'common.remember_me'|trans }) }}
+                                    {% endif %}
+                                {% endif %}
+
+                                {% if error %}
+                                    <p class="form-text text-danger">{{ error.messageKey|trans(error.messageData, 'validators')|nl2br }}</p>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">{{ 'common.login'|trans }}</button>
+
+                                <a class="btn btn-link" href="{{ url('forgot') }}">{{ 'common.forgot_login'|trans }}</a>
+                                <a class="btn btn-link" href="{{ url('entry') }}">{{ 'common.signup'|trans }}</a>
+                            </div>
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                        </form>
+                    </div>
+                    <div id="login-guest" class="col-12 col-md-6">
+                        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') == false %}
+                            <div class="jumbotron guest-checkout">
+                                <p class="pb-4">{{ 'front.shopping.guest_purchase_message'|trans }}</p>
+                                <div class="text-center">
+                                    <a class="btn btn-primary" href="{{ url('shopping_nonmember') }}">{{ 'front.shopping.guest_purchase'|trans }}</a>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

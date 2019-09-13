@@ -52,7 +52,7 @@ EOF
         $em = $this->getEntityManager(null);
 
         // for full locale code cases
-        $locale = env('ECCUBE_LOCALE', 'ja_JP');
+        $locale = $this->getContainer()->getParameter('env(eccube_locale)');
         $locale = str_replace('_', '-', $locale);
         $locales = \Locale::parseLocale($locale);
         $localeDir = is_null($locales) ? 'ja' : $locales['language'];

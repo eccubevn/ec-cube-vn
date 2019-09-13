@@ -128,6 +128,7 @@ final class EccubeEvents
     const ADMIN_ORDER_EDIT_INDEX_INITIALIZE = 'admin.order.edit.index.initialize';
     const ADMIN_ORDER_EDIT_INDEX_PROGRESS = 'admin.order.edit.index.progress';
     const ADMIN_ORDER_EDIT_INDEX_COMPLETE = 'admin.order.edit.index.complete';
+    const ADMIN_ORDER_UPDATE_STATUS_COMPLETE = 'admin.order.update_status.index.complete';
 
     // searchCustomer
     const ADMIN_ORDER_EDIT_SEARCH_CUSTOMER_INITIALIZE = 'admin.order.edit.search.customer.initialize';
@@ -142,6 +143,13 @@ final class EccubeEvents
     const ADMIN_ORDER_EDIT_SEARCH_PRODUCT_INITIALIZE = 'admin.order.edit.search.product.initialize';
     const ADMIN_ORDER_EDIT_SEARCH_PRODUCT_SEARCH = 'admin.order.edit.search.product.search';
     const ADMIN_ORDER_EDIT_SEARCH_PRODUCT_COMPLETE = 'admin.order.edit.search.product.complete';
+
+    /**
+     * Admin/Order/ShippingController
+     */
+    // index
+    const ADMIN_SHIPPING_EDIT_INDEX_INITIALIZE = 'admin.shipping.edit.index.initialize';
+    const ADMIN_SHIPPING_EDIT_INDEX_COMPLETE = 'admin.shipping.edit.index.complete';
 
     /**
      * Admin/Order/MailController
